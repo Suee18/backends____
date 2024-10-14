@@ -58,19 +58,24 @@
     </div>
 </div>
 
-<!-- Dots Navigation -->
+
+
+<!-- Dots for navigation -->
 <div class="dots">
-    <span class="dot" onclick="showSlide(1)"></span>
-    <span class="dot" onclick="showSlide(2)"></span>
-    <span class="dot" onclick="showSlide(3)"></span>
-    <span class="dot" onclick="showSlide(4)"></span>
+    <span class="dot" onclick="showSlideOnClick(1)"></span>
+    <span class="dot" onclick="showSlideOnClick(2)"></span> 
+      <span class="dot" onclick="showSlideOnClick(3)"></span>
+    <span class="dot" onclick="showSlideOnClick(4)"></span>
 </div>
 </div>
+ 
+
 
 <script src="js/landing_page.js"></script>
 
 
 
-
 </body>
 </html>
+
+

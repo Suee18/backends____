@@ -1,12 +1,19 @@
 @import url('/css/global_styles.css');
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
 .navbar {
-    position: relative; 
+    position: fixed; 
+    background:var(--navyWhite);
+    backdrop-filter: blur(7px);
 
-    background-color:rgba(220, 20, 60, 0.432);
     color: white;
     padding: 0.2rem;
     z-index: 10;
+    width: 100%;
+    margin-left: 0;
 }
 
 .navbar ul {
@@ -16,7 +23,9 @@
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0); 
+    background-color: rgba(123, 223, 56, 0); 
+    width: 100%;
+
 }
 
 ul, li {
@@ -73,6 +82,23 @@ ul, li {
 
 
 
+/* Search Input Field  */
+.search-input-container {
+    display: inline-block;
+}
+
+.search-input {
+    width: 200px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #555; 
+}
 
 
 

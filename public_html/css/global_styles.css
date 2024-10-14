@@ -2,21 +2,27 @@
     font-family: 'porsche_font';
     src: url('../fonts/911Porscha-dzPV.otf') format('opentype');
 }
+
 @font-face {
     font-family: 'technoRace_font';
     src: url('../fonts/TechnoRaceItalic-eZRWe.otf') format('opentype');
 }
+
 @font-face {
     font-family: 'header2_font';
     src: url('../fonts/Rexilya-E44ln.otf') format('opentype');
 }
+
 @font-face {
     font-family: 'paragraph_font';
     src: url('../fonts/MonainnRegular-RpWKo.otf') format('opentype');
 }
+
 @font-face {
-    font-family: 'racing_font'; /* Only font-family should be here */
-    src: url('../fonts/TyphoonRegular-RpaLA.ttf') format('truetype'); /* Move format to src */
+    font-family: 'racing_font';
+    /* Only font-family should be here */
+    src: url('../fonts/TyphoonRegular-RpaLA.ttf') format('truetype');
+    /* Move format to src */
     font-style: normal;
 }
 
@@ -47,6 +53,19 @@
     --fuschia: #c51F5D;
 
 
+    /*Gradients*/
+    /* --navyWhite: linear-gradient(360deg, #182B31, #b8b8b860); Nav bar */
+    /* --navyWhite: linear-gradient(360deg, #1E3A46, #b8b8b860); TEAL */
+
+    /* NAVBAR OPTION 2 210 DEG Gray black */
+ /* --navyWhite: linear-gradient(355deg, #c2c2c23a,#000000bb ); */
+    /* NAVBAR OPTION  */
+   --navyWhite: linear-gradient(380deg, #000000ad,#047cbd52,#999bda5d);   
+   
+   
+     /* background-color: rgba(0, 0, 0, 0.5); Optional: Semi-transparent background */
+
+
     /* =================fonts==================*/
 
     --porsche_font: 'porsche_font';
@@ -60,4 +79,3 @@
     --mid_size: 10rem;
     --header_size: 3rem;
 }
-
