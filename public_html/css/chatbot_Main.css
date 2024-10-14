@@ -1,13 +1,54 @@
-@import url('css/global_styles.css');
+@import url('./global_styles.css');
 
 body {
-    font-family: var(--paragraph_font);
-    background-color: #cc0202;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    /* background-image: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%); */
+    background-image: url("../media/galaxy.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #333;
+    height: 155vh;
 }
-p{
-    font-size: var(--paragraph_size);
-    font-family:var(--paragraph_font) ;
+
+/*======Chatbot Figure======*/
+.chatbot {
+    width: 45%;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.div {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+/*=======Qoute at the top of the page======*/
+.qoute {
+    margin-top: 20%;
+    font-size: 40px;
+    color: var(--navy1);
+    transition: transform 0.5s ease-out;
+}
+
+/*=====Chat button=====*/
+.chat_btn {
+    position: absolute;
+    margin-top: 27%;
+    margin-left: 64%;
+    height: 40px;
+    width: 150px;
+    background-color: transparent;
+    border: 1px solid var(--dark_blue);
+    transition: box-shadow 0.4s ease-in-out, color 0.4s ease-in-out;
+    border-radius: 50px;
+    color: var(--white);
+    transition: transform 0.5s ease-out;
+    cursor: pointer;
+}
+
+.chat_btn:hover {
+    background-color: var(--dark_blue);
+    color: #333;
 }
