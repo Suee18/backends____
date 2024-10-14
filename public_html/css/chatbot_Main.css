@@ -1,3 +1,13 @@
-body{
-    background-color: aquamarine;
+@import url('css/global_styles.css');
+
+body {
+    font-family: var(--paragraph_font);
+    background-color: #cc0202;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+p{
+    font-size: var(--paragraph_size);
+    font-family:var(--paragraph_font) ;
 }
