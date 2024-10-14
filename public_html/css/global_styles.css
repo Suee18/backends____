@@ -27,7 +27,8 @@
 }
 
 
-:root {
+:root
+ {
 
     /* =================colors==================*/
 
@@ -78,4 +79,32 @@
     --paragraph_size: 1.5rem;
     --mid_size: 10rem;
     --header_size: 3rem;
+
+
+
+
+
+
+    /*=================scrollbar==================*/
+    /* Global scrollbar styling */
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
 }
+
+::-webkit-scrollbar-track {
+    background: #1e3a46; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #5AA5CD; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Round the scrollbar thumb */
+    border: 3px solid #1e3a46; /* Adds padding inside the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+      background-color: #18a3b7; /* Change color on hover */
+}
+
+ }
