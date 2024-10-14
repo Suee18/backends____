@@ -9,7 +9,7 @@
 }
 
 @font-face {
-    font-family: 'header2_font';
+    font-family: 'header_font';
     src: url('../fonts/Rexilya-E44ln.otf') format('opentype');
 }
 
@@ -70,7 +70,7 @@
 
     --porsche_font: 'porsche_font';
     --technoRace_font: 'technoRace_font';
-    --header_font: 'header2_font';
+    --header_font: 'header_font';
     --paragraph_font: 'paragraph_font';
     --racing_font: 'racing_font';
 

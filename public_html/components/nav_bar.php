@@ -12,7 +12,8 @@
                 </a>
             </li>
 
-            <li class="search-input-container" style="display: none;">
+            <li class="search-input-container"
+             style="display: none;">
                 <input type="text"
                  class="search-input"
                   id="search-input"
