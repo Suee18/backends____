@@ -23,3 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     handleScroll(); 
 });
+
+
+
+// User Icon
+document.addEventListener("DOMContentLoaded", function() {
+const nav = document.querySelector("nav"),
+toggleBtn = nav.querySelector(".toggle-btn");
+toggleBtn.addEventListener("click" , () =>{
+nav.classList.toggle("open");
+});
+
+});
