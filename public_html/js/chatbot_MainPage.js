@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     var chatbot = document.getElementById("chatbot");
     var qoute = document.getElementById("qoute");
-    var chatBtn = document.getElementById("chat_btn");
-    var windowHeight = window.innerHeight;
+    var chatBtn = document.getElementById("chat-btn");
+    // var windowHeight = window.innerHeight;
     
     // Function for parallax scrolling
     function handleScroll() {
