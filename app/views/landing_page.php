@@ -14,13 +14,17 @@
 
     <div class="slideShowContainer_lp">
 
-        <!-- Slide 1: Video Background -->
+        <!-- Slide 1 -->
         <div class="slide" id="slide1">
             <div class="videoBG_lp">
-                <video autoplay muted loop class="slide-bg">
+                <video autoplay muted loop class="slide-bg" id="myVideo">
                     <source src="media/BMWM5CS.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
                 </video>
             </div>
+
+
+
             <div class="text-overlay">
                 <p class="slide1Title_lp">
                     you can't really hide who you are</p>
@@ -31,25 +35,38 @@
 
 
 
-        <!-- Slide 2: Image Background -->
+        <!-- Slide 2 -->
 
         <div class="slide" id="slide2">
             <img src="media/thisOrThat.png" class="slide-bg" alt="Image Background">
+
             <div class="text-overlay">
-                <p
-                    class="slide2Title_lp">
-                    This or that?</p>
-                <p class="slide2paragraph_lp">Compare between any two car Models</p>
+                <p class="slide2Title_lp">
+                    This or that?
+                </p>
+                <p class="slide2paragraph_lp">
+                    Compare between any two car Models
+                </p>
             </div>
 
         </div>
+
+
+
 
         <!-- Slide 3:  -->
         <div class="slide" id="slide3">
             <img src="path_to_your_image2.jpg" class="slide-bg" alt="Image Background">
             <div class="text-overlay">
-                <h2>Ready, set, Turbo! </h2>
-                <p>Talk now to Turbo, the chatbot</p>
+            <p class="slide3Title_lp">
+            Ready, set,
+            <span class="slide3Title_lp">
+            Turbo!
+</span>
+                </p>
+                <p class="slide3paragraph_lp">
+                    Talk now to Turbo, the chatbot
+                </p>
             </div>
         </div>
 
@@ -57,7 +74,7 @@
         <div class="slide" id="slide4">
             <img src="path_to_your_image3.jpg" class="slide-bg" alt="Image Background">
             <div class="text-overlay">
-                <h2>Discover latest news, and read authentic reviews.</h2>
+                <p class="slide4Title_lp">Discover latest news, and read authentic reviews.</p>
             </div>
         </div>
 
@@ -72,9 +89,9 @@
         </div>
     </div>
 
-<div class="landingPage_part2">
-    <P>PART 2 GOES HERE </P>
-</div>
+    <div class="landingPage_part2">
+        <P>PART 2 GOES HERE </P>
+    </div>
     <script src="js/landing_page.js"></script>
 
 
