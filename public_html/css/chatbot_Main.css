@@ -17,7 +17,7 @@ body {
     transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-.div {
+.first-part {
     display: flex;
     height: 100vh;
     overflow: hidden;
@@ -33,7 +33,7 @@ body {
 }
 
 /*=====Chat button=====*/
-.chat_btn {
+.chat-btn {
     position: absolute;
     margin-top: 27%;
     margin-left: 64%;
@@ -48,17 +48,17 @@ body {
     cursor: pointer;
 }
 
-.chat_btn:hover {
+.chat-btn:hover {
     background-color: var(--dark_blue);
     color: #333;
 }
 
 
-
+/*====User Profile Icon===*/
 
 nav {
     position: absolute;
-    top:-10px;
+    top: -10px;
     right: 6%;
     width: 80px;
     height: 300px;
@@ -85,7 +85,7 @@ nav .nav-content {
     justify-content: center;
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    
+
 }
 
 .nav-content .toggle-btn {
@@ -127,4 +127,27 @@ nav.open .nav-content span {
 
 .nav-content span a:hover i {
     opacity: 1;
+}
+
+/*====Turbo's Info===*/
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    margin-left: 7%;
+    padding: 15px;
+    transition: all 0.6s;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    width: 40%;
+    height: 28%;
+}
+
+.turbo-question{
+    color: var(--navy);
+    padding-left: 7%;
+}
+
+.turbo-description{
+    font-size:25px;
 }
