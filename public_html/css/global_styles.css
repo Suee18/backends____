@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'porsche_font';
+    src: url('../fonts/911Porscha-dzPV.otf') format('opentype');
+}
+@font-face {
+    font-family: 'technoRace_font';
+    src: url('../fonts/TechnoRaceItalic-eZRWe.otf') format('opentype');
+}
+@font-face {
+    font-family: 'header2_font';
+    src: url('../fonts/Rexilya-E44ln.otf') format('opentype');
+}
+@font-face {
+    font-family: 'paragraph_font';
+    src: url('../fonts/MonainnRegular-RpWKo.otf') format('opentype');
+}
+@font-face {
+    font-family: 'racing_font'; /* Only font-family should be here */
+    src: url('../fonts/TyphoonRegular-RpaLA.ttf') format('truetype'); /* Move format to src */
+    font-style: normal;
+}
+
+
+:root {
+
+    /* =================colors==================*/
+
+    /*palette1 : porsche  colors */
+    --navy1: #182B31;
+    --blue_gray_dark: #1E3A46;
+    --gray-blue: #58717D;
+    --white_blue_light: #B4C3CC;
+    --black_navy: #0A0E14;
+    --white: #F4FEFE;
+
+    /*palette 2:tech  colors */
+    --navy: #1A334A;
+    --dark_blue: #1E536E;
+    --light_blue: #18A3B7;
+    --mint: #27E6EC;
+    --powder_blue: #5AA5CD;
+    --highlight-color: #6F71A1;
+
+    /* popping colors */
+    --ruby_red: #3c0007;
+    --red: #800C1F;
+    --fuschia: #c51F5D;
+
+
+    /* =================fonts==================*/
+
+    --porsche_font: 'porsche_font';
+    --technoRace_font: 'technoRace_font';
+    --header_font: 'header2_font';
+    --paragraph_font: 'paragraph_font';
+    --racing_font: 'racing_font';
+
+
+    --paragraph_size: 1.5rem;
+    --mid_size: 10rem;
+    --header_size: 3rem;
+}
+

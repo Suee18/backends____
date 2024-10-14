@@ -1,0 +1,16 @@
+/* Example CSS for the landing page */
+@import url('./global_styles.css');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #020925;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 100px;
+    color: var(--primary-color);
+}

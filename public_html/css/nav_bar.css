@@ -1,0 +1,122 @@
+@import url('/css/global_styles.css');
+
+.navbar {
+    position: relative; 
+
+    background-color:rgba(220, 20, 60, 0.432);
+    color: white;
+    padding: 0.2rem;
+    z-index: 10;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0); 
+}
+
+ul, li {
+    list-style-type: none; 
+}
+
+.listElement_navBar,
+.listElementHidden_navBar,
+.listElementLogo_navBar,
+.listElement_login_navBar,
+.material-icons {        
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.listElement_navBar,
+.listElementHidden_navBar ,
+.listElement_login_navBar{
+    font-family: var(--paragraph_font);
+}
+
+.listElementLogo_navBar {
+    font-family: var(--header2_font);
+    font-size: var(--header_size);
+    margin-left: 20rem; 
+}
+
+.listElement_navBar {
+    font-size: var(--paragraph_size);
+}
+
+.listElementHidden_navBar {
+    display: none;
+}
+
+.listElement_navBar:nth-child(3), 
+#listElement_login_navBar {      
+    margin-top: 20px; 
+    font-size: var(--paragraph_size); 
+    
+}
+
+#listElement_login_navBar {
+    margin-left: 35rem;
+}
+
+.listElement_navBar:hover, 
+.listElementLogo_navBar:hover, 
+.material-icons:hover {
+    color: var(--white_blue_light); 
+}
+
+
+
+
+
+
+
+/* --------------------------------------------- */
+/* Responsive styles for smaller screens */
+/* --------------------------------------------- */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .listElementLogo_navBar {
+        margin-left: 0; /* Remove large margin on smaller screens */
+        font-size: 1.8rem; /* Adjust font size for smaller screens */
+    }
+
+    .listElement_navBar,
+    #listElement_login_navBar {
+        margin-left: 0; /* Remove left margin to align with the logo */
+        margin-top: 10px; /* Adjust margin for better spacing */
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+
+    #listElement_login_navBar {
+        margin-left: 0; /* Align login to the left */
+        margin-top: 10px; /* Add some spacing between items */
+    }
+}
+
+/* Additional media query for extra small screens (like mobile phones) */
+@media (max-width: 480px) {
+    .listElementLogo_navBar {
+        font-size: 1.5rem; /* Further reduce logo size on small screens */
+    }
+
+    .listElement_navBar,
+    #listElement_login_navBar {
+        font-size: 1rem; /* Make font smaller for mobile screens */
+        text-align: left; /* Align text to the left */
+    }
+
+    .navbar ul {
+        align-items: center; /* Center items on very small screens */
+    }
+}
