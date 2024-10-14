@@ -41,7 +41,7 @@ ul, li {
 }
 
 .listElementLogo_navBar {
-    font-family: var(--header2_font);
+    font-family: var(--header_font);
     font-size: var(--header_size);
     margin-left: 20rem; 
 }
