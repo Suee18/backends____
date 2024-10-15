@@ -35,6 +35,13 @@
         </div>
     </nav>
 
+        <!-- Video Background-->
+        <!-- <div class="video-background">
+        <video autoplay muted loop class="slide-bg" id="myVideo">
+                    <source src="../../../public_html/media/galaxy-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+    </div>  -->
 
 <!-- Top of the Page -->
 <div class="first-part">
@@ -54,7 +61,6 @@
 </div>
 </div>
 
-<img src="../../../public_html/media/chatbot-image.png">
 
 </body>
 </html>
