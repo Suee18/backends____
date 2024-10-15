@@ -7,8 +7,10 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #333;
-    height: 165vh;
+    height: auto;
+    
 }
 
 /*======Chatbot Figure======*/

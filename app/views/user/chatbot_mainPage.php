@@ -45,11 +45,16 @@
 
     
 <!-- Second part -->
+ <div class="second-part">
  <div class="card">
     <h1 class="turbo-question">What is Turbo?</h1>
     <p class="turbo-description">Turbo is an advanced chatbot designed specifically for car enthusiasts and automotive customers.
      With a deep understanding of vehicle specifications,<br> maintenance tips, and troubleshooting advice, 
      Turbo serves as a virtual assistant, providing users with quick and accurate information about their cars.</p>
 </div>
+</div>
+
+<img src="../../../public_html/media/chatbot-image.png">
+
 </body>
 </html>
