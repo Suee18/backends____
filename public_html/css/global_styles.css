@@ -57,11 +57,16 @@
     /* --navyWhite: linear-gradient(360deg, #182B31, #b8b8b860); Nav bar */
     /* --navyWhite: linear-gradient(360deg, #1E3A46, #b8b8b860); TEAL */
 
-    /* NAVBAR OPTION 2 210 DEG Gray black */
+    /* ******
+     NAVBAR OPTION 2
+      210 DEG Gray black */
     /* --navyWhite: linear-gradient(355deg, #c2c2c23a,#000000bb ); */
     /* NAVBAR OPTION  */
-    --navyWhite: linear-gradient(380deg, #000000ad, #047cbd52, #999bda5d);
-
+    --navyWhite: linear-gradient(380deg, #000000ad, #000000ad, #999bda5d);
+    --grad1: linear-gradient(160deg, #0c2d3b93, #597e8fc7);
+    --grad2: linear-gradient(160deg, #5f5c5cc9, #00000000, #00000000, #5855559c);
+    --grad3: linear-gradient(160deg, #948f8f9c, #00000000, #00000000, #4e4e4e8a);
+    /* --grad2: linear-gradient(160deg, #cabfbf8e,#00000083, #00000093,#cabfbf88); */
 
     /* background-color: rgba(0, 0, 0, 0.5); Optional: Semi-transparent background */
 
@@ -81,6 +86,35 @@
 
 
 
+    /*============default button trial===============*/
+
+    .btn {
+        background-color: #27e6ec;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #18a3b7;
+        /* Darken background color on hover */
+    }
+
+    .btn:active {
+        background-color: #1e536e;
+        /* Even darker background color when button is clicked */
+    }
+
+    .btn:disabled {
+        background-color: #ccc;
+        /* Gray out button when disabled */
+        cursor: not-allowed;
+        /* Show not-allowed cursor when disabled */
+    }
 
 
 

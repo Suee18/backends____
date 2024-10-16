@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/landing_page.css">
+    <link rel="stylesheet" href="css/global_styles.css">
     <title>Landing Page</title>
 </head>
 
 <body>
     <?php include './components/nav_bar.php'; ?>
-
 
     <div class="slideShowContainer_lp">
 
@@ -19,7 +19,7 @@
             <div class="videoBG_lp">
                 <video autoplay muted loop class="slide-bg" id="myVideo">
                     <source src="media/BMWM5CS.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+                    Your browser does not support the video
                 </video>
             </div>
 
@@ -56,16 +56,18 @@
 
         <!-- Slide 3:  -->
         <div class="slide" id="slide3">
-            <!-- <img src="media/animationGIF3_VoiceMotionAi.gif" class="slide-bg" alt="Image Background"> -->
-            <video autoplay muted loop class="slide-bg" id="myVideo">
+            <div class="videoBG_lp">
+                <video autoplay muted loop class="slide-bg" id="myVideo">
                     <source src="media/astonmartin.mp4" type="video/mp4">
                     Your browser does not support the video tag.
-                </video><div class="text-overlay">
-            <p class="slide3Title_lp">
-            Ready, set,
-            <span class="slide3Title_lp">
-            Turbo!
-</span>
+                </video>
+            </div>
+            <div class="text-overlay">
+                <p class="slide3Title_lp">
+                    Ready, set,
+                    <span class="slide3Title_lp">
+                        Turbo!
+                    </span>
                 </p>
                 <p class="slide3paragraph_lp">
                     Talk now to Turbo, the chatbot
@@ -92,13 +94,43 @@
         </div>
     </div>
 
+
+
+    <!----------------PART 2:MOST RECOMMENDED CARS--------------------------->
     <div class="landingPage_part2">
-        <P>PART 2 GOES HERE </P>
+
+        <div class="partsTitles_lp">
+            <P class="mostRecommendedCarsTitle_lp">
+                most recommended Cars
+            </P>
+        </div>
+
+<div class="carCardsContainer_lp">
+    <!-- static -->
+    <?php include './components/car_card.php'; ?>
+</div>
+
+
+
     </div>
+
+
+    <!----------------PART 3:Reviews--------------------------->
+    <div class="landingPage_part3">
+
+        <div class="partsTitles_lp">
+            <P class="reviewsTitle_lp">
+                Reviews
+            </P>
+        </div>
+
+
+        <p>reviews part goes here </p>
+
+
+    </div>
+
     <script src="js/landing_page.js"></script>
-
-
-
 </body>
 
 </html>

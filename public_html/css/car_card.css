@@ -1,0 +1,145 @@
+/* car_card.css */
+@import url('/css/global_styles.css');
+/* General Container Styles */
+.car-cards-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.car-card {
+    flex: 1 1 calc(25% - 20px); /* Four cards per row on large screens */
+    max-width: calc(25% - 20px);
+    height: 400px;
+    perspective: 1000px; /* Enables 3D space for the flip effect */
+    margin-bottom: 20px;
+}
+
+.car-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.car-card:hover .car-card-inner {
+    transform: rotateY(180deg); /* Flips the card on hover */
+}
+
+/* Front and Back Card Styles */
+.car-card-front,
+.car-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car-card-front {
+    background:var(--grad2);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.car-card-back {
+  background:var(--grad2);
+    backdrop-filter: blur(5px);   
+     transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Card Image */
+.car-card-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Front Card Content */
+.car-card-content {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.car-name, .carModel {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.car-description {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+}
+
+.car-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--powder_blue);
+}
+
+/* Back Card Content */
+.specs-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.specs-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.specs-list li {
+    margin: 5px 0;
+}
+
+/* Responsive Design for Medium Screens */
+@media (max-width: 1024px) {
+    .car-card {
+        flex: 1 1 calc(33.33% - 20px); /* Three cards per row */
+        max-width: calc(33.33% - 20px);
+    }
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .car-card {
+        flex: 1 1 calc(50% - 20px); /* Two cards per row */
+        max-width: calc(50% - 20px);
+    }
+}
+
+/* Responsive Design for Extra Small Screens (Mobile) */
+@media (max-width: 480px) {
+    .car-card {
+        flex: 1 1 100%; /* Full width for each card */
+        max-width: 100%;
+    }
+}

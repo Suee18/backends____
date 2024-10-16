@@ -1,7 +1,8 @@
 @import url('./global_styles.css');
 
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
@@ -9,20 +10,23 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     background-color: #020925;
-    color: #333;
+    color: #dad3d3;
 
 }
+/*===============================PART 1====================================*/
 
-.slideShowContainer_lp{
+.slideShowContainer_lp 
+{
     position: relative;
     width: 100%;
     height: 100%;
 
 }
+
 .slide {
     position: relative;
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -43,34 +47,34 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-padding: 0;
+    padding: 0;
     color: white;
-    background: linear-gradient(250deg,#031d35,#01031f8f,#615a5a48,#070707a4,#000103e1 );  
-       backdrop-filter: blur(3px);
+    background: linear-gradient(250deg, #031d35, #01031f8f, #615a5a48, #070707a4, #000103e1);
+    backdrop-filter: blur(2.5px);
 
-        /* background: linear-gradient(210deg, #1a334abd,#000000c2 );  */
-        /* background: linear-gradient(210deg, #1a334abd,#000000c2 );  */
+    /* background: linear-gradient(210deg, #1a334abd,#000000c2 );  */
+    /* background: linear-gradient(210deg, #1a334abd,#000000c2 );  */
 }
 
 /*slide1*/
-.slide1Title_lp 
-{
+
+.slide1Title_lp {
     font-family: var(--racing_font);
-    font-size: 4rem; 
-    font-weight: 100; 
+    font-size: 4rem;
+    font-weight: 100;
     margin-bottom: 0.5rem;
-    margin-top: 20rem;   
+    margin-top: 20rem;
 
 }
 
 .slide1paragraph_lp {
-font-family: var(--paragraph_font);
-font-size: 2rem;
-font-weight: 100; 
+    font-family: var(--paragraph_font);
+    font-size: 2rem;
+    font-weight: 100;
 
 }
 
-.videoBG_lp{
+.videoBG_lp {
     position: absolute;
     width: 100%;
     height: 115%;
@@ -85,39 +89,45 @@ font-weight: 100;
     font-family: var(--technoRace_font);
     color: #B4C3CC;
     text-shadow: 2px 2px 4px #58717D;
-    font-size: 4rem; 
-    font-weight: 100; 
- margin-top: 29rem;   
+    font-size: 4rem;
+    font-weight: 100;
+    margin-top: 29rem;
 }
-.slide2paragraph_lp{
-   font-family: var(--paragraph_font);
+
+.slide2paragraph_lp {
+    font-family: var(--paragraph_font);
     font-size: 2rem;
     font-weight: 100;
     margin-top: -3rem;
-    
+
 }
+
 /*slide 3*/
-.slide3Title_lp{
+.slide3Title_lp {
     font-family: var(--technoRace_font);
     color: #B4C3CC;
     text-shadow: 2px 2px 4px #58717D;
-    font-size: 4rem; 
-    font-weight: 100; 
+    font-size: 4rem;
+    font-weight: 100;
     margin-top: 20rem;
 }
-.slide3paragraph_lp{
+
+.slide3paragraph_lp {
     font-family: var(--header_font);
     font-size: 2rem;
     font-weight: 100;
 }
+
 /*slide 4*/
-.slide4Title_lp{
+.slide4Title_lp {
     font-family: var(--technoRace_font);
     color: #B4C3CC;
-    font-size: 3rem; 
-    font-weight: 100; 
+    font-size: 3rem;
+    font-weight: 100;
     margin-top: 20rem;
 }
+
+
 /*=================== slides Navigation ================*/
 .dots {
     position: absolute;
@@ -138,26 +148,110 @@ font-weight: 100;
     transition: background-color 0.3s ease;
 }
 
-.dot:hover, .active {
-    background-color:#a5cea7;
+.dot:hover,
+.active {
+    background-color: #a5cea7;
     box-shadow: 0 0 10px #020b0f;
     transform: translateY(-2px);
 }
 
 
+/*===============================parts 2,3 headers ====================================*/
+
+/*titles headers */
+.partsTitles_lp {
+    height: 5rem;   
+     padding-left: 20px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    background:var(--grad1);
+    backdrop-filter: blur(1px);
+
+    font-family: var(--technoRace_font);
+    font-weight: 100;
+    color: white;
+    font-size: 3rem;
+
+}
+
+    
+  
+    
 
 
-/*===============================PART 2====================================*/
-.landingPage_part2{
+
+
+/*===============================PART 2: most recommended====================================*/
+/* Landing Page Part 2 */
+.landingPage_part2 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    background-color: #003ce2;
-    color: white;
-    height: 700px;
-    
-    
+ width: 100%; 
+   box-sizing: border-box; 
 
+     background-color: #e200005e;  
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-position: center; 
+    /* background-image: url('../media/lp_mostRecommended4.jpg'); */
+    /* background-image: url('../media//mostr_lp11.jpg');  */
+    /* background-image: url('../media/mostr_lp8.jpg'); */
+    /* background-image: url('../media/animationGIF1.gif'); */
+    background-image: url('../media/mostr_lp6LOW.jpg');
+
+
+
+}
+
+
+
+/* background-image: url('../media/lp_mostRecommended.jpg'); NOT THE VIBE  ligh holograPH
+    background-image:url('../media/mostr_lp11.jpg'); 10-10 not the vibe mystrey sqy=uares 
+    background-image: url('../media/mostr_lp10.jpg'); 10-10 THE TANGLED WEB 
+
+       background-image: url('../media/lp_mostRecommended4.jpg'); 9-10  
+           background-image: url('../media//mostr_lp11.jpg'); 9-10
+               background-image: url('../media/mostr_lp4.jpg');10-10
+                   background-image: url('../media/mostr_lp6.jpg');9-10
+noisy gif 
+
+
+
+
+
+        background-image: url('../media/mostr_lp3.jpg')
+ VERY HQ VERY GALAXYISH , the big one element >>>>
+    background-image: url('../media/mosRecommended7_lp.jpg'); NIVE GRADIENTS CHAT GPT1 tooo brihghy
+round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
+
+10 LAYERS OF HOLO GRPAH A LIL BRIGHT     background-image: url('../media/mostr_lp9.jpg');
+10  LAYERS OF HOLO   background-image: url('../media/mostr_lp7.jpg');
+
+10 MORE PURPLE     background-image: url('../media/mostr_lp8.jpg');
+10 thin lines     background-image: url('../media/mostr_lp6.jpg');
+10 thin lines2  background-image: url('../media/mostr_lp4.jpg');
+
+
+
+*/
+
+
+
+
+.mostRecommendedCarsTitle_lp{
+    white-space: nowrap; 
+}
+
+
+
+
+/*===============================PART 3: reviews====================================*/
+
+
+.landingPage_part3{
+    height:50rem;
 }
