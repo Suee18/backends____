@@ -1,6 +1,6 @@
 let currentSlide = 1;
 const slide1Duration = 97000; 
-const otherSlidesDuration = 5000; // 5 seconds for the other slides
+const otherSlidesDuration = 8000; // 5 seconds for the other slides
 let slideTimer; // Variable to store the setInterval for autoSlide
 
 document.addEventListener("DOMContentLoaded", function() {

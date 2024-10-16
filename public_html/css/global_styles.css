@@ -27,8 +27,7 @@
 }
 
 
-:root
- {
+:root {
 
     /* =================colors==================*/
 
@@ -59,12 +58,12 @@
     /* --navyWhite: linear-gradient(360deg, #1E3A46, #b8b8b860); TEAL */
 
     /* NAVBAR OPTION 2 210 DEG Gray black */
- /* --navyWhite: linear-gradient(355deg, #c2c2c23a,#000000bb ); */
+    /* --navyWhite: linear-gradient(355deg, #c2c2c23a,#000000bb ); */
     /* NAVBAR OPTION  */
-   --navyWhite: linear-gradient(380deg, #000000ad,#047cbd52,#999bda5d);   
-   
-   
-     /* background-color: rgba(0, 0, 0, 0.5); Optional: Semi-transparent background */
+    --navyWhite: linear-gradient(380deg, #000000ad, #047cbd52, #999bda5d);
+
+
+    /* background-color: rgba(0, 0, 0, 0.5); Optional: Semi-transparent background */
 
 
     /* =================fonts==================*/
@@ -88,23 +87,29 @@
     /*=================scrollbar==================*/
     /* Global scrollbar styling */
 
-/* For WebKit browsers (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
-}
+    /* For WebKit browsers (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+        width: 12px;
+        /* Width of the scrollbar */
+    }
 
-::-webkit-scrollbar-track {
-    background: #1e3a46; /* Background of the scrollbar track */
-}
+    ::-webkit-scrollbar-track {
+        background: #1e3a46;
+        /* Background of the scrollbar track */
+    }
 
-::-webkit-scrollbar-thumb {
-    background-color: #5AA5CD; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Round the scrollbar thumb */
-    border: 3px solid #1e3a46; /* Adds padding inside the scrollbar thumb */
-}
+    ::-webkit-scrollbar-thumb {
+        background-color: #5AA5CD;
+        /* Color of the scrollbar thumb */
+        border-radius: 10px;
+        /* Round the scrollbar thumb */
+        border: 3px solid #1e3a46;
+        /* Adds padding inside the scrollbar thumb */
+    }
 
-::-webkit-scrollbar-thumb:hover {
-      background-color: #18a3b7; /* Change color on hover */
-}
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #18a3b7;
+        /* Change color on hover */
+    }
 
- }
+}
