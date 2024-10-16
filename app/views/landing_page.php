@@ -56,8 +56,11 @@
 
         <!-- Slide 3:  -->
         <div class="slide" id="slide3">
-            <img src="path_to_your_image2.jpg" class="slide-bg" alt="Image Background">
-            <div class="text-overlay">
+            <!-- <img src="media/animationGIF3_VoiceMotionAi.gif" class="slide-bg" alt="Image Background"> -->
+            <video autoplay muted loop class="slide-bg" id="myVideo">
+                    <source src="media/astonmartin.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><div class="text-overlay">
             <p class="slide3Title_lp">
             Ready, set,
             <span class="slide3Title_lp">
