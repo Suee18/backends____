@@ -35,6 +35,13 @@
         </div>
     </nav>
 
+        <!-- Video Background-->
+        <!-- <div class="video-background">
+        <video autoplay muted loop class="slide-bg" id="myVideo">
+                    <source src="../../../public_html/media/galaxy-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+    </div>  -->
 
 <!-- Top of the Page -->
 <div class="first-part">
@@ -45,11 +52,15 @@
 
     
 <!-- Second part -->
+ <div class="second-part">
  <div class="card">
     <h1 class="turbo-question">What is Turbo?</h1>
     <p class="turbo-description">Turbo is an advanced chatbot designed specifically for car enthusiasts and automotive customers.
      With a deep understanding of vehicle specifications,<br> maintenance tips, and troubleshooting advice, 
      Turbo serves as a virtual assistant, providing users with quick and accurate information about their cars.</p>
 </div>
+</div>
+
+
 </body>
 </html>
