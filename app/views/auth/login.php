@@ -9,7 +9,6 @@
 </head>
 <body>
     <div class="login-container">
-        <!-- Left: Form Section -->
         <div class="form-section">
             <h1>Sign in</h1>
             
