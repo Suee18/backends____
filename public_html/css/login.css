@@ -1,0 +1,122 @@
+@import url('./global_styles.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: url(http://localhost/SWE_Phase1-main/SWE_Phase1-main/public_html/media/d67f7d25e5051a52184e7619065c3eea.gif) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.signup-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width:1200px;
+}
+
+.form-section {
+  background-color: rgba(60, 60, 60, 0.7);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  color: #333;
+}
+
+.form-section h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.form-section label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
+  color: #fff;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form-section button {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-section button:hover {
+  background-color: #555;
+}
+
+.welcome-section {
+  color: white;
+  max-width: 600px;
+  text-align: right;
+}
+
+.welcome-section h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  font-size: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: white;
+  text-decoration: none;
+}
+.sign-up-link {
+  margin-top: 20px;
+  color: white; 
+  font-size: 16px; 
+}
+
+.sign-up-link a {
+  color: #1E3A46; 
+  text-decoration: none;
+}
+
+.sign-up-link a:hover {
+  text-decoration: underline; 
+}
