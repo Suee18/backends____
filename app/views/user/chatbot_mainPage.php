@@ -17,19 +17,28 @@
             <div class="toggle-btn">
             <i class=" fa-solid fa-user"></i>
             </div>
-            <span style="--i:4;">
-                <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
-            </span>
 
             <span style="--i:1;">
                 <a href="#"><i class="fa-solid fa-house"></i></a>
             </span>
+
             <span style="--i:2;">
                 <a href="#"><i class="fa-solid fa-heart"></i></a>
             </span>
+
+
             <span style="--i:3;">
                 <a href="#"><i class="fa-solid fa-user"></i></a>
             </span>
+
+            
+            <span style="--i:4;">
+                <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </span>
+
+          
+           
+          
            
           
         </div>
