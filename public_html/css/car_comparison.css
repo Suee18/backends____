@@ -1,28 +1,112 @@
-@import url('/css/global_styles.css');
+@import url("/css/global_styles.css");
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     background-color: var(--navy1);
 }
 
+body {
+    height: 3000px;
+}
+
 .navbar {
     top: 0;
+    width: 100%;
+    position: fixed; /* Make the navbar fixed */
+    z-index: 10; /* Ensure the navbar is above other elements */
 }
 
 #comparing-cars-banner {
-    /* margin-top: 100px; */
     display: flex;
+    flex-direction: column; /* Arrange children in a column */
     justify-content: center;
     align-items: center;
     height: 50vh;
+    margin-top: 100px; /* Add a top margin equal to the navbar height */
     color: var(--white);
+    background: url("../../public_html/media/Car_Comparison_Page_Images/car-banner.jpg")
+        no-repeat center center;
+    background-size: cover;
+    position: relative;
+    text-align: center; /* Center text horizontally */
+}
+
+#comparing-cars-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
 #comparing-cars-banner h1 {
-    font-family: "New Amsterdam" ,var(--header_font);
+    font-family: var(--technoRace_font);
     font-size: 3.5rem;
     letter-spacing: 0.2rem;
-    -webkit-font-smoothing: subpixel-antialiased; /* or subpixel-antialiased */
+    -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#comparing-cars-banner p {
+    font-family: "New Amsterdam", var(--header_font);
+    font-size: 1.4rem;
+    margin-top: 0.2rem;
+}
+
+#comparing-cars-banner h1,
+#comparing-cars-banner p {
+    position: relative;
+    z-index: 2;
+}
+
+.comparison-section {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.car-card {
+    background-color: var(--blue_gray_dark);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 38%;
+    padding: 20px;
+}
+
+.car-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    background-color: var(--white_blue_light);
+}
+
+.car-card:first-child .car-image img {
+    transform: scaleX(-1); /* Flip the first car image horizontally */
+}
+
+.car-details h2 {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
