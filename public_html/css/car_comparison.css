@@ -1,0 +1,28 @@
+@import url('/css/global_styles.css');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--navy1);
+}
+
+.navbar {
+    top: 0;
+}
+
+#comparing-cars-banner {
+    /* margin-top: 100px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    color: var(--white);
+}
+
+#comparing-cars-banner h1 {
+    font-family: "New Amsterdam" ,var(--header_font);
+    font-size: 3.5rem;
+    letter-spacing: 0.2rem;
+    -webkit-font-smoothing: subpixel-antialiased; /* or subpixel-antialiased */
+    -moz-osx-font-smoothing: grayscale;
+}
