@@ -39,6 +39,8 @@
                         <label for="make1">Make</label>
                         <select id="make1">
                             <option>Choose a make</option>
+                            <option>Choose a make</option>
+                            <option>Choose a make</option>
                             <!-- Add more car makes here -->
                         </select>
                     </div>

@@ -4,7 +4,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--navy1);
+    background-color: var(--white);
 }
 
 body {
@@ -14,23 +14,23 @@ body {
 .navbar {
     top: 0;
     width: 100%;
-    position: fixed; /* Make the navbar fixed */
-    z-index: 10; /* Ensure the navbar is above other elements */
+    position: fixed;
+    z-index: 10; 
 }
 
 #comparing-cars-banner {
     display: flex;
-    flex-direction: column; /* Arrange children in a column */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     height: 50vh;
-    margin-top: 100px; /* Add a top margin equal to the navbar height */
+    margin-top: 100px; 
     color: var(--white);
     background: url("../../public_html/media/Car_Comparison_Page_Images/car-banner.jpg")
         no-repeat center center;
     background-size: cover;
     position: relative;
-    text-align: center; /* Center text horizontally */
+    text-align: center; 
 }
 
 #comparing-cars-banner::before {
@@ -71,9 +71,9 @@ body {
 }
 
 .car-card {
-    background-color: var(--blue_gray_dark);
+    background-color: var(--white);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     width: 38%;
     padding: 20px;
 }
@@ -81,21 +81,37 @@ body {
 .car-image img {
     max-width: 100%;
     border-radius: 8px;
-    background-color: var(--white_blue_light);
+    background-color: var(--gray-blue);
 }
 
 .car-card:first-child .car-image img {
-    transform: scaleX(-1); /* Flip the first car image horizontally */
+    transform: scaleX(-1); 
 }
 
 .car-details h2 {
     font-size: 24px;
+    font-family: "Roboto", var(--paragraph_font);
     margin: 15px 0;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 7px; /* Reduce the bottom margin */
     text-align: left;
+    display: flex;
+    flex-direction: column; /* Ensure vertical alignment */
+    align-items: center; /* Center items horizontally */
+}
+
+.form-group label {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-family: "Roboto", var(--paragraph_font);
+    text-align: center; /* Center the label text */
 }
 
 label {
@@ -105,8 +121,19 @@ label {
 }
 
 select {
-    width: 100%;
+    width: 85%;
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 14px;
     border: 1px solid #ccc;
+    height: 45px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 5px;
+    font-family: monospace;
+    font-size: large;
+    font-weight: bold;
+}
+
+select:focus {
+    border-color: purple;
+    box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
 }
