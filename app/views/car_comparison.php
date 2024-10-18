@@ -76,7 +76,7 @@
                 <h2>Add second car</h2>
                 <form>
                     <div class="form-group">
-                        <label for="make2" >Make</label>
+                        <label for="make2">Make</label>
                         <select id="make2">
                             <option>Choose a make</option>
                         </select>
@@ -98,7 +98,25 @@
                 </form>
             </div>
         </div>
+
+
     </div>
+
+    <button class="animated-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+            <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+            </path>
+        </svg>
+        <span class="text">Compare Now</span>
+        <span class="circle"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+            <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+            </path>
+        </svg>
+    </button>
+
 
     <div class="car-comparison-section">
         <h2>Quick Look</h2>
