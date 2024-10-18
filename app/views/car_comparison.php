@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
     <title>Compare Cars Now!</title>
     <script src=""></script>
 </head>
@@ -33,7 +36,7 @@
                 <img src="../../public_html/media/Car_Comparison_Page_Images/left-comparison-car.png" alt="First Car">
             </div>
             <div class="car-details">
-                <h2>Add first car</h2>
+                <h2 class="car-details-title">Add first car</h2>
                 <form>
                     <div class="form-group">
                         <label for="make1">Make</label>
@@ -64,8 +67,7 @@
 
         <div class="car-card">
             <div class="car-image">
-                <img src="../../public_html/media/Car_Comparison_Page_Images/right-comparison-car.png"
-                 alt="Second Car">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/right-comparison-car.png" alt="Second Car">
             </div>
             <div class="car-details">
                 <h2>Add second car</h2>
@@ -95,6 +97,134 @@
             </div>
         </div>
     </div>
+
+    <div class="car-comparison-section">
+        <h2>Quick Look</h2>
+        <div class="comparison-grid">
+            <div class="feature-item"></div>
+            <div class="car-column">
+                <h3>Car 1</h3>
+            </div>
+            <div class="car-column">
+                <h3>Car 2</h3>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/fuel_type.png"
+                    alt="Engine Fuel Type Icon" class="icon">
+                <p>Engine Fuel Type</p>
+            </div>
+            <div class="car-column">
+                <p>Gasoline</p>
+            </div>
+            <div class="car-column">
+                <p>Diesel</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/horse_power.png"
+                    alt="Engine HP Icon" class="icon">
+                <p>Engine HP</p>
+            </div>
+            <div class="car-column">
+                <p>250 HP</p>
+            </div>
+            <div class="car-column">
+                <p>300 HP</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/engine_cylinders.png"
+                    alt="Engine Cylinders Icon" class="icon">
+                <p>Engine Cylinders</p>
+            </div>
+            <div class="car-column">
+                <p>4 Cylinders</p>
+            </div>
+            <div class="car-column">
+                <p>6 Cylinders</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/transmission_type.png"
+                    alt="Transmission Type Icon" class="icon">
+                <p>Transmission Type</p>
+            </div>
+            <div class="car-column">
+                <p>Automatic</p>
+            </div>
+            <div class="car-column">
+                <p>Manual</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/wheels.png" alt="Driven Wheels Icon" class="icon">
+                <p>Driven Wheels</p>
+            </div>
+            <div class="car-column">
+                <p>Front Wheel Drive</p>
+            </div>
+            <div class="car-column">
+                <p>All Wheel Drive</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/car_doors.png" alt="No. of Doors Icon" class="icon">
+                <p>No. of Doors</p>
+            </div>
+            <div class="car-column">
+                <p>4</p>
+            </div>
+            <div class="car-column">
+                <p>2</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/market_category.png" alt="Market Category Icon" class="icon">
+                <p>Market Category</p>
+            </div>
+            <div class="car-column">
+                <p>Luxury, Performance</p>
+            </div>
+            <div class="car-column">
+                <p>Economy, Compact</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/vehicle_size.png" alt="Vehicle Size Icon" class="icon">
+                <p>Vehicle Size</p>
+            </div>
+            <div class="car-column">
+                <p>Midsize</p>
+            </div>
+            <div class="car-column">
+                <p>Compact</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/vehicle_style.png" alt="Vehicle Style Icon" class="icon">
+                <p>Vehicle Style</p>
+            </div>
+            <div class="car-column">
+                <p>Sedan</p>
+            </div>
+            <div class="car-column">
+                <p>SUV</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/msrp.png" alt="MSRP Icon" class="icon">
+                <p>MSRP</p>
+            </div>
+            <div class="car-column">
+                <p>$40,000</p>
+            </div>
+            <div class="car-column">
+                <p>$35,000</p>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
