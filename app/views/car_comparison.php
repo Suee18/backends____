@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
     <link rel="stylesheet" href="../../public_html/css/car_comparison.css">
     <link rel="stylesheet" href="../../public_html/css/global_styles.css">
     <link rel="stylesheet" href="../../public_html/css/nav_bar.css">
@@ -17,11 +23,13 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
         rel="stylesheet">
     <title>Compare Cars Now!</title>
-    <script src=""></script>
+    <script src="../../public_html/js/car_comparison.js"></script>
+
 </head>
 
 <body>
     <?php include '../../public_html/components/nav_bar.php'; ?>
+
     <div id="comparing-cars-banner">
         <h1>Compare Cars Models</h1>
         <p>Discover and compare different car models
@@ -42,23 +50,18 @@
                         <label for="make1">Make</label>
                         <select id="make1">
                             <option>Choose a make</option>
-                            <option>Choose a make</option>
-                            <option>Choose a make</option>
-                            <!-- Add more car makes here -->
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="model1">Model</label>
                         <select id="model1">
                             <option>Choose a model</option>
-                            <!-- Add more car models here -->
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="year1">Year</label>
                         <select id="year1">
                             <option>Choose a year</option>
-                            <!-- Add more years here -->
                         </select>
                     </div>
                 </form>
@@ -73,10 +76,9 @@
                 <h2>Add second car</h2>
                 <form>
                     <div class="form-group">
-                        <label for="make2">Make</label>
+                        <label for="make2" >Make</label>
                         <select id="make2">
                             <option>Choose a make</option>
-                            <!-- Add more car makes here -->
                         </select>
                     </div>
                     <div class="form-group">
