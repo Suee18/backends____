@@ -8,7 +8,6 @@ html, body {
     position: fixed; 
     background:var(--navyWhite);
     backdrop-filter: blur(7px);
-
     color: white;
     padding: 0.2rem;
     z-index: 10;
@@ -25,7 +24,6 @@ html, body {
 .container {
     background-color: rgba(123, 223, 56, 0); 
     width: 100%;
-
 }
 
 ul, li {
