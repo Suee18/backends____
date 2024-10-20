@@ -14,12 +14,12 @@
 <nav>
     <div class="nav-content">
         <div class="toggle-btn">
-            <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-user" style="color: #ffffff;"></i>
         </div>
-        <span style="--i:1;"><a href="#"><i class="fa-solid fa-house"></i></a></span>
-        <span style="--i:2;"><a href="#"><i class="fa-solid fa-heart"></i></a></span>
-        <span style="--i:3;"><a href="#"><i class="fa-solid fa-user"></i></a></span>
-        <span style="--i:4;"><a href="#"><i class="fa-solid fa-right-from-bracket"></i></a></span>
+        <span style="--i:4;"><a href="index.php"><i class="fa-solid fa-house" style="color: #ffffff;"></i></a></span>
+        <span style="--i:3;"><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></span>
+        <span style="--i:2;"><a href="#"><i class="fa-solid fa-heart" style="color: #ffffff;"></i></a></span>
+        <span style="--i:1;"><a href="#"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></span>
     </div>
 </nav>
 
@@ -29,8 +29,10 @@
         <div class="caption" id="caption">Start your engines! <br> What’s your question?</div>
     </div>
     <div class="user-input">
-        <input type="text" id="input" placeholder="Enter your question here...">
-        <button id="send-btn"><i class="fa-solid fa-arrow-up"></i></button>
+        <div class="input-container">
+            <input type="text" id="input" placeholder="Enter your question here...">
+            <button id="send-btn"><i class="fa-solid fa-arrow-up"></i></button>
+        </div>
     </div>
 </div>
 

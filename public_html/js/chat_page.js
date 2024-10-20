@@ -1,6 +1,18 @@
 
 
+// User Icon
+document.addEventListener("DOMContentLoaded", function () {
+    const nav = document.querySelector("nav"),
+        toggleBtn = nav.querySelector(".toggle-btn");
+    toggleBtn.addEventListener("click", () => {
+        nav.classList.toggle("open");
+    });
 
+});
+
+
+
+/*chat functions*/
 document.addEventListener('DOMContentLoaded', function () {
     const sendButton = document.getElementById('send-btn');
     const caption = document.getElementById('caption');
@@ -9,9 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     sendButton.addEventListener('click', function () {
         if (inputField.value.trim() !== '') {
-          
-            caption.classList.add('hidden'); 
-            console.log("Caption hidden"); 
+
+            caption.classList.add('hidden');
+            console.log("Caption hidden");
 
             const userMessage = document.createElement('div');
             userMessage.textContent = inputField.value;
@@ -32,10 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-
+/*Chat responses*/
 
 const botResponses = {
     "suv": "I recommend the latest Toyota Highlander, a spacious and reliable SUV.",
@@ -43,6 +52,8 @@ const botResponses = {
     "electric": "The Tesla Model 3 is a great electric car with a long range.",
     "default": "I'm not sure about that. Can you be more specific about the car type you're looking for?"
 };
+
+
 
 document.getElementById('send-btn').addEventListener('click', sendMessage);
 
@@ -52,7 +63,7 @@ function appendMessage(sender, message) {
     newMessage.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
     newMessage.innerText = message;
     chatBox.appendChild(newMessage);
-    chatBox.scrollTop = chatBox.scrollHeight; 
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 function sendMessage() {
@@ -92,12 +103,32 @@ function getBotResponse(userInput) {
 
 
 
-// User Icon
-document.addEventListener("DOMContentLoaded", function () {
-    const nav = document.querySelector("nav"),
-        toggleBtn = nav.querySelector(".toggle-btn");
-    toggleBtn.addEventListener("click", () => {
-        nav.classList.toggle("open");
+/*accessing submit button & removing caption when submitting*/
+document.addEventListener('DOMContentLoaded', function () {
+    const sendButton = document.getElementById('send-btn');
+    const caption = document.getElementById('caption');
+    const input = document.getElementById('input');
+    sendButton.disabled = true;
+
+    input.addEventListener('input', function () {
+        if (input.value.trim() === '') {
+            sendButton.disabled = true;
+            sendButton.style.backgroundColor = "#ccc";
+        } else {
+            sendButton.disabled = false;
+            sendButton.style.backgroundColor = "#739aae7f";
+        }
     });
 
+    sendButton.addEventListener('click', function () {
+
+        caption.style.display = 'none';
+
+    });
+
+    input.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter' && input.value.trim() !== '') {
+            caption.style.display = 'none';
+        }
+    });
 });
