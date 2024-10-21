@@ -217,7 +217,15 @@
                 </div>
             </div>
         </div>
-        <button class="reviewBtn">Add your own review!</button>
+        <button class="reviewBtn" id="openOverlay">Add your own review!</button>
+
+        <div class="overlay" id="reviewOverlay">
+        <div class="overlay-content">
+            <span class="closeBtn" id="closeOverlay">&times;</span>
+            <h2>Write your review</h2>
+            <textarea id="reviewText" placeholder=" Write your review here..."></textarea>
+            <button class="submitBtn" id="submitReview">Submit</button>
+        </div>
     </div>
 
     <script src="js/landing_page.js"></script>
