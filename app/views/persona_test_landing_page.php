@@ -33,7 +33,7 @@
             <p>Ready to find the car that fits your lifestyle? Take our quick quiz to reveal your unique car persona and
                 get personalized recommendations. Whether you're into speed, tech, eco-friendliness, or something else,
                 we’ve got you covered.</p>
-            <a href="#" class="cta-button">Find My Car</a>
+            <a href="persona_test.php" class="cta-button">Find My Car</a>
         </div>
         <div class="image-container">
             <img src="../../public_html/media/Persona_Test_Images/Landing/red-car.jpg" alt="Car" />
@@ -117,15 +117,15 @@
     </div>
 
     <div class="third-section">
-        <div class="second-image-container">
-            <img src="../../public_html/media/Persona_Test_Images/Landing/sports-car.jpg" alt="Car" />
+        <div class="image-container">
+            <img src="../../public_html/media/Persona_Test_Images/Landing/classic-car.jpg" alt="Car" />
         </div>
         <div class="content">
             <h1>Uncover Your Ideal Car Match..</h1>
             <p>Curious about which car suits your lifestyle best? Take our short quiz to discover your unique car
                 persona and receive tailored suggestions. Whether you’re drawn to performance, technology,
                 sustainability, or another feature, we’ve got the perfect fit for you.</p>
-            <a href="#" class="cta-button">Find My Car</a>
+            <a href="persona_test.php" class="cta-button">Find My Car</a>
         </div>
     </div>
 </body>
