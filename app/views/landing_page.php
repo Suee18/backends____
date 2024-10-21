@@ -119,20 +119,17 @@
 
     <!----------------PART 3:Reviews--------------------------->
     <div class="landingPage_part3">
-
         <div class="partsTitles_lp">
             <P class="reviewsTitle_lp">
                 Reviews
             </P>
         </div>
-
-
         <div class="reviews-section">
             <h2 class="header">What our Clients say!</h2>
-           
+
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-             
+
                     <div class="swiper-slide">
                         <div class="review-card">
 
@@ -154,7 +151,7 @@
                             <p class="review-paragraph">"Absolutely love the personalized recommendations. The system picked out cars that matched my criteria and even gave detailed reviews. It made my buying decision so much easier!".</p>
                         </div>
                     </div>
-              
+
                     <div class="swiper-slide">
                         <div class="review-card">
 
@@ -220,7 +217,7 @@
                 </div>
             </div>
         </div>
-
+        <button class="reviewBtn">Add your own review!</button>
     </div>
 
     <script src="js/landing_page.js"></script>

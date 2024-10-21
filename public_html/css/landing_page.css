@@ -231,6 +231,11 @@ round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
 
 .landingPage_part3 {
   height: 50rem;
+  background-image: url("../../../SWE_Phase1/public_html/media/reviewBG2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 
 .reviews-section {
@@ -290,4 +295,48 @@ round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
   word-wrap: break-word;
   white-space: pre-wrap;
   max-width: 300px;
+}
+
+.reviewBtn {
+  margin-top: 60px;
+  margin-left: 41.5%;
+  background: rgba(24, 163, 183, 0.2);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.reviewBtn:hover {
+  background: rgba(24, 163, 183, 0.4);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2),
+    0 8px 10px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+.reviewBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: skewX(-45deg);
+  transition: left 0.6s ease;
+  z-index: 0;
+}
+.reviewBtn:hover::before {
+  left: 100%;
+}
+.reviewBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(24, 163, 183, 0.5);
 }
