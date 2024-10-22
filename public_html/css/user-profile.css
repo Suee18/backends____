@@ -27,7 +27,6 @@ body::before {
   justify-content: center;
 }
 
-
 .info-section {
   background: rgba(255, 255, 255, 0.1);
   margin: 10px 30px;
@@ -58,20 +57,88 @@ body::before {
   font-weight: 100;
 }
 
-.rightSidebar {
-  position: absolute;
-  right: 10px;
-  top: 120px;
+.news-header {
+  position: fixed;
+  top: 93px;
+  right: 20px;
   width: 300px;
-  height: 10cm;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 20px;
   color: var(--white);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 20px 20px 0px 0px;
+  z-index: 1;
+}
+
+.rightSidebar {
+  position: fixed;
+  top: 150px;
+  right: 20px;
+  width: 300px;
+  height: 500px;
+  max-height: 100vh;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0px 0px 15px 15px;
+  overflow-y: hidden;
+}
+
+.news-card {
+  width: 100%;
+  max-width: 280px;
+  margin: 10px auto;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  background: rgba(50, 50, 50, 0.5);
+  padding: 10px;
+  display: flex; 
+  flex-direction: column; 
+}
+
+.header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(30px);
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  align-items: center; 
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+.info {
+  display: flex;
+  flex-direction: column; 
+}
+
+.name {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.username {
+  font-size: 1em;
+  color: var(--white_blue_light);
+}
+
+.news {
+  font-size: 1em;
+  color: var(--white);
+}
+
+.news-card:hover {
+  background: rgba(50, 50, 50, 0.7);
+  transition: background 0.3s ease;
+}
+
+@media screen and (max-width: 400px) {
+  .rightSidebar {
+    width: 100%;
+  }
+  .news-card {
+    max-width: 90%;
+  }
 }
