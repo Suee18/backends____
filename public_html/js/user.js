@@ -54,3 +54,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   moveMarquee();
 });
+
+//Edit button js
+
+function editInfo(icon) {
+  const infoContent = icon.previousElementSibling;
+
+  if (infoContent.isContentEditable) {
+    infoContent.contentEditable = false;
+    icon.textContent = "edit";
+  } else {
+    infoContent.contentEditable = true;
+    infoContent.focus();
+    icon.textContent = "check";
+  }
+}

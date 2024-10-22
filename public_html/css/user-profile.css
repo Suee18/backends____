@@ -25,6 +25,7 @@ body::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .info-section {
@@ -53,7 +54,7 @@ body::before {
   font-size: 150px;
   color: var(--white);
   margin-left: 45%;
-  margin-top: 50px;
+  margin-top: 110px;
   font-weight: 100;
 }
 
@@ -90,13 +91,13 @@ body::before {
   backdrop-filter: blur(10px);
   background: rgba(50, 50, 50, 0.5);
   padding: 10px;
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   display: flex;
-  align-items: center; 
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -110,7 +111,7 @@ body::before {
 }
 .info {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .name {
@@ -133,12 +134,14 @@ body::before {
   background: rgba(50, 50, 50, 0.7);
   transition: background 0.3s ease;
 }
-
-@media screen and (max-width: 400px) {
-  .rightSidebar {
-    width: 100%;
-  }
-  .news-card {
-    max-width: 90%;
-  }
+.editable {
+  padding: 5px;
+  display: inline-block;
+  width: 250px;
+}
+.edit-icon {
+  cursor: pointer;
+  color: var(--white);
+  margin-left: 300px;
+  position: fixed;
 }
