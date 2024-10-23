@@ -219,3 +219,84 @@ function redirectTo(url) {
             }
         }
     });
+
+
+//CRUD USER 
+
+// function populateForm() {
+//     const select = document.getElementById('userSelect');
+//     const selectedOption = select.options[select.selectedIndex];
+    
+//     document.getElementById('username').value = selectedOption.getAttribute('data-username');
+//     document.getElementById('email').value = selectedOption.getAttribute('data-email');
+//     document.getElementById('user_type').value = selectedOption.getAttribute('data-type');
+//     document.getElementById('password').value = ''; // Clear password field for security reasons
+// }
+
+// function enableEditing() {
+//     // Enable input fields for editing
+//     const inputs = document.querySelectorAll('#username, #password, #user_type, #email');
+//     inputs.forEach(input => {
+//         input.readOnly = false;
+//         input.disabled = false;
+//         input.classList.add('editable'); // Add the CSS class to apply the border
+//     });
+//     document.getElementById('saveButton').disabled = false; // Enable Save button
+// }
+
+// function clearForm() {
+//     // Clear form fields to add a new user
+//     document.getElementById('userForm').reset();
+//     const inputs = document.querySelectorAll('#username, #password, #user_type, #email');
+//     inputs.forEach(input => {
+//         input.readOnly = false;
+//         input.disabled = false;
+//         input.classList.add('editable'); // Add border when preparing for a new user
+//     });
+//     document.getElementById('saveButton').disabled = false; // Enable Save button
+//     }
+
+function populateForm() {
+    const select = document.getElementById('userSelect');
+    const selectedOption = select.options[select.selectedIndex];
+
+    if (selectedOption.value) {
+        // Populate fields with data from the selected option
+        document.getElementById('username').value = selectedOption.getAttribute('data-username');
+        document.getElementById('email').value = selectedOption.getAttribute('data-email');
+        document.getElementById('user_type').value = selectedOption.getAttribute('data-type');
+        document.getElementById('password').value = ''; // Clear password field
+
+        // Enable all form fields for editing
+        enableFormFields();
+
+        // Enable buttons (Edit, Save, Delete)
+        document.getElementById('editButton').disabled = false;
+        document.getElementById('addButton').disabled = true;
+        document.getElementById('saveButton').disabled = false;
+        document.getElementById('deleteButton').disabled = false;
+    }
+}
+
+function enableFormFields() {
+    document.getElementById('username').disabled = false;
+    document.getElementById('password').disabled = false;
+    document.getElementById('user_type').disabled = false;
+    document.getElementById('email').disabled = false;
+    document.getElementById('deleteButton').disabled = false;
+    const inputs = document.querySelectorAll('#username, #password, #user_type, #email');
+        inputs.forEach(input => {
+            input.readOnly = false;
+            input.disabled = false;
+            input.classList.add('editable'); // Add the CSS class to apply the border
+        });
+}
+
+function clearForm() {
+    document.getElementById('userForm').reset();
+    document.getElementById('username').disabled = false;
+    document.getElementById('password').disabled = false;
+    document.getElementById('user_type').disabled = false;
+    document.getElementById('email').disabled = false;
+    document.getElementById('saveButton').disabled = false;
+}
