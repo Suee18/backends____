@@ -22,7 +22,7 @@
 
             <!-- ----------------------------------------- -->
             <li>
-                <a href="#" class="listElement_navBar compare-link">
+                <a href=".././app/views/car_comparison.php" class="listElement_navBar compare-link">
                     Compare cars
                 </a>
             </li>
@@ -34,7 +34,7 @@
             </li>
 
             <li>
-                <a href="#" class="listElement_login_navBar" id="listElement_login_navBar">
+                <a href=".././app/views/auth/login.php" class="listElement_login_navBar" id="listElement_login_navBar">
                     Log in
                 </a>
             </li>
