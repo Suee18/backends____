@@ -2,13 +2,47 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: var(--blue_gray_dark);
     height: 100vh;
     margin: 0;
+    /* background: url("../../public_html/media/Persona_Test_Images/Test_images/background2.jpg") no-repeat center center/cover; */
 }
 
 .navbar {
     top: 0;
+}
+
+.background-images {
+    pointer-events: none; /* Prevent images from interfering with user interactions */
+}
+
+#background-image-one {
+    position: absolute;
+    top: 130px;
+    left: 40px;
+    z-index: 1; /* Make sure it's above the background but below the swiper */
+    width: 50%;
+    height: 50%;
+    opacity: 0.8; /* Adjust the opacity to make it blend with the background */
+    /* margin-right: ; */
+}
+
+#background-image-two {
+    position: absolute;
+    top: 280px;
+    right: 30px;
+    z-index: 1; /* Make sure it's above the background but below the swiper */
+    width: 50%;
+    height: 50%;
+    opacity: 0.8; /* Adjust the opacity to make it blend with the background */
+}
+
+.background-image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-height: 80%;
+    object-fit: cover;
 }
 
 .progress-bar-container {
@@ -25,15 +59,25 @@ body {
 .progress-bar {
     height: 100%;
     width: 0;
-    background-color: #007bff;
+    background-color: var(--light_blue);
     transition: width 0.3s ease;
 }
 
 /* Center the Swiper */
 .swiper {
     width: 80%;
-    height: 80vh;
-    margin: 50px auto 40px;
+    height: 75vh;
+    margin: 115px auto 25px;
+    background: linear-gradient(
+        250deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(200, 200, 200, 0.2),
+        rgba(150, 150, 150, 0.3),
+        rgba(100, 100, 100, 0.4),
+        rgba(0, 0, 0, 0.5)
+    );
+    backdrop-filter: blur(5px);
+    z-index: 2;
 }
 
 /* Center the content inside the swiper slide */
@@ -47,17 +91,28 @@ body {
     text-align: center;
 }
 
+.question-container h1,
+.question-container p {
+    color: white;
+}
+
 .options-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Always 2 columns */
+    grid-auto-rows: 180px; /* Ensure uniform row height */
     gap: 20px;
     margin-top: 20px;
     justify-items: center;
 }
 
+/* 
+.three-rows {
+    grid-template-rows: repeat(3, 180px);  Set three rows for more than 4 items 
+} */
+
 .option {
-    width: 200px; /* Increased width */
-    height: 180px; /* Increased height */
+    width: 180px; /* Increased width */
+    height: 160px; /* Increased height */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,6 +123,15 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 16px; /* Increased font size */
     text-align: center;
+}
+
+.option:hover {
+    background-color: #e0e0e0;
+}
+
+.option p{
+    color: black;
+    font-weight: 600;
 }
 
 .option img {
@@ -81,4 +145,3 @@ body {
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-

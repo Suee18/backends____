@@ -5,7 +5,7 @@ const swiper = new Swiper(".swiper", {
     // effect: "fade",
     // fadeEffect: { crossFade: true },
 
-    effect: 'slide',
+    effect: "slide",
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -36,3 +36,10 @@ document.querySelectorAll(".option").forEach((option) => {
 
 // Initialize the progress bar on load
 updateProgressBar();
+
+const optionsContainer = document.querySelector(".options-container");
+const optionCount = optionsContainer.children.length;
+
+if (optionCount > 4) {
+    optionsContainer.classList.add("three-rows");
+}

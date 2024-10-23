@@ -17,6 +17,12 @@
 <body>
     <?php include '../../public_html/components/nav_bar.php'; ?>
 
+    <div class="background-images">
+        <img src="../../public_html/media/Persona_Test_Images/Test_images/background.jpg" alt="Background Image 1"
+            id="background-image-one">
+        <img src="../../public_html/media/Persona_Test_Images/Test_images/background2.jpg" alt="Background Image 2"
+            id="background-image-two">
+    </div>
 
     <div class="swiper">
         <div class="swiper-wrapper">
@@ -46,6 +52,11 @@
                                 alt="Driving">
                             <p>Enjoying the luxury of driving</p>
                         </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,6 +85,11 @@
                             <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/driving-icon.png"
                                 alt="Driving Experience">
                             <p>Doesn't matter - I care more about the driving experience</p>
+                        </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
                         </div>
                     </div>
                 </div>
@@ -105,6 +121,11 @@
                                 alt="Flexible">
                             <p>It depends on the occasion</p>
                         </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,6 +155,11 @@
                             <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/money-bag-icon.png"
                                 alt="Money's No Issue">
                             <p>Money's no issue, I'm after</p>
+                        </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
                         </div>
                     </div>
                 </div>
@@ -165,6 +191,11 @@
                                 alt="Practical Tech">
                             <p>I prefer practical tech for safety and convenience</p>
                         </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -194,6 +225,11 @@
                             <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/scenic-icon.png"
                                 alt="Scenic Drives">
                             <p>I love scenic and classic drives</p>
+                        </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
                         </div>
                     </div>
                 </div>
@@ -225,6 +261,11 @@
                                 alt="Fun Driving">
                             <p>Not a primary concern - I prioritize fun driving experience</p>
                         </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -255,6 +296,11 @@
                                 alt="Luxury Preference">
                             <p>I'm more into classic aesthetics and luxury</p>
                         </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -284,6 +330,11 @@
                             <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/sports-car-icon.png"
                                 alt="Sports Cars">
                             <p>Sports cars or performance vehicles</p>
+                        </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
                         </div>
                     </div>
                 </div>
@@ -319,6 +370,11 @@
                             <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/classic-icon.png"
                                 alt="Nostalgic">
                             <p>Nostalgic and stylish</p>
+                        </div>
+                        <div class="option">
+                            <img src="../../public_html/media/Persona_Test_Images/Test_Images/icons/i_don't_know.png"
+                                alt="Driving">
+                            <p>I don't know</p>
                         </div>
                     </div>
                 </div>
