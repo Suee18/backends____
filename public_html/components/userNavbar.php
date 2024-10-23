@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="../../../public_html/css/userNavbar.css">
-    <script src="../../../public_html/js/user.js" defer></script>
 </head>
 
 <body>
@@ -18,15 +17,23 @@
                 <h2>Apex</h2>
             </a>
         </div>
+        <div class="A-logo">A</div>
+        <button class="collapse-btn">
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
         <ul class="links">
             <h4>Main Menu</h4>
+            <li>
+                <span class="material-symbols-outlined">home</span>
+                <a href="../../../public_html/index.php">Home</a>
+            </li>
             <li>
                 <span class="material-symbols-outlined">directions_car</span>
                 <a href="#">Car recommendation</a>
             </li>
             <li>
                 <span class="material-symbols-outlined">swap_horiz</span>
-                <a href="../../../SWE_Phase1/app/views/car_comparison.php">Car comparison</a>
+                <a href="../../../app/views/car_comparison.php">Car comparison</a>
             </li>
             <li>
                 <span class="material-symbols-outlined">question_answer</span>
@@ -39,27 +46,24 @@
                 <span class="material-symbols-outlined">favorite</span>
                 <a href="../../../app/views/user/favorites.php">Favorites</a>
             </li>
+
             <li>
-                <span class="material-symbols-outlined">mail</span>
-                <a href="#">Message</a>
-            </li>
-            <li>
-                <span class="material-symbols-outlined">settings</span>
-                <a href="#">Settings</a>
+                <img src="../../../public_html/media/persona-icon.png" alt="persona-icon" />
+                <a href="#">Your Persona</a>
             </li>
             <li class="logout-link">
                 <span class="material-symbols-outlined">logout</span>
                 <a href="#">Logout</a>
             </li>
             <li class="deletion-link">
-                <span class="material-symbols-outlined">delete</span>
+                <span class="material-symbols-outlined" style="color: red;">delete</span>
                 <a class="deleteTab" href="#">Delete Account</a>
             </li>
         </ul>
     </aside>
 
     <span class="overlay"></span>
-    
+
     <section>
         <div id="warningPopup" class="popup hidden">
             <i class="fas fa-exclamation-circle"></i>
@@ -72,7 +76,43 @@
         </div>
     </section>
 
-   
+    <script>
+        
+        //Sidebar collapsing JS
+        const sidebar = document.querySelector('.sidebar');
+        const collapseBtn = document.querySelector('.collapse-btn');
+
+        const toggleSidebar = () => {
+            sidebar.classList.toggle('collapsed');
+        };
+        collapseBtn.addEventListener('click', toggleSidebar);
+
+        //Delete pop up JS
+        document.addEventListener("DOMContentLoaded", function() {
+            const deleteTab = document.querySelector(".deleteTab");
+            const warningPopup = document.getElementById("warningPopup");
+            const overlay = document.querySelector(".overlay");
+            const cancelBtn = document.getElementById("cancel");
+
+            deleteTab.addEventListener("click", function(event) {
+                event.preventDefault();
+                warningPopup.classList.remove("hidden");
+                overlay.classList.add("show");
+            });
+
+            cancelBtn.addEventListener("click", function() {
+                warningPopup.classList.add("hidden");
+                overlay.classList.remove("show");
+            });
+
+            const confirmBtn = document.getElementById("confirm");
+            confirmBtn.addEventListener("click", function() {
+                alert("Account deleted!");
+                warningPopup.classList.add("hidden");
+                overlay.classList.remove("show");
+            });
+        });
+    </script>
 </body>
 
 </html>
