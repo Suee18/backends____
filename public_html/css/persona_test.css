@@ -66,16 +66,6 @@ body {
     width: 70%;
     height: 75vh;
     margin: 115px auto 25px;
-    /* background: linear-gradient(
-        250deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(200, 200, 200, 0.2),
-        rgba(150, 150, 150, 0.3),
-        rgba(100, 100, 100, 0.4),
-        rgba(0, 0, 0, 0.5)
-    );
-    backdrop-filter: blur(5px); */
-
     background: rgba(0, 0, 0, 0.327);
     backdrop-filter: blur(15px);
     z-index: 2;
@@ -149,17 +139,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: #f0f0f0; */
-    /* background: linear-gradient(
-        135deg,
-        rgba(133, 133, 133, 0.3),
-        rgba(255, 255, 255, 0.1)
-    ); */
-
     background: rgba(162, 161, 161, 0.241);
     backdrop-filter: blur(20px);
     color: var(--white);
-
     backdrop-filter: blur(20px);
     cursor: pointer;
     border-radius: 10px;
@@ -210,4 +192,65 @@ body {
 .swiper-button-next.disabled {
     opacity: 0.5;
     pointer-events: none;
+}
+
+/* Style for the last slide */
+.swiper-slide.last-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.swiper-slide.last-slide h3 {
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 13px;
+}
+
+/* Button style */
+.submit-button {
+    background-color: var(--powder_blue);
+    color: var(--white);
+    font-size: 18px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effect */
+.submit-button:hover {
+    background-color: rgba(255, 255, 255, 0.241);
+    transform: scale(1.05);
+}
+
+/* Button active state */
+.submit-button:active {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.02);
+}
+
+/* Make the last slide stand out a bit more */
+.swiper-slide.last-slide {
+    margin-top: 20px;
+    width: 60%; /* Adjust the width for a centered look */
+}
+
+.subtext {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.persona-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    filter: invert(1) brightness(1.2); /* Adjust if necessary to match your design */
 }
