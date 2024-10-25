@@ -113,7 +113,8 @@
 
             <div class="small-container">
                 <div class="formContainer">
-                    <form id="userForm">
+               <form id="userForm" method="POST" action="" >
+
                         <div class="formInputfields">
                             <div>
                                 <label class="userformLabels" for="userSelect">Select User:</label>
@@ -133,17 +134,26 @@
 
                             <div>
                                 <label class="userformLabels" for="username">Username :</label>
-                                <input type="text" id="username" readonly disabled>
+                                <input type="text" name="username" id="username" >
                             </div>
 
                             <div>
+                             <label class="userformLabels" for="gender">Gender :</label>
+                             <select id="gender" name="gender">
+                             <option value="" ></option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            </select>
+                           </div>
+
+                            <div>
                                 <label class="userformLabels" for="password">Password :</label>
-                                <input type="password" id="password" readonly disabled>
+                                <input type="password" name="password"  id="password" >
                             </div>
 
                             <div>
                                 <label class="userformLabels" for="user_type">User Type :</label>
-                                <select id="user_type" disabled>
+                                <select id="user_type"  name="user_type" >
 
                                     <option value=""></option>
                                     <option value="admin">Admin</option>
@@ -153,7 +163,7 @@
 
                             <div>
                                 <label class="userformLabels" for="email">e-mail :</label>
-                                <input type="email" id="email" readonly disabled>
+                                <input type="email" name="email" id="email" >
                             </div>
                         </div>
 
@@ -164,7 +174,7 @@
                             <div class="CRUD_control">
                                 <div class="CRUDcontainer">
                                     <!-- add -->
-                                    <button class="button" type="button" id="addButton" onclick="enableFormFields()">
+                                    <button class="button" name="addButton" type="submit" id="addButton" onclick="enableFormFields()">
                                         <span class="button__text">Add user</span>
                                         <span class="button__icon">
                                             <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
@@ -213,3 +223,60 @@
 </body>
 
 </html>
+
+<?php
+include_once "../../config/db_config.php"; // Include your database configuration
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Create
+    if (isset($_POST['addButton'])) {
+        $username = mysqli_real_escape_string($conn, htmlspecialchars($_POST["username"]));
+        $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST["password"]));
+        $type = mysqli_real_escape_string($conn, htmlspecialchars($_POST["user_type"]));
+        $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST["email"]));
+        $gender = mysqli_real_escape_string($conn, htmlspecialchars($_POST["gender"]));
+
+        $sql = "INSERT INTO users (username, password, type, email, gender) VALUES ('$username', '$password', '$type', '$email', '$gender')";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            echo "User added successfully!";
+        } else {
+            echo "Error adding user: " . mysqli_error($conn);
+        }
+    }
+
+    // Update
+    if (isset($_POST['saveButton'])) {
+        $userId = mysqli_real_escape_string($conn, htmlspecialchars($_POST["userId"])); // You need to add this hidden field in your form to store the user ID
+        $username = mysqli_real_escape_string($conn, htmlspecialchars($_POST["username"]));
+        $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST["password"]));
+        $type = mysqli_real_escape_string($conn, htmlspecialchars($_POST["user_type"]));
+        $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST["email"]));
+        $gender = mysqli_real_escape_string($conn, htmlspecialchars($_POST["gender"]));
+
+        $sql = "UPDATE users SET username='$username', password='$password', type='$type', email='$email', gender='$gender' WHERE id='$userId'";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            echo "User updated successfully!";
+        } else {
+            echo "Error updating user: " . mysqli_error($conn);
+        }
+    }
+
+    // Delete
+    if (isset($_POST['deleteButton'])) {
+        $userId = mysqli_real_escape_string($conn, htmlspecialchars($_POST["userId"])); // Similarly, get the user ID
+        $sql = "DELETE FROM users WHERE id='$userId'";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            echo "User deleted successfully!";
+        } else {
+            echo "Error deleting user: " . mysqli_error($conn);
+        }
+    }
+}
+
+// Read: This can be handled separately to display users on the dashboard.
+// You can fetch users from the database and display them in a table or select dropdown.
+?>

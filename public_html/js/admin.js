@@ -238,25 +238,13 @@ const sessionDurationChart = new Chart(ctxSessionDuration, {
 function populateForm() {
     const select = document.getElementById('userSelect');
     const selectedOption = select.options[select.selectedIndex];
-
-    if (selectedOption.value) {
-        // Populate fields with data from the selected option
-        document.getElementById('username').value = selectedOption.getAttribute('data-username');
-        document.getElementById('email').value = selectedOption.getAttribute('data-email');
-        document.getElementById('user_type').value = selectedOption.getAttribute('data-type');
-        document.getElementById('password').value = ''; // Clear password field
-
-        // Enable all form fields for editing
-        enableFormFields();
-
-        // Enable buttons (Edit, Save, Delete)
-        document.getElementById('editButton').style.display = 'flex';
-        document.getElementById('addButton').style.display = 'none';
-        document.getElementById('saveButton').style.display = 'flex';
-        document.getElementById('deleteButton').style.display = 'flex';
-
-    }
+    document.getElementById('username').value = selectedOption.dataset.username;
+    document.getElementById('gender').value = selectedOption.dataset.gender || ''; 
+    document.getElementById('user_type').value = selectedOption.dataset.type;
+    document.getElementById('password').value = ''; 
 }
+
+
 
 function enableFormFields() {
     document.getElementById('username').disabled = false;
@@ -280,3 +268,10 @@ function clearForm() {
     document.getElementById('email').disabled = false;
     document.getElementById('saveButton').disabled = false;
 }
+
+
+
+
+
+
+
