@@ -411,3 +411,69 @@ margin-top: 0rem;
     background:linear-gradient(160deg, #770a0af6, #ff0000d0, #ff0000ad, #770a0af6);
 } 
 
+
+/*===========Reviews table===============*/
+
+
+.table-container-adminReview {
+    position: relative;
+    overflow: auto;
+    max-height: 70vh;
+
+}
+
+.table-adminReview thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #555555;
+border-radius: 5rem;
+}
+
+.table-container-adminReview {
+    width: 80%;
+    margin-left: 8rem;
+    margin-top: 1rem;
+    border-collapse: collapse;
+
+
+}
+
+
+.table-adminReview {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-adminReview th,
+.table-adminReview td {
+    padding: 2rem;
+    text-align:left;
+    border-bottom: 1px solid #0082aa;
+}
+
+.table-adminReview th {
+    /* background-color: #f4f4f4; */
+background-color: #d3d3d336;
+    color: #040913;
+    font-weight: bold;
+}
+
+.table-adminReview tr:hover {
+    background: linear-gradient(160deg, #000000c5, #3a3a3a93, #3a3a3a93, #000000c5);
+}
+
+.delete-icon-adminReview {
+    width: 2rem;
+    height: 100%;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.delete-icon-adminReview:hover {
+    color: darkred;
+    transform: scale(1.1);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
