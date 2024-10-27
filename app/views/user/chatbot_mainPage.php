@@ -13,35 +13,16 @@
 
 <!-- User Profile icon -->
 <nav>
-        <div class="nav-content">
-            <div class="toggle-btn">
-            <i class=" fa-solid fa-user"></i>
-            </div>
-            <span style="--i:4;">
-                <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
-            </span>
-
-            <span style="--i:1;">
-                <a href="#"><i class="fa-solid fa-house"></i></a>
-            </span>
-            <span style="--i:2;">
-                <a href="#"><i class="fa-solid fa-heart"></i></a>
-            </span>
-            <span style="--i:3;">
-                <a href="#"><i class="fa-solid fa-user"></i></a>
-            </span>
-           
-          
+    <div class="nav-content">
+        <div class="toggle-btn">
+        <i class="fa-solid fa-user" style="color: #ffffff;"></i>
         </div>
-    </nav>
-
-        <!-- Video Background-->
-        <!-- <div class="video-background">
-        <video autoplay muted loop class="slide-bg" id="myVideo">
-                    <source src="../../../public_html/media/galaxy-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-    </div>  -->
+        <span style="--i:4;"><a href="index.php"><i class="fa-solid fa-house" style="color: #ffffff;"></i></a></span>
+        <span style="--i:3;"><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></span>
+        <span style="--i:2;"><a href="#"><i class="fa-solid fa-heart" style="color: #ffffff;"></i></a></span>
+        <span style="--i:1;"><a href="#"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></span>
+    </div>
+</nav>
 
 <!-- Top of the Page -->
  

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="../../../public_html/css/login.css">
     <title>Sign In</title>
 </head>
+
 <body>
     <div class="login-container">
         <!-- Left: Form Section -->
         <div class="form-section">
             <h1>Sign in</h1>
-            
+
             <label for="email">Email</label>
             <input type="email" id="email" placeholder="Enter your email" />
 
@@ -24,8 +26,8 @@
             </label>
             <button type="submit">Sign in</button>
 
-            <p class="sign-up-link">Don't have an account? <a href="/SWE_Phase1-main/app/views/auth/signup.php">Sign up</a></p>
-            </div>
+            <p class="sign-up-link">Don't have an account? <a href="../auth/signup.php">Sign up</a></p>
+        </div>
 
         <div class="welcome-section">
             <h1>Welcome Back!</h1>
@@ -37,4 +39,5 @@
         </div>
     </div>
 </body>
+
 </html>
