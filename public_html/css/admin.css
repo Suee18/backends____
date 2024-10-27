@@ -170,7 +170,7 @@ html {
 
     /* background-color: aqua; */
     width: 90%;
-    height: 70%;
+    height: auto;
     margin-left: 5rem;
     margin-top: 2rem;
 }
@@ -254,6 +254,12 @@ select {
     
     background-color: #949494a4;
     
+}
+
+#age{
+height: 7%;
+width:48%;
+color: white;
 }
 
 /**-------right Control panel---------*/

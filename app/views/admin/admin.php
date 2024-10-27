@@ -3,7 +3,7 @@
 include_once "../../config/db_config.php"; 
 
 $users = [];
-$sql = "select id, username, gender, password, email,type FROM users";
+$sql = "select id, username,age, gender, password, email,type FROM users";
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
@@ -23,7 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             include 'add_user.php';
             break;
 
-     
+       case 'update':
+           
+            include 'update_user.php';
+            break;
 
     }
 }
@@ -158,6 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php foreach ($users as $user): ?>
                    <option value="<?php echo $user['id']; ?>" 
             data-username="<?php echo htmlspecialchars($user['username']); ?>"  
+            data-age="<?php echo htmlspecialchars($user['age']); ?>"  
             data-gender="<?php echo htmlspecialchars($user['gender']); ?>"  
             data-email="<?php echo htmlspecialchars($user['email']); ?>"   
             data-password="<?php echo htmlspecialchars($user['password']); ?>"
@@ -168,15 +172,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </select>
                             </div>
 
+                            <!-- hidden input to get the user id from DB -->
+                            <input type="hidden" name="user_id" id="user_id" value="">
                             <div>
                                 <label class="userformLabels" for="username">Username :</label>
-                                <input type="text" name="username" id="username" readonly disabled >
+                                <input type="text" name="username" id="username" readonly disabled  >
                             </div>
-
-                            
+                                
+                            <label class="userformLabels" for="age">Date of Birth:</label>
+                            <input  type="date" id="age" name="age"  disabled>
+                            <div>
 
                              <label class="userformLabels" for="gender">Gender :</label>
-                             <select id="gender" name="gender"  disabled>
+                             <select id="gender" name="gender"  disabled > 
                              <option value="" ></option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -185,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <div>
                                 <label class="userformLabels" for="password">Password :</label>
-                                <input type="password" name="password"  id="password"  readonly disabled>
+                                <input type="password" name="password"  id="password"  readonly disabled >
                             </div>
 
                             <div>
@@ -200,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <div>
                                 <label class="userformLabels" for="email">e-mail :</label>
-                                <input type="email" name="email" id="email" readonly disabled >
+                                <input type="email" name="email" id="email" readonly disabled  >
                             </div>
                         </div>
    <!-- Hidden field for form action -->
@@ -212,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <div class="CRUD_control">
                                 <div class="CRUDcontainer">
                                     <!-- add -->
-                                    <button class="button" name="addUser" type="button" id="adduserButton" onclick="enableFormFields()">
+                                    <button class="button" name="addUser" type="button" id="adduserButton" onclick="enableFormFields(); switchAddButtons();">
                                     <span class="button__text">Add user</span>
                                     <span class="button__icon">
                                     <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
@@ -227,20 +235,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </button>
 
                                     <!-- edit -->
-                                    <button class="button" type="button" id="editButton" onclick="enableEditing()" style=" display:none">
+                                    <button class="button" type="button" id="editButton" onclick="showSaveButton()" style=" display:none">
                                         <span class="button__text">Edit info</span>
                                         <span class="button__icon">
                                             <i class="fa-solid fa-user-pen" style="color: #ffffff;"></i>
                                         </span>
                                     </button>
                                     <!-- save -->
-                                    <button style="display:none" class="button" type="submit" id="saveButton" onclick="clearForm()">
+                                    <button style="display:none" class="button" type="submit" id="saveButton" onclick=" setAction('update')"  >
                                         <span class="button__text"> Save info</span>
                                         <span class="button__icon">
                                             <i class="fa-regular fa-floppy-disk" style="color: #ffffff;"></i>
                                     </button>
                                     <!-- delete -->
-                                    <button class="button" type="button" id="deleteButton" style="display:none">
+                                    <button class="button" type="submit" id="deleteButton" style="display:none" onclick="setAction('delete')">
                                         <span class="button__text">Delete user</span>
                                         <span class="button__icon">
                                             <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
