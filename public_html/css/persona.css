@@ -1,0 +1,156 @@
+@import url("../css/global_styles.css");
+
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+    background-color: var(--blue_gray_dark);
+    height: auto;
+    margin: 0;
+}
+
+.navbar {
+    top: 0;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.2rem auto;
+    padding: 1rem 2rem;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 8px;
+    position: relative;
+    top: 90px; /* Adjust this value to add space below the navbar */
+}
+
+.content-container h2{
+    color: var(--white);
+    font-size: 2em;
+    margin-bottom: 0.3rem;
+    font-style: oblique;
+}
+
+
+.content-container h4 {
+    color: var(--white);
+    font-size: 1.2em;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    font-style: oblique;
+}
+
+.persona-container {
+    display: flex;
+    /* margin: 100px auto; */
+    margin: 100px auto 100px;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 1.5rem !important;
+}
+
+.persona-container::before {
+    content: "";
+    background-color: var(--blue_gray_dark);    
+    width: 2rem; /* Width of the separator */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 35%; /* Position it between the columns */
+}
+
+.left-column,
+.right-column {
+    padding: 2rem;
+}
+
+.left-column {
+    width: 35%;
+    background-color: #e0f7fa;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    position: relative;
+    z-index: 1;
+}
+
+.left-column h2 {
+    color: #00796b;
+}
+
+.persona-image {
+    max-width: 60%;
+}
+
+.persona-info h2 {
+    color: #00796b;
+}
+
+.persona-title h3 {
+    font-size: 1.5em;
+    color: #004d40;
+}
+
+/* */
+
+.right-column h4 {
+    color: #00796b;
+    font-size: 1.8em;
+    /* margin-bottom: 1rem; */
+}
+
+.car-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.car-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.car-info h4 {
+    color: #004d40;
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    margin-top: 0rem;
+}
+
+.car-preferences h5 {
+    color: #004d40;
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
+}
+
+.car-preferences ul {
+    list-style-type: none;
+    padding-left: 0;
+    color: #333;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+.car-preferences li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
