@@ -170,9 +170,9 @@ html {
 
     /* background-color: aqua; */
     width: 90%;
-    height: 75%;
+    height: 70%;
     margin-left: 5rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 form {
@@ -394,7 +394,10 @@ margin-top: 0rem;
 }
 
 
-#addButton{
+
+
+#addButton,
+#adduserButton{
     border: 1px solid #f5f5f5;
     background-color: #00000063;
     backdrop-filter: blur(1px);
@@ -410,4 +413,8 @@ margin-top: 0rem;
     box-shadow: 0px 0px 10px   rgba(255, 0, 0, 0.849);
     background:linear-gradient(160deg, #770a0af6, #ff0000d0, #ff0000ad, #770a0af6);
 } 
+
+
+
+
 

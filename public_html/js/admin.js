@@ -235,30 +235,56 @@ const sessionDurationChart = new Chart(ctxSessionDuration, {
 });
 
 // CRUD user
+
+
 function populateForm() {
-    const select = document.getElementById('userSelect');
-    const selectedOption = select.options[select.selectedIndex];
-    document.getElementById('username').value = selectedOption.dataset.username;
-    document.getElementById('gender').value = selectedOption.dataset.gender || ''; 
-    document.getElementById('user_type').value = selectedOption.dataset.type;
-    document.getElementById('password').value = ''; 
+    var select = document.getElementById('userSelect');
+    var selectedOption = select.options[select.selectedIndex];
+
+    if (selectedOption.value) {
+
+        document.getElementById('username').value = selectedOption.getAttribute('data-username');
+        document.getElementById('email').value = selectedOption.getAttribute('data-email');
+        document.getElementById('user_type').value = selectedOption.getAttribute('data-type');
+        document.getElementById('gender').value = selectedOption.getAttribute('data-gender');
+        document.getElementById('password').value = '';
+
+     
+        enableFormFields();
+
+        // Show and hide buttons appropriately
+        document.getElementById('editButton').style.display = 'flex';
+        document.getElementById('addButton').style.display = 'none';
+        document.getElementById('saveButton').style.display = 'flex';
+        document.getElementById('deleteButton').style.display = 'flex';
+    } else {
+       
+        clearForm();
+    }
 }
 
 
-
 function enableFormFields() {
+    // Enable the form fields
     document.getElementById('username').disabled = false;
+    document.getElementById('gender').disabled = false;
     document.getElementById('password').disabled = false;
     document.getElementById('user_type').disabled = false;
     document.getElementById('email').disabled = false;
-    document.getElementById('deleteButton').disabled = false;
-    const inputs = document.querySelectorAll('#username, #password, #user_type, #email');
+
+    // Make inputs editable
+    const inputs = document.querySelectorAll('#username,#gender, #password, #user_type, #email');
     inputs.forEach(input => {
         input.readOnly = false;
         input.disabled = false;
         input.classList.add('editable');
     });
+
+    document.getElementById('adduserButton').style.display = 'none';
+    document.getElementById('addButton').style.display = 'flex';
+
 }
+
 
 function clearForm() {
     document.getElementById('userForm').reset();
@@ -270,8 +296,7 @@ function clearForm() {
 }
 
 
-
-
-
-
-
+//for specifying the crud operation
+function setAction(action) {
+    document.getElementById('formAction').value = action;
+}
