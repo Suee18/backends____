@@ -25,13 +25,12 @@ body {
     top: 90px; /* Adjust this value to add space below the navbar */
 }
 
-.content-container h2{
+.content-container h2 {
     color: var(--white);
     font-size: 2em;
     margin-bottom: 0.3rem;
     font-style: oblique;
 }
-
 
 .content-container h4 {
     color: var(--white);
@@ -57,7 +56,7 @@ body {
 
 .persona-container::before {
     content: "";
-    background-color: var(--blue_gray_dark);    
+    background-color: var(--blue_gray_dark);
     width: 2rem; /* Width of the separator */
     position: absolute;
     top: 0;
@@ -153,4 +152,85 @@ body {
 .car-preferences li {
     margin-bottom: 0.5rem;
     line-height: 1.5;
+}
+
+.persona-slider-section {
+    text-align: center;
+}
+
+.header {
+    font-family: "DM Sans", var(--racing_font);
+    font-style: italic;
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 70px;
+    margin-top: 50px;
+}
+.slider-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.swiper-container {
+    width: 30%;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4cm;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.216);
+    backdrop-filter: blur(30px);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.persona-card {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.persona-icon {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-bottom: 50px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.persona-card h4 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 10px;
+    margin-top: 100px;
+}
+
+.swiper-slide-active {
+    transform: scale(1.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+.persona-paragraph {
+    font-size: 1.3rem;
+    font-family: "DM Sans", var(--paragraph_font);
+    color: var(--white);
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    word-wrap: normal;
+    white-space: pre-line;
+    max-width: 300px;
 }
