@@ -15,11 +15,7 @@
             </li>
             <!-- ----------------------------------------- -->
             <li>
-<<<<<<< HEAD
-                <a href="../" class="listElement_navBar compare-link">
-=======
                 <a href=".././app/views/car_comparison.php" class="listElement_navBar compare-link">
->>>>>>> 6ed0b4bed743a09f220bfd7c53e05cd8045f19a0
                     Compare cars
                 </a>
             </li>
@@ -29,11 +25,7 @@
                 </a>
             </li>
             <li>
-<<<<<<< HEAD
-                <a href="../../app/views/auth/login.php" class="listElement_login_navBar" id="listElement_login_navBar">
-=======
                 <a href=".././app/views/auth/login.php" class="listElement_login_navBar" id="listElement_login_navBar">
->>>>>>> 6ed0b4bed743a09f220bfd7c53e05cd8045f19a0
                     Log in
                 </a>
             </li>
