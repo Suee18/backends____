@@ -1,0 +1,84 @@
+@import url("../../public_html/css/global_styles.css");
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    height: 100vh;
+    margin: 0;
+}
+
+.navbar {
+    top: 0;
+}
+
+.progress-bar-container {
+    width: 70%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+/* Center the Swiper */
+.swiper {
+    width: 80%;
+    height: 80vh;
+    margin: 50px auto 40px;
+}
+
+/* Center the content inside the swiper slide */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-container {
+    text-align: center;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    justify-items: center;
+}
+
+.option {
+    width: 200px; /* Increased width */
+    height: 180px; /* Increased height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px; /* Increased font size */
+    text-align: center;
+}
+
+.option img {
+    width: 60px; /* Increased width */
+    height: 60px; /* Increased height */
+    margin-bottom: 8px;
+}
+
+.option.selected {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
