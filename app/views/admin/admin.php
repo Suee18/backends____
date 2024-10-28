@@ -1,3 +1,46 @@
+<?php
+
+include_once "../../config/db_config.php"; 
+
+$users = [];
+$sql = "select id, username,age, gender, password, email,type FROM users";
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $users[] = $row; // Store each user in the $users array
+    }
+} else {
+    echo "Error fetching users: " . mysqli_error($conn); 
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $action = $_POST['action'] ?? 'read'; 
+
+    switch ($action) {
+        case 'add':
+          
+            include 'add_user.php';
+            break;
+
+       case 'update':
+           
+            include 'update_user.php';
+            break;
+
+            case 'delete':
+           
+                include 'delete_user.php';
+                break;
+
+    }
+}
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,50 +159,81 @@
 
             <div class="small-container">
                 <div class="formContainer">
-                    <form id="userForm">
+               <form id="userForm" method="POST" action="admin.php" onsubmit="return validate(this)">
+
                         <div class="formInputfields">
                             <div>
                                 <label class="userformLabels" for="userSelect">Select User:</label>
-                                <select id="userSelect" onchange="populateForm()">
-                                    <option value="" disabled selected>Select a user</option>
-                                    <option value="1" data-username="john_doe" data-email="john@example.com" data-type="admin">
-                                        John Doe
-                                    </option>
-                                    <option value="2" data-username="jane_smith" data-email="jane@example.com" data-type="user">
-                                        Jane Smith
-                                    </option>
-                                    <option value="3" data-username="alice_jones" data-email="alice@example.com" data-type="admin">
-                                        Alice Jones
-                                    </option>
-                                </select>
+                                <select id="userSelect" name="user_id" onchange="populateForm()">
+                <option value="" disabled selected>Select a user</option>
+                <?php foreach ($users as $user): ?>
+                   <option value="<?php echo $user['id']; ?>" 
+            data-username="<?php echo htmlspecialchars($user['username']); ?>"  
+            data-age="<?php echo htmlspecialchars($user['age']); ?>"  
+            data-gender="<?php echo htmlspecialchars($user['gender']); ?>"  
+            data-email="<?php echo htmlspecialchars($user['email']); ?>"   
+            data-password="<?php echo htmlspecialchars($user['password']); ?>"
+            data-type="<?php echo htmlspecialchars($user['type']); ?>">
+        <?php echo htmlspecialchars($user['username']); ?>
+    </option>
+                <?php endforeach; ?>
+            </select>
+                            </div>
+
+                            <!-- hidden input to get the user id from DB -->
+                            <input type="hidden" name="user_id" id="user_id" value="">
+                            <div>
+                                <label class="userformLabels" for="username">Username :</label>
+                                <input type="text" name="username" id="username" readonly disabled  >
+                                <span id="usernameERR" class="error"></span> 
                             </div>
 
                             <div>
-                                <label class="userformLabels" for="username">Username :</label>
-                                <input type="text" id="username" readonly disabled>
+                                <label class="userformLabels" for="email">e-mail :</label>
+                                <input type="email" name="email" id="email" readonly disabled  >
+                                <span id="emailERR" class="error"></span>
                             </div>
 
                             <div>
                                 <label class="userformLabels" for="password">Password :</label>
-                                <input type="password" id="password" readonly disabled>
+                                <input type="password" name="password"  id="password"  readonly disabled >
+                                <span id="passERR" class="error"></span>
                             </div>
+
+
+                            <label class="userformLabels" for="age">Date of Birth:</label>
+                            <input  type="date" id="age" name="age"  disabled>
+                            <span id="birthDateERR" class="error"></span>
+                            <div>
+
+                       
+                         
+                             <label class="userformLabels" for="gender">Gender :</label>
+                             <select id="gender" name="gender"  disabled > 
+                             <option value="" ></option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            </select>
+                            <span id="genderERR" class="error"></span>
+                           </div>
+
+                          
 
                             <div>
                                 <label class="userformLabels" for="user_type">User Type :</label>
-                                <select id="user_type" disabled>
+                                <select id="user_type"  name="user_type"  disabled >
 
                                     <option value=""></option>
                                     <option value="admin">Admin</option>
                                     <option value="user">User</option>
                                 </select>
+                                <span id="userTypeERR" class="error"></span>
                             </div>
 
-                            <div>
-                                <label class="userformLabels" for="email">e-mail :</label>
-                                <input type="email" id="email" readonly disabled>
-                            </div>
+                           
                         </div>
-
+    <!-- Hidden field for form action -->
+   <input type="hidden" name="action" id="formAction" value="">
                         <div class="CRUD_bigcontainer">
                             <p class="controlPanel_text">control panel</p>
 
@@ -167,27 +241,35 @@
                             <div class="CRUD_control">
                                 <div class="CRUDcontainer">
                                     <!-- add -->
-                                    <button class="button" type="button" id="addButton" onclick="enableFormFields()">
-                                        <span class="button__text">Add user</span>
-                                        <span class="button__icon">
-                                            <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
-                                        </span>
+                                    <button class="button" name="addUser" type="button" id="adduserButton" onclick="enableFormFields(); switchAddButtons();">
+                                    <span class="button__text">Add user</span>
+                                    <span class="button__icon">
+                                    <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
+                                    </span>
                                     </button>
+
+                                    <button style="display:none" class="button" name="addButton" type="submit" id="addButton" onclick="setAction('add')">
+                                    <span class="button__text">Add user</span>
+                                    <span class="button__icon">
+                                    <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
+                                    </span>
+                                    </button>
+
                                     <!-- edit -->
-                                    <button class="button" type="button" id="editButton" onclick="enableEditing()" style=" display:none">
+                                    <button class="button" type="button" id="editButton" onclick="showSaveButton()" style=" display:none">
                                         <span class="button__text">Edit info</span>
                                         <span class="button__icon">
                                             <i class="fa-solid fa-user-pen" style="color: #ffffff;"></i>
                                         </span>
                                     </button>
                                     <!-- save -->
-                                    <button style="display:none" class="button" type="submit" id="saveButton" onclick="clearForm()">
+                                    <button style="display:none" class="button" type="submit" id="saveButton" onclick=" setAction('update')"  >
                                         <span class="button__text"> Save info</span>
                                         <span class="button__icon">
                                             <i class="fa-regular fa-floppy-disk" style="color: #ffffff;"></i>
                                     </button>
                                     <!-- delete -->
-                                    <button class="button" type="button" id="deleteButton" style="display:none">
+                                    <button class="button" type="submit" id="deleteButton" style="display:none" onclick="setAction('delete')">
                                         <span class="button__text">Delete user</span>
                                         <span class="button__icon">
                                             <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
@@ -290,3 +372,4 @@
 </body>
 
 </html>
+

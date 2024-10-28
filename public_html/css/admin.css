@@ -170,7 +170,7 @@ html {
 
     /* background-color: aqua; */
     width: 90%;
-    height: 70%;
+    height: 120%;
     margin-left: 5rem;
     margin-top: 2rem;
 }
@@ -210,7 +210,7 @@ input:not(:disabled):hover, select:not(:disabled):hover, textarea:not(:disabled)
     margin-top: 1.5rem;
    margin-left: 10rem; 
   width: 35%;
-   height: 90%;
+   height: auto;
   display: flex;
    flex-direction: column;
    justify-content: center;
@@ -239,9 +239,11 @@ option:hover {
 input,
 select {
     width: 50%;
-    height: 42%;
+    display: flex;
+    height: 47%;
     margin-left: 6rem;
     padding: 0.5rem;
+    padding-bottom: 4%;
     margin-top: 5px;
     border-radius: 0.2rem;
     background-color: rgba(255, 255, 255, 0);
@@ -249,11 +251,26 @@ select {
 
 }
 
+/*error message validation*/
+.error {
+    color: red; 
+    font-size: 0.9em; 
+    margin-top: 5px; 
+    margin-left: 25%;
+}
+
+
 #userSelect{
     border: 2px solid #10c295;
     
     background-color: #949494a4;
     
+}
+
+#age{
+height: 7%;
+width:48%;
+color: white;
 }
 
 /**-------right Control panel---------*/
@@ -394,7 +411,10 @@ margin-top: 0rem;
 }
 
 
-#addButton{
+
+
+#addButton,
+#adduserButton{
     border: 1px solid #f5f5f5;
     background-color: #00000063;
     backdrop-filter: blur(1px);
@@ -411,7 +431,10 @@ margin-top: 0rem;
     background:linear-gradient(160deg, #770a0af6, #ff0000d0, #ff0000ad, #770a0af6);
 } 
 
-
+.input-error {
+    border-bottom: 1px solid red;
+    font-size: 2px;
+}
 /*===========Reviews table===============*/
 
 
