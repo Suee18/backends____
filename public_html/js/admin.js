@@ -319,3 +319,107 @@ function clearForm() {
 function setAction(action) {
     document.getElementById('formAction').value = action;
 }
+
+
+//form validation
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("userForm");
+
+    form.addEventListener("submit", (event) => {
+        // Prevent form submission if any field is invalid
+        if (!validateForm()) {
+            event.preventDefault();
+        }
+    });
+
+    function validateForm() {
+        let isValid = true;
+
+        // Username Validation
+        const username = document.getElementById("username");
+        if (!username.value.trim()) {
+            isValid = false;
+            showError(username, "Username is required.");
+        } else {
+            removeError(username);
+        }
+
+        // Age/Date of Birth Validation
+        const age = document.getElementById("age");
+        if (!age.value) {
+            isValid = false;
+            showError(age, "Date of Birth is required.");
+        } else {
+            const dob = new Date(age.value);
+            const today = new Date();
+            if (dob >= today) {
+                isValid = false;
+                showError(age, "Date of Birth cannot be in the future.");
+            } else {
+                removeError(age);
+            }
+        }
+
+        // Email Validation
+        const email = document.getElementById("email");
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value || !emailPattern.test(email.value)) {
+            isValid = false;
+            showError(email, "Please enter a valid email address.");
+        } else {
+            removeError(email);
+        }
+
+        // Password Validation
+        const password = document.getElementById("password");
+        if (!password.value.trim() || password.value.length < 6) {
+            isValid = false;
+            showError(password, "Password must be at least 6 characters long.");
+        } else {
+            removeError(password);
+        }
+
+        // Gender Validation
+        const gender = document.getElementById("gender");
+        if (!gender.value) {
+            isValid = false;
+            showError(gender, "Gender is required.");
+        } else {
+            removeError(gender);
+        }
+
+        // User Type Validation
+        const userType = document.getElementById("user_type");
+        if (!userType.value) {
+            isValid = false;
+            showError(userType, "User type is required.");
+        } else {
+            removeError(userType);
+        }
+
+        return isValid;
+    }
+
+    function showError(field, message) {
+        field.classList.add("input-error");
+
+        // Optional: Show error message below the field
+        let error = field.nextElementSibling;
+        if (!error || !error.classList.contains("error-message")) {
+            error = document.createElement("div");
+            error.classList.add("error-message");
+            field.parentNode.insertBefore(error, field.nextSibling);
+        }
+        error.textContent = message;
+        error.style.color = "red";
+    }
+
+    function removeError(field) {
+        field.classList.remove("input-error");
+
+        const error = field.nextElementSibling;
+        if (error && error.classList.contains("error-message")) {
+            error.textContent = ""; // Clear the message
+        }
+    }
+});

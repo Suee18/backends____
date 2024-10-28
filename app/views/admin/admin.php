@@ -28,6 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             include 'update_user.php';
             break;
 
+            case 'delete':
+           
+                include 'delete_user.php';
+                break;
+
     }
 }
 

@@ -210,7 +210,7 @@ input:not(:disabled):hover, select:not(:disabled):hover, textarea:not(:disabled)
     margin-top: 1.5rem;
    margin-left: 10rem; 
   width: 35%;
-   height: 90%;
+   height: auto;
   display: flex;
    flex-direction: column;
    justify-content: center;
@@ -239,6 +239,7 @@ option:hover {
 input,
 select {
     width: 50%;
+    display: flex;
     height: 42%;
     margin-left: 6rem;
     padding: 0.5rem;
@@ -248,6 +249,15 @@ select {
     color: rgb(0, 0, 0);
 
 }
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-left: 10px; /* Space between field and error message */
+    display: inline; /* Makes the message appear next to the field */
+    vertical-align: middle; /* Aligns the error message with the field */
+}
+JavaSc
 
 #userSelect{
     border: 2px solid #10c295;
@@ -424,3 +434,7 @@ margin-top: 0rem;
 
 
 
+.input-error {
+    border-bottom: 1px solid red;
+    font-size: 2px;
+}
