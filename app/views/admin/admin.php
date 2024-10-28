@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../../../public_html/css/admin.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha384-4oVU5+BHEfuDd4Q6+lcl6v+9XYWQ0JN+DNJeSoDgxGfCxGp3h66laXK9N/5ay2ad" crossorigin="anonymous">
+     
+
     <title>Admin dashboard</title>
 </head>
 
@@ -203,67 +206,83 @@
         <div id="div4" class="content-div" style="display: none;">
             This is Logout loader
         </div>
+
         <div id="div5" class="content-div" style="display: none;">
-            cars control form goes here 
+            cars control form goes here
         </div>
 
 
-
-
         <div id="div6" class="content-div" style="display: none;">
-        <div class="small-container">
+            <div class="small-container">
 
-            <div class="table-container-adminReview">
-                <table class="table-adminReview">
-                    <thead>
-                        <tr>
-                            <th>Review ID</th>
-                            <th>Username</th>
-                            <th>Review Content</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>101</td>
-                            <td>JohnDoe</td>
-                            <td>Great experience! Really enjoyed using it.</td>
-                            <td class="delete-icon-adminReview">&#x1F5D1;</td>
-                        </tr>
-                        <tr>
-                            <td>102</td>
-                            <td>JaneSmith</td>
-                            <td>Good quality, but took a while to arrive.</td>
-                            <td class="delete-icon-adminReview">&#x1F5D1;</td>
-                        </tr>
-                        <tr>
-                            <td>103</td>
-                            <td>tech lover</td>
-                            <td>"The chatbot feature is fantastic! I initially had some trouble finding the right information on the site, but the chatbot made everything so much easier. It's quick, accurate, and feels like I'm talking to a real person. It even remembers my previous questions, so I don't have to repeat myself. Definitely a must-have feature for customer support – it saved me a lot of time and effort!".</td>
-                            <td class="delete-icon-adminReview">&#x1F5D1;</td>
-                        </tr>
-                        <tr>
-                            <td>104</td>
-                            <td>Carenthusiat</td>
-                            <td>"I was really excited about the car comparison feature, but it turned out to be a huge letdown. The interface feels clunky and slow, and half the time, it doesn't even load the cars I want to compare. The data seems outdated, and I found several specs that were just plain wrong. I was hoping to get a clear side-by-side view of different models, but it’s hard to read, and the images are so small they’re practically useless. Honestly, this feature needs a major overhaul to be even remotely useful for serious buyers like me."</td>
-                            <td class="delete-icon-adminReview">&#x1F5D1;</td>
-                        </tr>
-                        <tr>
-                            <td>105</td>
-                            <td>JohnDoe</td>
-                            <td>Great experience! Really enjoyed using it.</td>
-                            <td class="delete-icon-adminReview">&#x1F5D1;</td>
-                        </tr>
-                        <tr>
-                            <td>106</td>
-                            <td>JohnDoe</td>
-                            <td>Great experience! Really enjoyed using it.</td>
-                            <td class="delete-icon-adminReview">&#x1F5D1;</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-container-adminReview">
+                    <table class="table-adminReview">
+                        <thead>
+                            <tr>
+                                <th>Review ID</th>
+                                <th>Username</th>
+                                <th>Review Content</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>101</td>
+                                <td>JohnDoe</td>
+                                <td>Great experience! Really enjoyed using it.</td>
+                                <td class="delete-icon-adminReview">
+                                <i class="fa-solid fa-trash fa-bounce" style="color: #e51515;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>JaneSmith</td>
+                                <td>Good quality, but took a while to arrive.</td>
+                                <td class="delete-icon-adminReview">
+                                <i class="fa-solid fa-trash fa-bounce" style="color: #e51515;"></i>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>103</td>
+                                <td>tech lover</td>
+                                <td>"The chatbot feature is fantastic! I initially had some trouble finding the right information on the site, but the chatbot made everything so much easier. It's quick, accurate, and feels like I'm talking to a real person. It even remembers my previous questions, so I don't have to repeat myself. Definitely a must-have feature for customer support – it saved me a lot of time and effort!".</td>
+                                <td class="delete-icon-adminReview">
+                                <i class="fa-solid fa-trash fa-bounce" style="color: #e51515;"></i>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>104</td>
+                                <td>Carenthusiat</td>
+                                <td>"I was really excited about the car comparison feature, but it turned out to be a huge letdown. The interface feels clunky and slow, and half the time, it doesn't even load the cars I want to compare. The data seems outdated, and I found several specs that were just plain wrong. I was hoping to get a clear side-by-side view of different models, but it’s hard to read, and the images are so small they’re practically useless. Honestly, this feature needs a major overhaul to be even remotely useful for serious buyers like me."</td>
+                                <td class="delete-icon-adminReview">
+                                <i class="fa-solid fa-trash fa-bounce" style="color: #e51515;"></i>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>105</td>
+                                <td>JohnDoe</td>
+                                <td>Great experience! Really enjoyed using it.</td>
+                                <!-- <td class="delete-icon-adminReview">&#x1F5D1;</td> -->
+                                <td class="delete-icon-adminReview">
+                                <i class="fa-solid fa-trash fa-bounce" style="color: #e51515;"></i>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>106</td>
+                                <td>JohnDoe</td>
+                                <td>Great experience! Really enjoyed using it.</td>
+                                <td class="delete-icon-adminReview">
+                                    <i class="fa-solid fa-trash fa-bounce" style="color: #e51515;"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-</div>
         </div>
 
         <script src="../../../public_html/js/admin.js"></script>

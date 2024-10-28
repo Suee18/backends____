@@ -10,7 +10,7 @@
 }
 
 html {
-    background-image: url('../media/mostr_lp8\ -\ Copy.jpg');
+    background-image: url('../media/mostr_lp6LOW.jpg');
     /* background-image: url('../media/animationGIF1.gif');  */
     /* background-image: url('../media/animationGIF2.gif');  */
     /* background-image: url('../media/mostr_lp3\ -\ Copy.jpg'); GALAXY ELEMENT  */
@@ -89,7 +89,7 @@ html {
     align-items: center;
 
     border-radius: 0.6rem;
-    background: linear-gradient(160deg, #000000a2, #252525ad, #252525ad, #000000a2);
+    background: linear-gradient(160deg, #000000a2, #1f1f1f62, #1f1f1f62, #000000a2);
     /* background:linear-gradient(160deg, #000000d5, #050505b4,#050505b4, #000000d5); */
     backdrop-filter: blur(6px);
 
@@ -215,7 +215,7 @@ input:not(:disabled):hover, select:not(:disabled):hover, textarea:not(:disabled)
    flex-direction: column;
    justify-content: center;
 
-   background: linear-gradient(160deg, #000000a2, #21054ead, #21054ead, #000000a2);
+   background: linear-gradient(160deg, #000000a2, #0a0e47ad, #0a0e47ad, #000000a2);
    backdrop-filter: blur(1px);
    border-radius: 0.2rem;
 }
@@ -265,7 +265,7 @@ select {
   margin-left: 3rem;
 
     padding: 0rem 0rem 0rem 0rem;
-    background: linear-gradient(160deg, #000000a2, #21054ead, #21054ead, #000000a2);
+    background: linear-gradient(160deg, #000000a2, #0a0e47ad, #0a0e47ad, #000000a2);
     backdrop-filter: blur(1px);
     border-radius: 0.2rem;
     box-shadow: 9px 8px 5px rgba(14, 14, 14, 0.582);
@@ -463,17 +463,36 @@ background-color: #d3d3d336;
     background: linear-gradient(160deg, #000000c5, #3a3a3a93, #3a3a3a93, #000000c5);
 }
 
-.delete-icon-adminReview {
-    width: 2rem;
+.delete-icon-adminReview {  cursor: pointer;
+    /* width: 2rem;
     height: 100%;
     color: red;
-    cursor: pointer;
     font-weight: bold;
-    text-align: center;
+    text-align: center; */  
+
 }
 
-.delete-icon-adminReview:hover {
-    color: darkred;
-    transform: scale(1.1);
-    transition: color 0.3s ease, transform 0.3s ease;
+.delete-icon-adminReview:hover {      cursor: pointer;
+
+ color: darkred;
+text-shadow: 5px 5px 15px rgb(133, 15, 15);
+      /*  transform: scale(1.1);
+    transition: color 0.3s ease, transform 0.3s ease; */
 }
+
+/* 
+.fa-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+} */
