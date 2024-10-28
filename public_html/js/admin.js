@@ -320,106 +320,89 @@ function setAction(action) {
     document.getElementById('formAction').value = action;
 }
 
+// Form validation
+function validate(form) {
+    let isValid = true;
 
-//form validation
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("userForm");
-
-    form.addEventListener("submit", (event) => {
-        // Prevent form submission if any field is invalid
-        if (!validateForm()) {
-            event.preventDefault();
-        }
-    });
-
-    function validateForm() {
-        let isValid = true;
-
-        // Username Validation
-        const username = document.getElementById("username");
-        if (!username.value.trim()) {
-            isValid = false;
-            showError(username, "Username is required.");
-        } else {
-            removeError(username);
-        }
-
-        // Age/Date of Birth Validation
-        const age = document.getElementById("age");
-        if (!age.value) {
-            isValid = false;
-            showError(age, "Date of Birth is required.");
-        } else {
-            const dob = new Date(age.value);
-            const today = new Date();
-            if (dob >= today) {
-                isValid = false;
-                showError(age, "Date of Birth cannot be in the future.");
-            } else {
-                removeError(age);
-            }
-        }
-
-        // Email Validation
-        const email = document.getElementById("email");
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email.value || !emailPattern.test(email.value)) {
-            isValid = false;
-            showError(email, "Please enter a valid email address.");
-        } else {
-            removeError(email);
-        }
-
-        // Password Validation
-        const password = document.getElementById("password");
-        if (!password.value.trim() || password.value.length < 6) {
-            isValid = false;
-            showError(password, "Password must be at least 6 characters long.");
-        } else {
-            removeError(password);
-        }
-
-        // Gender Validation
-        const gender = document.getElementById("gender");
-        if (!gender.value) {
-            isValid = false;
-            showError(gender, "Gender is required.");
-        } else {
-            removeError(gender);
-        }
-
-        // User Type Validation
-        const userType = document.getElementById("user_type");
-        if (!userType.value) {
-            isValid = false;
-            showError(userType, "User type is required.");
-        } else {
-            removeError(userType);
-        }
-
-        return isValid;
+    function setError(field, message) {
+        field.errorElement.textContent = message;
+        isValid = false;
     }
 
-    function showError(field, message) {
-        field.classList.add("input-error");
+    // Username validation
+    const username = document.getElementById('username');
+    const usernameERR = document.getElementById('usernameERR');
+    const usernamePattern = /^[a-zA-Z]+$/; 
 
-        // Optional: Show error message below the field
-        let error = field.nextElementSibling;
-        if (!error || !error.classList.contains("error-message")) {
-            error = document.createElement("div");
-            error.classList.add("error-message");
-            field.parentNode.insertBefore(error, field.nextSibling);
-        }
-        error.textContent = message;
-        error.style.color = "red";
+    username.errorElement = usernameERR; 
+    if (username.value.trim() === '') {
+        setError(username, 'Username is required');
+    } else if (username.value.length < 3) { 
+        setError(username, 'Username must be at least 3 characters');
+    } else if (!usernamePattern.test(username.value)) {
+        setError(username, 'Username must contain only letters ');
+    } else {
+        usernameERR.textContent = '';
     }
 
-    function removeError(field) {
-        field.classList.remove("input-error");
+    // Birthdate validation
+    const age = document.getElementById('age');
+    const birthDateERR = document.getElementById('birthDateERR');
+    age.errorElement = birthDateERR; 
 
-        const error = field.nextElementSibling;
-        if (error && error.classList.contains("error-message")) {
-            error.textContent = ""; // Clear the message
-        }
+    if (age.value.trim() === '') {
+        setError(age, 'Date of Birth is required');
+    } else {
+        birthDateERR.textContent = '';
     }
-});
+
+    // Gender validation
+    const gender = document.getElementById('gender');
+    const genderERR = document.getElementById('genderERR');
+    gender.errorElement = genderERR; 
+
+    if (gender.value.trim() === '') {
+        setError(gender, 'Gender is required');
+    } else {
+        genderERR.textContent = '';
+    }
+
+    // Password validation
+    const password = document.getElementById('password');
+    const passERR = document.getElementById('passERR');
+    password.errorElement = passERR; 
+
+    if (password.value.trim() === '') {
+        setError(password, 'Password is required');
+    } else if (password.value.length < 6) {
+        setError(password, 'Password must be at least 6 characters long');
+    } else {
+        passERR.textContent = ''; 
+    }
+
+    // User type validation
+    const userType = document.getElementById('user_type');
+    const userTypeERR = document.getElementById('userTypeERR');
+    userType.errorElement = userTypeERR; 
+    if (userType.value.trim() === '') {
+        setError(userType, 'User type is required');
+    } else {
+        userTypeERR.textContent = ''; 
+    }
+
+    // Email validation
+    const email = document.getElementById('email');
+    const emailERR = document.getElementById('emailERR');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    email.errorElement = emailERR; 
+
+    if (email.value.trim() === '') {
+        setError(email, 'Email is required');
+    } else if (!emailPattern.test(email.value)) {
+        setError(email, 'Please enter a valid email address');
+    } else {
+        emailERR.textContent = ''; 
+    }
+
+    return isValid; 
+}

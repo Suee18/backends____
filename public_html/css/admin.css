@@ -170,7 +170,7 @@ html {
 
     /* background-color: aqua; */
     width: 90%;
-    height: auto;
+    height: 120%;
     margin-left: 5rem;
     margin-top: 2rem;
 }
@@ -240,9 +240,10 @@ input,
 select {
     width: 50%;
     display: flex;
-    height: 42%;
+    height: 47%;
     margin-left: 6rem;
     padding: 0.5rem;
+    padding-bottom: 4%;
     margin-top: 5px;
     border-radius: 0.2rem;
     background-color: rgba(255, 255, 255, 0);
@@ -250,14 +251,14 @@ select {
 
 }
 
-.error-message {
-    color: red;
-    font-size: 0.8rem;
-    margin-left: 10px; /* Space between field and error message */
-    display: inline; /* Makes the message appear next to the field */
-    vertical-align: middle; /* Aligns the error message with the field */
+/*error message validation*/
+.error {
+    color: red; 
+    font-size: 0.9em; 
+    margin-top: 5px; 
+    margin-left: 25%;
 }
-JavaSc
+
 
 #userSelect{
     border: 2px solid #10c295;

@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="small-container">
                 <div class="formContainer">
-               <form id="userForm" method="POST" action="admin.php" >
+               <form id="userForm" method="POST" action="admin.php" onsubmit="return validate(this)">
 
                         <div class="formInputfields">
                             <div>
@@ -182,24 +182,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <div>
                                 <label class="userformLabels" for="username">Username :</label>
                                 <input type="text" name="username" id="username" readonly disabled  >
+                                <span id="usernameERR" class="error"></span> 
                             </div>
-                                
+
+                            <div>
+                                <label class="userformLabels" for="email">e-mail :</label>
+                                <input type="email" name="email" id="email" readonly disabled  >
+                                <span id="emailERR" class="error"></span>
+                            </div>
+
+                            <div>
+                                <label class="userformLabels" for="password">Password :</label>
+                                <input type="password" name="password"  id="password"  readonly disabled >
+                                <span id="passERR" class="error"></span>
+                            </div>
+
+
                             <label class="userformLabels" for="age">Date of Birth:</label>
                             <input  type="date" id="age" name="age"  disabled>
+                            <span id="birthDateERR" class="error"></span>
                             <div>
 
+                       
+                         
                              <label class="userformLabels" for="gender">Gender :</label>
                              <select id="gender" name="gender"  disabled > 
                              <option value="" ></option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             </select>
+                            <span id="genderERR" class="error"></span>
                            </div>
 
-                            <div>
-                                <label class="userformLabels" for="password">Password :</label>
-                                <input type="password" name="password"  id="password"  readonly disabled >
-                            </div>
+                          
 
                             <div>
                                 <label class="userformLabels" for="user_type">User Type :</label>
@@ -209,14 +224,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <option value="admin">Admin</option>
                                     <option value="user">User</option>
                                 </select>
+                                <span id="userTypeERR" class="error"></span>
                             </div>
 
-                            <div>
-                                <label class="userformLabels" for="email">e-mail :</label>
-                                <input type="email" name="email" id="email" readonly disabled  >
-                            </div>
+                           
                         </div>
-   <!-- Hidden field for form action -->
+    <!-- Hidden field for form action -->
    <input type="hidden" name="action" id="formAction" value="">
                         <div class="CRUD_bigcontainer">
                             <p class="controlPanel_text">control panel</p>
