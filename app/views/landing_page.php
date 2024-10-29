@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/landing_page.css">
-    <link rel="stylesheet" href="css/global_styles.css">
+    <link rel="stylesheet" href="../../public_html/css/landing_page.css">
+    <link rel="stylesheet" href="../../public_html/css/global_styles.css">
     <link rel="stylesheet" href="css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <?php include './components/nav_bar.php'; ?>
+    <?php include '../../public_html/components/nav_bar.php'; ?>
 
     <div class="slideShowContainer_lp">
 
