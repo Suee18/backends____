@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/car_card.css">
+<link rel="stylesheet" href="../../../public_html/css/car_card.css">
 
 
 <div class="car-cards-container">
