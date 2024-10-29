@@ -1,7 +1,7 @@
 <?php
 // Start session
 session_start();
-include_once "../../../core/database.php";
+include_once "../../config/db_config.php";
 
 // Enable error reporting
 error_reporting(E_ALL);

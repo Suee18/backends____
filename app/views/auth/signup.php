@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../../../core/database.php";
+include_once "../../config/db_config.php";
 
 $errorMessages = [
     'name' => '',
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Check if the email or username already exists
-    $checkQuery = "SELECT * FROM user WHERE Username = ? OR email = ?";
+    $checkQuery = "SELECT * FROM users WHERE Username = ? OR email = ?";
     $checkStmt = mysqli_prepare($conn, $checkQuery);
     mysqli_stmt_bind_param($checkStmt, "ss", $firstName, $email);
     mysqli_stmt_execute($checkStmt);
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(array_filter($errorMessages))) {
         $plainPassword = $password; 
 
-        $sql = "INSERT INTO user (Username, email, password, birthdate, gender) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (Username, email, password, birthdate, gender) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
 
         if ($stmt === false) {
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_bind_param($stmt, "sssss", $firstName, $email, $plainPassword, $birthdate, $gender);
 
         if (mysqli_stmt_execute($stmt)) {
-            header("Location: ../login.php");
+            header("Location: ../landing_page.php");
 
             exit;
         } else {
