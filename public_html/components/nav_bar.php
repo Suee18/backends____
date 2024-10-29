@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/nav_bar.css">
+<link rel="stylesheet" href="../../../public_html/css/nav_bar.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <nav class="navbar">
@@ -42,4 +42,4 @@
     </div>
 </nav>
 
-<script src="js/nav_bar.js"></script>
+<script src="../public_html/js/nav_bar.js"></script>

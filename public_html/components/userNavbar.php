@@ -53,8 +53,8 @@
                 <span class="material-symbols-outlined">favorite</span>
                 <a href="/SWE_Phase1/app/views/user/favorites.php">Favorites</a>
             </li>
-            <li>
-                <img src="/SWE_Phase1/public_html/media/persona-icon.png" alt="persona-icon" />
+            <li> 
+                <img src="../../public_html/media/persona-icon.png" alt="persona-icon" />
                 <a href="/SWE_Phase1/app/views/user/persona.php">Your Persona</a>
             </li>
             <li class="logout-link">
