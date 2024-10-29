@@ -2,6 +2,7 @@
 include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
 include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
 
+$reviews = Reviews::getLastNumberOfReviews(7);
 
 if (isset($_POST['Submit'])) {
     $reviewText = mysqli_real_escape_string($conn, htmlspecialchars($_POST['reviewText']));
@@ -143,36 +144,7 @@ if (isset($_POST['Submit'])) {
 
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>Sarah Johnson</h4>
-                            <p class="review-paragraph">"I was really impressed with how easy it was to find the perfect
-                                car for my needs. The website recommended exactly what I was looking for based on my
-                                preferences. Highly recommend!"</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>Mark Thompson</h4>
-                            <p class="review-paragraph">"The comparison tool is fantastic! It helped me weigh the pros
-                                and cons of different models in a very user-friendly way. Will definitely use this again
-                                when I’m ready for my next car."</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>Emily Carter</h4>
-                            <p class="review-paragraph">"Absolutely love the personalized recommendations. The system
-                                picked out cars that matched my criteria and even gave detailed reviews. It made my
-                                buying decision so much easier!".</p>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                         <div class="review-card">
 
                             <h4>John Smith</h4>
@@ -249,7 +221,18 @@ if (isset($_POST['Submit'])) {
                                 driving habits and budget. The only downside was that I had to sign up to access some
                                 features, but it was worth it."</p>
                         </div>
-                    </div>
+                    </div> -->
+
+                    <?php
+                    foreach ($reviews as $review) {
+                        echo '<div class="swiper-slide">
+                                <div class="review-card">
+                                    <h4>' . htmlspecialchars($review->reviewUserName) . '</h4>
+                                    <p class="review-paragraph">"' . htmlspecialchars($review->reviewText) . '"</p>
+                                </div>
+                              </div>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>

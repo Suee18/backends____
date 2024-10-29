@@ -38,6 +38,21 @@ class Reviews
         return $reviews;
     }
 
+    static function getLastNumberOfReviews($numberOFReviews) {
+        global $conn;
+        $sql = "SELECT * FROM reviews ORDER BY ID DESC LIMIT $numberOFReviews";
+        $result = mysqli_query($conn, $sql);
+        $reviews = [];
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $review = new Reviews($row["reviewText"], $row["reviewDate"], $row["reviewUserName"]);  // Changed to camel case
+                $review->id = $row["ID"];
+                array_push($reviews, $review);
+            }
+        }
+        return $reviews;
+    }
+
     function addReviewIntoDB($review)
     {
         global $conn;
