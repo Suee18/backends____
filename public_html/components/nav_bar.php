@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="../public_html/css/nav_bar.css">
-<link rel="stylesheet" href="../../../public_html/css/nav_bar.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <nav class="navbar">
@@ -16,7 +15,7 @@
             </li>
             <!-- ----------------------------------------- -->
             <li>
-                <a href=".././app/views/car_comparison.php" class="listElement_navBar compare-link">
+                <a href="../" class="listElement_navBar compare-link">
                     Compare cars
                 </a>
             </li>
@@ -26,7 +25,7 @@
                 </a>
             </li>
             <li>
-                <a href=".././app/views/auth/login.php" class="listElement_login_navBar" id="listElement_login_navBar">
+                <a href="../../app/views/auth/login.php" class="listElement_login_navBar" id="listElement_login_navBar">
                     Log in
                 </a>
             </li>
@@ -34,4 +33,4 @@
     </div>
 </nav>
 
-<script src="../public_html/js/nav_bar.js"></script>
+<script src="../js/nav_bar.js"></script>

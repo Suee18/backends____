@@ -4,20 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public_html/css/landing_page.css">
-    <link rel="stylesheet" href="../../public_html/css/global_styles.css">
-    <link rel="stylesheet" href="../../public_html/css/nav_bar.css">
-    <link rel="stylesheet" href="../../public_html/css/car_card.css">
-    <link rel="stylesheet" href="../../public_html/css/footer.css">
-    <link rel="stylesheet" href="css/footer.css">
-
+    <link rel="stylesheet" href="css/landing_page.css">
+    <link rel="stylesheet" href="css/global_styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <title>Landing Page</title>
 </head>
 
 <body>
-    <?php include '../../public_html/components/nav_bar.php'; ?>
+    <?php include './components/nav_bar.php'; ?>
 
     <div class="slideShowContainer_lp">
 
@@ -25,7 +20,7 @@
         <div class="slide" id="slide1">
             <div class="videoBG_lp">
                 <video autoplay muted loop class="slide-bg" id="myVideo">
-                    <source src="../../public_html/media/BMWM5CS.mp4" type="video/mp4">
+                    <source src="media/BMWM5CS.mp4" type="video/mp4">
                     Your browser does not support the video
                 </video>
             </div>
@@ -45,7 +40,7 @@
         <!-- Slide 2 -->
 
         <div class="slide" id="slide2">
-            <img src="../../public_html/media/thisOrThat.png" class="slide-bg" alt="Image Background">
+            <img src="media/thisOrThat.png" class="slide-bg" alt="Image Background">
 
             <div class="text-overlay">
                 <p class="slide2Title_lp">
@@ -65,7 +60,7 @@
         <div class="slide" id="slide3">
             <div class="videoBG_lp">
                 <video autoplay muted loop class="slide-bg" id="myVideo">
-                    <source src="../../public_html/media/astonmartin.mp4" type="video/mp4">
+                    <source src="media/astonmartin.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -114,7 +109,7 @@
 
         <div class="carCardsContainer_lp">
             <!-- static -->
-            <?php include '../../public_html/components/car_card.php'; ?>
+            <?php include './components/car_card.php'; ?>
         </div>
 
 
@@ -232,31 +227,8 @@
             <button class="submitBtn" id="submitReview">Submit</button>
         </div>
     </div>
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>Your go-to platform for car comparisons, reviews, and recommendations. Helping you find the perfect car.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: support@example.com</p>
-                <p>Phone: +123 456 7890</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <p><a href="#">Facebook</a></p>
-                <p><a href="#">Twitter</a></p>
-                <p><a href="#">Instagram</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 YourCompanyName. All Rights Reserved.</p>
-        </div>
-    </footer>
 
-    <script src="../../public_html/js/landing_page.js"></script>
+    <script src="js/landing_page.js"></script>
 </body>
 
 </html>
