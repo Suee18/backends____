@@ -2,7 +2,7 @@
 const radios = document.querySelectorAll('input[name="nav"]');
 const div0 = document.getElementById('div0');
 const div1 = document.getElementById('div1');
-const div2 = document.getElementById('div2');
+// const div2 = document.getElementById('div2');
 const div3 = document.getElementById('div3');
 const div4 = document.getElementById('div4');
 const div5 = document.getElementById('div5');
@@ -19,9 +19,9 @@ radios.forEach(radio => {
             case 'statistics':
                 showDiv(div1);
                 break;
-            case 'post':
-                showDiv(div2);
-                break;
+            // case 'post':
+            //     showDiv(div2);
+            //     break;
             case 'usersControl':
                 showDiv(div3);
                 break;
@@ -47,7 +47,7 @@ radios.forEach(radio => {
 function showDiv(divToShow) {
     div0.style.display = 'none';
     div1.style.display = 'none';
-    div2.style.display = 'none';
+    // div2.style.display = 'none';
     div3.style.display = 'none';
     div4.style.display = 'none';  
      div5.style.display = 'none';
@@ -235,48 +235,174 @@ const sessionDurationChart = new Chart(ctxSessionDuration, {
 });
 
 // CRUD user
+
+
 function populateForm() {
-    const select = document.getElementById('userSelect');
-    const selectedOption = select.options[select.selectedIndex];
+    var select = document.getElementById('userSelect');
+    var selectedOption = select.options[select.selectedIndex];
 
     if (selectedOption.value) {
-        // Populate fields with data from the selected option
+
         document.getElementById('username').value = selectedOption.getAttribute('data-username');
         document.getElementById('email').value = selectedOption.getAttribute('data-email');
+        document.getElementById('age').value = selectedOption.getAttribute('data-age');
         document.getElementById('user_type').value = selectedOption.getAttribute('data-type');
-        document.getElementById('password').value = ''; // Clear password field
+        document.getElementById('gender').value = selectedOption.getAttribute('data-gender');
+        document.getElementById('password').value =  selectedOption.getAttribute('data-password');
+        document.getElementById('password').disabled = true;
+     
+         // Set the user ID in the hidden field
+         document.getElementById('user_id').value = selectedOption.value;
 
-        // Enable all form fields for editing
-        enableFormFields();
+        //  enableFormFields();
 
-        // Enable buttons (Edit, Save, Delete)
+        // Show and hide buttons appropriately
         document.getElementById('editButton').style.display = 'flex';
+           document.getElementById('adduserButton').style.display = 'none';
         document.getElementById('addButton').style.display = 'none';
-        document.getElementById('saveButton').style.display = 'flex';
+        document.getElementById('saveButton').style.display = 'none';
         document.getElementById('deleteButton').style.display = 'flex';
 
+
+    } else {
+       
+        clearForm();
     }
 }
 
+
+function showSaveButton() {
+    document.getElementById('saveButton').style.display = 'flex'; 
+    enableFormFields(); 
+}
+
 function enableFormFields() {
+    // Enable the form fields
     document.getElementById('username').disabled = false;
+    document.getElementById('age').disabled = false;
+    document.getElementById('gender').disabled = false;
     document.getElementById('password').disabled = false;
     document.getElementById('user_type').disabled = false;
     document.getElementById('email').disabled = false;
-    document.getElementById('deleteButton').disabled = false;
-    const inputs = document.querySelectorAll('#username, #password, #user_type, #email');
+
+    // Make inputs editable
+    const inputs = document.querySelectorAll('#username,#age,#gender, #password, #user_type, #email');
     inputs.forEach(input => {
         input.readOnly = false;
         input.disabled = false;
         input.classList.add('editable');
     });
+
+
 }
+
+function switchAddButtons(){
+    
+    document.getElementById('adduserButton').style.display = 'none';
+    document.getElementById('addButton').style.display = 'flex';
+}
+
+
 
 function clearForm() {
     document.getElementById('userForm').reset();
     document.getElementById('username').disabled = false;
+    document.getElementById('age').disabled = false;
     document.getElementById('password').disabled = false;
     document.getElementById('user_type').disabled = false;
     document.getElementById('email').disabled = false;
     document.getElementById('saveButton').disabled = false;
+}
+
+
+//for specifying the crud operation
+function setAction(action) {
+    document.getElementById('formAction').value = action;
+}
+
+// Form validation
+function validate(form) {
+    let isValid = true;
+
+    function setError(field, message) {
+        field.errorElement.textContent = message;
+        isValid = false;
+    }
+
+    // Username validation
+    const username = document.getElementById('username');
+    const usernameERR = document.getElementById('usernameERR');
+    const usernamePattern = /^[a-zA-Z]+$/; 
+
+    username.errorElement = usernameERR; 
+    if (username.value.trim() === '') {
+        setError(username, 'Username is required');
+    } else if (username.value.length < 3) { 
+        setError(username, 'Username must be at least 3 characters');
+    } else if (!usernamePattern.test(username.value)) {
+        setError(username, 'Username must contain only letters ');
+    } else {
+        usernameERR.textContent = '';
+    }
+
+    // Birthdate validation
+    const age = document.getElementById('age');
+    const birthDateERR = document.getElementById('birthDateERR');
+    age.errorElement = birthDateERR; 
+
+    if (age.value.trim() === '') {
+        setError(age, 'Date of Birth is required');
+    } else {
+        birthDateERR.textContent = '';
+    }
+
+    // Gender validation
+    const gender = document.getElementById('gender');
+    const genderERR = document.getElementById('genderERR');
+    gender.errorElement = genderERR; 
+
+    if (gender.value.trim() === '') {
+        setError(gender, 'Gender is required');
+    } else {
+        genderERR.textContent = '';
+    }
+
+    // Password validation
+    const password = document.getElementById('password');
+    const passERR = document.getElementById('passERR');
+    password.errorElement = passERR; 
+
+    if (password.value.trim() === '') {
+        setError(password, 'Password is required');
+    } else if (password.value.length < 6) {
+        setError(password, 'Password must be at least 6 characters long');
+    } else {
+        passERR.textContent = ''; 
+    }
+
+    // User type validation
+    const userType = document.getElementById('user_type');
+    const userTypeERR = document.getElementById('userTypeERR');
+    userType.errorElement = userTypeERR; 
+    if (userType.value.trim() === '') {
+        setError(userType, 'User type is required');
+    } else {
+        userTypeERR.textContent = ''; 
+    }
+
+    // Email validation
+    const email = document.getElementById('email');
+    const emailERR = document.getElementById('emailERR');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    email.errorElement = emailERR; 
+
+    if (email.value.trim() === '') {
+        setError(email, 'Email is required');
+    } else if (!emailPattern.test(email.value)) {
+        setError(email, 'Please enter a valid email address');
+    } else {
+        emailERR.textContent = ''; 
+    }
+
+    return isValid; 
 }

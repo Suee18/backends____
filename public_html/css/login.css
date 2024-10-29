@@ -125,3 +125,63 @@ body {
 .sign-up-link a:hover {
   text-decoration: underline; 
 }
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: block;
+}
+.no-account-text {
+  color: white; 
+  font-size: 16px; 
+  font-weight:bold
+}
+
+.no-account-link {
+  color: #007bff; 
+  text-decoration: none; 
+}
+
+.no-account-link:hover {
+  color: #0056b3; /* Hover color */
+}
+#gender {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+}
+
+#gender:focus {
+  border-color: #1e3a46; 
+  outline: none;
+  box-shadow: 0 0 5px rgba(30, 58, 70, 0.5);
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+/* Existing styles for error messages */
+.error-message {
+  color: red;             
+  font-size: 14px;        
+  margin-top: 5px;      
+  display: block;        
+}
+
+input.error {
+  border: 1px solid red;  
+  background-color: #ffe6e6; 
+}
+
+#email.error {
+  border: 1px solid red;   
+  background-color: #ffe6e6; 
+}

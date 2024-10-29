@@ -1,6 +1,60 @@
+<?php
+// Start session
+session_start();
+include_once "../../config/db_config.php";
+
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Test the database connection
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
+$error_message = '';  // Initialize error message
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $Email = $_POST["Email"];
+    $Password = $_POST["Password"];
+
+    // Use prepared statements to prevent SQL Injection
+    $sql = "SELECT * FROM user WHERE Email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt === false) {
+        die("Error in SQL query: " . mysqli_error($conn));
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $Email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        // Directly compare the plaintext passwords
+        if ($Password === $row["Password"]) { // Plain text comparison
+            // Set session variables
+            $_SESSION["ID"] = $row["ID"];
+            $_SESSION["UserType"] = $row["UserType"];
+            $_SESSION["Username"] = $row["Username"];
+            $_SESSION["Email"] = $row["email"];
+            $_SESSION["Birthdate"] = $row["Birthdate"];
+            $_SESSION["Gender"] = $row["Gender"];
+            $_SESSION["Persona"] = $row["Persona"];
+    
+            header("Location: ../landing_page.php");
+            exit;
+        } else {
+            $error_message = "Invalid Email or Password";
+        }
+    } else {
+        $error_message = "Invalid Email or Password";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,36 +62,37 @@
     <link rel="stylesheet" href="../../../public_html/css/login.css">
     <title>Sign In</title>
 </head>
-
 <body>
     <div class="login-container">
-        <!-- Left: Form Section -->
         <div class="form-section">
             <h1>Sign in</h1>
+            <form action="" method="post" id="loginForm">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="Email" placeholder="Enter your email">
+    <span class="error-message" id="email-error"></span> 
 
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email" />
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="Password" placeholder="Enter your password">
+    <span class="error-message" id="password-error"></span> <!-- Error container for password -->
 
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" />
+    <input type="submit" value="Submit" name="Submit">
+    <input type="reset" value="Reset">
+</form>
 
-            <label>
-                <input type="checkbox"> Remember me
-            </label>
-            <button type="submit">Sign in</button>
 
-            <p class="sign-up-link">Don't have an account? <a href="../auth/signup.php">Sign up</a></p>
+            <p class="no-account-text">Don't have an account? <a href="../../views/auth/signup.php" class="no-account-link">Sign up</a></p>
         </div>
 
         <div class="welcome-section">
             <h1>Welcome Back!</h1>
-            <p>Slogan and brief about the website</p>
+            <p>Our website's slogan and a brief introduction go here.</p>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f" style="color: #1E3A46;"></i></a>
-                <a href="#"><i class="fab fa-instagram" style="color: #1E3A46;"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
-</body>
 
+    <script src="../../../public_html/js/login.js"></script>
+</body>
 </html>
