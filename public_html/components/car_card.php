@@ -10,7 +10,7 @@
             <div class="car-card-inner">
                 <!-- Front of the card -->
                 <div class="car-card-front">
-                    <img src="../../../public_html/media/cctoyotaa.png" alt="Car 1" class="car-card-img">
+                    <img src="./media/cctoyotaa.png" alt="Car 1" class="car-card-img">
                     <div class="car-card-content">
                         <h3 class="car-name">Toyota</h3>
                         <h3 class="carModel">Land Cruiser</h3>
@@ -40,7 +40,7 @@
             <div class="car-card-inner">
                 <!-- Front of the card -->
                 <div class="car-card-front">
-                    <img src="../media/ccsharkk.png" alt="Car 1" class="car-card-img">
+                    <img src="./media/ccsharkk.png" alt="Car 1" class="car-card-img">
                     <div class="car-card-content">
                         <h3 class="car-name">Mitsubishi Lancer </h3>
                         <h3 class="carModel">Shark </h3>
@@ -102,7 +102,7 @@
             <div class="car-card-inner">
                 <!-- Front of the card -->
                 <div class="car-card-front">
-                    <img src="../media/ccRAM.png" alt="Car 1" class="car-card-img">
+                    <img src="./media/ccRAM.png" alt="Car 1" class="car-card-img">
                     <div class="car-card-content">
                         <h3 class="car-name">Dodge</h3>
                         <h3 class="carModel">RAM</h3>

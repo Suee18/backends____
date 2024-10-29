@@ -1,28 +1,28 @@
 <?php
-include_once "../../app/config/db_config.php";
+include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
 
 class Reviews
 {
     public $id;
-    public $review_text;
+    public $reviewText;  // Changed to camel case
 
-    public $review_date;
+    public $reviewDate;  // Changed to camel case
 
-    public $review_user_name;
+    public $reviewUserName;  // Changed to camel case
 
-    function __construct($review_text, $review_date, $review_user_name)
+    function __construct($reviewText, $reviewDate, $reviewUserName)
     {
-        $this->review_text = $review_text;
-        $this->review_date = $review_date;
-        $this->review_user_name = $review_user_name;
+        $this->reviewText = $reviewText;  // Changed to camel case
+        $this->reviewDate = $reviewDate;  // Changed to camel case
+        $this->reviewUserName = $reviewUserName;  // Changed to camel case
     }
 
-    function setID($id)
+    function setId($id)  // Changed to camel case
     {
         $this->id = $id;
     }
 
-    static function get_all_reviews()
+    static function getAllReviews()  // Changed to camel case
     {
         global $conn;
         $sql = "SELECT * FROM reviews";
@@ -30,7 +30,7 @@ class Reviews
         $reviews = [];
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $review = new Reviews($row["review_text"], $row["review_date"], $row["review_user_name"]);
+                $review = new Reviews($row["reviewText"], $row["reviewDate"], $row["reviewUserName"]);  // Changed to camel case
                 $review->id = $row["id"];
                 array_push($reviews, $review);
             }
@@ -41,18 +41,16 @@ class Reviews
     function addReviewIntoDB($review)
     {
         global $conn;
-        $sql = "INSERT INTO reviews (review_text, review_date, review_user_name) VALUES ('$review->review_text', '$review->review_date', '$review->review_user_name')";
+        $sql = "INSERT INTO reviews (reviewText, reviewDate, reviewUserName) VALUES ('$review->reviewText', '$review->reviewDate', '$review->reviewUserName')";  // Changed to camel case
         $result = mysqli_query($conn, $sql);
         return $result;
     }
 
-    function deleteReviewFromDB($review_id)
+    function deleteReviewFromDB($reviewId)  // Changed to camel case
     {
         global $conn;
-        $sql = "DELETE FROM reviews WHERE id = '$review_id'";
+        $sql = "DELETE FROM reviews WHERE id = '$reviewId'";  // Changed to camel case
         $result = mysqli_query($conn, $sql);
         return $result;
     }
-
-
 }

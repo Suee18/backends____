@@ -2,13 +2,6 @@
 include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
 include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
 
-echo "Current Directory: " . getcwd() . "<br>";
-echo "Trying to include: " . realpath('../config/db_config.php') . "<br>";
-echo "Trying to include: " . realpath('../SWE_Phase1/models/ReviewsClass.php') . "<br>";
-
-
-echo realpath('../config/db_config.php');
-echo realpath('../../models/ReviewsClass.php');
 
 if (isset($_POST['Submit'])) {
     $reviewText = mysqli_real_escape_string($conn, htmlspecialchars($_POST['reviewText']));
@@ -17,11 +10,6 @@ if (isset($_POST['Submit'])) {
 
     $review = new Reviews($reviewText, $reviewDate, $reviewUserName);
     $result = $review->addReviewIntoDB($review);
-    if ($result) {
-        echo "<script>alert('Review added successfully!');</script>";
-    } else {
-        echo "<script>alert('Failed to add review!');</script>";
-    }
 }
 ?>
 
@@ -138,7 +126,7 @@ if (isset($_POST['Submit'])) {
 
         <div class="carCardsContainer_lp">
             <!-- static -->
-            <?php include '../../public_html/components/car_card.php'; ?>
+            <?php include 'C:/xampp/htdocs/SWE Project/SWE_Phase1/public_html/components/car_card.php'; ?>
         </div>
     </div>
 
