@@ -177,6 +177,7 @@ document.getElementById("savePostBtn").onclick = function () {
           <textarea class="commentInput" placeholder="Add a comment..."></textarea>
           <button type="button" onclick="addComment(${postId})">&uarr;</button>
             </div>
+             <h3>Comments section:</h3>
           <div class="commentList"></div>
         </div>
       </div>

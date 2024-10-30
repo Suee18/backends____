@@ -11,11 +11,13 @@ body {
   position: relative;
 }
 
+.sidebar {
+  z-index: 1000000000;
+}
 .container {
   max-width: 600px;
   margin: 80px auto;
   padding: 0px;
-
 }
 
 h1 {
@@ -72,8 +74,8 @@ button {
 .post-header {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
-  position: relative; 
+  align-items: center;
+  position: relative;
   padding: 10px;
 }
 
@@ -91,7 +93,6 @@ button {
   margin-left: 10px;
   color: var(--white);
 }
-
 
 .dots {
   cursor: pointer;
@@ -112,8 +113,9 @@ button {
 }
 
 .dropdown-item {
-  padding: 10px 15px; 
-  cursor: pointer; 
+  display: block;
+  padding: 10px 15px;
+  cursor: pointer;
   color: var(--white);
   list-style: none;
 }
@@ -146,13 +148,11 @@ button {
   margin-right: 5px;
 }
 
-
 .post-image img {
   max-width: 100%;
   height: auto;
   border-radius: 5px;
 }
-
 
 .post-footer {
   display: flex;
@@ -182,7 +182,7 @@ button {
   margin-right: 450px;
 }
 
-h3{
+h3 {
   margin-left: 10px;
   margin-bottom: 5px;
 }
@@ -191,7 +191,7 @@ h3{
   align-items: center;
   margin-top: 10px;
 }
-.comment{
+.comment {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
@@ -212,8 +212,8 @@ h3{
   outline: none;
 }
 
-.commentList{
-  background-color:rgba(53, 53, 53, 0.514);
+.commentList {
+  background-color: rgba(53, 53, 53, 0.514);
   border-radius: 20px;
   padding: 10px;
 }
@@ -327,4 +327,65 @@ textarea {
 
 #savePostBtn:hover {
   background-color: var(--light_blue);
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: 10px; 
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px; 
+    margin-left: 70px;
+  }
+
+  button {
+    padding: 8px 12px; 
+  }
+
+  #addPostBtn {
+    font-size: 20px;
+    width: 40px; 
+    height: 40px; 
+    margin-left: 40px;
+
+  }
+  .post{
+    width: 90%;
+    margin-left: 50px;
+  }
+
+  .post-text {
+    font-size: 16px; 
+  }
+
+  .commentInput {
+    width: calc(100% - 50px); 
+    height: 35px; 
+  }
+
+  .custom-file-label {
+    font-size: 0.9rem;
+  }
+
+  textarea {
+    width: 95%; 
+    height: 120px; 
+    font-size: 0.9rem; 
+  }
+
+  .modal-content {
+    width: 90%; 
+    padding: 30px; 
+  }
+
+  #savePostBtn {
+    font-size: 0.9rem;
+  }
+  .likes-count{
+    margin-left: 20px;
+  }
 }
