@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_num_rows($checkResult) > 0) {
         $row = mysqli_fetch_assoc($checkResult);
-        if ($row['Username'] === $firstName) {
+        if ($row['username'] === $firstName) {
             $errorMessages['name'] = "Username already exists. Please choose a different one.";
         }
         if ($row['email'] === $email) {
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_bind_param($stmt, "sssss", $firstName, $email, $plainPassword, $birthdate, $gender);
 
         if (mysqli_stmt_execute($stmt)) {
-            header("Location: ../landing_page.php");
+            header("Location: ../../../public_html/index.php");
 
             exit;
         } else {

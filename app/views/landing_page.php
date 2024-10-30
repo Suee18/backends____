@@ -24,7 +24,7 @@ if (isset($_POST['Submit'])) {
     <link rel="stylesheet" href="../public_html/css/global_styles.css">
     <link rel="stylesheet" href="../public_html/css/nav_bar.css">
     <link rel="stylesheet" href="../public_html/css/car_card.css">
-    <link rel="stylesheet" href="../public_html/css/footer.css">
+    <!-- <link rel="stylesheet" href="../public_html/css/footer.css"> -->
     <link rel="stylesheet" href="css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -144,85 +144,6 @@ if (isset($_POST['Submit'])) {
 
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <!-- <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>John Smith</h4>
-                            <p class="review-paragraph">"Great tool for comparing cars, but I would have liked a bit
-                                more detail on each model’s specs. Still, it helped narrow down my choices quickly."</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>Jessica Davis</h4>
-                            <p class="review-paragraph">"This site is a game-changer! It gave me personalized options
-                                that I wouldn't have considered otherwise. The chatbot was also very helpful in
-                                answering my questions in real-time."</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>Michael Brown</h4>
-                            <p class="review-paragraph">"Really helpful website with solid comparisons. I was able to
-                                find a few cars that fit my budget and needs. I appreciate the transparency of the
-                                reviews."</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>Olivia Martinez</h4>
-                            <p class="review-paragraph">"I can't believe how easy it was to find the best car for my
-                                family. The site not only recommended cars but also explained the features I cared about
-                                most. Definitely a time-saver!"</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4> David Wilson</h4>
-                            <p class="review-paragraph">"Great platform! The comparison tool is intuitive, and I
-                                appreciated the detailed breakdowns of each car's performance, safety, and fuel
-                                efficiency."</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>Chloe Lee</h4>
-                            <p class="review-paragraph">"I’ve used a few car recommendation websites before, but this
-                                one takes the cake. The personalized approach made me feel like I was really taken into
-                                consideration. Will be back for future car buying!"</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>Ryan Harris</h4>
-                            <p class="review-paragraph">"Good site, but I found that some of the recommendations were a
-                                bit off the mark for my needs. That said, the comparison feature is really solid."</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-                            <h4>Lauren Miller</h4>
-                            <p class="review-paragraph">"I was skeptical at first, but this website really knows its
-                                cars. The recommendations were spot-on and helped me make a decision faster than I
-                                thought possible."</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-
-                            <h4>Daniel Wilson</h4>
-                            <p class="review-paragraph">"Very helpful website. It gave me a list of cars that suited my
-                                driving habits and budget. The only downside was that I had to sign up to access some
-                                features, but it was worth it."</p>
-                        </div>
-                    </div> -->
-
                     <?php
                     foreach ($reviewsSliderArray as $review) {
                         echo '<div class="swiper-slide">
@@ -242,7 +163,7 @@ if (isset($_POST['Submit'])) {
             <form class="overlay-content" method="post">
                 <span class="closeBtn" id="closeOverlay">&times;</span>
                 <h2>Write your review</h2>
-                <textarea id="reviewText" placeholder=" Write your review here..." name="reviewText"></textarea>
+                <textarea id="reviewText" placeholder=" Write your review here..." name="reviewText" required></textarea>
                 <input class="submitBtn" type="submit" id="submitReview" name="Submit">
             </form>
         </div>

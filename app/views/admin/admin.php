@@ -4,7 +4,7 @@ include_once "../../config/db_config.php";
 include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
 
 $users = [];
-$sql = "select id, username,age, gender, password, email,type FROM users";
+$sql = "select id, username,birthdate, gender, password, email,type FROM users";
 $result = mysqli_query($conn, $sql);
 
 if ($result) {

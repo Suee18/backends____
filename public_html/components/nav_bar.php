@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li>
-                <a href="../../app/views/auth/login.php" class="listElement_login_navBar" id="listElement_login_navBar">
+                <a href="../app/views/auth/login.php" class="listElement_login_navBar" id="listElement_login_navBar">
                     Log in
                 </a>
             </li>
