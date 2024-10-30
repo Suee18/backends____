@@ -81,11 +81,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" id="password" name="Password" placeholder="Enter your password">
                     <span class="error-message" id="password-error"></span> <!-- Error container for password -->
                 </div>
-
-                <div class="buttonscontainer">
-                    <input  type="submit" value="Log in" name="Submit">
-                    <input  type="reset" value="Reset">
-                </div>
+<div>
+                    <button class="R_button"  type="submit" value="Log in" name="Submit">Log in</button>
+                    <button class="R_button" type="reset" value="Reset">Reset</button>
+    </div>            
 
                 <p class="no-account-text">Don't have an account? <a href="../../views/auth/signup.php" class="no-account-link">Sign up</a> now and explore more features!</p>
 
