@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-section_LI">
             <form action="" method="post" id="loginForm">
                 <p class="formTitle">Log in</p>
-                <div class="fieldsConatiner">
+                <div class="fieldsConatinerLI">
                     <label for="email">e-mail :</label>
                     <input type="text" id="email" name="Email" placeholder="Enter your email">
                     <span class="error-message" id="email-error"></span>
@@ -83,8 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="buttonscontainer">
-                    <input  class="R_button" type="submit" value="Log in" name="Submit">
-                    <input class="R_button" type="reset" value="Reset">
+                    <input  type="submit" value="Log in" name="Submit">
+                    <input  type="reset" value="Reset">
                 </div>
 
                 <p class="no-account-text">Don't have an account? <a href="../../views/auth/signup.php" class="no-account-link">Sign up</a> now and explore more features!</p>
@@ -101,7 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div> -->
-    </div>
     </div>
     <script src="../../../public_html/js/login.js"></script>
 </body>
