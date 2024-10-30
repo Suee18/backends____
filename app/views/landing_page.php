@@ -2,7 +2,7 @@
 include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
 include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
 
-$reviews = Reviews::getLastNumberOfReviews(7);
+$reviewsSliderArray = Reviews::getLastNumberOfReviews(7);
 
 if (isset($_POST['Submit'])) {
     $reviewText = mysqli_real_escape_string($conn, htmlspecialchars($_POST['reviewText']));
@@ -224,7 +224,7 @@ if (isset($_POST['Submit'])) {
                     </div> -->
 
                     <?php
-                    foreach ($reviews as $review) {
+                    foreach ($reviewsSliderArray as $review) {
                         echo '<div class="swiper-slide">
                                 <div class="review-card">
                                     <h4>' . htmlspecialchars($review->reviewUserName) . '</h4>

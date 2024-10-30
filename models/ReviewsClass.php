@@ -31,7 +31,7 @@ class Reviews
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $review = new Reviews($row["reviewText"], $row["reviewDate"], $row["reviewUserName"]);  // Changed to camel case
-                $review->id = $row["id"];
+                $review->id = $row["ID"];
                 array_push($reviews, $review);
             }
         }
@@ -61,7 +61,7 @@ class Reviews
         return $result;
     }
 
-    function deleteReviewFromDB($reviewId)  // Changed to camel case
+    static function deleteReviewFromDB($reviewId)  // Changed to camel case
     {
         global $conn;
         $sql = "DELETE FROM reviews WHERE id = '$reviewId'";  // Changed to camel case
