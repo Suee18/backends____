@@ -15,7 +15,7 @@
             </li>
             <!-- ----------------------------------------- -->
             <li>
-                <a href="../" class="listElement_navBar compare-link">
+                <a href="../../../app/views/car_comparison.php" class="listElement_navBar compare-link">
                     Compare cars
                 </a>
             </li>

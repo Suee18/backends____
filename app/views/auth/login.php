@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["Birthdate"] = $row["Birthdate"];
             $_SESSION["Gender"] = $row["Gender"];
             $_SESSION["Persona"] = $row["Persona"];
-    
+
             header("Location: ../landing_page.php");
             exit;
         } else {
@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,27 +63,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../../../public_html/css/login.css">
     <title>Sign In</title>
 </head>
+
 <body>
-    <div class="login-container">
-        <div class="form-section">
-            <h1>Sign in</h1>
+    <div class="biggest-containerLI">
+        <!-- <div class="login-container"> -->
+
+
+        <div class="form-section_LI">
             <form action="" method="post" id="loginForm">
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="Email" placeholder="Enter your email">
-    <span class="error-message" id="email-error"></span> 
+                <p class="formTitle">Log in</p>
+                <div class="fieldsConatiner">
+                    <label for="email">e-mail :</label>
+                    <input type="text" id="email" name="Email" placeholder="Enter your email">
+                    <span class="error-message" id="email-error"></span>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="Password" placeholder="Enter your password">
-    <span class="error-message" id="password-error"></span> <!-- Error container for password -->
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" name="Password" placeholder="Enter your password">
+                    <span class="error-message" id="password-error"></span> <!-- Error container for password -->
+                </div>
 
-    <input type="submit" value="Submit" name="Submit">
-    <input type="reset" value="Reset">
-</form>
+                <div class="buttonscontainer">
+                    <input  class="R_button" type="submit" value="Log in" name="Submit">
+                    <input class="R_button" type="reset" value="Reset">
+                </div>
 
+                <p class="no-account-text">Don't have an account? <a href="../../views/auth/signup.php" class="no-account-link">Sign up</a> now and explore more features!</p>
 
-            <p class="no-account-text">Don't have an account? <a href="../../views/auth/signup.php" class="no-account-link">Sign up</a></p>
+            </form>
         </div>
 
+        <!-- 
         <div class="welcome-section">
             <h1>Welcome Back!</h1>
             <p>Our website's slogan and a brief introduction go here.</p>
@@ -90,9 +100,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-        </div>
+        </div> -->
     </div>
-
+    </div>
     <script src="../../../public_html/js/login.js"></script>
 </body>
+
 </html>
