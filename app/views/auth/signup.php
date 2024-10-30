@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty(array_filter($errorMessages))) {
-        $plainPassword = $password; 
+        $plainPassword = $password;
 
         $sql = "INSERT INTO users (Username, email, password, birthdate, gender) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
@@ -77,6 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,54 +85,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../../../public_html/css/login.css">
     <title>Sign Up</title>
 </head>
+
 <body>
-    <div class="signup-container">
-        <div class="form-section">
-            <h1>Sign Up</h1>
-            <form id="signupForm" action="" method="POST"> 
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required />
-                <span id="nameError" class="error-message"><?php echo $errorMessages['name']; ?></span>
+    <!-- <div class="signup-container"> -->
+    <div class="biggest-containerLI">
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required />
-                <span id="emailError" class="error-message"><?php echo $errorMessages['email']; ?></span>
+        <div class="form-sectionSU">
+            <form id="signupForm" action="" method="POST">
+                <p class="formTitle"> Sign Up</p>
 
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required />
-                <span id="passwordError" class="error-message"><?php echo $errorMessages['password']; ?></span>
+                <div class="fieldsConatinerSU">
 
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password" required />
-                <span id="confirmPasswordError" class="error-message"></span>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required />
+                    <span id="nameError" class="error-message"><?php echo $errorMessages['name']; ?></span>
 
-                <label for="birthdate">Birthdate</label>
-                <input type="date" id="birthdate" name="birthdate" placeholder="Enter your birthdate" required />
-                <span id="birthdateError" class="error-message"><?php echo $errorMessages['age']; ?></span>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                    <span id="emailError" class="error-message"><?php echo $errorMessages['email']; ?></span>
 
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required>
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-                <span id="genderError" class="error-message"></span>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                    <span id="passwordError" class="error-message"><?php echo $errorMessages['password']; ?></span>
 
-                <button type="submit" name="signup">Sign Up</button>
-            </form>
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password" required />
+                    <span id="confirmPasswordError" class="error-message"></span>
+
+                    <label for="birthdate">Birthdate</label>
+                    <input type="date" id="birthdate" name="birthdate" placeholder="Enter your birthdate" required />
+                    <span id="birthdateError" class="error-message"><?php echo $errorMessages['age']; ?></span>
+
+                    <label  for="gender">Gender</label>
+                    <select  class="gender-selection"id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <span id="genderError" class="error-message"></span>
+                </div>
+                <button class="R_button" type="submit" name="signup">Sign Up</button>
             <p id="tempMessage" style="display: none; color: green;">Sign-up successful! Redirecting to login...</p>
+            <p class="no-account-text">Already have an account? <a href="../../views/auth/login.php" class="no-account-link">Log in.</a></p>
+            </form>
         </div>
 
-        <div class="welcome-section">
+        <!-- <div class="welcome-section">
             <h1>Join Us!</h1>
             <p>Create an account and get started today</p>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-facebook-f" style="color: #1E3A46;"></i></a>
                 <a href="#"><i class="fab fa-instagram" style="color:#1E3A46;"></i></a>
             </div>
-        </div>
+        </div> -->
+        <!-- </div> -->
     </div>
-
     <script src="../../../public_html/js/signup.js"></script>
 </body>
+
 </html>

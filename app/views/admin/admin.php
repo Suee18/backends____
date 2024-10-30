@@ -102,7 +102,11 @@ if (isset($_POST['deleteReview'])) {
     <div class="content">
 
         <div id="div0" class="content-div" style="display: block;">
-            <div class="welcome">welcome</div>
+        <div class="welcomeIcon1"></div>
+
+            <div class="welcome">welcome, Admin</div>
+            <div class="welcomeParagraph">Access the website insights and have full control over everything through this dashboard</div>
+<div class="welcomeIcon"></div>
         </div>
 
 
