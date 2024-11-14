@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public_html/css/platform.css">
+    <link rel="stylesheet" href="../../../public_html/css/platform.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="../../public_html/js/platform.js" defer></script>
+    <script src="../../../public_html/js/platform.js" defer></script>
     <title>Car Community</title>
 </head>
 
 <body>
-    <?php include "../../public_html/components/userNavbar.php" ?>
+    <?php include "../../../public_html/components/userNavbar.php" ?>
     <div class="container">
         <h1>Apex Community   🏎️💨 </h1>
         <button id="addPostBtn"><i class="fas fa-plus"></i></button>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="post-image">
-                            <img src="../../../SWE_Phase1/public_html/media/ccAMG.png" alt="Sample Post Image" />
+                            <img src="../../../../  SWE_Phase1/public_html/media/ccAMG.png" alt="Sample Post Image" />
                         </div>
                         <div class="post-footer">
                             <span class="heart" onclick="toggleLike(this, 1)">&#9829;</span>

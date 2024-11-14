@@ -10,7 +10,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="../../public_html/css/car_comparison.css">
+    <link rel="stylesheet" href="../../../public_html/css/car_comparison.css">
+    <link rel="stylesheet" href="../../../public_html/css/userNavbar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,12 +21,12 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
         rel="stylesheet">
     <title>Compare Cars Now!</title>
-    <script src="../../public_html/js/car_comparison.js" defer></script>
+    <script src="../../../public_html/js/car_comparison.js" defer></script>
 
 </head>
 
 <body>
-    <?php include '../../public_html/components/userNavbar.php'; ?>
+    <?php include '../../../public_html/components/userNavbar.php'; ?>
 
     <div id="comparing-cars-banner">
         <h1>Compare Cars Models</h1>
@@ -38,7 +39,7 @@
     <div class="comparison-section">
         <div class="car-card">
             <div class="car-image">
-                <img src="../../public_html/media/Car_Comparison_Page_Images/left-comparison-car.png" alt="First Car">
+                <img src="../../../public_html/media/Car_Comparison_Page_Images/left-comparison-car.png" alt="First Car">
             </div>
             <div class="car-details">
                 <h2 class="car-details-title">Add first car</h2>
@@ -67,7 +68,7 @@
 
         <div class="car-card">
             <div class="car-image">
-                <img src="../../public_html/media/Car_Comparison_Page_Images/right-comparison-car.png" alt="Second Car">
+                <img src="../../../public_html/media/Car_Comparison_Page_Images/right-comparison-car.png" alt="Second Car">
             </div>
             <div class="car-details">
                 <h2>Add second car</h2>
@@ -129,7 +130,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/fuel_type.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/fuel_type.png"
                             alt="Engine Fuel Type Icon" class="icon">
                         <p>Engine Fuel Type</p>
                     </div>
@@ -141,7 +142,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/horse_power.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/horse_power.png"
                             alt="Engine HP Icon" class="icon">
                         <p>Engine HP</p>
                     </div>
@@ -153,7 +154,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/engine_cylinders.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/engine_cylinders.png"
                             alt="Engine Cylinders Icon" class="icon">
                         <p>Engine Cylinders</p>
                     </div>
@@ -165,7 +166,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/transmission_type.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/transmission_type.png"
                             alt="Transmission Type Icon" class="icon">
                         <p>Transmission Type</p>
                     </div>
@@ -177,7 +178,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/wheels.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/wheels.png"
                             alt="Driven Wheels Icon" class="icon">
                         <p>Driven Wheels</p>
                     </div>
@@ -189,7 +190,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/car_doors.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/car_doors.png"
                             alt="No. of Doors Icon" class="icon">
                         <p>No. of Doors</p>
                     </div>
@@ -201,7 +202,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/market_category.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/market_category.png"
                             alt="Market Category Icon" class="icon">
                         <p>Market Category</p>
                     </div>
@@ -213,7 +214,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/vehicle_size.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/vehicle_size.png"
                             alt="Vehicle Size Icon" class="icon">
                         <p>Vehicle Size</p>
                     </div>
@@ -225,7 +226,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/vehicle_style.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/vehicle_style.png"
                             alt="Vehicle Style Icon" class="icon">
                         <p>Vehicle Style</p>
                     </div>
@@ -237,7 +238,7 @@
                     </div>
 
                     <div class="feature-item">
-                        <img src="../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/msrp.png"
+                        <img src="../../../public_html/media/Car_Comparison_Page_Images/car_comparison_icons/msrp.png"
                             alt="MSRP Icon" class="icon">
                         <p>MSRP</p>
                     </div>

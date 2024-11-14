@@ -14,36 +14,23 @@ if (!$conn) {
 
 $error_message = '';  // Initialize error message
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['Submit'])) {
     $Email = $_POST["Email"];
     $Password = $_POST["Password"];
 
-    // Use prepared statements to prevent SQL Injection
-    $sql = "SELECT * FROM user WHERE Email = ?";
-    $stmt = mysqli_prepare($conn, $sql);
+    // Escape the input to prevent SQL Injection
+    $Email = mysqli_real_escape_string($conn, $Email);
 
-    if ($stmt === false) {
-        die("Error in SQL query: " . mysqli_error($conn));
-    }
+    $sql = "SELECT * FROM users WHERE email = '$Email'";
+    $result = mysqli_query($conn, $sql);
 
-    mysqli_stmt_bind_param($stmt, "s", $Email);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $rowEmail = $row["email"];
+        $rowPassword = $row["password"];
 
-    if ($row = mysqli_fetch_assoc($result)) {
-        // Directly compare the plaintext passwords
-        if ($Password === $row["Password"]) { // Plain text comparison
-            // Set session variables
-            $_SESSION["ID"] = $row["ID"];
-            $_SESSION["UserType"] = $row["UserType"];
-            $_SESSION["Username"] = $row["Username"];
-            $_SESSION["Email"] = $row["email"];
-            $_SESSION["Birthdate"] = $row["Birthdate"];
-            $_SESSION["Gender"] = $row["Gender"];
-            $_SESSION["Persona"] = $row["Persona"];
-
-            header("Location: ../landing_page.php");
-            exit;
+        if ($Password === $rowPassword) {
+            header("Location: ../../../public_html/index.php");
         } else {
             $error_message = "Invalid Email or Password";
         }
@@ -79,14 +66,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <label for="password">Password :</label>
                     <input type="password" id="password" name="Password" placeholder="Enter your password">
-                    <span class="error-message" id="password-error"></span> <!-- Error container for password -->
+                    <span class="error-message" id="password-error"></span>
                 </div>
-<div>
-                    <button class="R_button"  type="submit" value="Log in" name="Submit">Log in</button>
-                    <button class="R_button" type="reset" value="Reset">Reset</button>
-    </div>            
+                <div class="buttons">
+                    <input class="R_button" type="submit" value="Log in" name="Submit" value="Login">
+                    <input class="R_button" type="reset" value="Reset">
+                </div>
 
-                <p class="no-account-text">Don't have an account? <a href="../../views/auth/signup.php" class="no-account-link">Sign up</a> now and explore more features!</p>
+                <p class="no-account-text">Don't have an account? <a href="../../views/auth/signup.php"
+                        class="no-account-link">Sign up</a> now and explore more features!</p>
 
             </form>
         </div>

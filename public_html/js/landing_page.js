@@ -132,7 +132,6 @@ window.addEventListener("click", (e) => {
 //     reviewText.insertAdjacentElement("afterend", errorMessage);
 //   } else {
 //     console.log("Review submitted:", reviewValue);
-//     alert("Thank you for your review!");
 //     reviewText.value = "";
 //     errorMessage.textContent = "";
 //     overlay.style.display = "none";

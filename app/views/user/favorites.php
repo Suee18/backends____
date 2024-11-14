@@ -9,22 +9,23 @@
     <title>Favorite Cars</title>
 </head>
 <div class="nav">
-<?php include '../../../public_html/components/nav_bar.php'; ?>
+    <?php include '../../../public_html/components/userNavbar.php'; ?>
 
 </div>
-<body>  
-<div class="fav_cars">
 
-<div class="partsTitles_lp">
-    <P class="mostRecommendedCarsTitle_lp">
-Favorite Cars    </P>
-</div>
+<body>
+    <div class="fav_cars">
 
-<div class="carCardsContainer_lp">
-    <?php include '../../../public_html/components/favorites_car_card.php'; ?>
-</div>
+        <div class="partsTitles_lp">
+            <P class="mostRecommendedCarsTitle_lp">
+                Favorite Cars </P>
+        </div>
+
+        <div class="carCardsContainer_lp">
+            <?php include '../../../public_html/components/favorites_car_card.php'; ?>
+        </div>
 
 
 
-</div>
+    </div>
 </body>
