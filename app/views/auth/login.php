@@ -2,6 +2,7 @@
 // Start session
 session_start();
 include_once "../../config/db_config.php";
+include_once "../../../models/UsersClass.php";
 
 // Enable error reporting
 error_reporting(E_ALL);
@@ -18,24 +19,39 @@ if (isset($_POST['Submit'])) {
     $Email = $_POST["Email"];
     $Password = $_POST["Password"];
 
-    // Escape the input to prevent SQL Injection
-    $Email = mysqli_real_escape_string($conn, $Email);
+    // // Escape the input to prevent SQL Injection
+    // $Email = mysqli_real_escape_string($conn, $Email);
 
-    $sql = "SELECT * FROM users WHERE email = '$Email'";
-    $result = mysqli_query($conn, $sql);
+    // $sql = "SELECT * FROM users WHERE email = '$Email'";
+    // $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_array($result);
-        $rowEmail = $row["email"];
-        $rowPassword = $row["password"];
+    // if (mysqli_num_rows($result) > 0) {
+    //     $row = mysqli_fetch_array($result);
+    //     $rowEmail = $row["email"];
+    //     $rowPassword = $row["password"];
 
-        if ($Password === $rowPassword) {
-            header("Location: ../../../public_html/index.php");
+    //     if ($Password === $rowPassword) {
+    //         header("Location: ../../../public_html/index.php");
+    //     } else {
+    //         $error_message = "Invalid Email or Password";
+    //     }
+    // } else {
+    //     $error_message = "Invalid Email or Password";
+    // }
+
+
+    $user = Users::loginUser($Email, $Password);
+    if (is_string($user)) {
+        $error_message = $user;
+    } elseif ($user instanceof Users) {
+        if ($user->userType === "admin") {
+            header("Location: ../admin/admin.php");
         } else {
-            $error_message = "Invalid Email or Password";
+            header("Location: ../../../public_html/index.php");
         }
+        exit();
     } else {
-        $error_message = "Invalid Email or Password";
+        $error_message = "An unknown error occurred.";
     }
 }
 ?>
@@ -60,13 +76,14 @@ if (isset($_POST['Submit'])) {
             <form action="" method="post" id="loginForm">
                 <p class="formTitle">Log in</p>
                 <div class="fieldsConatinerLI">
-                    <label for="email">e-mail :</label>
+                    <label for="email">E-mail :</label>
                     <input type="text" id="email" name="Email" placeholder="Enter your email">
                     <span class="error-message" id="email-error"></span>
 
                     <label for="password">Password :</label>
                     <input type="password" id="password" name="Password" placeholder="Enter your password">
-                    <span class="error-message" id="password-error"></span>
+                    <span class="error-message"
+                        id="password-error"><?php echo htmlspecialchars($error_message); ?></span>
                 </div>
                 <div class="buttons">
                     <input class="R_button" type="submit" value="Log in" name="Submit" value="Login">
