@@ -87,10 +87,13 @@ class Users
     function addUserIntoDB($user)
     {
         global $conn;
-        $sql = "INSERT INTO users (username), (birthdate), (gender), (password), (email), (type), (timeStamp) VALUES ('$user->username', '$user->birthdate', '$user->gender', '$user->passowrd', '$user->email', '$user->userType', '$user->timeStamp')";
+        $sql = "INSERT INTO users (username, birthdate, gender, password, email, type, timeStamp) 
+            VALUES ('$user->username', '$user->birthdate', '$user->gender', '$user->password', '$user->email', '$user->userType', '$user->timeStamp')";
+
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+
 
     function deleteUserFromDB($userId)
     {
@@ -118,6 +121,37 @@ class Users
             return "User does not exist.";
         }
         return $user;
+    }
+
+    static function signUpUser($username, $birthdate, $gender, $password, $email, $userType, $timeStamp)
+    {
+        global $conn;
+
+        // Check if username already exists
+        $sqlUsername = "SELECT * FROM users WHERE username = '$username'";
+        $resultUsername = mysqli_query($conn, $sqlUsername);
+
+        // Check if email already exists
+        $sqlEmail = "SELECT * FROM users WHERE email = '$email'";
+        $resultEmail = mysqli_query($conn, $sqlEmail);
+
+        $errors = ['name' => '', 'email' => ''];
+
+        if (mysqli_num_rows($resultUsername) > 0) {
+            $errors['name'] = "Username already exists.";
+        }
+        if (mysqli_num_rows($resultEmail) > 0) {
+            $errors['email'] = "Email already exists.";
+        }
+
+        // If there are any errors, return the errors array
+        if (!empty($errors['name']) || !empty($errors['email'])) {
+            return $errors;
+        }
+
+        // If no errors, proceed to create the user
+        $user = new Users($username, $birthdate, $gender, $password, $email, $userType, $timeStamp);
+        return $user->addUserIntoDB($user);
     }
 
 }

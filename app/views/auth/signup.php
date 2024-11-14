@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once "../../config/db_config.php";
+include_once "../../../models/UsersClass.php";
 
 $errorMessages = [
     'name' => '',
@@ -10,19 +11,17 @@ $errorMessages = [
 ];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $firstName = $_POST["name"];
+    $userName = $_POST["name"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirm_password"];
     $birthdate = $_POST["birthdate"];
     $gender = $_POST["gender"];
 
-    // Check if passwords match
     if ($password !== $confirmPassword) {
         $errorMessages['password'] = "Passwords do not match.";
     }
 
-    // Calculate age from birthdate
     $birthDate = new DateTime($birthdate);
     $currentDate = new DateTime();
     $age = $birthDate->diff($currentDate)->y;
@@ -31,47 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errorMessages['age'] = "Age must be 18 or older. Please enter a valid birthdate.";
     }
 
-    // Check if the email or username already exists
-    $checkQuery = "SELECT * FROM users WHERE Username = ? OR email = ?";
-    $checkStmt = mysqli_prepare($conn, $checkQuery);
-    mysqli_stmt_bind_param($checkStmt, "ss", $firstName, $email);
-    mysqli_stmt_execute($checkStmt);
-    $checkResult = mysqli_stmt_get_result($checkStmt);
+    if (empty($errorMessages['password']) && empty($errorMessages['age'])) {
+        $signUpResult = Users::signUpUser($userName, $birthdate, $gender, $password, $email, "user", date('Y-m-d H:i:s'));
 
-    if (mysqli_num_rows($checkResult) > 0) {
-        $row = mysqli_fetch_assoc($checkResult);
-        if ($row['username'] === $firstName) {
-            $errorMessages['name'] = "Username already exists. Please choose a different one.";
-        }
-        if ($row['email'] === $email) {
-            $errorMessages['email'] = "Email already exists. Please try with a different one.";
-        }
-    }
-
-    if (empty(array_filter($errorMessages))) {
-        $plainPassword = $password;
-
-        $sql = "INSERT INTO users (Username, email, password, birthdate, gender) VALUES (?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($conn, $sql);
-
-        if ($stmt === false) {
-            die("Error preparing the statement: " . mysqli_error($conn));
-        }
-
-        mysqli_stmt_bind_param($stmt, "sssss", $firstName, $email, $plainPassword, $birthdate, $gender);
-
-        if (mysqli_stmt_execute($stmt)) {
-            header("Location: ../../../public_html/index.php");
-
-            exit;
+        if (is_array($signUpResult)) {
+            $errorMessages = array_merge($errorMessages, $signUpResult);
         } else {
-            echo "Error executing the statement: " . mysqli_stmt_error($stmt);
+            header("Location: ../../../public_html/index.php");
+            exit();
         }
-
-        mysqli_stmt_close($stmt);
     }
-
-    mysqli_close($conn);
 }
 ?>
 
