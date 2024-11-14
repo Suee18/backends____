@@ -12,10 +12,12 @@ nav {
     width: 100%;
     z-index: 1000; /* Ensures the nav bar stays on top of other elements */
     background-color: black; /* Optional: Keep the nav bar background black */
+    z-index: 10000;
 }
 
 .fav_cars {
     margin-top: 200px; /* Adjust this value based on the height of your nav bar plus additional spacing */
+    margin-left: 300px; /* Adjust this value based on the height of your nav bar plus additional spacing */
 }
 
 .partsTitles_lp {

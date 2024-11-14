@@ -180,7 +180,7 @@ if (isset($_POST['deleteReview'])) {
                                     <?php foreach ($users as $user): ?>
                                         <option value="<?php echo $user['id']; ?>"
                                             data-username="<?php echo htmlspecialchars($user['username']); ?>"
-                                            data-age="<?php echo htmlspecialchars($user['age']); ?>"
+                                            data-age="<?php echo htmlspecialchars($user['birthdate']); ?>"
                                             data-gender="<?php echo htmlspecialchars($user['gender']); ?>"
                                             data-email="<?php echo htmlspecialchars($user['email']); ?>"
                                             data-password="<?php echo htmlspecialchars($user['password']); ?>"
