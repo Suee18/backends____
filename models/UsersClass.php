@@ -84,23 +84,63 @@ class Users
     }
 
 
-    function addUserIntoDB($user)
+    // function addUserIntoDB($user)
+    // {
+    //     global $conn;
+    //     $sql = "INSERT INTO users (username, birthdate, gender, password, email, type, timeStamp) 
+    //         VALUES ('$user->username', '$user->birthdate', '$user->gender', '$user->password', '$user->email', '$user->userType', '$user->timeStamp')";
+
+    //     $result = mysqli_query($conn, $sql);
+    //     return $result;
+    // }
+
+
+    public static function addUser($username, $birthdate, $gender, $password, $email, $userType)
     {
         global $conn;
-        $sql = "INSERT INTO users (username, birthdate, gender, password, email, type, timeStamp) 
-            VALUES ('$user->username', '$user->birthdate', '$user->gender', '$user->password', '$user->email', '$user->userType', '$user->timeStamp')";
+        $username = mysqli_real_escape_string($conn, htmlspecialchars($username));
+        $birthdate = mysqli_real_escape_string($conn, htmlspecialchars($birthdate));
+        $password = mysqli_real_escape_string($conn, htmlspecialchars($password));
+        $userType = mysqli_real_escape_string($conn, htmlspecialchars($userType));
+        $email = mysqli_real_escape_string($conn, htmlspecialchars($email));
+        $gender = mysqli_real_escape_string($conn, htmlspecialchars($gender));
 
-        $result = mysqli_query($conn, $sql);
-        return $result;
+        $sql = "INSERT INTO users (username, birthdate, gender, password, email, type) 
+                VALUES ('$username', '$birthdate', '$gender', '$password', '$email', '$userType')";
+        return mysqli_query($conn, $sql);
     }
 
-
-    function deleteUserFromDB($userId)
+    public static function updateUser($user_id, $username, $birthdate, $gender, $password, $email, $userType)
     {
         global $conn;
-        $sql = "DELETE FROM users WHERE id = '$userId'";
-        $result = mysqli_query($conn, $sql);
-        return $result;
+        $user_id = mysqli_real_escape_string($conn, htmlspecialchars($user_id));
+        $username = mysqli_real_escape_string($conn, htmlspecialchars($username));
+        $birthdate = mysqli_real_escape_string($conn, htmlspecialchars($birthdate));
+        $password = mysqli_real_escape_string($conn, htmlspecialchars($password));
+        $userType = mysqli_real_escape_string($conn, htmlspecialchars($userType));
+        $email = mysqli_real_escape_string($conn, htmlspecialchars($email));
+        $gender = mysqli_real_escape_string($conn, htmlspecialchars($gender));
+
+        $sql = "UPDATE users 
+                SET username='$username', birthdate='$birthdate', gender='$gender', password='$password', email='$email', type='$userType' 
+                WHERE id='$user_id'";
+        return mysqli_query($conn, $sql);
+    }
+
+    // function deleteUserFromDB($userId)
+    // {
+    //     global $conn;
+    //     $sql = "DELETE FROM users WHERE id = '$userId'";
+    //     $result = mysqli_query($conn, $sql);
+    //     return $result;
+    // }
+
+    public static function deleteUser($user_id)
+    {
+        global $conn;
+        $user_id = mysqli_real_escape_string($conn, htmlspecialchars($user_id));
+        $sql = "DELETE FROM users WHERE id='$user_id'";
+        return mysqli_query($conn, $sql);
     }
 
     static function loginUser($email, $password)
@@ -150,8 +190,7 @@ class Users
         }
 
         // If no errors, proceed to create the user
-        $user = new Users($username, $birthdate, $gender, $password, $email, $userType, $timeStamp);
-        return $user->addUserIntoDB($user);
+        return self::addUser($username, $birthdate, $gender, $password, $email, $userType);
     }
 
 }
