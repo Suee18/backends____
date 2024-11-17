@@ -68,9 +68,9 @@ if (isset($_POST['Submit'])) {
 </head>
 
 <body>
+    
     <div class="biggest-containerLI">
         <!-- <div class="login-container"> -->
-
 
         <div class="form-section_LI">
             <form action="" method="post" id="loginForm">
@@ -91,21 +91,18 @@ if (isset($_POST['Submit'])) {
                 </div>
 
                 <p class="no-account-text">Don't have an account? <a href="../../views/auth/signup.php"
-                        class="no-account-link">Sign up</a> now and explore more features!</p>
+                        class="no-account-link">Sign up</a> now and explore more features!
+                    </p>
 
             </form>
         </div>
 
-        <!-- 
-        <div class="welcome-section">
-            <h1>Welcome Back!</h1>
-            <p>Our website's slogan and a brief introduction go here.</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div> -->
     </div>
+
+
+
+
+
     <script src="../../../public_html/js/login.js"></script>
 </body>
 

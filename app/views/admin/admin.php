@@ -1,7 +1,7 @@
 <?php
 
 include_once "../../config/db_config.php";
-include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
+include 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\models\ReviewsClass.php';
 
 $users = [];
 $sql = "select id, username,birthdate, gender, password, email,type FROM users";
