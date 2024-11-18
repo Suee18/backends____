@@ -32,6 +32,10 @@
                 <a href="../../../public_html/index.php">Home</a>
             </li>
             <li>
+                <span class="material-symbols-outlined">person</span>
+                <a href="../../../app/views/user/profile.php">My Profile</a>
+            </li>
+            <li>
                 <span class="material-symbols-outlined">directions_car</span>
                 <a href="../../../app/views/user/persona_test_landing_page.php">Car Persona Test</a>
             </li>

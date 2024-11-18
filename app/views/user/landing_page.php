@@ -1,8 +1,11 @@
 <?php
-include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
-include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\UsersClass.php';
-include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
+// include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
+// include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\UsersClass.php';
+// include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
 
+include_once 'C:\xampp\htdocs\SWE_Phase1\app\config\db_config.php';
+include 'C:\xampp\htdocs\SWE_Phase1\models\UsersClass.php';
+include 'C:\xampp\htdocs\SWE_Phase1\models\ReviewsClass.php';
 $reviewsSliderArray = Reviews::getLastNumberOfReviews(7);
 
 if (isset($_POST['Submit'])) {
@@ -21,11 +24,14 @@ if (isset($_POST['Submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public_html/css/landing_page.css">
+    <!-- <link rel="stylesheet" href="../public_html/css/landing_page.css">
     <link rel="stylesheet" href="../public_html/css/global_styles.css">
     <link rel="stylesheet" href="../public_html/css/nav_bar.css">
     <link rel="stylesheet" href="../public_html/css/car_card.css">
-    <!-- <link rel="stylesheet" href="../public_html/css/footer.css"> -->
+    <link rel="stylesheet" href="../public_html/css/footer.css"> -->   
+
+     <link rel="stylesheet" href="css/landing_page.css">
+    <link rel="stylesheet" href="css/global_styles.css">
     <link rel="stylesheet" href="css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -128,7 +134,7 @@ if (isset($_POST['Submit'])) {
 
         <div class="carCardsContainer_lp">
             <!-- static -->
-            <?php include 'C:/xampp/htdocs/SWE Project/SWE_Phase1/public_html/components/car_card.php'; ?>
+            <?php include 'C:/xampp/htdocs/SWE_Phase1/public_html/components/car_card.php'; ?>
         </div>
     </div>
 
@@ -158,8 +164,20 @@ if (isset($_POST['Submit'])) {
                 </div>
             </div>
         </div>
-        <button class="reviewBtn" id="openOverlay">Add your own review!</button>
-
+        <button class="btn" id="openOverlay">
+        <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+            <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+            </path>
+        </svg>
+        <span class="text">Add Your Own Review!</span>
+        <span class="circle"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+            <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+            </path>
+        </svg>
+    </button>
         <div class="overlay" id="reviewOverlay">
             <form class="overlay-content" method="post">
                 <span class="closeBtn" id="closeOverlay">&times;</span>
@@ -168,6 +186,7 @@ if (isset($_POST['Submit'])) {
                 <input class="submitBtn" type="submit" id="submitReview" name="Submit">
             </form>
         </div>
+    </div>
         <!-- Footer Section -->
         <footer class="footer">
             <div class="footer-container">

@@ -1,7 +1,8 @@
 <?php
 // Start session
 session_start();
-include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
+// include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
+include_once 'C:\xampp\htdocs\SWE_Phase1\app\config\db_config.php';
 include "../../../models/UsersClass.php";
 
 // Enable error reporting

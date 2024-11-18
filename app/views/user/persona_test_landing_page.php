@@ -33,7 +33,21 @@
             <p>Ready to find the car that fits your lifestyle? Take our quick quiz to reveal your unique car persona and
                 get personalized recommendations. Whether you're into speed, tech, eco-friendliness, or something else,
                 we’ve got you covered.</p>
-            <a href="persona_test.php" class="cta-button">Find My Car</a>
+            <a href="persona_test.php" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+                    <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                    </path>
+                </svg>
+                <span class="text">Find My Car</span>
+                <span class="circle"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+                    <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                    </path>
+                </svg>
+            </a>
+
         </div>
         <div class="image-container">
             <img src="../../../public_html/media/Persona_Test_Images/Landing/red-car.jpg" alt="Car" />
@@ -125,7 +139,21 @@
             <p>Curious about which car suits your lifestyle best? Take our short quiz to discover your unique car
                 persona and receive tailored suggestions. Whether you’re drawn to performance, technology,
                 sustainability, or another feature, we’ve got the perfect fit for you.</p>
-            <a href="persona_test.php" class="cta-button">Find My Car</a>
+            <a href="persona_test.php" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+                    <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                    </path>
+                </svg>
+                <span class="text">Find My Car</span>
+                <span class="circle"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+                    <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                    </path>
+                </svg>
+            </a>
+
         </div>
     </div>
 </body>

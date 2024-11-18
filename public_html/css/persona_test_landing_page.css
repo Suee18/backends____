@@ -10,6 +10,8 @@
 html,
 body {
     background-color: var(--blue_gray_dark);
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .sidebar{
@@ -48,7 +50,7 @@ body {
 }
 
 /* Button styling */
-.cta-button {
+/* .cta-button {
     display: inline-block;
     background-color: var(--white_blue_light);
     padding: 15px 30px;
@@ -62,7 +64,7 @@ body {
 .cta-button:hover {
     background-color: var(--gray-blue);
     color: var(--black_navy);
-}
+} */
 
 /* Image container styling */
 .image-container {
