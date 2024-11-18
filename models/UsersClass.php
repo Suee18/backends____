@@ -142,16 +142,17 @@ class Users
         $sql = "DELETE FROM users WHERE id='$user_id'";
         return mysqli_query($conn, $sql);
     }
-
-    static function loginUser($email, $password)
+    static function loginUser($username, $password)
     {
         global $conn;
-        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
         $user = null;
+    
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            if ($password === $row["password"]) {
+    
+            if ($password === $row["password"]) { // Use proper password hashing in production!
                 $user = new Users($row["username"], $row["birthdate"], $row["gender"], $row["password"], $row["email"], $row["type"], $row["timeStamp"]);
                 $user->id = $row["ID"];
             } else {
@@ -160,6 +161,7 @@ class Users
         } else {
             return "User does not exist.";
         }
+    
         return $user;
     }
 

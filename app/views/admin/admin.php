@@ -4,6 +4,7 @@ include_once "../../config/db_config.php";
 include '../../../models/UsersClass.php';
 include '../../../models/ReviewsClass.php';
 
+
 $users = [];
 $sql = "select id, username,birthdate, gender, password, email,type FROM users";
 $result = mysqli_query($conn, $sql);
