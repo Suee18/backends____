@@ -1,44 +1,8 @@
 
-// document.getElementById('loginForm').addEventListener('submit', function (event) {
-//     let valid = true;
+document.addEventListener("DOMContentLoaded", () => {
+    // Place all your JavaScript code here
 
-//     // Get form fields and error message elements
-//     const emailField = document.getElementById('email');
-//     const passwordField = document.getElementById('password');
-//     const emailError = document.getElementById('email-error');
-//     const passwordError = document.getElementById('password-error');
-
-//     // Clear previous error messages
-//     emailError.textContent = '';
-//     passwordError.textContent = '';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
 // Flip the card between login and signup forms
@@ -66,7 +30,7 @@ togglePassword.addEventListener("click", () => {
   passwordInput.setAttribute("type", type);
 });
 
-// Login form submission
+//================================================== Login form submission
 const loginForm = document.getElementById("loginForm");
 const loginUsernameInput = document.querySelector("#loginForm #userName");
 const loginPasswordInput = document.querySelector("#loginForm #password");
@@ -123,13 +87,36 @@ loginForm.addEventListener("submit", async (e) => {
     }
   }
 });
+//=========================================================================================================================
 
-
+// ========================= SIGNUP FORM LOGIC =========================
 const signupForm = document.getElementById("signupForm");
-const signupUsernameInput = document.getElementById("signupUserName");
-const signupPasswordInput = document.getElementById("signupPassword");
-const confirmPasswordInput = document.getElementById("confirmPassword");
-const birthdateInput = document.getElementById("birthdate");
+const signupUsernameInput = document.querySelector("#signupForm #signupUserName");
+const signupPasswordInput = document.querySelector("#signupForm #signupPassword");
+const confirmPasswordInput = document.querySelector("#signupForm #confirmPassword");
+const birthdateInput = document.querySelector("#signupForm #birthdate");
+
+
+
+// Toggle password visibility
+const togglePassword2 = document.getElementById("togglePasswordSU");
+const passwordInput2 = document.getElementById("signupPassword");
+togglePassword2.addEventListener("click", () => {
+  const type2 = passwordInput2.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput2.setAttribute("type", type2);
+});
+// Toggle password visibility
+const togglePassword3 = document.getElementById("toggleConfirmPassword");
+const passwordInput3 = document.getElementById("confirmPassword");
+togglePassword3.addEventListener("click", () => {
+  const type3 = passwordInput2.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput3.setAttribute("type", type3);
+});
+
+
+
+// Mock list of existing usernames for signup validation
+const existingUsernames = ["john_doe", "jane_smith", "user123", "sample_user"];
 
 // Create signup error elements
 const signupUsernameError = document.createElement("small");
@@ -154,53 +141,118 @@ birthdateError.style.color = "red";
 birthdateError.style.display = "none";
 birthdateInput.parentNode.insertBefore(birthdateError, birthdateInput.nextSibling);
 
-// Handle sign-up form submission
-signupForm.addEventListener("submit", async (e) => {
-  e.preventDefault(); // Prevent default form submission
+// Username validation
+signupUsernameInput.addEventListener("input", () => {
+  const usernameValue = signupUsernameInput.value.trim();
 
-  // Gather form data
-  const username = signupUsernameInput.value.trim();
-  const password = signupPasswordInput.value;
-  const confirmPassword = confirmPasswordInput.value;
-  const birthdate = birthdateInput.value;
-  const gender = document.getElementById("gender").value;
+  if (existingUsernames.includes(usernameValue)) {
+    signupUsernameError.textContent = "This username already exists. choose another one.";
+    signupUsernameError.style.display = "block";
+    signupUsernameInput.value = "";
+  } else {
+    signupUsernameError.textContent = "";
+    signupUsernameError.style.display = "none";
+  }
+});
 
-  // Validate passwords match
-  if (password !== confirmPassword) {
+// Password validation
+signupPasswordInput.addEventListener("input", () => {
+  const passwordValue = signupPasswordInput.value;
+  const errors = [];
+
+  if (!/[A-Z]/.test(passwordValue)) errors.push("Must contain an uppercase letter.");
+  if (!/\d/.test(passwordValue)) errors.push("Must contain anumber.");
+  if (!/[@$!%*?&"]/.test(passwordValue)) errors.push("Must contain a special character (@$!%*?&)");
+  if (passwordValue.length < 6) errors.push("Must be at least 6 characters long.");
+
+  passwordErrors.innerHTML = "";
+  if (errors.length > 0) {
+    passwordErrors.style.display = "block";
+    errors.forEach((error) => {
+      const li = document.createElement("li");
+      li.textContent = error;
+      passwordErrors.appendChild(li);
+    });
+  } else {
+    passwordErrors.style.display = "none";
+  }
+});
+
+// Confirm password validation
+confirmPasswordInput.addEventListener("input", () => {
+  if (signupPasswordInput.value !== confirmPasswordInput.value) {
     confirmPasswordError.textContent = "Passwords do not match.";
     confirmPasswordError.style.display = "block";
-    return;
   } else {
+    confirmPasswordError.textContent = "";
     confirmPasswordError.style.display = "none";
   }
+});
 
-  // Validate other client-side rules here if needed
+// Birthdate validation
+const maxDate = new Date(2013, 11, 31);
+const formatDate = (date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 
-  // Send data to the backend
-  const response = await fetch("signup.php", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ username, password, birthdate, gender }),
-  });
+birthdateInput.setAttribute("max", formatDate(maxDate));
+birthdateInput.addEventListener("input", () => {
+  const birthdateValue = new Date(birthdateInput.value);
 
-  const result = await response.json();
-
-  if (result.success) {
-    alert("Sign-up successful! Redirecting...");
-    window.location.href = "login.php"; // Redirect to login page
+  if (birthdateValue > maxDate) {
+    birthdateError.textContent = "Must be older than 10 years.";
+    birthdateError.style.display = "block";
   } else {
-    // Display backend validation errors
-    if (result.errors.name) {
-      signupUsernameError.textContent = result.errors.name;
-      signupUsernameError.style.display = "block";
-    } else {
-      signupUsernameError.style.display = "none";
-    }
-
-    if (result.errors.email) {
-      alert(result.errors.email); // Email error from backend
-    }
+    birthdateError.textContent = "";
+    birthdateError.style.display = "none";
   }
+});
+
+// Prevent form submission if there are validation errors
+signupForm.addEventListener("submit", (e) => {
+  const hasErrors =
+    signupUsernameError.style.display === "block" ||
+    passwordErrors.style.display === "block" ||
+    confirmPasswordError.style.display === "block" ||
+    birthdateError.style.display === "block";
+
+  if (hasErrors) {
+    e.preventDefault();
+    alert("Please correct the highlighted errors before submitting the form.");
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
