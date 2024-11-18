@@ -128,7 +128,7 @@ if (isset($_POST['Submit'])) {
 
         <div class="carCardsContainer_lp">
             <!-- static -->
-            <?php include 'C:/xampp/htdocs/post-phase1-backup/SWE_Phase1/public_html/components/car_card.php'; ?>
+            <?php include 'C:/xampp/htdocs/SWE Project/SWE_Phase1/public_html/components/car_card.php'; ?>
         </div>
     </div>
 
