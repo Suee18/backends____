@@ -2,9 +2,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Place all your JavaScript code here
 
-  
-
-
 // Flip the card between login and signup forms
 const card = document.querySelector(".card");
 const flipToSignup = document.getElementById("flipToSignup");
@@ -19,7 +16,6 @@ flipToLogin.addEventListener("click", (e) => {
   e.preventDefault(); // Prevent default link behavior
   card.classList.remove("flip");
 });
-
 
 
 // Toggle password visibility
@@ -88,38 +84,6 @@ loginForm.addEventListener("submit", async (e) => {
   }
 });
 //=========================================================================================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });

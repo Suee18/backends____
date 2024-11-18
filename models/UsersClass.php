@@ -1,5 +1,5 @@
 <?php
-include_once 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\app\config\db_config.php';
+include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
 
 class Users
 {
@@ -84,23 +84,63 @@ class Users
     }
 
 
-    function addUserIntoDB($user)
+    // function addUserIntoDB($user)
+    // {
+    //     global $conn;
+    //     $sql = "INSERT INTO users (username, birthdate, gender, password, email, type, timeStamp) 
+    //         VALUES ('$user->username', '$user->birthdate', '$user->gender', '$user->password', '$user->email', '$user->userType', '$user->timeStamp')";
+
+    //     $result = mysqli_query($conn, $sql);
+    //     return $result;
+    // }
+
+
+    public static function addUser($username, $birthdate, $gender, $password, $email, $userType)
     {
         global $conn;
-        $sql = "INSERT INTO users (username, birthdate, gender, password, email, type, timeStamp) 
-            VALUES ('$user->username', '$user->birthdate', '$user->gender', '$user->password', '$user->email', '$user->userType', '$user->timeStamp')";
+        $username = mysqli_real_escape_string($conn, htmlspecialchars($username));
+        $birthdate = mysqli_real_escape_string($conn, htmlspecialchars($birthdate));
+        $password = mysqli_real_escape_string($conn, htmlspecialchars($password));
+        $userType = mysqli_real_escape_string($conn, htmlspecialchars($userType));
+        $email = mysqli_real_escape_string($conn, htmlspecialchars($email));
+        $gender = mysqli_real_escape_string($conn, htmlspecialchars($gender));
 
-        $result = mysqli_query($conn, $sql);
-        return $result;
+        $sql = "INSERT INTO users (username, birthdate, gender, password, email, type) 
+                VALUES ('$username', '$birthdate', '$gender', '$password', '$email', '$userType')";
+        return mysqli_query($conn, $sql);
     }
 
-
-    function deleteUserFromDB($userId)
+    public static function updateUser($user_id, $username, $birthdate, $gender, $password, $email, $userType)
     {
         global $conn;
-        $sql = "DELETE FROM users WHERE id = '$userId'";
-        $result = mysqli_query($conn, $sql);
-        return $result;
+        $user_id = mysqli_real_escape_string($conn, htmlspecialchars($user_id));
+        $username = mysqli_real_escape_string($conn, htmlspecialchars($username));
+        $birthdate = mysqli_real_escape_string($conn, htmlspecialchars($birthdate));
+        $password = mysqli_real_escape_string($conn, htmlspecialchars($password));
+        $userType = mysqli_real_escape_string($conn, htmlspecialchars($userType));
+        $email = mysqli_real_escape_string($conn, htmlspecialchars($email));
+        $gender = mysqli_real_escape_string($conn, htmlspecialchars($gender));
+
+        $sql = "UPDATE users 
+                SET username='$username', birthdate='$birthdate', gender='$gender', password='$password', email='$email', type='$userType' 
+                WHERE id='$user_id'";
+        return mysqli_query($conn, $sql);
+    }
+
+    // function deleteUserFromDB($userId)
+    // {
+    //     global $conn;
+    //     $sql = "DELETE FROM users WHERE id = '$userId'";
+    //     $result = mysqli_query($conn, $sql);
+    //     return $result;
+    // }
+
+    public static function deleteUser($user_id)
+    {
+        global $conn;
+        $user_id = mysqli_real_escape_string($conn, htmlspecialchars($user_id));
+        $sql = "DELETE FROM users WHERE id='$user_id'";
+        return mysqli_query($conn, $sql);
     }
     static function loginUser($username, $password)
     {
@@ -124,47 +164,35 @@ class Users
     
         return $user;
     }
-    static function signUpUser($username, $birthdate, $gender, $password, $email = '', $userType, $timeStamp)
+
+    static function signUpUser($username, $birthdate, $gender, $password, $email, $userType, $timeStamp)
     {
         global $conn;
-    
+
         // Check if username already exists
-        $sqlUsername = "SELECT * FROM users WHERE username = ?";
-        $stmtUsername = $conn->prepare($sqlUsername);
-        $stmtUsername->bind_param("s", $username);
-        $stmtUsername->execute();
-        $resultUsername = $stmtUsername->get_result();
-    
+        $sqlUsername = "SELECT * FROM users WHERE username = '$username'";
+        $resultUsername = mysqli_query($conn, $sqlUsername);
+
         // Check if email already exists
-        $sqlEmail = "SELECT * FROM users WHERE email = ?";
-        $stmtEmail = $conn->prepare($sqlEmail);
-        $stmtEmail->bind_param("s", $email);
-        $stmtEmail->execute();
-        $resultEmail = $stmtEmail->get_result();
-    
+        $sqlEmail = "SELECT * FROM users WHERE email = '$email'";
+        $resultEmail = mysqli_query($conn, $sqlEmail);
+
         $errors = ['name' => '', 'email' => ''];
-    
-        if ($resultUsername->num_rows > 0) {
+
+        if (mysqli_num_rows($resultUsername) > 0) {
             $errors['name'] = "Username already exists.";
         }
-        if (!empty($email) && $resultEmail->num_rows > 0) {
+        if (mysqli_num_rows($resultEmail) > 0) {
             $errors['email'] = "Email already exists.";
         }
-    
+
         // If there are any errors, return the errors array
         if (!empty($errors['name']) || !empty($errors['email'])) {
             return $errors;
         }
-    
-        // If no errors, proceed to insert the user
-        $sqlInsert = "INSERT INTO users (username, birthdate, gender, password, email, type, timeStamp) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        $stmtInsert = $conn->prepare($sqlInsert);
-        $stmtInsert->bind_param("sssssss", $username, $birthdate, $gender, $password, $email, $userType, $timeStamp);
-    
-        if ($stmtInsert->execute()) {
-            return true; // Success
-        } else {
-            return false; // Failed to insert
-        }
+
+        // If no errors, proceed to create the user
+        return self::addUser($username, $birthdate, $gender, $password, $email, $userType);
     }
+
 }
