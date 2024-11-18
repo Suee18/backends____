@@ -1,7 +1,9 @@
 <?php
 
 include_once "../../config/db_config.php";
-include 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\models\ReviewsClass.php';
+include '../../../models/UsersClass.php';
+include '../../../models/ReviewsClass.php';
+
 
 $users = [];
 $sql = "select id, username,birthdate, gender, password, email,type FROM users";
@@ -20,13 +22,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     switch ($action) {
         case 'add':
-            include 'add_user.php';
+            // include 'add_user.php';
+            $username = $_POST['username'];
+            $birthdate = $_POST['age'];
+            $password = $_POST['password'];
+            $userType = $_POST['user_type'];
+            $email = $_POST['email'];
+            $gender = $_POST['gender'];
+            Users::addUser($username, $birthdate, $gender, $password, $email, $userType);
             break;
         case 'update':
-            include 'update_user.php';
+            $user_id = $_POST['user_id'];
+            $username = $_POST['username'];
+            $birthdate = $_POST['age'];
+            $password = $_POST['password'];
+            $userType = $_POST['user_type'];
+            $email = $_POST['email'];
+            $gender = $_POST['gender'];
+            Users::updateUser($user_id, $username, $birthdate, $gender, $password, $email, $userType);
             break;
         case 'delete':
-            include 'delete_user.php';
+            $user_id = $_POST['user_id'];
+            Users::deleteUser($user_id);
             break;
     }
 }
@@ -102,11 +119,12 @@ if (isset($_POST['deleteReview'])) {
     <div class="content">
 
         <div id="div0" class="content-div" style="display: block;">
-        <div class="welcomeIcon1"></div>
+            <div class="welcomeIcon1"></div>
 
             <div class="welcome">welcome, Admin</div>
-            <div class="welcomeParagraph">Access the website insights and have full control over everything through this dashboard</div>
-<div class="welcomeIcon"></div>
+            <div class="welcomeParagraph">Access the website insights and have full control over everything through this
+                dashboard</div>
+            <div class="welcomeIcon"></div>
         </div>
 
 

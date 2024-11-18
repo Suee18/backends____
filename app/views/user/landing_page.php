@@ -1,6 +1,7 @@
 <?php
-include_once 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\app\config\db_config.php';
-include 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\models\ReviewsClass.php';
+include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
+include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\UsersClass.php';
+include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
 
 $reviewsSliderArray = Reviews::getLastNumberOfReviews(7);
 
