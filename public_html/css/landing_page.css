@@ -175,12 +175,12 @@ body {
 
 /*===============================PART 2: most recommended====================================*/
 /* Landing Page Part 2 */
-.landingPage_part2 {
+.landingPage_part2
+{
   display: flex;
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
-
   background-color: #e200005e;
   background-repeat: no-repeat;
   background-size: cover;
@@ -190,7 +190,8 @@ body {
   /* background-image: url('../media//mostr_lp11.jpg');  */
   /* background-image: url('../media/mostr_lp8.jpg'); */
   /* background-image: url('../media/animationGIF1.gif'); */
-  background-image: url("../media/mostr_lp6LOW.jpg");
+  /* background-image: url("../media/mostr_lp6LOW.jpg"); */
+background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/88f25b57105717.59c93c1719ded.jpg");
 }
 
 /* background-image: url('../media/lp_mostRecommended.jpg'); NOT THE VIBE  ligh holograPH
@@ -202,10 +203,6 @@ body {
                background-image: url('../media/mostr_lp4.jpg');10-10
                    background-image: url('../media/mostr_lp6.jpg');9-10
 noisy gif 
-
-
-
-
 
         background-image: url('../media/mostr_lp3.jpg')
  VERY HQ VERY GALAXYISH , the big one element >>>>
@@ -219,8 +216,6 @@ round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
 10 thin lines     background-image: url('../media/mostr_lp6.jpg');
 10 thin lines2  background-image: url('../media/mostr_lp4.jpg');
 
-
-
 */
 
 .mostRecommendedCarsTitle_lp {
@@ -231,8 +226,11 @@ round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
 
 .landingPage_part3 {
   height: 50rem;
-  background-image: url("../../../SWE_Phase1/public_html/media/comparison_background.jpg");
-  background-size: cover;
+  /*ABSTRACT BG background-image: url("../../../SWE_Phase1/public_html/media/comparison_background.jpg"); */
+ /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/24f4f1183997811.654a092433235.jpg "); */
+ /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/099754192953927.65e617da89db2.png"); */
+ background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/099754192953927.65e617da89db2.png ");
+  background-size: 130%;
   background-position: center;
   background-repeat: no-repeat;
   overflow-x: hidden;
@@ -418,4 +416,7 @@ round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
   color: var(--red);
   margin-top: 10px;
   font-size: 0.9rem;
+}
+.image-with-margin {
+  margin-top: 1rem;
 }

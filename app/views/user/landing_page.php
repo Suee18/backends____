@@ -1,7 +1,7 @@
 <?php
-include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
-include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\UsersClass.php';
-include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
+include_once 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\app\config\db_config.php';
+include 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\models\UsersClass.php';
+include 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\models\ReviewsClass.php';
 
 $reviewsSliderArray = Reviews::getLastNumberOfReviews(7);
 
@@ -101,7 +101,11 @@ if (isset($_POST['Submit'])) {
 
         <!-- Slide 4: -->
         <div class="slide" id="slide4">
-            <img src="path_to_your_image3.jpg" class="slide-bg" alt="Image Background">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ac03f9160627007.63c65854745ec.jpg" class="slide-bg" alt="Image Background">
+            <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/de399d160627007.63bc726268b18.jpg" class="slide-bg" alt="Image Background" style="margin-top: 10px;"> -->
+            <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/260f6b160627007.63c655267b415.jpg
+" class="slide-bg" alt="Image Background" style="margin-top: 50px;"> -->
+
             <div class="text-overlay">
                 <p class="slide4Title_lp">Discover latest news, and read authentic reviews.</p>
             </div>
@@ -169,7 +173,7 @@ if (isset($_POST['Submit'])) {
             </form>
         </div>
         <!-- Footer Section -->
-        <footer class="footer">
+        <!-- <footer class="footer">
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>About Us</h3>
@@ -191,7 +195,7 @@ if (isset($_POST['Submit'])) {
             <div class="footer-bottom">
                 <p>&copy; 2024 YourCompanyName. All Rights Reserved.</p>
             </div>
-        </footer>
+        </footer> -->
 
         <script src="../public_html/js/landing_page.js"></script>
 </body>

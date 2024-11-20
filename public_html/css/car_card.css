@@ -51,25 +51,32 @@
 }
 
 .car-card-front {
-    background:var(--grad2);
-    backdrop-filter: blur(5px);
+    /* background:var(--grad2); */
+   background: linear-gradient(150deg,
+      hsl(0, 0%, 0%),
+      #79797900,
+      #79797900,
+      #000000);
+    backdrop-filter: blur(7px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
+    box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.702);
 }
 
 .car-card-back {
-  background:var(--grad2);
-    backdrop-filter: blur(5px);   
+  /* background:var(--grad2); */
+    backdrop-filter: blur(17px);   
      transform: rotateY(180deg);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
+    box-shadow:  10px  10px 3px rgba(0, 0, 0, 0.902);
 }
 
 /* Card Image */

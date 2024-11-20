@@ -1,7 +1,7 @@
 <?php
 // Start session
 session_start();
-include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
+include_once 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\app\config\db_config.php';
 include "../../../models/UsersClass.php";
 
 // Enable error reporting
@@ -51,9 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
 </head>
 
 <body>
-    <div class="bg">
+    
+<div class="background-image">
 
         <div class="cardContainer">
+
             <div class="card">
                 <!-- Front Side: Login Form -->
                 <div class="cardFront">
@@ -71,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
                             </svg>
                             <small style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;    font-weight: bold;"><?= $errorMessages['login']['password'] ?></small>
                         </div>
-                        <button type="submit" name="loginSubmit">Log in</button>
+                        <button class="loginbutton" type="submit" name="loginSubmit">Log in</button>
                         <button class="google">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -135,8 +137,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
                         <small id="confirmPasswordError" style="color: red; display: none;">Passwords do not match.</small>
 
 
-                        <button type="submit">Sign up</button>
-                        <button class="google">
+                        <button class="signupbutton" type="submit">Sign up</button>
+                        <button class="google" id="googleSU">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
@@ -160,9 +162,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
             </div>
         </div>
 
-    </div>
 
-
+        </div>
     <script src="../../../public_html/js/login.js"></script>
 </body>
 
