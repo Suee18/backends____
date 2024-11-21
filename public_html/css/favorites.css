@@ -1,33 +1,101 @@
+html,
 body {
-    background-color: black; /* Set the entire webpage background to black */
-    color: white; /* Set the default text color to white for visibility */
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  background: rgb(1, 1, 57)
+    url("../../../SWE_Phase1/public_html/media/F-BG2.jpeg") center/cover fixed;
+  overflow-x: hidden;
+  color: var(--white);
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.49);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+  pointer-events: none;
 }
 
-nav {
+/* body::before {
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensures the nav bar stays on top of other elements */
-    background-color: black; /* Optional: Keep the nav bar background black */
-    z-index: 10000;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    z-index: -1;
+    pointer-events: none;
+} */
+
+/*HEADER*/
+h1 {
+  text-align: center;
+  color: var(--white);
+  font-weight: 600;
+  font-family: var(--technoRace_font);
+  font-size: 3rem;
+  margin-bottom: 70px;
+  margin-left: -90px;
 }
 
+/*Fav car cards div*/
 .fav_cars {
-    margin-top: 200px; /* Adjust this value based on the height of your nav bar plus additional spacing */
-    margin-left: 300px; /* Adjust this value based on the height of your nav bar plus additional spacing */
+  margin-top: 100px;
+  margin-left: 200px;
 }
+.fav_cars .car-cards-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 
-.partsTitles_lp {
-    display: flex;
-    justify-content: center; /* Centers the content horizontally */
-    margin-top: 20px; /* Adjust the spacing above */
+  margin: 0px;
 }
-
-.mostRecommendedCarsTitle_lp {
-    font-size: 32px; /* Adjust the font size as needed */
-    color: white; /* Change to your preferred color */
-    text-align: center; /* Center-align the text itself */
+.fav_cars .container2 {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.fav_cars .car-card {
+  height: 400px;
+  perspective: 1000px;
+  max-width: 80%;
+}
+.fav_cars .car-description {
+  color: rgb(214, 213, 213);
+}
+.fav_cars .car-card-front {
+  backdrop-filter: blur(10px);
+}
+.fav_cars .car-card-back {
+  backdrop-filter: blur(10px);
+}
+/*Fav icon styling*/
+.favorite-icon {
+  position: absolute;
+  bottom: 50px;
+  right: 140px;
+  color: red;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.favorite-icon:hover {
+  color: var(--red);
+}
+.car-card.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s;
 }

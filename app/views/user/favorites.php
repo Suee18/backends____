@@ -14,18 +14,12 @@
 </div>
 
 <body>
+
     <div class="fav_cars">
-
-        <div class="partsTitles_lp">
-            <P class="mostRecommendedCarsTitle_lp">
-                Favorite Cars </P>
-        </div>
-
+    <h1>Favorite Cars</h1>    
         <div class="carCardsContainer_lp">
             <?php include '../../../public_html/components/favorites_car_card.php'; ?>
         </div>
-
-
 
     </div>
 </body>

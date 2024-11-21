@@ -3,9 +3,12 @@
 // include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\UsersClass.php';
 // include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
 
-include_once 'C:\xampp\htdocs\SWE_Phase1\app\config\db_config.php';
-include 'C:\xampp\htdocs\SWE_Phase1\models\UsersClass.php';
-include 'C:\xampp\htdocs\SWE_Phase1\models\ReviewsClass.php';
+// include_once 'C:\xampp\htdocs\SWE_Phase1\app\config\db_config.php';
+// include 'C:\xampp\htdocs\SWE_Phase1\models\UsersClass.php';
+// include 'C:\xampp\htdocs\SWE_Phase1\models\ReviewsClass.php';
+include_once __DIR__. '\..\..\config\db_config.php';
+include __DIR__. '\..\..\..\models\ReviewsClass.php';
+include __DIR__. '\..\..\..\models\UsersClass.php';
 $reviewsSliderArray = Reviews::getLastNumberOfReviews(7);
 
 if (isset($_POST['Submit'])) {
@@ -134,7 +137,7 @@ if (isset($_POST['Submit'])) {
 
         <div class="carCardsContainer_lp">
             <!-- static -->
-            <?php include 'C:/xampp/htdocs/SWE_Phase1/public_html/components/car_card.php'; ?>
+            <?php include __DIR__. '/../../../public_html/components/car_card.php'; ?>
         </div>
     </div>
 
