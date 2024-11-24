@@ -13,7 +13,7 @@
 <body>
     <?php include "../../../public_html/components/userNavbar.php" ?>
     <div class="container">
-        <h1>Apex Community   🏎️💨 </h1>
+        <h1>Apex Community 🏎️💨 </h1>
         <button id="addPostBtn"><i class="fas fa-plus"></i></button>
 
         <div id="postsContainer">
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="post-image">
-                            <img src="../../../../  SWE_Phase1/public_html/media/ccAMG.png" alt="Sample Post Image" />
+                            <img src="../../../../SWE_Phase1/public_html/media/ccAMG.png" alt="Sample Post Image" />
                         </div>
                         <div class="post-footer">
                             <span class="heart" onclick="toggleLike(this, 1)">&#9829;</span>
@@ -56,7 +56,7 @@
                         </div>
                         <h3>Comments section:</h3>
                         <div class="commentList">
-                            <div class="comment">User: Great Car!</div>
+                            <div class="comment">@username : Great Car!</div>
                             <hr>
                         </div>
 
@@ -70,12 +70,13 @@
                 <span class="close" id="closeModal">&times;</span>
                 <form id="postForm" enctype="multipart/form-data">
                     <h2>Create a Post</h2>
+                    <div id="postError" class="error-message"></div>
                     <div id="charWarning" style="display: none; color: red; font-size: 0.9rem;">
                         Please don't exceed 300 characters.
                     </div>
                     <textarea id="postContent" placeholder="What's on your mind?" required></textarea>
                     <input type="file" id="postFile" accept="image/*,video/*" style="display: none;" />
-                    <label for="postFile" class="custom-file-label">Choose File</label>
+                    <label for="postFile" id="fileLabel" class="custom-file-label">Choose File</label>
                     <input type="text" id="postTags" placeholder="Add tags (comma separated)" />
                     <button type="button" id="savePostBtn">Save Post</button>
                     <div id="charCount">0 / 300</div>
