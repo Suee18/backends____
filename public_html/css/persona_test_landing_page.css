@@ -4,12 +4,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "DM Sans", Arial, sans-serif;
 }
 
 html,
 body {
     background-color: var(--blue_gray_dark);
+
+
 }
 
 .sidebar{
@@ -39,12 +40,15 @@ body {
     font-size: 3rem;
     color: var(--white);
     margin-bottom: 20px;
+    font-family: var(--header_font);
+    font-weight: 100;
 }
 
 .content p {
     font-size: 1.2rem;
     color: var(--white_blue_light);
     margin-bottom: 30px;
+    font-family: var(--paragraphs_font);
 }
 
 /* Button styling */
@@ -90,7 +94,8 @@ body {
 }
 
 .header {
-    font-family: "DM Sans", var(--racing_font);
+    font-family: var(--racing_font);
+    font-weight: 100;
     font-style: italic;
     font-size: 3rem;
     color: var(--white);
@@ -119,8 +124,8 @@ body {
     align-items: center;
     height: 4cm;
     font-size: 1.2rem;
-    background: rgba(255, 255, 255, 0.216);
-    backdrop-filter: blur(30px);
+    background:linear-gradient(180deg, #ffffff62, #9999994f, #00000073);
+    backdrop-filter: blur(15px);
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.5s ease;
@@ -144,9 +149,13 @@ body {
 
 .persona-card h4 {
     font-size: 1.5rem;
-    color: var(--white);
+    /* color: var(--white); */
+    color: rgb(110, 197, 255);
+
     margin-bottom: 10px;
     margin-top: 100px;
+    font-family: var(--technoRace_font);
+    font-weight: 100;
 }
 
 .swiper-slide-active {
@@ -156,7 +165,7 @@ body {
 
 .persona-paragraph {
     font-size: 1.3rem;
-    font-family: "DM Sans", var(--paragraph_font);
+    font-family: var(--paragraphs_font);
     color: var(--white);
     margin-top: 40px;
     margin-left: auto;
