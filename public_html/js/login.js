@@ -92,8 +92,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     //=========================================================================================================================
 
-    const signupForm = document.getElementById("signupForm");
-    signupForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-    });
 });

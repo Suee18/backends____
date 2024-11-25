@@ -161,6 +161,8 @@ button:hover {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    /* margin-top: 10px; */
+    align-items: center;
 }
 
 .google:hover {
@@ -253,9 +255,9 @@ button:hover {
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 90%;
+    height: 96%;
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 
 /* When flipped */
@@ -267,4 +269,11 @@ button:hover {
 .formContainer {
     width: 80%;
     text-align: center;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    font-family: monospace, Arial, sans-serif;
+    font-weight: bold;
 }

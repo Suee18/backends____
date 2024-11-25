@@ -1,8 +1,22 @@
 <?php
 // Start session
 session_start();
-include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
+include_once __DIR__ . '/../../config/db_config.php';
 include "../../../models/UsersClass.php";
+require __DIR__ . '/../../../vendor/autoload.php'; 
+require_once __DIR__ . '/../../../env_loader.php';
+
+// Handle "Sign up with Google"
+$client = new Google\Client;
+$client->setClientId($_ENV['GOOGLE_CLIENT_ID']);
+$client->setClientSecret($_ENV['GOOGLE_CLIENT_SECRET']);
+$client->setRedirectUri($_ENV['GOOGLE_REDIRECT_URI']);
+
+$client->addScope('email');
+$client->addScope('profile');
+
+$url = $client->createAuthUrl();
+
 
 // Enable error reporting
 error_reporting(E_ALL);
@@ -34,42 +48,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
     }
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
-    $userName = $_POST["signupUserName"];
-    $email = $_POST["signupEmail"];
-    $password = $_POST["signupPassword"];
-    $confirmPassword = $_POST["confirmPassword"];
-    $birthdate = $_POST["birthdate"];
-    $gender = $_POST["gender"];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Initialize error messages array
+    $errorMessages = [];
 
-    if ($password !== $confirmPassword) {
-        $errorMessages['signup']['password'] = "Passwords do not match.";
-    }
+    // Handle Manual Signup
+    if (isset($_POST['signupSubmit'])) {
+        $userName = $_POST["signupUserName"] ?? '';
+        $email = $_POST["signupEmail"] ?? '';
+        $password = $_POST["signupPassword"] ?? '';
+        $confirmPassword = $_POST["confirmPassword"] ?? '';
+        $birthdate = $_POST["birthdate"] ?? '';
+        $gender = $_POST["gender"] ?? '';
 
-    $birthDate = new DateTime($birthdate);
-    $currentDate = new DateTime();
-    $age = $birthDate->diff($currentDate)->y;
+        // Validate required fields
+        if (empty($userName)) {
+            $errorMessages['signup']['username'] = "Username is required.";
+        }
 
-    if ($age < 18) {
-        $errorMessages['signup']['age'] = "Age must be 18 or older. Please enter a valid birthdate.";
-    }
+        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errorMessages['signup']['email'] = "A valid email is required.";
+        }
 
-    if (empty($errorMessages['signup']['password']) && empty($errorMessages['signup']['age'])) {
-        $signUpResult = Users::signUpUser($userName, $birthdate, $gender, $password, $email, "user", date('Y-m-d H:i:s'));
+        if (empty($password)) {
+            $errorMessages['signup']['password'] = "Password is required.";
+        } elseif ($password !== $confirmPassword) {
+            $errorMessages['signup']['password'] = "Passwords do not match.";
+        }
 
-        if (is_array($signUpResult)) {
-            $errorMessages['signup'] = array_merge($errorMessages['signup'], $signUpResult);
+        if (empty($birthdate)) {
+            $errorMessages['signup']['birthdate'] = "Birthdate is required.";
         } else {
-            header("Location: ../../../public_html/index.php");
-            exit();
+            $birthDate = new DateTime($birthdate);
+            $currentDate = new DateTime();
+            $age = $birthDate->diff($currentDate)->y;
+
+            if ($age < 18) {
+                $errorMessages['signup']['age'] = "Age must be 18 or older.";
+            }
+        }
+
+        if (empty($gender)) {
+            $errorMessages['signup']['gender'] = "Gender selection is required.";
+        }
+
+        // If there are no errors, process the signup
+        if (empty($errorMessages['signup'])) {
+            $signUpResult = Users::signUpUser($userName, $birthdate, $gender, $password, $email, "user", date('Y-m-d H:i:s'));
+
+            if (is_array($signUpResult)) {
+                // Merge additional errors from the sign-up process
+                $errorMessages['signup'] = array_merge($errorMessages['signup'], $signUpResult);
+            } else {
+                // Successful signup, redirect to the homepage
+                header("Location: ../../../public_html/index.php");
+                exit();
+            }
         }
     }
 
+
+
 }
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -137,9 +178,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                         <p class="formTitle">Sign up</p>
                         <input type="text" id="signupUserName" name="signupUserName" required
                             placeholder="Enter your username">
-                        <input type="email" id="signupEmail" name="signupEmail" required
-                            placeholder="Enter your Email">
+                        <?php if (isset($errorMessages['signup']['username'])): ?>
+                            <small class="error">
+                                <?= htmlspecialchars($errorMessages['signup']['username']) ?>
+                            </small>
+                        <?php endif; ?>
 
+                        <input type="email" id="signupEmail" name="signupEmail" required placeholder="Enter your Email">
+                        <?php if (isset($errorMessages['signup']['email'])): ?>
+                            <small class="error">
+                                <?= htmlspecialchars($errorMessages['signup']['email']) ?>
+                            </small>
+                        <?php endif; ?>
 
                         <div class="passwordContainer">
                             <input type="password" id="signupPassword" name="signupPassword" required
@@ -151,7 +201,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                                 </path>
                             </svg>
                         </div>
-                        <ul id="passwordErrors" style="  margin-top: 0.2px;
+                        <?php if (isset($errorMessages['signup']['password'])): ?>
+                            <small class="error">
+                                <?= htmlspecialchars($errorMessages['signup']['password']) ?>
+                            </small>
+                        <?php endif; ?>
+                        <!-- <ul id="passwordErrors" style="  margin-top: 0.2px;
                             font-family:monospace; 
                             font-size:14px;  
                             font-weight: bold;
@@ -159,7 +214,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                             list-style: none;
                             padding: 0;
                             display: none;">
-                        </ul>
+                        </ul> -->
 
                         <div class="passwordContainer">
                             <input type="password" id="confirmPassword" name="confirmPassword" required
@@ -175,16 +230,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                             match.</small>
 
                         <input type="date" id="birthdate" name="birthdate" class="default" required>
-                        <select id="gender" name="gender" class="default" required>
-                            <option value="" disabled selected>Select your gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="prefer_not_to_say">Prefer not to say</option>
+                        <?php if (isset($errorMessages['signup']['age'])): ?>
+                            <small class="error">
+                                <?= htmlspecialchars($errorMessages['signup']['age']) ?>
+                            </small>
+                        <?php endif; ?>
+
+                        <select id="gender" name="gender">
+                            <option value="" disabled <?= !isset($_POST['gender']) ? 'selected' : '' ?>>Select your
+                                gender</option>
+                            <option value="male" <?= ($_POST['gender'] ?? '') === 'male' ? 'selected' : '' ?>>Male</option>
+                            <option value="female" <?= ($_POST['gender'] ?? '') === 'female' ? 'selected' : '' ?>>Female
+                            </option>
+                            <option value="prefer_not_to_say" <?= ($_POST['gender'] ?? '') === 'prefer_not_to_say' ? 'selected' : '' ?>>Prefer not to say</option>
                         </select>
 
 
                         <button type="submit" name="signupSubmit">Sign up</button>
-                        <button class="google">
+                        <button type="button" class="google" name="googleSignup" onclick="window.location.href='<?= $url ?>'">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -202,7 +265,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                             </svg>
                             Sign up with Google
                         </button>
-                        <p class="registerRedirection">Already have an account? <a href="#" id="flipToLogin">Log in</a>
+                        <p class="registerRedirection">Already have an account?<br> <a href="#" id="flipToLogin">Log
+                                in</a>
                         </p>
                     </form>
                 </div>
