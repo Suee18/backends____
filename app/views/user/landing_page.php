@@ -107,7 +107,11 @@ if (isset($_POST['Submit'])) {
 " class="slide-bg" alt="Image Background" style="margin-top: 50px;"> -->
 
             <div class="text-overlay">
-                <p class="slide4Title_lp">Discover latest news, and read authentic reviews.</p>
+                <p class="slide4Title_lp">Drive. Share. Connect.</p>
+                <p class="slide4Paragraph_lp">Join the ultimate car community.
+                 Share your experiences,<br> discover posts, 
+                 and connect with car enthusiasts..</p>
+
             </div>
         </div>
 

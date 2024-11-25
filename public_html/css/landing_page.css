@@ -62,16 +62,20 @@ body {
 
 .slide1Title_lp {
   font-family: var(--racing_font);
+  color: white;
   font-size: 4rem;
   font-weight: 100;
   margin-bottom: 0.5rem;
-  margin-top: 20rem;
+  margin-top: 22rem;
 }
 
 .slide1paragraph_lp {
   font-family: var(--paragraph_font);
   font-size: 2rem;
   font-weight: 100;
+  cursor: pointer;
+  color: #b4c3cc;
+
 }
 
 .videoBG_lp {
@@ -86,45 +90,61 @@ body {
 
 .slide2Title_lp {
   font-family: var(--technoRace_font);
-  color: #b4c3cc;
+  color: white;
   text-shadow: 2px 2px 4px #58717d;
   font-size: 4rem;
   font-weight: 100;
-  margin-top: 29rem;
+  margin-top: 22rem;
+  margin-left: 3rem;
 }
 
 .slide2paragraph_lp {
   font-family: var(--paragraph_font);
   font-size: 2rem;
   font-weight: 100;
-  margin-top: -3rem;
+  margin-top: -0.5rem;
+  cursor: pointer;
+  margin-left: 3rem;
+  color: #b4c3cc;
+
+
 }
 
 /*slide 3*/
 .slide3Title_lp {
   font-family: var(--technoRace_font);
-  color: #b4c3cc;
+  color: white;
   text-shadow: 2px 2px 4px #58717d;
   font-size: 4rem;
   font-weight: 100;
-  margin-top: 20rem;
+  margin-top: 22rem;
 }
 
 .slide3paragraph_lp {
-  font-family: var(--header_font);
+  font-family: var(--paragraph_font);
   font-size: 2rem;
   font-weight: 100;
+  cursor: pointer;
+  color: #b4c3cc;
+
 }
 
 /*slide 4*/
 .slide4Title_lp {
   font-family: var(--technoRace_font);
-  color: #b4c3cc;
+  color: white;
+  text-shadow: 2px 2px 4px #58717d;
   font-size: 3rem;
   font-weight: 100;
-  margin-top: 20rem;
+  margin-top: 22rem;
 }
-
+.slide4Paragraph_lp{
+  font-family: var(--paragraph_font);
+  color: #b4c3cc;
+  font-size: 2rem;
+  font-weight: 100;
+  cursor: pointer;
+}
 /*=================== slides Navigation ================*/
 .dots {
   position: absolute;
@@ -265,7 +285,7 @@ body {
   color: var(--white);
   margin-bottom: 10px;
   margin-top: 50px;
-  font-family: var(--paragraph_font);
+  font-family: var(--header_font);
   font-weight: 100;
 }
 
