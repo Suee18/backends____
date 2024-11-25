@@ -164,7 +164,7 @@ body {
   align-items: center;
 
   /* background: var(--grad1); */
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
 
   font-family: var(--technoRace_font);
   font-weight: 100;
