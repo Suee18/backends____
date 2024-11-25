@@ -25,7 +25,7 @@ if (isset($_POST['Submit'])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="../public_html/css/landing_page.css">
     <link rel="stylesheet" href="../public_html/css/global_styles.css">
@@ -110,9 +110,17 @@ if (isset($_POST['Submit'])) {
 
         <!-- Slide 4: -->
         <div class="slide" id="slide4">
-            <img src="path_to_your_image3.jpg" class="slide-bg" alt="Image Background">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ac03f9160627007.63c65854745ec.jpg" class="slide-bg" alt="Image Background">
+            <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/de399d160627007.63bc726268b18.jpg" class="slide-bg" alt="Image Background" style="margin-top: 10px;"> -->
+            <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/260f6b160627007.63c655267b415.jpg
+" class="slide-bg" alt="Image Background" style="margin-top: 50px;"> -->
+
             <div class="text-overlay">
-                <p class="slide4Title_lp">Discover latest news, and read authentic reviews.</p>
+                <p class="slide4Title_lp">Drive. Share. Connect.</p>
+                <p class="slide4Paragraph_lp">Join the ultimate car community.
+                 Share your experiences,<br> discover posts, 
+                 and connect with car enthusiasts..</p>
+
             </div>
         </div>
 
@@ -129,11 +137,12 @@ if (isset($_POST['Submit'])) {
 
     <!----------------PART 2:MOST RECOMMENDED CARS--------------------------->
     <div class="landingPage_part2">
-        <div class="partsTitles_lp">
-            <P class="mostRecommendedCarsTitle_lp">
-                most recommended Cars
-            </P>
-        </div>
+        <div class="filter">
+            <div class="partsTitles_lp">
+                <P class="mostRecommendedCarsTitle_lp">
+                    most recommended Cars
+                </P>
+            </div>
 
         <div class="carCardsContainer_lp">
             <!-- static -->
@@ -141,9 +150,9 @@ if (isset($_POST['Submit'])) {
         </div>
     </div>
 
-
     <!----------------PART 3:Reviews--------------------------->
     <div class="landingPage_part3">
+        <div class="filter_reviews">
         <div class="partsTitles_lp">
             <P class="reviewsTitle_lp">
                 Reviews
@@ -158,7 +167,7 @@ if (isset($_POST['Submit'])) {
                     foreach ($reviewsSliderArray as $review) {
                         echo '<div class="swiper-slide">
                                 <div class="review-card">
-                                    <h4>' . htmlspecialchars($review->reviewUserName) . '</h4>
+                                    <h4 class="reviewUserName">' . htmlspecialchars($review->reviewUserName) . '</h4>
                                     <p class="review-paragraph">"' . htmlspecialchars($review->reviewText) . '"</p>
                                 </div>
                               </div>';
@@ -215,7 +224,8 @@ if (isset($_POST['Submit'])) {
             </div>
         </footer>
 
-        <script src="../public_html/js/landing_page.js"></script>
+
+    <script src="../public_html/js/landing_page.js"></script>
 </body>
 
 </html>

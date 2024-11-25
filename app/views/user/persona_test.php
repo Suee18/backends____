@@ -18,10 +18,10 @@
     <?php include '../../../public_html/components/userNavbar.php'; ?>
 
     <div class="background-images">
-        <img src="../../../public_html/media/Persona_Test_Images/Test_images/background.jpg" alt="Background Image 1"
+        <!-- <img src="../../../public_html/media/Persona_Test_Images/Test_images/background.jpg" alt="Background Image 1"
             id="background-image-one">
         <img src="../../../public_html/media/Persona_Test_Images/Test_images/background2.jpg" alt="Background Image 2"
-            id="background-image-two">
+            id="background-image-two"> -->
     </div>
 
     <div class="swiper">
