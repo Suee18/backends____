@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../../public_html/css/platform.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="../../../public_html/js/platform.js" defer></script>
-    <title>Car Community</title>
+    <title>Apex Community</title>
 </head>
 
 <body>
@@ -70,8 +70,8 @@
                 <span class="close" id="closeModal">&times;</span>
                 <form id="postForm" enctype="multipart/form-data">
                     <h2>Create a Post</h2>
-                    <div id="postError" class="error-message"></div>
-                    <div id="charWarning" style="display: none; color: red; font-size: 0.9rem;">
+                    <div id="errorMessage"></div>
+                    <div id="charWarning">
                         Please don't exceed 300 characters.
                     </div>
                     <textarea id="postContent" placeholder="What's on your mind?" required></textarea>

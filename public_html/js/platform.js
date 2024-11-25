@@ -125,22 +125,24 @@ document.getElementById("postContent").addEventListener("input", function () {
 });
 
 document.getElementById("savePostBtn").onclick = function () {
-  const content = document.getElementById("postContent").value;
-  if (content === "" && !file) {
-    errorMessage.textContent =
-      "Please add some content or choose a photo/video before posting.";
-    errorMessage.style.display = "block";
-    return;
-  } else {
-    errorMessage.style.display = "none";
-  }
-
-  if (content.length > 300) {
-    return;
-  } else {
     const content = document.getElementById("postContent").value;
     const fileInput = document.getElementById("postFile");
-    const file = fileInput.files[0];
+    const file = fileInput.files.length > 0 ? fileInput.files[0] : null; // Ensure file is properly initialized
+    
+    const errorMessage = document.getElementById("errorMessage"); // Ensure this exists in your HTML
+  
+    if (content === "" && !file) {
+      errorMessage.textContent =
+        "Please add some content or choose a photo/video before posting.";
+      errorMessage.style.display = "block";
+      return;
+    } else {
+      errorMessage.style.display = "none";
+    }
+  
+    if (content.length > 300) {
+      return;
+    }  
     const tagsInput = document
       .getElementById("postTags")
       .value.split(",")
@@ -191,20 +193,22 @@ document.getElementById("savePostBtn").onclick = function () {
               <p>${content}</p>
             </div>
                     <div class="post-tags">
-              ${tagsInput.length
-          ? `<div class="tags">${tagsInput
-            .map((tag) => `<span class="tag">${tag}</span>`)
-            .join(" ")}</div>`
-          : ""
-        }
+              ${
+                tagsInput.length
+                  ? `<div class="tags">${tagsInput
+                      .map((tag) => `<span class="tag">${tag}</span>`)
+                      .join(" ")}</div>`
+                  : ""
+              }
             </div>
             <div class="post-image">
-              ${file
-          ? `<img src="${URL.createObjectURL(
-            file
-          )}" alt="Post Image" />`
-          : ""
-        }
+              ${
+                file
+                  ? `<img src="${URL.createObjectURL(
+                      file
+                    )}" alt="Post Image" />`
+                  : ""
+              }
             </div>
       
           </div>
@@ -231,5 +235,4 @@ document.getElementById("savePostBtn").onclick = function () {
 
     document.getElementById("postModal").style.display = "none";
     currentPostId = null;
-  }
 };
