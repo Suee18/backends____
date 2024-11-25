@@ -11,6 +11,7 @@ body {
   background-color: #020925;
   color: #dad3d3;
 }
+
 /*===============================PART 1====================================*/
 
 .slideShowContainer_lp {
@@ -45,14 +46,12 @@ body {
   text-align: center;
   padding: 0;
   color: white;
-  background: linear-gradient(
-    250deg,
-    #031d35,
-    #01031f8f,
-    #615a5a48,
-    #070707a4,
-    #000103e1
-  );
+  background: linear-gradient(250deg,
+      #031d35,
+      #01031f8f,
+      #615a5a48,
+      #070707a4,
+      #000103e1);
   backdrop-filter: blur(2.5px);
 
   /* background: linear-gradient(210deg, #1a334abd,#000000c2 );  */
@@ -63,16 +62,20 @@ body {
 
 .slide1Title_lp {
   font-family: var(--racing_font);
+  color: white;
   font-size: 4rem;
   font-weight: 100;
   margin-bottom: 0.5rem;
-  margin-top: 20rem;
+  margin-top: 22rem;
 }
 
 .slide1paragraph_lp {
   font-family: var(--paragraph_font);
   font-size: 2rem;
   font-weight: 100;
+  cursor: pointer;
+  color: #b4c3cc;
+
 }
 
 .videoBG_lp {
@@ -87,45 +90,61 @@ body {
 
 .slide2Title_lp {
   font-family: var(--technoRace_font);
-  color: #b4c3cc;
+  color: white;
   text-shadow: 2px 2px 4px #58717d;
   font-size: 4rem;
   font-weight: 100;
-  margin-top: 29rem;
+  margin-top: 22rem;
+  margin-left: 3rem;
 }
 
 .slide2paragraph_lp {
   font-family: var(--paragraph_font);
   font-size: 2rem;
   font-weight: 100;
-  margin-top: -3rem;
+  margin-top: -0.5rem;
+  cursor: pointer;
+  margin-left: 3rem;
+  color: #b4c3cc;
+
+
 }
 
 /*slide 3*/
 .slide3Title_lp {
   font-family: var(--technoRace_font);
-  color: #b4c3cc;
+  color: white;
   text-shadow: 2px 2px 4px #58717d;
   font-size: 4rem;
   font-weight: 100;
-  margin-top: 20rem;
+  margin-top: 22rem;
 }
 
 .slide3paragraph_lp {
-  font-family: var(--header_font);
+  font-family: var(--paragraph_font);
   font-size: 2rem;
   font-weight: 100;
+  cursor: pointer;
+  color: #b4c3cc;
+
 }
 
 /*slide 4*/
 .slide4Title_lp {
   font-family: var(--technoRace_font);
-  color: #b4c3cc;
+  color: white;
+  text-shadow: 2px 2px 4px #58717d;
   font-size: 3rem;
   font-weight: 100;
-  margin-top: 20rem;
+  margin-top: 22rem;
 }
-
+.slide4Paragraph_lp{
+  font-family: var(--paragraph_font);
+  color: #b4c3cc;
+  font-size: 2rem;
+  font-weight: 100;
+  cursor: pointer;
+}
 /*=================== slides Navigation ================*/
 .dots {
   position: absolute;
@@ -164,8 +183,8 @@ body {
   justify-content: flex-start;
   align-items: center;
 
-  background: var(--grad1);
-  backdrop-filter: blur(1px);
+  /* background: var(--grad1); */
+  backdrop-filter: blur(10px);
 
   font-family: var(--technoRace_font);
   font-weight: 100;
@@ -180,62 +199,48 @@ body {
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
-
-  background-color: #e200005e;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   background-attachment: fixed;
   background-position: center;
   /* background-image: url('../media/lp_mostRecommended4.jpg'); */
   /* background-image: url('../media//mostr_lp11.jpg');  */
   /* background-image: url('../media/mostr_lp8.jpg'); */
   /* background-image: url('../media/animationGIF1.gif'); */
-  background-image: url("../media/mostr_lp6LOW.jpg");
+  /* background-image: url("../media/mostr_lp6LOW.jpg"); */
+  /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/88f25b57105717.59c93c1719ded.jpg"); */
+  /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3fe0e011987935.581b955b28aaf.jpg"); */
+  /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/cc00bc88444999.5dd6555768d4b.jpg"); */
+  /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/8bc3f988444999.5dd6555764a62.jpg"); */
+  /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/547d9688444999.5dd65557622db.jpg"); */
+  /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/547d9688444999.5dd65557622db.jpg"); */
+  /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/9b0c0888444999.5dd65557643a5.jpg"); */
+  /* background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/aeafac88444999.5dd655576a341.jpg"); */
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5d752014891767.5628a4f272ac4.jpg");
 }
-
-/* background-image: url('../media/lp_mostRecommended.jpg'); NOT THE VIBE  ligh holograPH
-    background-image:url('../media/mostr_lp11.jpg'); 10-10 not the vibe mystrey sqy=uares 
-    background-image: url('../media/mostr_lp10.jpg'); 10-10 THE TANGLED WEB 
-
-       background-image: url('../media/lp_mostRecommended4.jpg'); 9-10  
-           background-image: url('../media//mostr_lp11.jpg'); 9-10
-               background-image: url('../media/mostr_lp4.jpg');10-10
-                   background-image: url('../media/mostr_lp6.jpg');9-10
-noisy gif 
-
-
-
-
-
-        background-image: url('../media/mostr_lp3.jpg')
- VERY HQ VERY GALAXYISH , the big one element >>>>
-    background-image: url('../media/mosRecommended7_lp.jpg'); NIVE GRADIENTS CHAT GPT1 tooo brihghy
-round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
-
-10 LAYERS OF HOLO GRPAH A LIL BRIGHT     background-image: url('../media/mostr_lp9.jpg');
-10  LAYERS OF HOLO   background-image: url('../media/mostr_lp7.jpg');
-
-10 MORE PURPLE     background-image: url('../media/mostr_lp8.jpg');
-10 thin lines     background-image: url('../media/mostr_lp6.jpg');
-10 thin lines2  background-image: url('../media/mostr_lp4.jpg');
-
-
-
-*/
 
 .mostRecommendedCarsTitle_lp {
   white-space: nowrap;
+}
+
+.filter {
+  background-color: #000000a1;
 }
 
 /*===============================PART 3: reviews====================================*/
 
 .landingPage_part3 {
   height: 50rem;
-  background-image: url("../../../SWE_Phase1/public_html/media/comparison_background.jpg");
-  background-size: cover;
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/57a55888295025.5dd27c28990ae.png");
+  background-size: 130%;
   background-position: center;
   background-repeat: no-repeat;
   overflow-x: hidden;
+}
+
+.filter_reviews {
+  height: 50rem;
+  background-color: #00000069;
 }
 
 .reviews-section {
@@ -261,8 +266,8 @@ round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
   align-items: center;
   height: 4cm;
   font-size: 1.2rem;
-  background: rgba(255, 255, 255, 0.216);
-  backdrop-filter: blur(30px);
+  background: rgba(81, 81, 81, 0.216);
+  backdrop-filter: blur(40px);
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
@@ -275,73 +280,36 @@ round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
 }
 
 .review-card h4 {
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  font-size: 1.8rem;
   color: var(--white);
   margin-bottom: 10px;
   margin-top: 50px;
+  font-family: var(--header_font);
+  font-weight: 100;
 }
 
 .swiper-slide-active {
   transform: scale(1.2);
   transition: transform 0.5s ease-in-out;
 }
+
+.btn {
+  margin-left: 40.5%;
+}
+
 .review-paragraph {
   font-size: 1.3rem;
+  font-family: var(--paragraphs_font);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--paragraph_font);
   color: var(--white);
-  /* margin-top: 50px; */
-  margin-left: 10px;
-  text-align: center;
+  margin-top: 50px;
+  margin-left: 60px;
   word-wrap: break-word;
   white-space: pre-wrap;
   max-width: 300px;
-}
-
-.reviewBtn {
-  margin-top: 60px;
-  margin-left: 41.5%;
-  background: rgba(24, 163, 183, 0.2);
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 12px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-.reviewBtn:hover {
-  background: rgba(24, 163, 183, 0.4);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2),
-    0 8px 10px rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-}
-.reviewBtn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 300%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.15);
-  transform: skewX(-45deg);
-  transition: left 0.6s ease;
-  z-index: 0;
-}
-.reviewBtn:hover::before {
-  left: 100%;
-}
-.reviewBtn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(24, 163, 183, 0.5);
 }
 
 .overlay {
@@ -350,7 +318,8 @@ round chromw 10-10     background-image: url('../media/mostr_lp2.jpg');
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.219);
+  backdrop-filter: blur(20px);
   display: none;
   justify-content: center;
   align-items: center;

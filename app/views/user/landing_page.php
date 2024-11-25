@@ -102,9 +102,17 @@ if (isset($_POST['Submit'])) {
 
         <!-- Slide 4: -->
         <div class="slide" id="slide4">
-            <img src="path_to_your_image3.jpg" class="slide-bg" alt="Image Background">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ac03f9160627007.63c65854745ec.jpg" class="slide-bg" alt="Image Background">
+            <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/de399d160627007.63bc726268b18.jpg" class="slide-bg" alt="Image Background" style="margin-top: 10px;"> -->
+            <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/260f6b160627007.63c655267b415.jpg
+" class="slide-bg" alt="Image Background" style="margin-top: 50px;"> -->
+
             <div class="text-overlay">
-                <p class="slide4Title_lp">Discover latest news, and read authentic reviews.</p>
+                <p class="slide4Title_lp">Drive. Share. Connect.</p>
+                <p class="slide4Paragraph_lp">Join the ultimate car community.
+                 Share your experiences,<br> discover posts, 
+                 and connect with car enthusiasts..</p>
+
             </div>
         </div>
 
@@ -121,11 +129,12 @@ if (isset($_POST['Submit'])) {
 
     <!----------------PART 2:MOST RECOMMENDED CARS--------------------------->
     <div class="landingPage_part2">
-        <div class="partsTitles_lp">
-            <P class="mostRecommendedCarsTitle_lp">
-                most recommended Cars
-            </P>
-        </div>
+        <div class="filter">
+            <div class="partsTitles_lp">
+                <P class="mostRecommendedCarsTitle_lp">
+                    most recommended Cars
+                </P>
+            </div>
 
         <div class="carCardsContainer_lp">
             <!-- static -->
@@ -133,9 +142,9 @@ if (isset($_POST['Submit'])) {
         </div>
     </div>
 
-
     <!----------------PART 3:Reviews--------------------------->
     <div class="landingPage_part3">
+        <div class="filter_reviews">
         <div class="partsTitles_lp">
             <P class="reviewsTitle_lp">
                 Reviews
@@ -150,7 +159,7 @@ if (isset($_POST['Submit'])) {
                     foreach ($reviewsSliderArray as $review) {
                         echo '<div class="swiper-slide">
                                 <div class="review-card">
-                                    <h4>' . htmlspecialchars($review->reviewUserName) . '</h4>
+                                    <h4 class="reviewUserName">' . htmlspecialchars($review->reviewUserName) . '</h4>
                                     <p class="review-paragraph">"' . htmlspecialchars($review->reviewText) . '"</p>
                                 </div>
                               </div>';
@@ -159,8 +168,20 @@ if (isset($_POST['Submit'])) {
                 </div>
             </div>
         </div>
-        <button class="reviewBtn" id="openOverlay">Add your own review!</button>
-
+        <button class="btn" id="openOverlay">
+            <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+                <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                </path>
+            </svg>
+            <span class="text">Add Your Own Review!</span>
+            <span class="circle"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+                <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                </path>
+            </svg>
+        </button>
         <div class="overlay" id="reviewOverlay">
             <form class="overlay-content" method="post">
                 <span class="closeBtn" id="closeOverlay">&times;</span>
@@ -169,32 +190,10 @@ if (isset($_POST['Submit'])) {
                 <input class="submitBtn" type="submit" id="submitReview" name="Submit">
             </form>
         </div>
-        <!-- Footer Section -->
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>Your go-to platform for car comparisons, reviews, and recommendations. Helping you find the
-                        perfect car.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>Email: support@example.com</p>
-                    <p>Phone: +123 456 7890</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <p><a href="#">Facebook</a></p>
-                    <p><a href="#">Twitter</a></p>
-                    <p><a href="#">Instagram</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 YourCompanyName. All Rights Reserved.</p>
-            </div>
-        </footer>
+    </div>
+    </div>
 
-        <script src="../public_html/js/landing_page.js"></script>
+    <script src="../public_html/js/landing_page.js"></script>
 </body>
 
 </html>

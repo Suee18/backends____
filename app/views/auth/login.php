@@ -124,9 +124,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <div class="bg">
+    
+<div class="background-image">
 
         <div class="cardContainer">
+
             <div class="card">
                 <!-- Front Side: Login Form -->
                 <div class="cardFront">
@@ -148,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <small
                                 style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;    font-weight: bold;"><?= $errorMessages['login']['password'] ?></small>
                         </div>
-                        <button type="submit" name="loginSubmit">Log in</button>
+                        <button class="loginbutton" type="submit" name="loginSubmit">Log in</button>
                         <button class="google">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -274,9 +276,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </div>
 
-    </div>
 
-
+        </div>
     <script src="../../../public_html/js/login.js"></script>
 </body>
 

@@ -2,7 +2,12 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--blue_gray_dark);
+    /* background-color: var(--blue_gray_dark); */
+    background-image: url("../media/Persona_Test_Images/Test_images/background.jpg" );
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
     height: 100vh;
     margin: 0;
 }
@@ -88,14 +93,16 @@ body {
 }
 
 .question-number {
-    font-size: 30px;
-    margin-top: 20px;
+    font-size: 1.7rem;
+    font-family: var(--header_font);
+    font-weight: 100;
+
 }
 
 .question-text {
-    font-size: 20px;
-    margin-top: 10px;
-}
+font-family: var(--paragraphs_font);
+font-size: 1.5rem;
+margin-bottom: 2rem;}
 
 .options-container {
     display: grid;
