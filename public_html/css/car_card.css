@@ -13,14 +13,14 @@
     gap: 20px;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .car-card {
     flex: 1 1 calc(25% - 20px); /* Four cards per row on large screens */
     max-width: calc(25% - 20px);
-    height: 400px;
+    height: 500px;
     perspective: 1000px; /* Enables 3D space for the flip effect */
     margin-bottom: 20px;
 }
@@ -62,7 +62,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.702);
 }
@@ -79,52 +79,121 @@
     box-shadow:  10px  10px 3px rgba(0, 0, 0, 0.902);
 }
 
-/* Card Image */
+/* Image Container */
+.img-container {
+    width: 100%;
+    height: 2001px; /* Adjust the height as needed to fit your design */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    /* background-color: #255; */
+}
+
+/* Image Styling */
 .car-card-img {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
+    height: 100%;
+    object-fit: cover;
+    max-height: 100%;
+max-width: 100%;
 }
 
 /* Front Card Content */
+.car-info-container{
+    text-align: center;
+  
+
+}
 .car-card-content {
     text-align: center;
-    margin-top: 10px;
 }
 
 .car-name, .carModel {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 5px 0;
+    font-family: var(--header_font);
+    font-weight: 100;
 }
-
+.car-name{
+font-size: 1.3rem;
+font-weight: 200;
+}
+.carModel{
+    font-size: 1rem;
+    font-weight: 100;
+}
 .car-description {
     font-size: 1rem;
-    color: #666;
-    margin: 10px 0;
+    color: #bebebe;
+    font-family: var(--paragraphs_font);
 }
 
 .car-price {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--powder_blue);
+    /* color: var(--powder_blue); */
+    color:rgb(124, 203, 255);
+    font-family: var(--technoRace_font);
+font-weight: 100;
 }
 
 /* Back Card Content */
+.car-specs-content{
+    text-align: center;
+
+}
 .specs-title {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 100;
     margin-bottom: 10px;
+    font-family: var(--technoRace_font);
 }
 
 .specs-list {
     list-style-type: none;
     padding: 0;
     font-size: 1rem;
+    font-family: var(--paragraphs_font);
+    font-weight: 500;
+
 }
 
 .specs-list li {
     margin: 5px 0;
+}
+.specs-table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;  
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: left;
+    border-radius: 5px;
+    overflow: hidden; 
+}
+.spec-in-table{
+    font-family: var(--paragraphs_font);
+    font-weight: 400;
+font-size: 100%;
+color:rgb(124, 203, 255);
+}
+.specs-table td {
+    border: 1px solid #707070;
+    padding: 10px;
+    
+}
+
+
+.specs-table tr:nth-child(even) {
+    background:linear-gradient(150deg,
+    hsl(0, 0%, 0%),
+    #00000000,
+    #00000000,
+    #000000);
+    backdrop-filter: blur(20px);
+}
+.specs-table tbody tr:hover {
+    background-color: #161616; /* Optional hover effect */
 }
 
 /* Responsive Design for Medium Screens */

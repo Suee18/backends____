@@ -125,22 +125,22 @@ if (isset($_POST['Submit'])) {
     <!----------------PART 2:MOST RECOMMENDED CARS--------------------------->
     <div class="landingPage_part2">
         <div class="filter">
-        <div class="partsTitles_lp">
-            <P class="mostRecommendedCarsTitle_lp">
-                most recommended Cars
-            </P>
-        </div>
+            <div class="partsTitles_lp">
+                <P class="mostRecommendedCarsTitle_lp">
+                    most recommended Cars
+                </P>
+            </div>
 
-        <div class="carCardsContainer_lp">
-            <!-- static -->
-            <?php include 'C:/xampp/htdocs/post-phase1-backup/SWE_Phase1/public_html/components/car_card.php'; ?>
-        </div>
+            <div class="carCardsContainer_lp">
+                <!-- static -->
+                <?php include 'C:/xampp/htdocs/post-phase1-backup/SWE_Phase1/public_html/components/car_card.php'; ?>
+            </div>
         </div>
     </div>
 
-
     <!----------------PART 3:Reviews--------------------------->
     <div class="landingPage_part3">
+        <div class="filter_reviews">
         <div class="partsTitles_lp">
             <P class="reviewsTitle_lp">
                 Reviews
@@ -155,7 +155,7 @@ if (isset($_POST['Submit'])) {
                     foreach ($reviewsSliderArray as $review) {
                         echo '<div class="swiper-slide">
                                 <div class="review-card">
-                                    <h4>' . htmlspecialchars($review->reviewUserName) . '</h4>
+                                    <h4 class="reviewUserName">' . htmlspecialchars($review->reviewUserName) . '</h4>
                                     <p class="review-paragraph">"' . htmlspecialchars($review->reviewText) . '"</p>
                                 </div>
                               </div>';
@@ -164,8 +164,20 @@ if (isset($_POST['Submit'])) {
                 </div>
             </div>
         </div>
-        <button class="reviewBtn" id="openOverlay">Add your own review!</button>
-
+        <button class="btn" id="openOverlay">
+            <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+                <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                </path>
+            </svg>
+            <span class="text">Add Your Own Review!</span>
+            <span class="circle"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+                <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                </path>
+            </svg>
+        </button>
         <div class="overlay" id="reviewOverlay">
             <form class="overlay-content" method="post">
                 <span class="closeBtn" id="closeOverlay">&times;</span>
@@ -174,32 +186,10 @@ if (isset($_POST['Submit'])) {
                 <input class="submitBtn" type="submit" id="submitReview" name="Submit">
             </form>
         </div>
-        <!-- Footer Section -->
-        <!-- <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>Your go-to platform for car comparisons, reviews, and recommendations. Helping you find the
-                        perfect car.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>Email: support@example.com</p>
-                    <p>Phone: +123 456 7890</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <p><a href="#">Facebook</a></p>
-                    <p><a href="#">Twitter</a></p>
-                    <p><a href="#">Instagram</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 YourCompanyName. All Rights Reserved.</p>
-            </div>
-        </footer> -->
+    </div>
+    </div>
 
-        <script src="../public_html/js/landing_page.js"></script>
+    <script src="../public_html/js/landing_page.js"></script>
 </body>
 
 </html>
