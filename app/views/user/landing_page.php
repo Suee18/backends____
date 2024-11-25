@@ -1,7 +1,8 @@
 <?php
-include_once 'C:\xampp\htdocs\SWE Project\SWE_Phase1\app\config\db_config.php';
-include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\UsersClass.php';
-include 'C:\xampp\htdocs\SWE Project\SWE_Phase1\models\ReviewsClass.php';
+require_once __DIR__ . '/../../../env_loader.php';
+include_once __DIR__ . '\..\..\config\db_config.php';
+include __DIR__ . '\..\..\..\models\ReviewsClass.php';
+include __DIR__ . '\..\..\..\models\UsersClass.php';
 
 $reviewsSliderArray = Reviews::getLastNumberOfReviews(7);
 
@@ -21,10 +22,10 @@ if (isset($_POST['Submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public_html/css/landing_page.css">
-    <link rel="stylesheet" href="../public_html/css/global_styles.css">
-    <link rel="stylesheet" href="../public_html/css/nav_bar.css">
-    <link rel="stylesheet" href="../public_html/css/car_card.css">
+    <link rel="stylesheet" href="css/landing_page.css">
+    <link rel="stylesheet" href="css/global_styles.css">
+    <link rel="stylesheet" href="css/nav_bar.css">
+    <link rel="stylesheet" href="css/car_card.css">
     <!-- <link rel="stylesheet" href="../public_html/css/footer.css"> -->
     <link rel="stylesheet" href="css/footer.css">
 
@@ -128,7 +129,7 @@ if (isset($_POST['Submit'])) {
 
         <div class="carCardsContainer_lp">
             <!-- static -->
-            <?php include 'C:/xampp/htdocs/SWE Project/SWE_Phase1/public_html/components/car_card.php'; ?>
+            <?php include __DIR__ . '/../../../public_html/components/car_card.php'; ?>
         </div>
     </div>
 
