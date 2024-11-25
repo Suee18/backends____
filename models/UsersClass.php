@@ -1,5 +1,5 @@
 <?php
-include_once 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\app\config\db_config.php';
+include_once __DIR__ . '/../app/config/db_config.php';
 
 class Users
 {
@@ -148,10 +148,10 @@ class Users
         $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
         $user = null;
-    
+
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-    
+
             if ($password === $row["password"]) { // Use proper password hashing in production!
                 $user = new Users($row["username"], $row["birthdate"], $row["gender"], $row["password"], $row["email"], $row["type"], $row["timeStamp"]);
                 $user->id = $row["ID"];
@@ -161,7 +161,7 @@ class Users
         } else {
             return "User does not exist.";
         }
-    
+
         return $user;
     }
 
@@ -195,4 +195,39 @@ class Users
         return self::addUser($username, $birthdate, $gender, $password, $email, $userType);
     }
 
+
+    static function addUserIntoDBGoogle($name, $email, $gender)
+    {
+        global $conn;
+
+        $sqlEmail = "SELECT * FROM users WHERE email = '$email'";
+        $resultEmail = mysqli_query($conn, $sqlEmail);
+
+        if (mysqli_num_rows($resultEmail) > 0) {
+            $user = mysqli_fetch_assoc($resultEmail);
+
+            // Check if the user has logged in with Google before
+            if ($user['loginMethod'] == 'google') {
+                // Allow the user to log in normally
+                return true;
+            } else {
+                // Redirect back to the signup page
+                return [
+                    'status' => false,
+                    'message' => "User already exists. Please log in with your username and password."
+                ];
+            }
+        }
+
+        // Insert new user into the database
+        $sqlInsert = "INSERT INTO users (username, email, gender, loginMethod, type) VALUES ('$name', '$email', '$gender', 'google', 'user')";
+        if (mysqli_query($conn, $sqlInsert)) {
+            return true;
+        } else {
+            return [
+                'status' => false,
+                'message' => "Error: " . mysqli_error($conn)
+            ];
+        }
+    }
 }

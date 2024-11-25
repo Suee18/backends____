@@ -1,8 +1,22 @@
 <?php
 // Start session
 session_start();
-include_once 'C:\xampp\htdocs\post-phase1-backup\SWE_Phase1\app\config\db_config.php';
+include_once __DIR__ . '/../../config/db_config.php';
 include "../../../models/UsersClass.php";
+require __DIR__ . '/../../../vendor/autoload.php'; 
+require_once __DIR__ . '/../../../env_loader.php';
+
+// Handle "Sign up with Google"
+$client = new Google\Client;
+$client->setClientId($_ENV['GOOGLE_CLIENT_ID']);
+$client->setClientSecret($_ENV['GOOGLE_CLIENT_SECRET']);
+$client->setRedirectUri($_ENV['GOOGLE_REDIRECT_URI']);
+
+$client->addScope('email');
+$client->addScope('profile');
+
+$url = $client->createAuthUrl();
+
 
 // Enable error reporting
 error_reporting(E_ALL);
@@ -34,10 +48,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
     }
 }
 
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Initialize error messages array
+    $errorMessages = [];
+
+    // Handle Manual Signup
+    if (isset($_POST['signupSubmit'])) {
+        $userName = $_POST["signupUserName"] ?? '';
+        $email = $_POST["signupEmail"] ?? '';
+        $password = $_POST["signupPassword"] ?? '';
+        $confirmPassword = $_POST["confirmPassword"] ?? '';
+        $birthdate = $_POST["birthdate"] ?? '';
+        $gender = $_POST["gender"] ?? '';
+
+        // Validate required fields
+        if (empty($userName)) {
+            $errorMessages['signup']['username'] = "Username is required.";
+        }
+
+        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errorMessages['signup']['email'] = "A valid email is required.";
+        }
+
+        if (empty($password)) {
+            $errorMessages['signup']['password'] = "Password is required.";
+        } elseif ($password !== $confirmPassword) {
+            $errorMessages['signup']['password'] = "Passwords do not match.";
+        }
+
+        if (empty($birthdate)) {
+            $errorMessages['signup']['birthdate'] = "Birthdate is required.";
+        } else {
+            $birthDate = new DateTime($birthdate);
+            $currentDate = new DateTime();
+            $age = $birthDate->diff($currentDate)->y;
+
+            if ($age < 18) {
+                $errorMessages['signup']['age'] = "Age must be 18 or older.";
+            }
+        }
+
+        if (empty($gender)) {
+            $errorMessages['signup']['gender'] = "Gender selection is required.";
+        }
+
+        // If there are no errors, process the signup
+        if (empty($errorMessages['signup'])) {
+            $signUpResult = Users::signUpUser($userName, $birthdate, $gender, $password, $email, "user", date('Y-m-d H:i:s'));
+
+            if (is_array($signUpResult)) {
+                // Merge additional errors from the sign-up process
+                $errorMessages['signup'] = array_merge($errorMessages['signup'], $signUpResult);
+            } else {
+                // Successful signup, redirect to the homepage
+                header("Location: ../../../public_html/index.php");
+                exit();
+            }
+        }
+    }
+
+
+
+}
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,20 +135,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
                     <form class="formContainer" id="loginForm" method="POST" action="">
                         <p class="formTitle">Log in</p>
                         <input type="text" id="username" name="username" required placeholder="Enter your username">
-                        <small style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;   font-weight: bold; "><?= $errorMessages['login']['username'] ?></small>
+                        <small
+                            style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;   font-weight: bold; "><?= $errorMessages['login']['username'] ?></small>
 
                         <div class="passwordContainer">
-                            <input type="password" id="password" name="password" required placeholder="Enter your password">
-                            <svg id="togglePassword" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="eye-icon">
+                            <input type="password" id="password" name="password" required
+                                placeholder="Enter your password">
+                            <svg id="togglePassword" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                class="eye-icon">
                                 <path
                                     d="M12 4.5C7.5 4.5 3.7 7.6 2 12c1.7 4.4 5.5 7.5 10 7.5s8.3-3.1 10-7.5c-1.7-4.4-5.5-7.5-10-7.5zm0 12c-2.5 0-4.5-2-4.5-4.5S9.5 7.5 12 7.5 16.5 9.5 16.5 12 14.5 16.5 12 16.5zm0-7.5c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z">
                                 </path>
                             </svg>
-                            <small style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;    font-weight: bold;"><?= $errorMessages['login']['password'] ?></small>
+                            <small
+                                style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;    font-weight: bold;"><?= $errorMessages['login']['password'] ?></small>
                         </div>
                         <button class="loginbutton" type="submit" name="loginSubmit">Log in</button>
                         <button class="google">
-                            <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
                                     fill="#4285F4"></path>
@@ -98,48 +176,82 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
 
                 <!-- ------------Back Side: Sign-Up Form ---------->
                 <div class="cardBack">
-                    <form class="formContainer" id="signupForm">
+                    <form class="formContainer" id="signupForm" method="post">
                         <p class="formTitle">Sign up</p>
-                        <input type="text" id="signupUserName" name="signupUserName" required placeholder="Enter your username">
-                        <input type="date" id="birthdate" name="birthdate" class="default" required>
-                        <select id="gender" name="gender" class="default" required>
-                            <option value="" disabled selected>Select your gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="prefer_not_to_say">Prefer not to say</option>
-                        </select>
+                        <input type="text" id="signupUserName" name="signupUserName" required
+                            placeholder="Enter your username">
+                        <?php if (isset($errorMessages['signup']['username'])): ?>
+                            <small class="error">
+                                <?= htmlspecialchars($errorMessages['signup']['username']) ?>
+                            </small>
+                        <?php endif; ?>
 
+                        <input type="email" id="signupEmail" name="signupEmail" required placeholder="Enter your Email">
+                        <?php if (isset($errorMessages['signup']['email'])): ?>
+                            <small class="error">
+                                <?= htmlspecialchars($errorMessages['signup']['email']) ?>
+                            </small>
+                        <?php endif; ?>
 
                         <div class="passwordContainer">
-                            <input type="password" id="signupPassword" name="signupPassword" required placeholder="Enter your password">
-                            <svg id="togglePasswordSU" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="eye-icon">
+                            <input type="password" id="signupPassword" name="signupPassword" required
+                                placeholder="Enter your password">
+                            <svg id="togglePasswordSU" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                class="eye-icon">
                                 <path
                                     d="M12 4.5C7.5 4.5 3.7 7.6 2 12c1.7 4.4 5.5 7.5 10 7.5s8.3-3.1 10-7.5c-1.7-4.4-5.5-7.5-10-7.5zm0 12c-2.5 0-4.5-2-4.5-4.5S9.5 7.5 12 7.5 16.5 9.5 16.5 12 14.5 16.5 12 16.5zm0-7.5c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z">
                                 </path>
                             </svg>
                         </div>
-                        <ul id="passwordErrors" style="  margin-top: 0.2px;
-                     font-family:monospace; 
-                     font-size:14px;  font-weight: bold; color: red; 
-                    list-style: none;
-                     padding: 0;
-                      display: none;"></ul>
+                        <?php if (isset($errorMessages['signup']['password'])): ?>
+                            <small class="error">
+                                <?= htmlspecialchars($errorMessages['signup']['password']) ?>
+                            </small>
+                        <?php endif; ?>
+                        <!-- <ul id="passwordErrors" style="  margin-top: 0.2px;
+                            font-family:monospace; 
+                            font-size:14px;  
+                            font-weight: bold;
+                            color: red; 
+                            list-style: none;
+                            padding: 0;
+                            display: none;">
+                        </ul> -->
 
                         <div class="passwordContainer">
                             <input type="password" id="confirmPassword" name="confirmPassword" required
                                 placeholder="Confirm your password">
-                            <svg id="toggleConfirmPassword" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="eye-icon">
+                            <svg id="toggleConfirmPassword" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                class="eye-icon">
                                 <path
                                     d="M12 4.5C7.5 4.5 3.7 7.6 2 12c1.7 4.4 5.5 7.5 10 7.5s8.3-3.1 10-7.5c-1.7-4.4-5.5-7.5-10-7.5zm0 12c-2.5 0-4.5-2-4.5-4.5S9.5 7.5 12 7.5 16.5 9.5 16.5 12 14.5 16.5 12 16.5zm0-7.5c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z">
                                 </path>
                             </svg>
                         </div>
-                        <small id="confirmPasswordError" style="color: red; display: none;">Passwords do not match.</small>
+                        <small id="confirmPasswordError" style="color: red; display: none;">Passwords do not
+                            match.</small>
+
+                        <input type="date" id="birthdate" name="birthdate" class="default" required>
+                        <?php if (isset($errorMessages['signup']['age'])): ?>
+                            <small class="error">
+                                <?= htmlspecialchars($errorMessages['signup']['age']) ?>
+                            </small>
+                        <?php endif; ?>
+
+                        <select id="gender" name="gender">
+                            <option value="" disabled <?= !isset($_POST['gender']) ? 'selected' : '' ?>>Select your
+                                gender</option>
+                            <option value="male" <?= ($_POST['gender'] ?? '') === 'male' ? 'selected' : '' ?>>Male</option>
+                            <option value="female" <?= ($_POST['gender'] ?? '') === 'female' ? 'selected' : '' ?>>Female
+                            </option>
+                            <option value="prefer_not_to_say" <?= ($_POST['gender'] ?? '') === 'prefer_not_to_say' ? 'selected' : '' ?>>Prefer not to say</option>
+                        </select>
 
 
-                        <button class="signupbutton" type="submit">Sign up</button>
-                        <button class="google" id="googleSU">
-                            <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg">
+                        <button type="submit" name="signupSubmit">Sign up</button>
+                        <button type="button" class="google" name="googleSignup" onclick="window.location.href='<?= $url ?>'">
+                            <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
                                     fill="#4285F4"></path>
@@ -155,7 +267,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
                             </svg>
                             Sign up with Google
                         </button>
-                        <p class="registerRedirection">Already have an account? <a href="#" id="flipToLogin">Log in</a></p>
+                        <p class="registerRedirection">Already have an account?<br> <a href="#" id="flipToLogin">Log
+                                in</a>
+                        </p>
                     </form>
                 </div>
 
