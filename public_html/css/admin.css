@@ -11,7 +11,8 @@
 
 html {
     /* background-image: url('../media/admin-bg-1.jpg'); */
-    background-image: url('../media/admin-bg-4.jpg'); /* Dark circles */
+    /* background-image: url('../media/admin-bg-4.jpg'); Dark circles */
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/348b59120390031.60b08d2dde168.png");
     /* background-image: url('../media/admin-bg-8.jpg'); TECH*/
 
     /* background-image: url('../media/mostr_lp6LOW.jpg'); */
@@ -27,7 +28,68 @@ html {
 
 .header_admin {
     margin-top: 1rem;
+    display: none;
 }
+
+/*=================landing page================*/
+.welcom-admin{
+margin-top: 3%;
+color: #30bbe6;
+font-size: 50px;
+margin-left: 37%;
+/* font-family: var( --header_font);  */
+/* font-family: var( --racing_font); */
+font-family: var(  --technoRace_font);
+}
+
+.card-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 4%;
+    flex: 1 1 calc(33.33% - 20px);
+}
+
+.card {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 290px;
+    height: 180px;
+    padding: 20px;
+    text-align: center;
+    background-color: #000000c1;
+    backdrop-filter: blur(6px);
+    border-radius: 10%;
+    cursor: pointer;
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    background: rgba(38, 38, 41, 0.3);
+    backdrop-filter: blur(15px);
+}
+
+.card-icon {
+    font-size: 45px;
+    color: #4194bb;
+    margin-bottom: 5px;
+    margin-top: 10%;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #dfe4e6;
+}
+
+
+
+
+
 
 /* ===================Navbar ====================== */
 .admin-navbar {
@@ -71,7 +133,7 @@ html {
     display: none;
 }
 
-.welcome{
+/* .welcome{
       font-family: var(--technoRace_font);
     font-weight: 100;
     margin-left: 18rem;
@@ -106,12 +168,13 @@ background-image: url('../media/admin-icon2.png');
   height: 100px;
   margin-left: 1.2rem;
   margin-top: 0.5rem;
-}
+} */
+
 /*=========== Big container==================== */
 .content {
-    margin-top: 2rem;
+    margin-top: 4.5rem;
     padding: 5px 5px;
-    height: 80vh;
+    height: 85vh;
     width: 80vw;
     margin-left: 8rem;
 
@@ -158,6 +221,7 @@ background-image: url('../media/admin-icon2.png');
     overflow-y: auto;
     /* Enables vertical scrolling if the content exceeds the container height */
     overflow-x: hidden;
+    color: #f7f7ff;
     /* Prevent horizontal scrolling */
 }
 
@@ -167,8 +231,8 @@ background-image: url('../media/admin-icon2.png');
     border-radius: 0.3rem;
     margin: 1rem 1rem 1rem 3rem;
     padding: 10px 10px;
-    background-color: #0000006c;
-    backdrop-filter: blur(6px);
+    background-color:  #0000006c;
+    backdrop-filter: blur(25px);
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.534);
     width: calc(33.333% - 5rem);
     /* Ensure the div width adjusts correctly */
@@ -176,6 +240,7 @@ background-image: url('../media/admin-icon2.png');
     /* Allow height to adjust based on content */
     min-height: 200px;
     /* You can set a min-height if needed */
+
 }
 
 .viewsChart,
@@ -184,6 +249,7 @@ background-image: url('../media/admin-icon2.png');
 .personasChart {
     width: 60%;
     height: 60%;
+    
 }
 
 .stat-title {
@@ -248,12 +314,13 @@ input:not(:disabled):hover, select:not(:disabled):hover, textarea:not(:disabled)
    flex-direction: column;
    justify-content: center;
 
-   background: linear-gradient(160deg, #000000a2, #0a0e47ad, #0a0e47ad, #000000a2);
+   background:#000000bc ;
    backdrop-filter: blur(1px);
    border-radius: 0.2rem;
 }
 
-.userformLabels {
+.userformLabels,
+.carformLabels {
     display: block;
     margin-top: 0.5rem;
     margin-left: 6rem;
@@ -294,7 +361,7 @@ select {
 
 
 #userSelect{
-    border: 2px solid #10c295;
+    border: 1px solid #00ffff;
 
     background-color: #949494a4;
 
@@ -315,7 +382,7 @@ color: white;
   margin-left: 3rem;
 
     padding: 0rem 0rem 0rem 0rem;
-    background: linear-gradient(160deg, #000000a2, #0a0e47ad, #0a0e47ad, #000000a2);
+    background:#000000bc;
     backdrop-filter: blur(1px);
     border-radius: 0.2rem;
     box-shadow: 9px 8px 5px rgba(14, 14, 14, 0.582);
@@ -356,27 +423,26 @@ margin-top: 0rem;
 .controlPanel_text {
     font-family: var(--technoRace_font);
     font-weight: 100;
-    color: rgb(112, 112, 112);
-
-    margin-left: 4.7rem;
-    margin-top: 0.5rem;
+    color: rgb(199, 205, 206);
+    /* margin-left: 4.7rem; */
+    margin-top: 1rem;
     font-size: 1.6rem;
     margin-left: 6.5rem;
-    text-shadow: 2px 2px 5px rgba(0, 255, 242, 0.281);
+    text-shadow: 2px 2px 5px #147baa;
 
 }
 
 
 .button {
     position: relative;
-    border-radius: 6px;
+    border-radius: 50px;
     width: 150px;
     height: 40px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    border: 1px solid #cc0000;
-    background-color: #e50000;
+    /* border: 1px solid #cc0000;
+    background-color: #e50000; */
     overflow: hidden;
   }
 
@@ -407,9 +473,9 @@ margin-top: 0rem;
     width: 20px;
   }
 
-  .button:hover {
+  /* .button:hover {
     background: #cc0000;
-  }
+  } */
 
   .button:hover .button__text {
     color: transparent;
@@ -421,7 +487,7 @@ margin-top: 0rem;
   }
 
   .button:active .button__icon {
-    background-color: #b20000;
+    background-color: #0a8d33;
   }
 
   .button:active {
@@ -431,30 +497,33 @@ margin-top: 0rem;
 #editButton{
     color: #fff;
 
-    border: 2px solid #10c295;
-    background-color: #35363bb7;
+    border: 2px solid #f5f5f5;
+    background-color: #4194bb;
     backdrop-filter: blur(1px);
 
 }
 #saveButton{
-    border: 1px solid #f5f5f5;
-    background:linear-gradient(160deg, #189282a4, #04f8d0a8, #04f8d0a8, #189282a4);
+    border: 2px solid #4194bb;
+    background-color: #505157b7;
     backdrop-filter: blur(1px);
     color: #ffffffee;
 }
 
 
 
-
 #addButton,
 #adduserButton{
-    border: 1px solid #f5f5f5;
-    background-color: #00000063;
+
+    border: 2px solid #f5f5f5;
+    background-color: #4194bb;
     backdrop-filter: blur(1px);
     color: #fff;
 }
+
+
+
 #deleteButton{
-    border: 1px solid #f5f5f5;
+    border: 2px solid #f5f5f5;
     background-color: #dd0707bb;
     backdrop-filter: blur(1px);
     color: #fff;
@@ -463,6 +532,11 @@ margin-top: 0rem;
     box-shadow: 0px 0px 10px   rgba(255, 0, 0, 0.849);
     background:linear-gradient(160deg, #770a0af6, #ff0000d0, #ff0000ad, #770a0af6);
 }
+
+#deleteButton:active .button__icon {
+    background-color: #dd0707bb;
+  }
+
 
 .input-error {
     border-bottom: 1px solid red;
@@ -553,3 +627,12 @@ text-shadow: 5px 5px 15px rgb(133, 15, 15);
         transform: translateY(-15px);
     }
 } */
+
+
+.logout-tire{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-top: 5%;
+}

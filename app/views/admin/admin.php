@@ -76,7 +76,7 @@ if (isset($_POST['deleteReview'])) {
         integrity="sha384-4oVU5+BHEfuDd4Q6+lcl6v+9XYWQ0JN+DNJeSoDgxGfCxGp3h66laXK9N/5ay2ad" crossorigin="anonymous">
 
 
-    <title>Admin dashboard</title>
+    <!-- <title>Admin dashboard</title> -->
 </head>
 
 <body>
@@ -119,12 +119,84 @@ if (isset($_POST['deleteReview'])) {
     <div class="content">
 
         <div id="div0" class="content-div" style="display: block;">
-            <div class="welcomeIcon1"></div>
+            <!-- <div class="welcomeIcon1"></div>
 
             <div class="welcome">welcome, Admin</div>
             <div class="welcomeParagraph">Access the website insights and have full control over everything through this
                 dashboard</div>
-            <div class="welcomeIcon"></div>
+            <div class="welcomeIcon"></div> -->
+
+            <h1 class="welcom-admin">Admin Dashboard</h1>
+<div class="card-container">
+   
+ <!-- Home Card -->
+ <div class="card" id="card1">
+        <div class="card-icon">
+        <i class="fa-solid fa-house"></i>
+  
+        </div>
+        <div class="card-content">
+            <h3 data-value="home">Home</h3> 
+        </div>
+    </div>
+
+
+    <!-- Statstics Card -->
+    <div class="card" id="card2">
+        <div class="card-icon">
+        <i class="fa-solid fa-chart-pie "></i>
+  
+        </div>
+        <div class="card-content">
+            <h3 data-value="statistics"> Statistics</h3>
+        </div>
+    </div>
+
+    <!-- Users Card -->
+    <div class="card" id="card3">
+        <div class="card-icon">
+            <i class="fas fa-users"></i>
+        </div>
+        <div class="card-content">
+            <h3 data-value="usersControl">Users</h3>
+        </div>
+    </div>
+
+     <!-- Cars Card -->
+     <div class="card" id="card4">
+        <div class="card-icon">
+        <i class="fa-solid fa-car"></i>
+  
+        </div>
+        <div class="card-content">
+            <h3 data-value="carsControl"> Cars</h3>
+        </div>
+    </div>
+
+     <!-- Reviews Card -->
+     <div class="card" id="card5">
+        <div class="card-icon">
+        <i class="fa-regular fa-note-sticky"></i>
+  
+        </div>
+        <div class="card-content">
+            <h3 data-value="reviewsControl"> Reviews</h3>
+        </div>
+    </div>
+
+     <!-- Logout Card -->
+     <div class="card" id="card6">
+        <div class="card-icon">
+        <i class="fa-solid fa-right-from-bracket"></i>
+  
+        </div>
+        <div class="card-content">
+            <h3 data-value="logout"> Log Out</h3>
+        </div>
+    </div>
+</div>
+
+
         </div>
 
 
@@ -287,7 +359,7 @@ if (isset($_POST['deleteReview'])) {
                                     </button>
 
                                     <!-- edit -->
-                                    <button class="button" type="button" id="editButton" onclick="showSaveButton()"
+                                    <button class="button" type="button" id="editButton" onclick="enableFormFields();showSaveButton()"
                                         style=" display:none">
                                         <span class="button__text">Edit info</span>
                                         <span class="button__icon">
