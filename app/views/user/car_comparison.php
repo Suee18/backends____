@@ -33,7 +33,7 @@
         <p>Discover and compare different car models
             to find the best one that suits your needs. <br> Our comparison
             tool provides detailed specifications,
-            features, and reviews to help you make an informed decision.</p>
+            features, and reviews<br> to help you make an informed decision.</p>
     </div>
 
     <div class="comparison-section">

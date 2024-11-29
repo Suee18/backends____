@@ -73,6 +73,7 @@
   --grad1: linear-gradient(160deg, #0c2d3b93, #597e8fc7);
   /* --grad2: linear-gradient(160deg, #5f5c5cc9, #00000000, #00000000, #5855559c); */
   --grad2: linear-gradient(160deg, #040816, #00000000, #00000000, #000000);
+  --gradCompare: linear-gradient(160deg, #04091d, #00000036, #00000036, #04091d);
   --grad3: linear-gradient(160deg, #948f8f9c, #00000000, #00000000, #4e4e4e8a);
   /* --grad2: linear-gradient(160deg, #cabfbf8e,#00000083, #00000093,#cabfbf88); */
 
