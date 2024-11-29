@@ -3,7 +3,7 @@
 session_start();
 include_once __DIR__ . '/../../config/db_config.php';
 include "../../../models/UsersClass.php";
-require __DIR__ . '/../../../vendor/autoload.php'; 
+require __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/../../../env_loader.php';
 
 // Handle "Sign up with Google"
@@ -106,9 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
     }
-
-
-
 }
 ?>
 
@@ -120,12 +117,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../../../public_html/css/login.css">
-    <title>Sign In</title>
+    <title>Register</title>
 </head>
 
 <body>
-    
-<div class="background-image">
+
+    <div class="background-image">
 
         <div class="cardContainer">
 
@@ -248,8 +245,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </select>
 
 
-                        <button type="submit" name="signupSubmit">Sign up</button>
-                        <button type="button" class="google" name="googleSignup" onclick="window.location.href='<?= $url ?>'">
+                        <button type="submit" name="signupSubmit" class="signupbutton">Sign up</button>
+                        <button type="button" class="google" name="googleSignup" id="googleSU"onclick="window.location.href='<?= $url ?>'">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -267,9 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </svg>
                             Sign up with Google
                         </button>
-                        <p class="registerRedirection">Already have an account?<br> <a href="#" id="flipToLogin">Log
-                                in</a>
-                        </p>
+                        <p class="registerRedirection">Already have an account?<br> <a href="#" id="flipToLogin">Log in</a></p>
                     </form>
                 </div>
 
@@ -277,7 +272,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
 
-        </div>
+    </div>
     <script src="../../../public_html/js/login.js"></script>
 </body>
 
