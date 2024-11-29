@@ -425,7 +425,7 @@ if (isset($_POST['deleteReview'])) {
                                         <form method="POST" action="admin.php" style="display:inline;">
                                             <input type="hidden" name="reviewID"
                                                 value="<?php echo htmlspecialchars($review->id); ?>">
-                                            <input type="submit" value="Delete" name="deleteReview">
+                                            <input type="submit" value="Delete" name="deleteReview" class="deleteReview-btn">
                                         </form>
                                     </td>
                                 </tr>

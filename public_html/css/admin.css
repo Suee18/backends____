@@ -556,7 +556,7 @@ margin-top: 0rem;
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: #555555;
+    background: linear-gradient(160deg, #000000c5, #3a3a3a93, #3a3a3a93, #000000c5);
 border-radius: 5rem;
 }
 
@@ -611,6 +611,15 @@ text-shadow: 5px 5px 15px rgb(133, 15, 15);
     transition: color 0.3s ease, transform 0.3s ease; */
 }
 
+.deleteReview-btn{
+    border-radius: 50px;
+    width: 100px;
+    height: 40px;
+}
+
+.deleteReview-btn:hover{
+    
+}
 /*
 .fa-bounce {
     animation: bounce 2s infinite;
@@ -629,10 +638,3 @@ text-shadow: 5px 5px 15px rgb(133, 15, 15);
 } */
 
 
-.logout-tire{
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin-left: 40%;
-    margin-top: 5%;
-}

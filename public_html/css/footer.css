@@ -1,39 +1,128 @@
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-}
 
-.footer-container {
+footer {
+
+    background: var(--grad1);
+    backdrop-filter: blur(1px);
+    color: #e6d8d8;
+    padding: 5px 0px;
+    text-align: center;
+    height:45%;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin-left: 7%;
+
+}
+  
+  /* .main-text-section {
+    margin: 30px 0;
+  } */
+  
+  .main-text {
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-family: var(--technoRace_font);
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: -2px;
+      display: inline;
+      margin-left: 5%;
+  }
+
+  .tire {
+    height: 140px; 
+    width: 90px; 
+    animation: rotate 15s linear infinite;
+    display: inline-block; 
+    vertical-align: middle; 
+    margin: 0;
+  }
+  
+  
+   @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  } 
+
+
+  .footer-sections {
     display: flex;
     justify-content: space-around;
-    padding: 20px;
-}
+    /* margin: 40px 0; */
+  }
+  
+  .footer-sections div {
+    text-align: left;
+  }
+  
+  .footer-sections h4 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+  }
+  
+  .footer-sections p{
+    text-align: left;
+    font-family: var( --paragraph_font);
+  }
 
-.footer-section {
-    max-width: 200px;
-}
+  .footer-sections ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
-.footer-section h3 {
-    color: #f4f4f4;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.footer-section p,
-.footer-section a {
-    font-size: 14px;
-    color: #bbb;
+  
+  .footer-sections ul li a {
     text-decoration: none;
-}
+    color: #e6d8d8;
+    font-size: 0.9em;
 
-.footer-section a:hover {
-    color: #ddd;
-}
+  }
+  
+  .footer-sections ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    /* margin-top: 20px; */
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav{
+ text-align: center;
+ padding-right: 5%;
+  }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 10px;
-    font-size: 12px;
-    color: #aaa;
-}
+  /* .footer-bottom span {
+    margin: 0 10px;
+  } */
+   
+  .socials{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+
+  @media (max-width: 768px) {
+    .footer-sections {
+      flex-direction: column;
+    }
+  
+    .footer-bottom {
+      flex-direction: column;
+      margin-top: 30px;
+    }
+  
+    .main-text {
+      font-size: 2.5rem;
+    }
+  }
+  

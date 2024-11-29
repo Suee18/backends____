@@ -105,6 +105,23 @@ function redirectTo(url) {
 }
 
 //CHARTS TRIAL
+
+const chartOptionsWithWhiteText = {
+    scales: {
+        x: {
+            ticks: {
+                color: "white", // White text for x-axis ticks
+            },
+        },
+        y: {
+            ticks: {
+                color: "white", // White text for y-axis ticks
+            },
+        },
+    },
+
+};
+
 // Website Views Data (Simulated)
 const viewsData = {
     labels: [
@@ -150,6 +167,14 @@ const viewsChart = new Chart(ctxViews, {
         scales: {
             y: {
                 beginAtZero: true,
+                ticks: {
+                    color: "white",
+                },
+            },
+            x: {
+                ticks: {
+                    color: "white",
+                },
             },
         },
     },
@@ -164,6 +189,14 @@ const plansChart = new Chart(ctxPlans, {
         scales: {
             y: {
                 beginAtZero: true,
+                ticks: {
+                    color: "white",
+                },
+            },
+            x: {
+                ticks: {
+                    color: "white",
+                },
             },
         },
     },
@@ -234,6 +267,14 @@ const usersChart = new Chart(ctxUsers, {
         scales: {
             y: {
                 beginAtZero: true,
+                ticks: {
+                    color: "white",
+                },
+            },
+            x: {
+                ticks: {
+                    color: "white",
+                },
             },
         },
     },
@@ -249,6 +290,19 @@ const personasChart = new Chart(ctxPersonas, {
         plugins: {
             legend: {
                 position: "top",
+            },
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: "white",
+                },
+            },
+            x: {
+                ticks: {
+                    color: "white",
+                },
             },
         },
     },
@@ -293,6 +347,14 @@ const conversationsChart = new Chart(ctxConversations, {
         scales: {
             y: {
                 beginAtZero: true,
+                ticks: {
+                    color: "white",
+                },
+            },
+            x: {
+                ticks: {
+                    color: "white",
+                },
             },
         },
     },
@@ -309,6 +371,14 @@ const sessionDurationChart = new Chart(ctxSessionDuration, {
         scales: {
             y: {
                 beginAtZero: true,
+                ticks: {
+                    color: "white",
+                },
+            },
+            x: {
+                ticks: {
+                    color: "white",
+                },
             },
         },
     },

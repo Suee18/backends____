@@ -186,7 +186,7 @@ if (isset($_POST['Submit'])) {
         <span class="circle"></span>
         <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
             <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.22P18 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
             </path>
         </svg>
     </button>
@@ -199,31 +199,46 @@ if (isset($_POST['Submit'])) {
             </form>
         </div>
     </div>
+                </div>     
+    
+    
         <!-- Footer Section -->
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>Your go-to platform for car comparisons, reviews, and recommendations. Helping you find the
-                        perfect car.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>Email: support@example.com</p>
-                    <p>Phone: +123 456 7890</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <p><a href="#">Facebook</a></p>
-                    <p><a href="#">Twitter</a></p>
-                    <p><a href="#">Instagram</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 YourCompanyName. All Rights Reserved.</p>
-            </div>
-        </footer>
+        <footer>
+  <div class="footer-container">
+  
 
+    <div class="main-text-section">
+      <h1 class="main-text">
+        GET IN T<span class="tire"><img class="tire" src="../public_html/media/tire.png"></span>UCH
+      </h1>
+      
+    </div>
+
+    <div class="footer-sections">
+        <div class="about-us">
+           <h4>About Us</h4>
+                  <p>We’re dedicated to revolutionizing the<br> way you find your perfect car. Our <br>AI-powered platform 
+                   offers personalized <br>car recommendations tailored to your<br> preferences, budget, and lifestyle. </p>
+                </div>
+
+      <div class="navigation">
+        <h4>Navigation</h4>
+        <ul>
+          <li class="nav"><a href="#">Home</a></li>
+          <li class="nav"><a href="#">Compare Cars</a></li>
+     
+        </ul>
+      </div>
+      <span>
+        <h4>Social Media</h4>
+        <ul  class="socials">
+          <li><a href="#"><i class="icons fa-solid fa-envelope fa-xl"></i></a></li>
+          <li><a href="#"><i class="icons fa-brands fa-facebook fa-xl"></i></a></li>
+          <li><a href="#"><i class="icons fa-brands fa-instagram fa-xl"></i></a></li>
+        </ul>
+                </span>
+   
+</footer>
 
     <script src="../public_html/js/landing_page.js"></script>
 </body>
