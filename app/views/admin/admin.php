@@ -378,7 +378,7 @@ if (isset($_POST['deleteReview'])) {
                                         onclick="setAction('delete')">
                                         <span class="button__text">Delete user</span>
                                         <span class="button__icon">
-                                            <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
+                                        <i class="fa-solid fa-trash-can"></i>
                                         </span>
                                     </button>
                                 </div>
@@ -392,7 +392,12 @@ if (isset($_POST['deleteReview'])) {
 
 
         <div id="div4" class="content-div" style="display: none;">
-            This is Logout loader
+            
+            <h3 class="logout-title">Are you sure?</h3>
+            <span class="logout-btns">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+                                    </span>
         </div>
 
         <div id="div5" class="content-div" style="display: none;">
@@ -425,7 +430,9 @@ if (isset($_POST['deleteReview'])) {
                                         <form method="POST" action="admin.php" style="display:inline;">
                                             <input type="hidden" name="reviewID"
                                                 value="<?php echo htmlspecialchars($review->id); ?>">
-                                            <input type="submit" value="Delete" name="deleteReview" class="deleteReview-btn">
+                                                
+                                            <input type="submit" value="Delete" name="deleteReview" id="deleteReview-btn">
+                                            <i style="display:none" class=" fa-solid fa-trash-can"></i>
                                         </form>
                                     </td>
                                 </tr>

@@ -38,6 +38,7 @@ if (isset($_POST['Submit'])) {
     <link rel="stylesheet" href="css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <title>Landing Page</title>
 </head>
@@ -226,15 +227,18 @@ if (isset($_POST['Submit'])) {
         <ul>
           <li class="nav"><a href="#">Home</a></li>
           <li class="nav"><a href="#">Compare Cars</a></li>
+          <li class="nav"><a href="#">Turbo Chatbot</a></li>
+          <li class="nav"><a href="#">Persona Test</a></li>
      
         </ul>
       </div>
       <span>
         <h4>Social Media</h4>
         <ul  class="socials">
-          <li><a href="#"><i class="icons fa-solid fa-envelope fa-xl"></i></a></li>
-          <li><a href="#"><i class="icons fa-brands fa-facebook fa-xl"></i></a></li>
-          <li><a href="#"><i class="icons fa-brands fa-instagram fa-xl"></i></a></li>
+          <li><a href="https://accounts.google.com/v3/signin/identifier?elo=1&ifkv=AcMMx-feKYaT0FszQKn3DJ8ymV-9wmjlXgJFF5fYlczJUJhk7ZI3YEiop__7VgL1H0SNOPL1n1mO&ddm=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount%3Fnc%3D1">
+            <i class="icons fa-solid fa-envelope fa-xl"></i></a></li>
+          <li><a href="https://www.facebook.com/"><i class="icons fa-brands fa-facebook fa-xl"></i></a></li>
+          <li><a href="https://www.instagram.com/accounts/login/?hl=en"><i class="icons fa-brands fa-instagram fa-xl"></i></a></li>
         </ul>
                 </span>
    
