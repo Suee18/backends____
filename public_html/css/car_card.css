@@ -1,5 +1,5 @@
 /* car_card.css */
-@import url('/css/global_styles.css');
+@import url("/css/global_styles.css");
 /* General Container Styles */
 
 /* General Reset */
@@ -10,9 +10,9 @@
 
 
 .car-cards-container {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 .container2 {
@@ -36,17 +36,39 @@
 }
 
 .car-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
 }
 
 .car-card:hover .car-card-inner {
-    transform: rotateY(180deg); /* Flips the card on hover */
+  transform: rotateY(180deg); /* Flips the card on hover */
 }
 
+/* Front and Back Card Styles */
+.car-card-front,
+.car-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 1.5px solid #707070;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car-card-back {
+  background: var(--grad2);
+  backdrop-filter: blur(5px);
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
 /* ============================= Front ======================= */
 /* Front Card Styling */
 .car-card-front {
@@ -92,10 +114,12 @@
 }
 
 .car-card-img {
+  border-radius: 10px;
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease;  max-height: 200px;          /* Set a max-height to control the size of the image within the card */
+    transition: transform 0.3s ease;
+    max-height: 200px;          /* Set a max-height to control the size of the image within the card */
     object-fit: cover;        
 }
 
@@ -105,7 +129,7 @@
 
 /* Content Section */
 .car-card-content {
-    padding: 16px;
+   padding: 16px;
     width: 100%;                  
     display: flex;                
     flex-direction: column;        
@@ -113,13 +137,23 @@
     flex-grow: 1;                
     justify-content: space-between; 
 }
-
+  
 .car-info-container {
     display: flex;                  
     flex-direction: column;         
     align-items: center;            
     margin-bottom: 8px;
 }
+
+.car-price {
+  font-size: 1.1em;
+    font-weight: bold;
+    color: rgb(113, 177, 219);
+    margin-top: auto; /* Pushes the price to the bottom */
+    font-family: var(--technoRace_font);
+    font-weight: 100;
+    padding-bottom: 0.5rem;
+  }
 
 .car-name {
     font-size: 1.5em;
@@ -145,15 +179,7 @@
     padding: 5px 10px; /* Adds some padding to the text */
 }
 
-.car-price {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: rgb(113, 177, 219);
-    margin-top: auto; /* Pushes the price to the bottom */
-    font-family: var(--technoRace_font);
-    font-weight: 100;
-    padding-bottom: 0.5rem; /* Adds some bottom padding to keep a bit of distance */
-}
+
 
 /* =========================== Back ================================== */
 .car-card-back {
@@ -180,7 +206,7 @@
 
 }
 .specs-title {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
     font-weight: 100;
     margin-bottom: 10px;
     font-family: var(--technoRace_font);
@@ -196,7 +222,7 @@
 }
 
 .specs-list li {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 .specs-table {
     width: 100%;
@@ -235,41 +261,24 @@ color:rgb(124, 203, 255);
 
 /* Responsive Design for Medium Screens */
 @media (max-width: 1024px) {
-    .car-card {
-        flex: 1 1 calc(33.33% - 20px); /* Three cards per row */
-        max-width: calc(33.33% - 20px);
-    }
+  .car-card {
+    flex: 1 1 calc(33.33% - 20px); /* Three cards per row */
+    max-width: calc(33.33% - 20px);
+  }
 }
 
 /* Responsive Design for Small Screens */
 @media (max-width: 768px) {
-    .car-card {
-        flex: 1 1 calc(50% - 20px); /* Two cards per row */
-        max-width: calc(50% - 20px);
-    }
+  .car-card {
+    flex: 1 1 calc(50% - 20px); /* Two cards per row */
+    max-width: calc(50% - 20px);
+  }
 }
 
 /* Responsive Design for Extra Small Screens (Mobile) */
 @media (max-width: 480px) {
-    .car-card {
-        flex: 1 1 100%; /* Full width for each card */
-        max-width: 100%;
-    }
-}
-.favorite-icon {
-    position: absolute;
-    bottom: 10px; 
-    right: 10px; 
-    color: #255; 
-    font-size: 24px; 
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.favorite-icon:hover {
-    color: #255;
-}
-.car-card.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s;
+  .car-card {
+    flex: 1 1 100%; /* Full width for each card */
+    max-width: 100%;
+  }
 }

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../../../public_html/css/car_card.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Link to Font Awesome for the heart icon -->
-<script>"../../../public_html/js/favorites.js"</script>
+<script src="../../../public_html/js/favorites.js" defer></script>
 
 <div class="car-cards-container">
     <div class="container2">
@@ -119,4 +119,4 @@
 
     </div>
 </div>
-<script src="../../../public_html/js/favorites.js"></script>
+
