@@ -1,3 +1,5 @@
+@import url('./global_styles.css');
+
 body {
     background-image: url("../media/animationGIF3_VoiceMotionAi.gif");
     background-position: center;
@@ -87,7 +89,11 @@ nav.open .nav-content span {
 /*====Chat Card=====*/
 
 .chat-card {
-    background: var(--grad2);
+    /* background: var(--grad2); */
+    /* background: linear-gradient(145deg, #01121b9c,#cccccc1f, #12537467); */
+   background: linear-gradient(145deg, #000000fd,#cccccc00,#cccccc00 ,#000000fd);
+   /* background: linear-gradient(145deg, #02001fd3,#cccccc00, #02001fd3); */
+
     backdrop-filter: blur(5px);
     border-radius: 10px;
     display: flex;
@@ -98,6 +104,8 @@ nav.open .nav-content span {
     margin-left: 22%;
     width: 55%;
     height: auto;
+    border: 2px solid rgba(20, 117, 197, 0.26);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
 }
 
@@ -105,12 +113,14 @@ nav.open .nav-content span {
 .caption {
     display: block;
     color: white;
-    font-size: 37px;
+    /* font-size: 37px; */
     align-items: center;
     margin-left: 29%;
-    margin-top: 18%;
+    margin-top: 22%;
     /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-    font-family: var( --porsche_font);
+    font-family: var(--technoRace_font);
+    font-weight: 100;
+    font-size: 3rem;
 
 }
 
@@ -131,28 +141,34 @@ nav.open .nav-content span {
     border-radius: 50px;
     display: block;
     word-wrap: break-word;
+    border-radius: 1rem;
 }
 
 /*message background*/
 .user-message {
-    background-color: #3e838e6b;
+    background-color: #1d1d1db6;
+    box-shadow: 5px 2px 1px 0px #000000be;    
+
     align-self: flex-end;    
     text-align: right;
     color: white;
     display: inline-block;      
     padding: 10px;            
-    border-radius: 50px;     
     margin-bottom: 10px;
     font-size: 17px;
+    font-family: var(--paraphs_font);
+
 }
 
 .bot-message {
-    background-color: #58717d58;
+    background-color: #00000094;
+    box-shadow: 1px 2px 5px 2px #000000cb;    
+
+
     align-self: flex-start;   
-    color: white;
+    color: #2591c4;
     display: inline-block;     
     padding: 10px;              
-    border-radius: 50px;       
     margin-bottom: 10px; 
     font-size: 17px;   
 }
@@ -173,14 +189,34 @@ nav.open .nav-content span {
 }
 
 #input {
-    flex: 1;
-    padding: 10px;
+    /*
     border-radius: 50px;
     border: transparent;
     height: 29px;
     background-color: rgba(128, 128, 128, 0.295);
     color: white;
-    font-size: 15px;
+    font-size: 15px; */
+        flex: 1;
+        padding: 10px;
+        height: 29px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.712), #2d9acc65);
+        border-radius: 8px;
+        color: #ccc;
+        transition: border-color 0.3s ease;
+        border: 2px solid #ccc;
+        font-size: 16px;
+}
+
+#input::placeholder {
+    color: #ccc;
+    opacity: 0.7;
+    font-style: italic;
+}
+#input:focus {
+    border: 3px solid #3ba7ff67;
+    outline: none; 
+    font-family: var(--paraphs_font);
+
 }
 
 #send-btn {
@@ -199,6 +235,8 @@ nav.open .nav-content span {
 
 #send-btn i {
     transition: transform 0.3s ease;
+    color:#0e2431;
+    font-size: 20px;
 }
 
 #send-btn:hover i {
@@ -207,9 +245,15 @@ nav.open .nav-content span {
 
 .date-time {
     text-align: center;
-    font-size: 1.2em;
-    color: white;
+    font-size: 1em;
+    color: rgb(128, 128, 128);
     margin: 10px 0;
+    font-family: monospace;
+    background-color: rgba(128, 128, 128, 0.315);
+    border-radius: 5px;
+    width:26%;
+    margin-left: 35%;
+    padding: 4px;
 }
 
 

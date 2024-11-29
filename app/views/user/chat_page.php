@@ -26,7 +26,7 @@
 <div class="chat-card">
     <div id="date-time" class="date-time"></div>
     <div class="chat-box" id="chat-box">
-        <div class="caption" id="caption">Start your engines! <br> What’s your question?</div>
+        <div class="caption" id="caption">Start your engine...</div>
     </div>
     <div class="user-input">
         <div class="input-container">
