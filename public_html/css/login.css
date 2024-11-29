@@ -24,11 +24,8 @@ html {
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
   z-index: -1; /* Ensure the background is behind the content */
-body {
-    /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
+
 .bg {
     height: 100%;
     width: 100%;
@@ -62,6 +59,8 @@ body {
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
+  /* padding-top: 0; */
+  /* margin-top: 0; */
   margin-bottom: 1rem;
   font-family: VAR(--technoRace_font);
   color: rgb(125, 196, 255);
@@ -172,7 +171,8 @@ button:hover {
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.685);
 }
 
-.loginbutton {
+.loginbutton,
+.signupbutton {
   margin-top: 1rem;
   font-size: 1.5rem;
   background-color: #070d18;
@@ -194,13 +194,13 @@ button:hover {
     background-color: #070d18;
 }
 
-.signupbutton {
+/* .signupbutton {
   padding: 10px;
 
   margin-top: 1rem;
   font-size: 1.5rem;
   background-color: #070d18;
-}
+} */
 
 .signupbutton:hover,
 .loginbutton:hover {
@@ -251,7 +251,7 @@ button:hover {
 
 .registerRedirection {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-size: 1.5rem;
   font-family: var(--header_font);
   color: aliceblue;
@@ -326,9 +326,9 @@ button:hover {
 
 .formContainer {
   width: 80%;
-  height: 80%;
+  height: 100%;
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
 }
 
 
@@ -342,7 +342,6 @@ button:hover {
   border-radius: 1rem;
   height: 70%;
   box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.671);
-
 }
 
 .cardBack {
@@ -352,8 +351,8 @@ button:hover {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  height: 90%;
-  margin-top: 3rem;
+  height: 85%;
+  margin-top: 1.5rem;
   box-shadow: -10px 10px 2px rgba(0, 0, 0, 0.521);
 }
 
