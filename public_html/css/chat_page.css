@@ -161,7 +161,8 @@ nav.open .nav-content span {
 }
 
 .bot-message {
-    background-color: #00000094;
+    /* background-color: #30303094; */
+    background: linear-gradient(145deg, #cccccc41,#52525259,#52525259 ,#cccccc38);
     box-shadow: 1px 2px 5px 2px #000000cb;    
 
 
