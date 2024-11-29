@@ -137,8 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                             style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;   font-weight: bold; "><?= $errorMessages['login']['username'] ?></small>
 
                         <div class="passwordContainer">
-                            <input type="password" id="password" name="password" required
-                                placeholder="Enter your password">
+                            <input type="password" id="password" name="password" required placeholder="Enter your password">
                             <svg id="togglePassword" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                 class="eye-icon">
                                 <path
@@ -248,7 +247,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
 
 
                         <button type="submit" class="signupbutton" name="signupSubmit">Sign up</button>
-                        <button type="button" class="google" name="googleSignup"
+                        <button type="button" class="google" name="googleSignup"   id="googleSU"
                             onclick="window.location.href='<?= $url ?>'" action="signupWithGoogle">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
                                 xmlns="http://www.w3.org/2000/svg">
