@@ -29,11 +29,11 @@ if (isset($_GET['code'])) {
         // echo "User added successfully";
     } else {
         // If there is an issue with adding the user, redirect to the login page
-        header('Location: /../SWE_Project/SWE_Phase1/app/views/auth/login.php');
+        header('Location: /../zUiedits/SWE_Phase1/app/views/auth/login.php');
         exit;
     }
 } else {
     // If no authorization code is provided, redirect to the login page
-    header('Location: /../SWE_Project/SWE_Phase1/app/views/auth/login.php');
+    header('Location: /../zUiedits/SWE_Phase1/app/views/auth/login.php');
     exit;
 }
