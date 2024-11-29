@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../public_html/css/persona.css">
     <link rel="stylesheet" href="../../../public_html/css/userNavbar.css">
-
+    <link rel="stylesheet" href="../../../public_html/css/car_card.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -63,6 +63,33 @@
         </div>
 
     </div>
+
+
+
+
+
+    <div class="landingPage_part2">
+        <div class="filter">
+            <div class="partsTitles_lp">
+                <P class="mostRecommendedCarsTitle_lp">
+Cars matching your persona                </P>
+            </div>
+
+            <div class="carCardsContainer_lp">
+                <!-- static -->
+                <?php include 'C:/xampp/htdocs/post-phase1-backup/SWE_Phase1/public_html/components/car_card.php'; ?>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <hr class="divider">
+
+
 
     <div class="slider-container">
         <div class="persona-slider-section">
@@ -145,7 +172,7 @@
         </div>
     </div>
 
-    <button class="btn" onclick="window.location.href='../../../app/views/user/persona_test.php'">
+    <button class="animated-button open-modal-button" onclick="window.location.href='../../../app/views/user/persona_test.php'">
         <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
             <path
                 d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">

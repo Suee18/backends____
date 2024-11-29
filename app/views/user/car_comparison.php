@@ -35,14 +35,14 @@
             tool provides detailed specifications,
             features, and reviews<br> to help you make an informed decision.</p>
     </div>
-
+<div class="gradientBG">
     <div class="comparison-section">
         <div class="car-card">
             <div class="car-image">
                 <img src="../../../public_html/media/Car_Comparison_Page_Images/left-comparison-car.png" alt="First Car">
             </div>
             <div class="car-details">
-                <h2 class="car-details-title">Add first car</h2>
+                <p class="car-details-title">Add first car</p>
                 <form>
                     <div class="form-group">
                         <label for="make1">Make</label>
@@ -71,7 +71,7 @@
                 <img src="../../../public_html/media/Car_Comparison_Page_Images/right-comparison-car.png" alt="Second Car">
             </div>
             <div class="car-details">
-                <h2>Add second car</h2>
+                <p class="car-details-title">Add second car</p>
                 <form>
                     <div class="form-group">
                         <label for="make2">Make</label>
@@ -114,7 +114,7 @@
             </path>
         </svg>
     </button>
-
+</div>
     <div id="comparisonModal" class="overlay">
         <div class="modal-content">
             <button class="close-button" onclick="toggleModal()">&times;</button>
