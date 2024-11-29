@@ -4,10 +4,9 @@
 
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-
 
 .car-cards-container {
   display: flex;
@@ -16,23 +15,24 @@
 }
 
 .container2 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Card Container */
 .car-card {
-    flex: 1 1 calc(25% - 20px); /* Four cards per row on large screens */
-    max-width: calc(25% - 20px);
-    height: 550px; /* The card height is fixed */
-    perspective: 1000px; /* Enables 3D space for the flip effect */
-    margin-bottom: 20px;
-    position: relative; /* Required for flip effect positioning */
+  flex: 1 1 calc(25% - 20px); /* Four cards per row on large screens */
+  max-width: calc(25% - 20px);
+  height: 580px; /* The card height is fixed */
+  perspective: 1000px; /* Enables 3D space for the flip effect */
+  margin-bottom: 20px;
+  position: relative; /* Required for flip effect positioning */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .car-card-inner {
@@ -47,8 +47,120 @@
   transform: rotateY(180deg); /* Flips the card on hover */
 }
 
-/* Front and Back Card Styles */
-.car-card-front,
+/* ============================= Front ======================= */
+/* Front Card Styling */
+.car-card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(
+    160deg,
+    hsl(0, 0%, 0%),
+    #79797900,
+    #7e7e7e00,
+    #000000
+  );
+  backdrop-filter: blur(7px);
+  text-align: center;
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.702);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+}
+
+.car-card-front:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Section */
+.img-container {
+  max-height: 40%;
+  width: 95%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 1rem 0; /*   above and below */
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex; /* Use flex to center the image */
+  justify-content: center;
+  align-items: center;
+}
+
+.car-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  max-height: 200px; /* Set a max-height to control the size of the image within the card */
+  object-fit: cover;
+}
+
+.car-card-front:hover .car-card-img {
+  transform: scale(1.05);
+}
+
+/* Content Section */
+.car-card-content {
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.car-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.car-name {
+  font-size: 1.5em;
+  font-family: var(--header_font);
+  font-weight: 100;
+  color: #ffffff;
+}
+
+.carModel {
+  font-family: var(--header_font);
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #d4d4d4;
+  margin-top: 4px;
+}
+
+.car-description {
+  margin-top: 1.5rem;
+  font-size: 1.05em;
+  font-family: var(--paragraphs_font);
+  color: #cccccc;
+  text-align: center; /* Ensures text is centered */
+  padding: 5px 10px; /* Adds some padding to the text */
+}
+
+.car-price {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: rgb(113, 177, 219);
+  margin-top: auto; /* Pushes the price to the bottom */
+  font-family: var(--technoRace_font);
+  font-weight: 100;
+  padding-bottom: 0.5rem; /* Adds some bottom padding to keep a bit of distance */
+}
+
+/* =========================== Back ================================== */
 .car-card-back {
   position: absolute;
   width: 100%;
@@ -58,205 +170,215 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.car-card-back {
-  background: var(--grad2);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(7px);
   transform: rotateY(180deg);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
-/* ============================= Front ======================= */
-/* Front Card Styling */
-.car-card-front {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: linear-gradient(160deg, hsl(0, 0%, 0%), #79797900, #7e7e7e00, #000000);
-    backdrop-filter: blur(7px);
-    text-align: center;
-    box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.702);
-    display: flex;                
-    flex-direction: column;     
-    justify-content: center;     
-    align-items: center;       
-    backface-visibility: hidden;   
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.902);
 }
 
-.car-card-front:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-
-
-/* Image Section */
-.img-container {
-    max-height: 40%;
-    width: 95%;
-    height: auto;
-    overflow: hidden;
-    border-radius: 10px;
-    margin: 1rem 0;  /*   above and below */
-    overflow: hidden;
-    border-radius: 10px;
-    display: flex;              /* Use flex to center the image */
-    justify-content: center;
-    align-items: center;
-}
-
-.car-card-img {
-  border-radius: 10px;
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-    max-height: 200px;          /* Set a max-height to control the size of the image within the card */
-    object-fit: cover;        
-}
-
-.car-card-front:hover .car-card-img {
-    transform: scale(1.05);
-}
-
-/* Content Section */
-.car-card-content {
-   padding: 16px;
-    width: 100%;                  
-    display: flex;                
-    flex-direction: column;        
-    align-items: center;         
-    flex-grow: 1;                
-    justify-content: space-between; 
-}
-  
-.car-info-container {
-    display: flex;                  
-    flex-direction: column;         
-    align-items: center;            
-    margin-bottom: 8px;
-}
-
-.car-price {
-  font-size: 1.1em;
-    font-weight: bold;
-    color: rgb(113, 177, 219);
-    margin-top: auto; /* Pushes the price to the bottom */
-    font-family: var(--technoRace_font);
-    font-weight: 100;
-    padding-bottom: 0.5rem;
-  }
-
-.car-name {
-    font-size: 1.5em;
-    font-family: var(--header_font);
-    font-weight: 100;
-    color: #ffffff;
-}
-
-.carModel {
-    font-family: var(--header_font);
-    font-size: 1.3em; 
-    font-weight: 500;
-    color: #d4d4d4;
-    margin-top: 4px;
-}
-
-.car-description {
-    margin-top: 1.5rem;
-    font-size: 1.05em;
-    font-family: var(--paragraphs_font);
-    color: #cccccc;
-    text-align: center; /* Ensures text is centered */
-    padding: 5px 10px; /* Adds some padding to the text */
-}
-
-
-
-/* =========================== Back ================================== */
-.car-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border: 1.5px solid #707070;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(7px);   
-      transform: rotateY(180deg);
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     padding: 10px;
-     box-sizing: border-box;
-     box-shadow:  10px  10px 3px rgba(0, 0, 0, 0.902);
-}
-
-.car-specs-content{
-    text-align: center;
-
+.car-specs-content {
+  text-align: center;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 .specs-title {
   font-size: 1.5rem;
-    font-weight: 100;
-    margin-bottom: 10px;
-    font-family: var(--technoRace_font);
+  font-weight: 100;
+  margin-bottom: 10px;
+  font-family: var(--technoRace_font);
 }
 
 .specs-list {
-    list-style-type: none;
-    padding: 0;
-    font-size: 1rem;
-    font-family: var(--paragraphs_font);
-    font-weight: 500;
-
+  list-style-type: none;
+  padding: 0;
+  font-size: 1rem;
+  font-family: var(--paragraphs_font);
+  font-weight: 500;
 }
 
 .specs-list li {
   margin: 5px 0;
 }
 .specs-table {
-    width: 100%;
-    border-collapse: separate; 
-    border-spacing: 0;  
-    margin: 20px 0;
-    font-size: 1rem;
-    text-align: left;
-    border-radius: 5px;
-    overflow: hidden; 
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  font-size: 1rem;
+  text-align: left;
+  border-radius: 5px;
+  overflow: hidden;
 }
-.spec-in-table{
-    font-family: var(--paragraphs_font);
-    font-weight: 400;
-font-size: 100%;
-color:rgb(124, 203, 255);
+.spec-in-table {
+  font-family: var(--paragraphs_font);
+  font-weight: 400;
+  font-size: 100%;
+  color: rgb(124, 203, 255);
 }
 .specs-table td {
-    border: 1px solid #707070;
-    padding: 10px;
-    
+  border: 1px solid #707070;
+  padding: 10px;
 }
 
-
 .specs-table tr:nth-child(even) {
-    background:linear-gradient(150deg,
+  background: linear-gradient(
+    150deg,
     hsl(0, 0%, 0%),
     #00000000,
     #00000000,
-    #000000);
-    backdrop-filter: blur(7px);
+    #000000
+  );
+  backdrop-filter: blur(7px);
 }
 .specs-table tbody tr:hover {
-    background-color: #161616; /* Optional hover effect */
+  background-color: #161616; /* Optional hover effect */
+}
+
+.con-like {
+  --red: rgb(255, 50, 50);
+  position: relative;
+  margin-left: 140px;
+  width: 30px;
+  height: 30px;
+}
+
+.con-like .like {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.con-like .checkmark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.con-like .outline,
+.con-like .filled {
+  fill: var(--red);
+  position: absolute;
+}
+
+.con-like .filled {
+  animation: kfr-filled 0.5s;
+  display: none;
+}
+
+.con-like .celebrate {
+  position: absolute;
+  animation: kfr-celebrate 0.5s;
+  animation-fill-mode: forwards;
+  display: none;
+}
+
+.con-like .poly {
+  stroke: var(--red);
+  fill: var(--red);
+}
+
+.con-like .like:checked ~ .checkmark .filled {
+  display: block;
+}
+
+.con-like .like:checked ~ .checkmark .celebrate {
+  display: block;
+}
+
+@keyframes kfr-filled {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes kfr-celebrate {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+    display: none;
+  }
+}
+
+.con-like .like:not(:checked) ~ .checkmark .outline {
+  display: block;
+}
+
+.con-like .like:not(:checked) ~ .checkmark .filled {
+  display: none;
+}
+
+.fav_cars .con-like .like ~ .checkmark .filled {
+  display: block;
+}
+
+.fav_cars .con-like .like:not(:checked) ~ .checkmark .outline {
+  display: none;
+}
+
+
+#notification-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.notification {
+  background-color:var(--powder_blue);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in-out 2s ease forwards;
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
 
 /* Responsive Design for Medium Screens */

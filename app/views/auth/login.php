@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Initialize error messages array
-    $errorMessages = [];
+    // $errorMessages = [];
 
     // Handle Manual Signup
     if (isset($_POST['signupSubmit'])) {
