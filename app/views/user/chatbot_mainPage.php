@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turbo</title>
+    <link rel="icon" href="../../../public_html/media/icons/turboIcon.png">
+
+    <title>Turbo chat</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <link rel="stylesheet" href="../../../public_html/css/chatbot_Main.css">
@@ -11,9 +13,10 @@
     <script src="../../../public_html/js/chatbot_MainPage.js"></script>
 </head>
 <body>
+<?php include '../../../public_html/components/userNavbar.php'; ?>
 
 <!-- User Profile icon -->
-<nav>
+<!-- <nav>
     <div class="nav-content">
         <div class="toggle-btn">
         <i class="fa-solid fa-user" style="color: #ffffff;"></i>
@@ -23,7 +26,7 @@
         <span style="--i:2;"><a href="favorites.php"><i class="fa-solid fa-heart" style="color: #ffffff;"></i></a></span>
         <span style="--i:1;"><a href="../../../public_html/index.php"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></span>
     </div>
-</nav>
+</nav> -->
 
 <!-- Top of the Page -->
  

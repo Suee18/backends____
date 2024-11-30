@@ -119,14 +119,14 @@
         <div class="modal-content">
             <button class="close-button" onclick="toggleModal()">&times;</button>
             <div class="car-comparison-section">
-                <h2>Quick Look</h2>
+                <h2 class="comparisonResultsTitle">Comparison result</h2>
                 <div class="comparison-grid">
                     <div class="feature-item"></div>
                     <div class="car-column">
-                        <h3>Car 1</h3>
+                        <h3  class="resultsTitle2">Car 1</h3>
                     </div>
                     <div class="car-column">
-                        <h3>Car 2</h3>
+                        <h3 class="resultsTitle2">Car 2</h3>
                     </div>
 
                     <div class="feature-item">
@@ -135,10 +135,10 @@
                         <p>Engine Fuel Type</p>
                     </div>
                     <div class="car-column">
-                        <p>Gasoline</p>
+                        <p class="carSpec">Gasoline</p>
                     </div>
                     <div class="car-column">
-                        <p>Diesel</p>
+                        <p class="carSpec">Diesel</p>
                     </div>
 
                     <div class="feature-item">
@@ -147,10 +147,10 @@
                         <p>Engine HP</p>
                     </div>
                     <div class="car-column">
-                        <p>250 HP</p>
+                        <p class="carSpec">250 HP</p>
                     </div>
                     <div class="car-column">
-                        <p>300 HP</p>
+                        <p class="carSpec">300 HP</p>
                     </div>
 
                     <div class="feature-item">
@@ -159,10 +159,10 @@
                         <p>Engine Cylinders</p>
                     </div>
                     <div class="car-column">
-                        <p>4 Cylinders</p>
+                        <p class="carSpec">4 Cylinders</p>
                     </div>
                     <div class="car-column">
-                        <p>6 Cylinders</p>
+                        <p class="carSpec">6 Cylinders</p>
                     </div>
 
                     <div class="feature-item">
@@ -171,10 +171,10 @@
                         <p>Transmission Type</p>
                     </div>
                     <div class="car-column">
-                        <p>Automatic</p>
+                        <p class="carSpec">Automatic</p>
                     </div>
                     <div class="car-column">
-                        <p>Manual</p>
+                        <p class="carSpec">Manual</p>
                     </div>
 
                     <div class="feature-item">
@@ -183,10 +183,10 @@
                         <p>Driven Wheels</p>
                     </div>
                     <div class="car-column">
-                        <p>Front Wheel Drive</p>
+                        <p class="carSpec">Front Wheel Drive</p>
                     </div>
                     <div class="car-column">
-                        <p>All Wheel Drive</p>
+                        <p class="carSpec">All Wheel Drive</p>
                     </div>
 
                     <div class="feature-item">
@@ -195,10 +195,10 @@
                         <p>No. of Doors</p>
                     </div>
                     <div class="car-column">
-                        <p>4</p>
+                        <p class="carSpec">4</p>
                     </div>
                     <div class="car-column">
-                        <p>2</p>
+                        <p class="carSpec">2</p>
                     </div>
 
                     <div class="feature-item">
@@ -207,10 +207,10 @@
                         <p>Market Category</p>
                     </div>
                     <div class="car-column">
-                        <p>Luxury, Performance</p>
+                        <p class="carSpec">Luxury, Performance</p>
                     </div>
                     <div class="car-column">
-                        <p>Economy, Compact</p>
+                        <p class="carSpec">Economy, Compact</p>
                     </div>
 
                     <div class="feature-item">
@@ -219,10 +219,10 @@
                         <p>Vehicle Size</p>
                     </div>
                     <div class="car-column">
-                        <p>Midsize</p>
+                        <p class="carSpec">Midsize</p>
                     </div>
                     <div class="car-column">
-                        <p>Compact</p>
+                        <p class="carSpec">Compact</p>
                     </div>
 
                     <div class="feature-item">
@@ -231,10 +231,10 @@
                         <p>Vehicle Style</p>
                     </div>
                     <div class="car-column">
-                        <p>Sedan</p>
+                        <p class="carSpec">Sedan</p>
                     </div>
                     <div class="car-column">
-                        <p>SUV</p>
+                        <p class="carSpec">SUV</p>
                     </div>
 
                     <div class="feature-item">
@@ -243,10 +243,10 @@
                         <p>MSRP</p>
                     </div>
                     <div class="car-column">
-                        <p>$40,000</p>
+                        <p class="carSpec">$40,000</p>
                     </div>
                     <div class="car-column">
-                        <p>$35,000</p>
+                        <p class="carSpec">$35,000</p>
                     </div>
                 </div>
             </div>

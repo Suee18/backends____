@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <title>Persona Quiz</title>
+    <link rel="icon" href="../../../public_html/media/persona-icon.png" alt="persona-icon" />
+    <title>Personality test</title>
     <link rel="stylesheet" href="../../../public_html/css/persona_test.css">
     <link rel="stylesheet" href="../../../public_html/css/global_styles.css">
     <link rel="stylesheet" href="../../../public_html/css/userNavbar.css">

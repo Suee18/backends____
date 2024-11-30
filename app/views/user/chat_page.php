@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="../../../public_html/css/chat_page.css">
     <script src="../../../public_html/js/chat_page.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-    <title>Turbo</title>
+    <link rel="icon" href="../../../public_html/media/icons/turboIcon.png">
+    <title>Turbo chat</title>
 </head>
 <body>
 
