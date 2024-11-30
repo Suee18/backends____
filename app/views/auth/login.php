@@ -15,7 +15,21 @@ $client->setRedirectUri($_ENV['GOOGLE_REDIRECT_URI']);
 $client->addScope('email');
 $client->addScope('profile');
 
+// $authUrl = $client->createAuthUrl();
+
+$action = isset($_GET['action']) ? $_GET['action'] : null;
+$state = ['action' => $action];
+$client->setState(http_build_query($state));
 $url = $client->createAuthUrl();
+
+// if ($action === 'googleSU') {
+//     $url = $authUrl . '&' . http_build_query(['action' => 'googleSU']);
+// } else if ($action === 'googleLI') {
+//     $url = $authUrl . '&' . http_build_query(['action' => 'googleLI']);
+// } else {
+//     $url = $client->createAuthUrl();
+// }
+
 
 
 // Enable error reporting
@@ -90,11 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
         }
     }
 
-    // if (empty($gender)) {
-    //     $errorMessages['signup']['gender'] = "Gender selection is required.";
-    // }
-
-
     // If there are no errors, process the signup
     if (empty(array_filter($errorMessages['signup']))) {
         $signUpResult = Users::signUpUser($userName, $birthdate, $gender, $password, $email, "user", date('Y-m-d H:i:s'));
@@ -137,7 +146,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                             style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;   font-weight: bold; "><?= $errorMessages['login']['username'] ?></small>
 
                         <div class="passwordContainer">
-                            <input type="password" id="password" name="password" required placeholder="Enter your password">
+                            <input type="password" id="password" name="password" required
+                                placeholder="Enter your password">
                             <svg id="togglePassword" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                 class="eye-icon">
                                 <path
@@ -148,8 +158,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                                 style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;    font-weight: bold;"><?= $errorMessages['login']['password'] ?></small>
                         </div>
                         <button class="loginbutton" type="submit" name="loginSubmit">Log in</button>
-                        <button class="google" type="button" onclick="window.location.href='<?= $url ?>'"
-                            action="loginWithGoogle">
+
+                        <button class="google" type="button"
+                            onclick="window.location.href='<?= $url ?>'">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -247,8 +258,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
 
 
                         <button type="submit" class="signupbutton" name="signupSubmit">Sign up</button>
-                        <button type="button" class="google" name="googleSignup"   id="googleSU"
-                            onclick="window.location.href='<?= $url ?>'" action="signupWithGoogle">
+
+                        <button type="button" class="google" name="googleSignup" id="googleSU"
+                            onclick="window.location.href='<?= $url ?>'">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
