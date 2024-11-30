@@ -41,8 +41,8 @@
                 <div class="persona-info">
                     <img src="../../../public_html/media/Persona_Page_Images/icons/eco_warrior_icon.png" alt=""
                         class="persona-image">
-                    <div class="persona-title">
-                        <h3>Eco-Warrior</h3>
+                    <div >
+                        <p class="persona-title" >Eco-Warrior</p>
                     </div>
                     <p class="personaDiscriptionParagraph">Eco-Warriors are environmentally conscious drivers who prioritize fuel efficiency and
                         sustainability. They prefer cars that minimize carbon footprints and promote a greener future.
@@ -50,15 +50,16 @@
                 </div>
             </div>
 
-            
+
             <div class="right-column">
                 <img src="../../../public_html/media/Persona_Page_Images/tesla-model-3.png" alt="Tesla Model 3"
                     class="car-image">
-                <h4>Your Perfect Match: Tesla Model 3</h4>
+                    <!-- <h4>Your Perfect Match: </h4> -->
+                <h4 class="carName">Tesla Model 3</h4>
                 <div class="car-info">
 
                     <div class="car-preferences">
-                        <h5>Key Preferences:</h5>
+                        <h5 class="keyPreferences">Key Preferences:</h5>
                         <ul>
                             <li>Electric powertrain for eco-conscious driving</li>
                             <li>Advanced technology and autopilot features</li>
@@ -101,7 +102,7 @@
 
         <div class="slider-container">
             <div class="persona-slider-section">
-                <h2 class="header">Our Different Persona's</h2>
+                <h2 class="resultsSectionHeader">Our Different Persona's</h2>
 
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
