@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     var chatbot = document.getElementById("chatbot");
     var qoute = document.getElementById("qoute");
+    var qoute2 = document.getElementById("qoute2");
     var chatBtn = document.getElementById("chat-btn");
     // var windowHeight = window.innerHeight;
     
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var textOffset = scrollPosition * 0.5;
         qoute.style.transform = `translateX(${textOffset}px)`;
+        qoute2.style.transform = `translateX(${textOffset}px)`;
         chatBtn.style.transform = `translateX(${textOffset}px)`;
     }
 

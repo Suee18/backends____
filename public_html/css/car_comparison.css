@@ -1,4 +1,4 @@
-@import url("../../public_html/css/global_styles.css");
+@import url("./global_styles.css");
 
 html,
 body {
@@ -16,8 +16,9 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url("../../public_html/media/platformBG.png") no-repeat center
-        center;
+    /* background: url("../../public_html/media/platformBG.png") no-repeat center center; */
+    /* background: linear-gradient(90deg, #1e3446 0%, #58717d 50%, #5e5e5e 100%); */
+    /* background: linear-gradient(180deg, #0a273d, rgba(57, 121, 151, 0.993) ,#0a273d); */
     background-size: cover;
     transform-origin: center;
     z-index: -1;
@@ -34,12 +35,18 @@ body::before {
     height: 50vh;
     margin-top: 0;
     color: var(--white);
-    background: url("../../public_html/media/Car_Comparison_Page_Images/car-banner.jpg")
-        no-repeat center center;
+ /* background: url("../../public_html/media/Car_Comparison_Page_Images/car-banner.jpg")  no-repeat center center;  */
+        /* background: url("../../public_html/media/thisOrThat.png") no-repeat center center; */
+        /* background: url("../../public_html/media/THIS\ OR\ THAT1.webp") no-repeat center center; */
+        background: url("../../public_html/media/THIS\ OR\ THAT2.webp") no-repeat center center;
+        
     background-size: cover;
     position: relative;
     text-align: center;
+
+
 }
+
 
 #comparing-cars-banner::before {
     content: "";
@@ -48,7 +55,10 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #04121dc2;
+    /* background-color: #0303039f; */
+    backdrop-filter: blur(4px);
+
     z-index: 1;
 }
 
@@ -58,10 +68,15 @@ body::before {
     letter-spacing: 0.2rem;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: #d6d6d6;
+    text-shadow:3px 1px 2px #116d9796;
 }
 
 #comparing-cars-banner p {
-    font-family: "New Amsterdam", var(--header_font);
+    /* font-family: "New Amsterdam", var(--header_font); */
+    font-family: var(--paragraph_font);
+    letter-spacing: 0.1rem;
+    font-weight: 100;
     font-size: 1.4rem;
     margin-top: 0.2rem;
 }
@@ -71,21 +86,50 @@ body::before {
     position: relative;
     z-index: 2;
 }
+.gradientBG {
+    width: 100%;
+    height: 120vh; /*HERE TO ETEND PAGE INCASSE FORM INCREASED */
+    /* background: linear-gradient(90deg, #1e3446 0%, #58717d 50%, #5e5e5e 100%); */
+    background: linear-gradient(90deg, #0a273d,  #0a273d,#397997fd , #0a273d,#0a273d);
+     background-size: cover;
+    overflow: hidden;
+    z-index: -100; 
+}
 
+.gradientBG::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        160deg,
+        rgba(30, 52, 70, 0.85),
+        rgba(88, 113, 125, 0.75),
+        rgba(94, 94, 94, 0.85)
+    ); 
+    z-index: -1; 
+}
 .comparison-section {
     display: flex;
-    justify-content: space-evenly;
+   align-items: center;
+    justify-content: center;
     margin-top: 30px;
+    /* margin-left: 4rem; */
+    width:100vw;
 }
 
 .car-card {
-    background: rgba(0, 0, 0, 0.605);
-    backdrop-filter: blur(10px);
+    /* background: rgba(0, 0, 0, 0.605); */
+    background: var(--grad2);
+    border: 2px solid #d6d6d61a;
+    backdrop-filter: blur(6px);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    width: 32%;
+    box-shadow: 0 4px 5px rgba(1, 5, 17, 0.733);
+    width: 35%;
     padding: 20px;
+    margin-left: 4rem;
 }
+
 
 .car-image img {
     max-width: 100%;
@@ -96,10 +140,16 @@ body::before {
 .car-card:first-child .car-image img {
     transform: scaleX(-1);
 }
-
+.car-details-title
+{
+    font-family:var(--header_font) ;
+    font-size: 2rem;
+    color: var(--white);
+text-align: center;
+}
 .car-details h2 {
     font-size: 34px;
-    font-family: "DM Sans", "Roboto", var(--paragraph_font);
+    font-family: "DM Sans", "Roboto", var(--paragraphs_font);
     margin: 15px 0 10px 0;
     color: var(--white);
     display: flex;
@@ -119,7 +169,8 @@ body::before {
 .form-group label {
     color: var(--white);
     font-size: 1.2rem;
-    font-family: "Roboto", var(--paragraph_font);
+    font-family: "Roboto", var(--paragraphs_font);
+    font-weight: 100;
     text-align: center;
 }
 
@@ -145,21 +196,24 @@ select {
 }
 
 select:focus {
-    border-color: purple;
-    box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+    /* border-color: rgb(65, 83, 139); */
+    border: 2px solid #397997fd;
+    box-shadow: 0 0 5px rgb(10, 39, 61);
+    outline: none;
 }
 
 .car-comparison-section {
     text-align: center;
-    margin: 0 auto;
-    padding: 20px;
+    /* margin: 0 auto; */
+    /* margin-left: 15rem; */
+    /* padding: 20px; */
 }
 
 .car-comparison-section h2 {
     font-size: 2.5rem;
     margin-bottom: 40px;
-    margin-left: 230px;
-    font-family: "DM Sans", "Roboto", var(--paragraph_font);
+    /* margin-left: 230px; */
+    /* font-family: "DM Sans", "Roboto", var(--paragraph_font); */
     text-align: left;
 }
 
@@ -182,7 +236,7 @@ select:focus {
     display: flex;
     align-items: center;
     font-size: 1.4rem;
-    font-family: "DM Sans", "Roboto", var(--paragraph_font);
+    /* font-family: "DM Sans", "Roboto", var(--paragraph_font); */
 }
 
 .feature-item .icon {
@@ -193,7 +247,7 @@ select:focus {
 }
 
 .car-column {
-    border-left: 3px solid #ccc;
+    border-left: 3px solid #b9b9b9;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -203,8 +257,8 @@ select:focus {
 
 .car-column h3 {
     font-size: 1.4rem;
-    font-weight: bolder;
-    font-family: "DM Sans", "Roboto", var(--paragraph_font);
+    /* font-weight: bolder; */
+    /* font-family: "DM Sans", "Roboto", var(--paragraph_font); */
 }
 
 .car-column h1,
@@ -214,8 +268,8 @@ select:focus {
 
 .car-column p {
     font-size: 1.3rem;
-    font-weight: bolder;
-    font-family: "DM Sans", "Roboto", var(--paragraph_font);
+    /* font-weight: bolder; */
+    /* font-family: "DM Sans", "Roboto", var(--paragraph_font); */
     text-align: center;
 }
 
@@ -319,26 +373,49 @@ h2 {
 } */
 
 .modal-header {
-    font-family: "DM Sans", "Roboto", var(--paragraph_font);
+    /* font-family: "DM Sans", "Roboto", var(--paragraph_font); */
     /* background-color: var(--navy); */
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     padding: 16px;
-    margin: 15px 0;
+    /* margin: 15px 0; */
     color: white;
     position: absolute;
     top: 0;
-    left: 34%;
+    /* left: 34%; */
     width: 100%; /* Make the header span the entire width of the modal */
     box-sizing: border-box; /* Ensure padding doesn't affect the width */
     width: fit-content;
-    font-style: italic;
+    /* font-style: italic; */
 }
+.comparisonResultsTitle{
+    margin-left: 22rem;
+    font-family: var(--technoRace_font);
+    color:var(--white_blue_light);
+    text-shadow: 3px 0px 2px #0b2c3f;
+    /* text-shadow: 3px 0px 2px #257bad; */
+    font-weight: 100;
+}
+.resultsTitle2{
+    font-family: var(--header_font);
+    color:#f3f3f3;
+    /* background:linear-gradient(140deg,  #dfdfdfda, #dfdfdfda); */
+    /* border: 3px solid #d6d6d656; */
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+    font-weight: 300;
+    letter-spacing: 1px;
 
+
+}
+.carSpec{
+    font-family: var(--paragraphs_font);
+    color:#d6d6d6;
+}
 #comparison-modal {
     display: none; /* Hidden by default */
     position: fixed;
     top: 50%;
-    left: 50%;
+    /* left: 50%; */
     transform: translate(-50%, -50%);
     width: 60%; /* Adjust as needed */
     height: 80%;
@@ -355,9 +432,20 @@ h2 {
     right: 15px;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: 200;
     cursor: pointer;
-    color: var(--red);
+    color:#b90000ec;
+    background-color: #0303039a;
+    border-radius: 10px;
+    width:40px;
+}
+.close-button:hover {
+    color: #ff0000;
+    background-color: #030303dc;
+    transition: transform 0.2s ease, box-shadow 0.s ease;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .comparison-slider {
@@ -412,15 +500,17 @@ h2 {
 
 .modal-content {
     position: relative;
-    background: rgba(0, 0, 0, 0.733);
-    backdrop-filter: blur(30px);
+    background:  linear-gradient(160deg, #030303,#030303bd,#5e5e5e71, #5e5e5e71,#030303bd, #030303);
+    backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 20px;
-    width: 80%;
-    max-width: 800px;
+    width: 65%;
+    max-width: 70%;
     max-height: 90vh;
     overflow-y: scroll;
     scrollbar-width: none;
+    border: 2px solid #d6d6d63a;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.664);
 }
 
 .modal-content::-webkit-scrollbar {

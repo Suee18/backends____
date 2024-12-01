@@ -8,7 +8,10 @@
 
 html,
 body {
-    background-color: var(--blue_gray_dark);
+    /* background-color: var(--blue_gray_dark); */
+    /* background:linear-gradient(180deg, #1e3a46, #1e3a46, #09151abb, #8b0000); */
+    /* background:linear-gradient(180deg, #113c4e, #113c4e, #113c4e, #500606); */
+    background:linear-gradient(180deg, #113c4e, #113c4e, #113c4e, #686767);
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -69,16 +72,20 @@ body {
 } */
 
 /* Image container styling */
+
 .image-container {
-    max-width: 40%;
+    width: 30vw; /* Ensures the div takes the full width available */
+    height: 75vh; /* Allows the height to adjust proportionally */
+    max-width: 100%; /* Prevents the image from exceeding its original size */
+    overflow: hidden; /* Ensures no overflow if image dimensions exceed container */
+border-radius: 10px;
+box-shadow:  10px 10px 10px rgba(0, 0, 0, 0.486);
 }
-
 .image-container img {
-    width: 100%;
-    height: 80%;
-    border-radius: 10px;
+    width: 100%; /* Makes the image fill the entire width of its container */
+    height: 100%; /* Allows the image to scale proportionally */
+    display: block; /* Ensures no extra space around the image */
 }
-
 .second-image-container {
     margin-right: -80px;
 }
@@ -96,6 +103,7 @@ body {
 .header {
     font-family: var(--racing_font);
     font-weight: 100;
+    letter-spacing: 1.2px;
     font-style: italic;
     font-size: 3rem;
     color: var(--white);
@@ -148,14 +156,17 @@ body {
 }
 
 .persona-card h4 {
-    font-size: 1.5rem;
+    font-size: 2.3rem;
     /* color: var(--white); */
-    color: rgb(110, 197, 255);
-
-    margin-bottom: 10px;
-    margin-top: 100px;
-    font-family: var(--technoRace_font);
+    /* margin-bottom: 10px; */
+    /* margin-top: 100px; */
+    font-family: var(--racing_font);
+    letter-spacing: 1px;
     font-weight: 100;
+    color: rgb(126, 195, 241);
+    text-shadow: 2px 2px 2px #000000;
+    margin-top: 7rem;
+
 }
 
 .swiper-slide-active {
@@ -165,15 +176,17 @@ body {
 
 .persona-paragraph {
     font-size: 1.3rem;
-    font-family: var(--paragraphs_font);
+    font-family: var(--paragraph_font);
     color: var(--white);
-    margin-top: 40px;
+    margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     word-wrap: normal;
     white-space: pre-line;
     max-width: 300px;
+    letter-spacing: 1px;
+    font-weight: 100;
 }
 
 /* Responsive styling */

@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../../../public_html/css/login.css">
-    <title>Sign In</title>
+    <title>Register</title>
 </head>
 
 <body>
@@ -278,14 +278,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                             </svg>
                             Sign up with Google
                         </button>
-                        <p class="registerRedirection">Already have an account?<br> <a href="#" id="flipToLogin">Log
-                                in</a>
-                        </p>
+                        <p class="registerRedirection">Already have an account?<br> <a href="#" id="flipToLogin">Log in</a></p>
                     </form>
                 </div>
 
             </div>
         </div>
+
     </div>
     <script src="../../../public_html/js/login.js"></script>
 </body>

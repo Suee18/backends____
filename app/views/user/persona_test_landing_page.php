@@ -15,8 +15,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
         rel="stylesheet">
+<link rel="icon" href="../../../public_html/media/persona-icon.png" alt="persona-icon" />
 
-    <title>Car Recommendation App</title>
+    <title>Personality test</title>
     <link rel="stylesheet" href="../../../public_html/css/persona_test_landing_page.css">
     <link rel="stylesheet" href="../../../public_html/css/userNavbar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
