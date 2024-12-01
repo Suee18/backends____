@@ -4,15 +4,18 @@ require_once __DIR__ . '/../models/UsersClass.php';
 require __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../env_loader.php';
 
-// Handle "Sign up with Google"
+// Initialize Google Client
 $client = new Google\Client;
 $client->setClientId($_ENV['GOOGLE_CLIENT_ID']);
 $client->setClientSecret($_ENV['GOOGLE_CLIENT_SECRET']);
 $client->setRedirectUri($_ENV['GOOGLE_REDIRECT_URI']);
 
 if (isset($_GET['code'])) {
+    // Fetch the access token
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
     $client->setAccessToken($token["access_token"]);
+    
+    // Get user information
     $oauth = new Google\Service\Oauth2($client);
     $user = $oauth->userinfo->get();
 
@@ -20,17 +23,27 @@ if (isset($_GET['code'])) {
     $name = $user->name;
     $gender = $user->gender;
 
-    $response = Users::addUserIntoDBGoogle($name, $email, $gender);
+    // Check if the user exists and log them in or sign them up
+    // If user exists, perform login; otherwise, perform signup
+    $existingUser = Users::loginUserGoogle($name, $email, $gender);
 
-    if ($response) {
-        // Redirect to the home page or dashboard after successful login
-       header("Location: index.php");
+    if ($existingUser) {
+        // User exists, perform login
+        header("Location: index.php");  // Redirect to the home page or dashboard
         exit;
-        // echo "User added successfully";
     } else {
-        // If there is an issue with adding the user, redirect to the login page
-        header('Location: /../SWE_Project/SWE_Phase1/app/views/auth/login.php');
-        exit;
+        // User does not exist, perform signup
+        $response = Users::addUserIntoDBGoogle($name, $email, $gender);
+
+        if ($response) {
+            // Redirect to the home page or dashboard after successful signup
+            header("Location: index.php");
+            exit;
+        } else {
+            // If there was an issue with the signup, redirect to the login page
+            header('Location: /../SWE_Project/SWE_Phase1/app/views/auth/login.php');
+            exit;
+        }
     }
 } else {
     // If no authorization code is provided, redirect to the login page

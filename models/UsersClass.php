@@ -84,17 +84,6 @@ class Users
     }
 
 
-    // function addUserIntoDB($user)
-    // {
-    //     global $conn;
-    //     $sql = "INSERT INTO users (username, birthdate, gender, password, email, type, timeStamp) 
-    //         VALUES ('$user->username', '$user->birthdate', '$user->gender', '$user->password', '$user->email', '$user->userType', '$user->timeStamp')";
-
-    //     $result = mysqli_query($conn, $sql);
-    //     return $result;
-    // }
-
-
     public static function addUser($username, $birthdate, $gender, $password, $email, $userType)
     {
         global $conn;
@@ -127,13 +116,6 @@ class Users
         return mysqli_query($conn, $sql);
     }
 
-    // function deleteUserFromDB($userId)
-    // {
-    //     global $conn;
-    //     $sql = "DELETE FROM users WHERE id = '$userId'";
-    //     $result = mysqli_query($conn, $sql);
-    //     return $result;
-    // }
 
     public static function deleteUser($user_id)
     {
@@ -228,6 +210,31 @@ class Users
                 'status' => false,
                 'message' => "Error: " . mysqli_error($conn)
             ];
+        }
+    }
+
+    static function loginUserGoogle($name, $email, $gender) {
+        global $conn;
+
+        $sqlFindUserWithEmail = "SELECT * FROM users WHERE email='$email'";
+        $sqlResult = mysqli_query($conn, $sqlFindUserWithEmail);
+
+        if (mysqli_num_rows($sqlResult) === 0) {
+            return self::addUserIntoDBGoogle($name, $email, $gender);
+        } else {
+            $user = mysqli_fetch_assoc($sqlResult);
+
+            if ($user['loginMethod'] === 'google') {
+                return [
+                    'status' => true,
+                    'message' => "User logged in successfully."
+                ];
+            } else {
+                return [
+                    'status' => false,
+                    'message' => "User already exists. Please log in with your username and password."
+                ];
+            }
         }
     }
 }
