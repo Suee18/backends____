@@ -12,7 +12,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: #020925;
   color: #dad3d3;
-
 }
 
 /*===============================PART 1====================================*/
@@ -49,12 +48,14 @@ body {
   text-align: center;
   padding: 0;
   color: white;
-  background: linear-gradient(250deg,
-      #031d35,
-      #01031f8f,
-      #615a5a48,
-      #070707a4,
-      #000103e1);
+  background: linear-gradient(
+    250deg,
+    #031d35,
+    #01031f8f,
+    #615a5a48,
+    #070707a4,
+    #000103e1
+  );
   backdrop-filter: blur(2.5px);
 
   /* background: linear-gradient(210deg, #1a334abd,#000000c2 );  */
@@ -78,7 +79,6 @@ body {
   font-weight: 100;
   cursor: pointer;
   color: #b4c3cc;
-
 }
 
 .videoBG_lp {
@@ -109,8 +109,6 @@ body {
   cursor: pointer;
   margin-left: 3rem;
   color: #b4c3cc;
-
-
 }
 
 /*slide 3*/
@@ -129,7 +127,6 @@ body {
   font-weight: 100;
   cursor: pointer;
   color: #b4c3cc;
-
 }
 
 /*slide 4*/
@@ -141,7 +138,7 @@ body {
   font-weight: 100;
   margin-top: 22rem;
 }
-.slide4Paragraph_lp{
+.slide4Paragraph_lp {
   font-family: var(--paragraph_font);
   color: #b4c3cc;
   font-size: 2rem;
@@ -240,7 +237,6 @@ body {
   background-repeat: no-repeat;
   overflow-x: hidden;
   overflow-y: hidden;
-
 }
 
 .filter_reviews {
@@ -300,8 +296,9 @@ body {
 }
 
 .btn {
-  margin-left: 40.5%;
+  margin-left: 42%;
 }
+
 .review-paragraph {
   font-size: 1.3rem;
   font-family: var(--paragraphs_font);
@@ -322,8 +319,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.219);
-  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.39);
+  backdrop-filter: blur(10px);
   display: none;
   justify-content: center;
   align-items: center;
@@ -331,13 +328,117 @@ body {
 }
 
 .overlay-content {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  background: rgba(192, 190, 190, 0.229);
+  backdrop-filter: blur(40px);
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
   padding: 60px;
   border-radius: 15px;
   text-align: center;
-  width: 300px;
+  width: 450px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.overlay h2 {
+  font-family: var(--technoRace_font);
+  letter-spacing: 3px;
+  font-size: 2.4rem;
+}
+
+.review-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-content: center;
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+.button {
+  width: 150px;
+  height: 45px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-family: var(--paragraphs_font);
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: var(--powder_blue);
+}
+.button.selected {
+  background-color: var(--powder_blue);
+  border-color: var(--white);
+  color: #ffffff;
+}
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper,
+.text,
+.icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.text {
+  top: 0;
+}
+
+.text,
+.icon {
+  transition: top 0.5s;
+}
+
+.icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon img {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%) brightness(200%);
+}
+
+.button:hover .text {
+  top: -100%;
+}
+
+.button:hover .icon {
+  top: 0;
+}
+
+.button:hover:before,
+.button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button.selected {
+  background-color: var(--powder_blue);
+  color: white;
+}
+
+.button.selected .text {
+  top: -100%;
+}
+
+.button.selected .icon {
+  top: 0;
 }
 
 .overlay-content h2 {
@@ -368,10 +469,26 @@ body {
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.3s ease;
+  margin-left: 39%;
 }
 
 .submitBtn:hover {
-  background-color: var(--light_blue);
+  background-color: var(--powder_blue);
+}
+
+#reviewText,
+#submitReview {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: none; /* Initially hidden */
+}
+
+#reviewText.active,
+#submitReview.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .closeBtn {

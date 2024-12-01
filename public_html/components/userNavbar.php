@@ -37,11 +37,11 @@
             </li>
             <li onclick="location.href='../../../app/views/user/persona_test_landing_page.php';">
                 <span class="material-symbols-outlined">directions_car</span>
-                <a href="../../../app/views/user/persona_test_landing_page.php">Car Persona Test</a>
+                <a href="../../../app/views/user/persona_test_landing_page.php">Persona Test</a>
             </li>
             <li onclick="location.href='../../../app/views/user/car_comparison.php';">
                 <span class="material-symbols-outlined">swap_horiz</span>
-                <a href="../../../app/views/user/car_comparison.php">Car comparison</a>
+                <a href="../../../app/views/user/car_comparison.php">Comparison</a>
             </li>
             <li onclick="location.href='../../../app/views/user/chatbot_mainPage.php';">
                 <span class="material-symbols-outlined">question_answer</span>
@@ -49,7 +49,7 @@
             </li>
             <li onclick="location.href='../../../app/views/user/platform.php';">
                 <span class="material-symbols-outlined">public</span>
-                <a href="../../../app/views/user/platform.php">Apex Community</a>
+                <a href="../../../app/views/user/platform.php">ApexConnect</a>
             </li>
             <hr>
             <h4>Account</h4>
@@ -90,13 +90,16 @@
 
     <script>
         //Sidebar collapsing JS
-        const sidebar = document.querySelector('.sidebar');
-        const collapseBtn = document.querySelector('.collapse-btn');
+        document.addEventListener("DOMContentLoaded", function() {
+            const sidebar = document.querySelector('.sidebar');
+            const collapseBtn = document.querySelector('.collapse-btn');
 
-        const toggleSidebar = () => {
-            sidebar.classList.toggle('collapsed');
-        };
-        collapseBtn.addEventListener('click', toggleSidebar);
+            const toggleSidebar = () => {
+                sidebar.classList.toggle('collapsed');
+            };
+            collapseBtn.addEventListener('click', toggleSidebar);
+        });
+
 
         //Delete pop up JS
         document.addEventListener("DOMContentLoaded", function() {

@@ -6,9 +6,9 @@
 // include_once 'C:\xampp\htdocs\SWE_Phase1\app\config\db_config.php';
 // include 'C:\xampp\htdocs\SWE_Phase1\models\UsersClass.php';
 // include 'C:\xampp\htdocs\SWE_Phase1\models\ReviewsClass.php';
-include_once __DIR__. '\..\..\config\db_config.php';
-include __DIR__. '\..\..\..\models\ReviewsClass.php';
-include __DIR__. '\..\..\..\models\UsersClass.php';
+include_once __DIR__ . '\..\..\config\db_config.php';
+include __DIR__ . '\..\..\..\models\ReviewsClass.php';
+include __DIR__ . '\..\..\..\models\UsersClass.php';
 $reviewsSliderArray = Reviews::getLastNumberOfReviews(7);
 
 if (isset($_POST['Submit'])) {
@@ -25,15 +25,15 @@ if (isset($_POST['Submit'])) {
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="../public_html/css/landing_page.css">
     <link rel="stylesheet" href="../public_html/css/global_styles.css">
     <link rel="stylesheet" href="../public_html/css/nav_bar.css">
     <link rel="stylesheet" href="../public_html/css/car_card.css">
-    <link rel="stylesheet" href="../public_html/css/footer.css"> -->   
+    <link rel="stylesheet" href="../public_html/css/footer.css"> -->
 
-     <link rel="stylesheet" href="css/landing_page.css">
+    <link rel="stylesheet" href="css/landing_page.css">
     <link rel="stylesheet" href="css/global_styles.css">
     <link rel="stylesheet" href="css/footer.css">
 
@@ -118,8 +118,8 @@ if (isset($_POST['Submit'])) {
             <div class="text-overlay">
                 <p class="slide4Title_lp">Drive. Share. Connect.</p>
                 <p class="slide4Paragraph_lp">Join the ultimate car community.
-                 Share your experiences,<br> discover posts, 
-                 and connect with car enthusiasts..</p>
+                    Share your experiences,<br> discover posts,
+                    and connect with car enthusiasts..</p>
 
             </div>
         </div>
@@ -144,88 +144,139 @@ if (isset($_POST['Submit'])) {
                 </P>
             </div>
 
-        <div class="carCardsContainer_lp">
-            <!-- static -->
-            <?php include __DIR__. '/../../../public_html/components/car_card.php'; ?>
+            <div class="carCardsContainer_lp">
+                <!-- static -->
+                <?php include __DIR__ . '/../../../public_html/components/car_card.php'; ?>
+            </div>
         </div>
-    </div>
 
-    <!----------------PART 3:Reviews--------------------------->
-    <div class="landingPage_part3">
-        <div class="filter_reviews">
-        <div class="partsTitles_lp">
-            <P class="reviewsTitle_lp">
-                Reviews
-            </P>
-        </div>
-        <div class="reviews-section">
-            <h2 class="header">What our Clients say!</h2>
+        <!----------------PART 3:Reviews--------------------------->
+        <div class="landingPage_part3">
+            <div class="filter_reviews">
+                <div class="partsTitles_lp">
+                    <P class="reviewsTitle_lp">
+                        Reviews
+                    </P>
+                </div>
+                <div class="reviews-section">
+                    <h2 class="header">What our Clients say!</h2>
 
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <?php
-                    foreach ($reviewsSliderArray as $review) {
-                        echo '<div class="swiper-slide">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <?php
+                            foreach ($reviewsSliderArray as $review) {
+                                echo '<div class="swiper-slide">
                                 <div class="review-card">
                                     <h4 class="reviewUserName">' . htmlspecialchars($review->reviewUserName) . '</h4>
                                     <p class="review-paragraph">"' . htmlspecialchars($review->reviewText) . '"</p>
                                 </div>
                               </div>';
-                    }
-                    ?>
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
+                <button class="btn" id="openOverlay">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+                        <path
+                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                        </path>
+                    </svg>
+                    <span class="text">Add Your Own Review!</span>
+                    <span class="circle"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+                        <path
+                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                        </path>
+                    </svg>
+                </button>
+                <div class="overlay" id="reviewOverlay">
+                    <form class="overlay-content" method="post">
+                        <span class="closeBtn" id="closeOverlay">&times;</span>
+                        <h2>Write your review</h2>
+                        <div class="review-buttons" id="reviewButtons">
+                            <div class="button" data-choice="Apex">
+                                <div class="button-wrapper">
+                                    <div class="text">Apex</div>
+                                    <span class="icon">
+                                        <img src="../../../../SWE_Phase1/public_html/media/website.png" alt="Website Icon">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="button" data-choice="Comparison">
+                                <div class="button-wrapper">
+                                    <div class="text">Comparison</div>
+                                    <span class="icon">
+                                        <img src="../../../../SWE_Phase1/public_html/media/compare.png" alt="Website Icon">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="button" data-choice="Search">
+                                <div class="button-wrapper">
+                                    <div class="text">Search</div>
+                                    <span class="icon">
+                                        <img src="../../../../SWE_Phase1/public_html/media/search.png" alt="Website Icon">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="button" data-choice="Persona Test">
+                                <div class="button-wrapper">
+                                    <div class="text">Persona Test</div>
+                                    <span class="icon">
+                                        <img src="../../../../SWE_Phase1/public_html/media/test.png" alt="Website Icon">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="button" data-choice="Turbo">
+                                <div class="button-wrapper">
+                                    <div class="text">Turbo</div>
+                                    <span class="icon">
+                                        <img src="../../../../SWE_Phase1/public_html/media/chatbot.png" alt="Website Icon">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="button" data-choice="Apex Community">
+                                <div class="button-wrapper">
+                                    <div class="text">ApexConnect</div>
+                                    <span class="icon">
+                                        <img src="../../../../SWE_Phase1/public_html/media/social-media.png" alt="Website Icon">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <textarea id="reviewText" placeholder=" Write your review here..." name="reviewText" required></textarea>
+                        <input class="submitBtn" type="submit" id="submitReview" name="Submit">
+                    </form>
+                </div>
+
             </div>
-        </div>
-        <button class="btn" id="openOverlay">
-        <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
-            <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-            </path>
-        </svg>
-        <span class="text">Add Your Own Review!</span>
-        <span class="circle"></span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
-            <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-            </path>
-        </svg>
-    </button>
-        <div class="overlay" id="reviewOverlay">
-            <form class="overlay-content" method="post">
-                <span class="closeBtn" id="closeOverlay">&times;</span>
-                <h2>Write your review</h2>
-                <textarea id="reviewText" placeholder=" Write your review here..." name="reviewText" required></textarea>
-                <input class="submitBtn" type="submit" id="submitReview" name="Submit">
-            </form>
-        </div>
-    </div>
-        <!-- Footer Section -->
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>Your go-to platform for car comparisons, reviews, and recommendations. Helping you find the
-                        perfect car.</p>
+            <!-- Footer Section -->
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h3>About Us</h3>
+                        <p>Your go-to platform for car comparisons, reviews, and recommendations. Helping you find the
+                            perfect car.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p>Email: support@example.com</p>
+                        <p>Phone: +123 456 7890</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Follow Us</h3>
+                        <p><a href="#">Facebook</a></p>
+                        <p><a href="#">Twitter</a></p>
+                        <p><a href="#">Instagram</a></p>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>Email: support@example.com</p>
-                    <p>Phone: +123 456 7890</p>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 YourCompanyName. All Rights Reserved.</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <p><a href="#">Facebook</a></p>
-                    <p><a href="#">Twitter</a></p>
-                    <p><a href="#">Instagram</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 YourCompanyName. All Rights Reserved.</p>
-            </div>
-        </footer>
+            </footer>
 
 
-    <script src="../public_html/js/landing_page.js"></script>
+            <script src="../public_html/js/landing_page.js"></script>
 </body>
 
 </html>
