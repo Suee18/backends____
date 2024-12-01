@@ -104,13 +104,14 @@ html {
 
 .admin-navbar label {
     color: #fff;
-    font-size: 18px;
+    font-size: 25px;
     cursor: pointer;
     padding: 10px 20px;
     background-color: #52525200;
     border-radius: 5px;
     transition: background-color 0.3s ease, filter 0.3s ease, transform 0.3s ease;
     filter: none;
+     font-family: var(--header_font);
     /* No blur by default */
 }
 
@@ -293,6 +294,7 @@ input:disabled,
 select:disabled,
 textarea:disabled {
     background-color: #131313;
+    color:#ffffffd3 ;
 }
 
 /*  enabled fields */
@@ -322,7 +324,9 @@ textarea:not(:disabled):hover {
     flex-direction: column;
     justify-content: center;
 
-    background: #000000bc;
+    /* background: #000000bc; */
+    background: linear-gradient(160deg, #000000, #333333, #000000bc);
+
     backdrop-filter: blur(1px);
     border-radius: 0.2rem;
 }
@@ -393,7 +397,9 @@ select {
     margin-left: 3rem;
 
     padding: 0rem 0rem 0rem 0rem;
-    background: #000000bc;
+    /* background: #000000bc; */
+    background: linear-gradient(160deg, #000000, #333333, #000000bc);
+
     backdrop-filter: blur(1px);
     border-radius: 0.2rem;
     box-shadow: 9px 8px 5px rgba(14, 14, 14, 0.582);
@@ -657,7 +663,7 @@ text-shadow: 5px 5px 15px rgb(133, 15, 15);
     border-radius: 50px;
     width: 100px;
     height: 40px;
-    background-color: #4194bb !important;
+    background-color: #cacaca00 !important;
     border: none;
     cursor: pointer;
     display: flex;
@@ -667,10 +673,12 @@ text-shadow: 5px 5px 15px rgb(133, 15, 15);
     font-size: 16px;
     padding: 0;
     margin-left: 14%;
+    border:2px solid #bc2f2f;
 }
 
 #deleteReview-btn:hover {
-    background-color: rgb(181, 29, 29) !important;
+    background-color: rgb(249, 38, 38) !important;
+    box-shadow: 0 0 10px #a01010;
     border: none;
 }
 
@@ -699,6 +707,7 @@ text-shadow: 5px 5px 15px rgb(133, 15, 15);
 .logout-btns {
     display: flex;
     justify-content: space-evenly;
+    padding: 5%;
 
 }
 
@@ -716,9 +725,9 @@ text-shadow: 5px 5px 15px rgb(133, 15, 15);
 }
 
 .yes-btn:hover {
-    background-color: #0a8d33;
-    opacity: 0.7;
-    transition: opacity 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(141, 238, 255, 0.849);
+        background: linear-gradient(160deg, #217690d0, #37769b60, #37769b49, #217690d0);
+    transition:  0.3s ease-in-out;
 }
 
 .no-btn {
@@ -734,9 +743,9 @@ text-shadow: 5px 5px 15px rgb(133, 15, 15);
 }
 
 .no-btn:hover {
-    background-color: #b20000;
+    background-color: #226381;
     opacity: 0.7;
-    transition: opacity 0.3s ease-in-out;
+    transition:  0.3s ease-in-out;
 }
 
 /*

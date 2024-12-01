@@ -115,11 +115,15 @@ body {
 }
 
 .links h4 {
-  color: var(--white_blue_light);
+  /* color: var(--white_blue_light); */
+  color:rgb(137, 137, 137);
   font-weight: 500;
+  font-size: 20px;
   display: block;
   margin-bottom: 10px;
   font-family: var(--header_font);
+  text-align: center;
+text-decoration: underline rgba(210, 207, 207, 0.205);
 }
 
 .sidebar.collapsed .links h4 {
