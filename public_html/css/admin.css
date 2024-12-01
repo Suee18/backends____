@@ -708,6 +708,7 @@ text-shadow: 5px 5px 15px rgb(133, 15, 15);
     display: flex;
     justify-content: space-evenly;
     padding: 5%;
+    padding-top: 2%;
 
 }
 
