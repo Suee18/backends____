@@ -1,9 +1,9 @@
 @import url('./global_styles.css');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body,
@@ -24,38 +24,6 @@ html {
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
   z-index: -1; /* Ensure the background is behind the content */
-body {
-    /* display: flex;
-  justify-content: center;
-  align-items: center; */
-}
-.bg {
-    height: 100%;
-    width: 100%;
-    /*  LEAVE THEM FOR TESTINGGGG background-image: url("../media/backgrounds/bg1.jpg"); */
-    /* background-image: url("../media/backgrounds/bg_lamboheadlights.jpg"); */
-    background-image: url("../media/backgrounds/bg1.jpg");
-    /* background-image: url("../media/backgrounds/bg3.jpg"); */
-    /* background-image: url("../media/backgrounds/bg4.jpg"); */
-    /* background-image: url("../media/backgrounds/bg5.jpg"); */
-    /* background-image: url("../media/backgrounds/bg6.jpg"); */
-    /* background-image: url("../media/backgrounds/bg7.jpg");بببصسشبشيب */
-    /* background-image: url("../media/backgrounds/bg8.jpg"); */
-    /* background-image: url("../media/backgrounds/bg9.jpg"); SDA*/
-    /* background-image: url("../media/backgrounds/bg10.jpg"); DEFWQ*/
-    /* background-image: url("../media/backgrounds/bg11.jpg"); dsaedffa*/
-    /* background-image: url("../media/backgrounds/bg12.jpg"); */
-    /* background-image: url("../media/backgrounds/bg13.jpg"); dddddddddddddddd*/
-    /* background-image: url("../media/backgrounds/bg14.jpg"); ssssssssssssssssssssssssssss*/
-    /* background-image: url("../media/backgrounds/bg16.jpg"); */
-    /* background-image: url("../media/backgrounds/bg18.jpg"); */
-    /* background-image: url("../media/backgrounds/bg19.jpg"); road*/
-    /* background-image: url("../media/backgrounds/bglights3.jpg"); */
-    /* background-image: url("../media/backgrounds/bglights1.jpg"); */
-    background-image: url("../media/backgrounds/bgAM.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
 }
 
 .formTitle {
@@ -63,6 +31,7 @@ body {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  margin-top: 1rem;
   font-family: VAR(--technoRace_font);
   color: rgb(125, 196, 255);
 
@@ -84,19 +53,23 @@ body {
 }
 
 .formContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
+
 
 input,
 select {
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 100%;
-    background-color: #dadada;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  background-color: #c4c3c3;
+  color: #070d18;
+  font-family: var(--paragraphs_font);
+
 }
 
 input:focus {
@@ -104,19 +77,21 @@ input:focus {
   /* border:4px solid rgb(0, 205, 212); */
   border: 4px solid #4285F4;
   outline: none;
+  color: #070d18;
+
 }
 
 select:focus {
-    background-color: #f0f0f0;
-    /* Darken background color */
-    border-color: rgb(0, 205, 212);
-    /* Change border color */
-    outline: none;
-    /* Remove default focus outline */
+  background-color: #f0f0f0;
+  /* Darken background color */
+  border-color: rgb(0, 205, 212);
+  /* Change border color */
+  outline: none;
+  /* Remove default focus outline */
 }
 
 .default {
-    color: #888888;
+  color: #888888;
 }
 
 option {
@@ -125,32 +100,32 @@ option {
 }
 
 option:hover {
-    color: rgba(7, 201, 226, 0.952);
+  color: rgba(7, 201, 226, 0.952);
 }
 
 .passwordContainer {
-    position: relative;
+  position: relative;
 }
 
 .passwordContainer input {
-    padding-right: 40px;
-    /* Space for the eye icon */
+  padding-right: 40px;
+  /* Space for the eye icon */
 }
 
 .eye-icon {
-    position: absolute;
-    top: 1.2rem;
-    right: 1rem;
-    transform: translateY(-50%);
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    fill: #ccc;
-    transition: fill 0.3s ease;
+  position: absolute;
+  top: 1.2rem;
+  right: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  fill: #ccc;
+  transition: fill 0.3s ease;
 }
 
 .eye-icon:hover {
-    fill: #4285f4;
+  fill: #4285F4;
 }
 
 button {
@@ -176,22 +151,6 @@ button:hover {
   margin-top: 1rem;
   font-size: 1.5rem;
   background-color: #070d18;
-    padding: 10px;
-    font-size: 1.2rem;
-    font-family: var(--header_font);
-    border: none;
-    border-radius: 7px;
-    background-color: #335a99;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 70%;
-    height: 40%;
-    margin-left: 3.5rem;
-}
-
-button:hover {
-    background-color: #070d18;
 }
 
 .signupbutton {
@@ -226,27 +185,11 @@ button:hover {
 
 #googleSU {
   padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 7px;
-    background-color: #0e0a47;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    /* margin-top: 10px; */
-    align-items: center;
-}
-
-.google:hover {
-    background-color: #a32c17;
 }
 
 .google svg {
-    width: 1.5rem;
-    height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .registerRedirection {
@@ -254,6 +197,7 @@ button:hover {
   margin-top: 1rem;
   font-size: 1.5rem;
   font-family: var(--header_font);
+  font-weight:lighter;
   color: aliceblue;
 }
 
@@ -264,23 +208,24 @@ button:hover {
   color: rgb(125, 196, 255);
   text-decoration: none;
   font-family: var(--technoRace_font);
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    font-family: var(--paragraph_font);
-    color: aliceblue;
+  font-size: 1.5rem;
+  font-weight: lighter;
 }
+
+
+
+
 
 
 /* Card Container */
 .cardContainer {
-    perspective: 50%;
-    /* Enables 3D space for card flipping */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    width: auto;
+  perspective: 50%;
+  /* Enables 3D space for card flipping */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: auto;
 }
 
 .card {
@@ -297,10 +242,10 @@ button:hover {
 
 .cardFront,
 .cardBack {
-    position: absolute;
-    backface-visibility: hidden;
-    /* Hides the back when the front is visible */
-    /* background: linear-gradient(
+  position: absolute;
+  backface-visibility: hidden;
+  /* Hides the back when the front is visible */
+  /* background: linear-gradient(
       170deg,
       #000000e3,
       #0e39708f,
@@ -349,28 +294,17 @@ button:hover {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  padding: auto;
   border-radius: 10px;
   height: 90%;
   margin-top: 3rem;
   box-shadow: -10px 10px 2px rgba(0, 0, 0, 0.521);
+
 }
 
 /* When flipped */
 .card.flip {
   transform: rotateY(180deg);
-}
-
-/* Form Container Styling */
-.formContainer {
-    width: 80%;
-    text-align: center;
-}
-
-.error {
-    color: red;
-    font-size: 14px;
-    font-family: monospace, Arial, sans-serif;
-    font-weight: bold;
 }

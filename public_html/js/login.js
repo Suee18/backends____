@@ -26,6 +26,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 : "password";
         passwordInput.setAttribute("type", type);
     });
+    
+    // Toggle password visibility
+    const togglePasswordd = document.getElementById("togglePasswordSU");
+    const passwordInputt = document.getElementById("signupPassword");
+    togglePasswordd.addEventListener("click", () => {
+        const type =
+        passwordInputt.getAttribute("type") === "password"
+                ? "text"
+                : "password";
+        passwordInputt.setAttribute("type", type);
+    });
+    // Toggle password visibility
+    const togglePassworddd = document.getElementById("toggleConfirmPassword");
+    const passwordInputtt = document.getElementById("confirmPassword");
+    togglePassworddd.addEventListener("click", () => {
+        const type =
+            passwordInputtt.getAttribute("type") === "password"
+                ? "text"
+                : "password";
+        passwordInputtt.setAttribute("type", type);
+    });
 
     //================================================== Login form submission
     const loginForm = document.getElementById("loginForm");

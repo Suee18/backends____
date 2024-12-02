@@ -7,7 +7,6 @@
     <link rel="icon" href="../../../public_html/media/icons/turboIcon.png">
 
     <title>Turbo chat</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <link rel="stylesheet" href="../../../public_html/css/chatbot_Main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -19,6 +18,9 @@
 
     <!-- User Profile icon -->
     <!-- <nav>
+
+<!-- User Profile icon -->
+<!-- <nav>
     <div class="nav-content">
         <div class="toggle-btn">
         <i class="fa-solid fa-user" style="color: #ffffff;"></i>

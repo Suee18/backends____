@@ -45,6 +45,7 @@ body {
   margin-top: 18%;
   padding: 0 0 0 0;
 }
+
 .qoute {
   font-size: 80px;
   font-style: italic;
@@ -100,8 +101,24 @@ body {
   background-color: var(--dark_blue);
   color: var(--white);
   box-shadow: 0 0 15px rgba(173, 216, 230, 0.6);
-}
 
+/*=====Chat button=====*/
+/* .chat-btn {
+    position: absolute;
+    margin-top: 32%;
+    margin-left: 55%;
+    height: 40px;
+    width: 150px;
+    background-color: #1e536e85;
+    border: transparent;
+    border-radius: 50px;
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+ */
 .guideBtn::before {
   content: "";
   position: absolute;

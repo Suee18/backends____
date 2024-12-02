@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="../../../public_html/css/chat_page.css">
     <script src="../../../public_html/js/chat_page.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-    <title>Turbo</title>
+    <link rel="icon" href="../../../public_html/media/icons/turboIcon.png">
+    <title>Turbo chat</title>
 </head>
 <body>
 
@@ -26,7 +27,7 @@
 <div class="chat-card">
     <div id="date-time" class="date-time"></div>
     <div class="chat-box" id="chat-box">
-        <div class="caption" id="caption">Start your engines! <br> What’s your question?</div>
+        <div class="caption" id="caption">Start your engine...</div>
     </div>
     <div class="user-input">
         <div class="input-container">

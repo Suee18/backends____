@@ -38,6 +38,7 @@ if (isset($_POST['Submit'])) {
     <link rel="stylesheet" href="css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <title>Landing Page</title>
 </head>
@@ -176,6 +177,7 @@ if (isset($_POST['Submit'])) {
                         </div>
                     </div>
                 </div>
+              
                 <button class="btn" id="openOverlay">
                     <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
                         <path
@@ -250,31 +252,51 @@ if (isset($_POST['Submit'])) {
                 </div>
 
             </div>
-            <!-- Footer Section -->
-            <footer class="footer">
-                <div class="footer-container">
-                    <div class="footer-section">
-                        <h3>About Us</h3>
-                        <p>Your go-to platform for car comparisons, reviews, and recommendations. Helping you find the
-                            perfect car.</p>
-                    </div>
-                    <div class="footer-section">
-                        <h3>Contact Us</h3>
-                        <p>Email: support@example.com</p>
-                        <p>Phone: +123 456 7890</p>
-                    </div>
-                    <div class="footer-section">
-                        <h3>Follow Us</h3>
-                        <p><a href="#">Facebook</a></p>
-                        <p><a href="#">Twitter</a></p>
-                        <p><a href="#">Instagram</a></p>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2024 YourCompanyName. All Rights Reserved.</p>
-                </div>
-            </footer>
+          
+    <footer>
+            <div class="footer-container">
 
+
+                <div class="main-text-section">
+                    <h1 class="main-text">
+                        GET IN T<span class="tire"><img class="tire" src="../public_html/media/tire.png"></span>UCH
+                    </h1>
+
+                </div>
+
+                <div class="footer-sections">
+                    <div class="about-us">
+                        <h4>About Us</h4>
+                        <p>We’re dedicated to revolutionizing the<br> way you find your perfect car. Our <br>AI-powered
+                            platform
+                            offers personalized <br>car recommendations tailored to your<br> preferences, budget, and
+                            lifestyle. </p>
+                    </div>
+
+                    <div class="navigation">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li class="nav"><a href="#">Home</a></li>
+                            <li class="nav"><a href="#">Compare Cars</a></li>
+                            <li class="nav"><a href="#">Turbo Chatbot</a></li>
+                            <li class="nav"><a href="#">Persona Test</a></li>
+
+                        </ul>
+                    </div>
+                    <span>
+                        <h4>Social Media</h4>
+                        <ul class="socials">
+                            <li><a
+                                    href="https://accounts.google.com/v3/signin/identifier?elo=1&ifkv=AcMMx-feKYaT0FszQKn3DJ8ymV-9wmjlXgJFF5fYlczJUJhk7ZI3YEiop__7VgL1H0SNOPL1n1mO&ddm=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount%3Fnc%3D1">
+                                    <i class="icons fa-solid fa-envelope fa-xl"></i></a></li>
+                            <li><a href="https://www.facebook.com/"><i
+                                        class="icons fa-brands fa-facebook fa-xl"></i></a></li>
+                            <li><a href="https://www.instagram.com/accounts/login/?hl=en"><i
+                                        class="icons fa-brands fa-instagram fa-xl"></i></a></li>
+                        </ul>
+                    </span>
+
+        </footer>        
 
             <script src="../public_html/js/landing_page.js"></script>
 </body>
