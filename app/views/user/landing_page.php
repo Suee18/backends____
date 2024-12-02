@@ -177,7 +177,7 @@ if (isset($_POST['Submit'])) {
                         </div>
                     </div>
                 </div>
-              
+
                 <button class="btn" id="openOverlay">
                     <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
                         <path
@@ -250,10 +250,10 @@ if (isset($_POST['Submit'])) {
                         <input class="submitBtn" type="submit" id="submitReview" name="Submit">
                     </form>
                 </div>
-
             </div>
-          
-    <footer>
+        </div>
+
+        <footer>
             <div class="footer-container">
 
 
@@ -296,9 +296,9 @@ if (isset($_POST['Submit'])) {
                         </ul>
                     </span>
 
-        </footer>        
+        </footer>
 
-            <script src="../public_html/js/landing_page.js"></script>
+        <script src="../public_html/js/landing_page.js"></script>
 </body>
 
 </html>
