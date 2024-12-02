@@ -277,6 +277,8 @@ font-weight: 100;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
+    filter: invert(95%) brightness(100%);
+
 }
 
 .persona-card h4 {
