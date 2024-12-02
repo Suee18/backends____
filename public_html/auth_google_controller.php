@@ -44,6 +44,9 @@ if (isset($_GET['code'])) {
             
             // Salma's path
             // header('Location: /../zUiedits/SWE_Phase1/app/views/auth/login.php');
+          
+            // Omneya's Path
+            // header('Location: /../SWE_Phase1/app/views/auth/login.php');
             header('Location: /../SWE_Project/SWE_Phase1/app/views/auth/login.php');
             exit;
         }
@@ -52,6 +55,9 @@ if (isset($_GET['code'])) {
     // If no authorization code is provided, redirect to the login page
       // Salma's path  
     //header('Location: /../zUiedits/SWE_Phase1/app/views/auth/login.php');
+  
+  // Omneya's Path
+            // header('Location: /../SWE_Phase1/app/views/auth/login.php');
     header('Location: /../SWE_Project/SWE_Phase1/app/views/auth/login.php');
     exit;
 }
