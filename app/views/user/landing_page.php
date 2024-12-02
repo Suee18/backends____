@@ -295,7 +295,8 @@ if (isset($_POST['Submit'])) {
                                         class="icons fa-brands fa-instagram fa-xl"></i></a></li>
                         </ul>
                     </span>
-
+                </div>
+            </div>
         </footer>
 
         <script src="../public_html/js/landing_page.js"></script>

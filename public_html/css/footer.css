@@ -84,6 +84,8 @@ footer {
 .footer-sections p {
   text-align: left;
   font-family: var(--paragraph_font);
+  letter-spacing: 1.2px;
+  font-weight:100;
 }
 
 .footer-sections ul {
