@@ -15,7 +15,21 @@ $client->setRedirectUri($_ENV['GOOGLE_REDIRECT_URI']);
 $client->addScope('email');
 $client->addScope('profile');
 
+// $authUrl = $client->createAuthUrl();
+
+$action = isset($_GET['action']) ? $_GET['action'] : null;
+$state = ['action' => $action];
+$client->setState(http_build_query($state));
 $url = $client->createAuthUrl();
+
+// if ($action === 'googleSU') {
+//     $url = $authUrl . '&' . http_build_query(['action' => 'googleSU']);
+// } else if ($action === 'googleLI') {
+//     $url = $authUrl . '&' . http_build_query(['action' => 'googleLI']);
+// } else {
+//     $url = $client->createAuthUrl();
+// }
+
 
 
 // Enable error reporting
@@ -25,7 +39,13 @@ ini_set('display_errors', 1);
 // Initialize error messages for both forms
 $errorMessages = [
     'login' => ['username' => '', 'password' => ''],
-    'signup' => ['name' => '', 'email' => '', 'password' => '', 'age' => ''],
+    'signup' => [
+        'username' => '',
+        'email' => '',
+        'password' => '',
+        'age' => '',
+        'gender' => ''
+    ],
 ];
 
 // Handle login form submission
@@ -48,64 +68,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
     }
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Initialize error messages array
-    $errorMessages = [];
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
 
-    // Handle Manual Signup
-    if (isset($_POST['signupSubmit'])) {
-        $userName = $_POST["signupUserName"] ?? '';
-        $email = $_POST["signupEmail"] ?? '';
-        $password = $_POST["signupPassword"] ?? '';
-        $confirmPassword = $_POST["confirmPassword"] ?? '';
-        $birthdate = $_POST["birthdate"] ?? '';
-        $gender = $_POST["gender"] ?? '';
+    $userName = $_POST["signupUserName"] ?? '';
+    $email = $_POST["signupEmail"] ?? '';
+    $password = $_POST["signupPassword"] ?? '';
+    $confirmPassword = $_POST["confirmPassword"] ?? '';
+    $birthdate = $_POST["birthdate"] ?? '';
+    $gender = $_POST["gender"] ?? '';
 
-        // Validate required fields
-        if (empty($userName)) {
-            $errorMessages['signup']['username'] = "Username is required.";
-        }
+    // Validate required fields
+    if (empty($userName)) {
+        $errorMessages['signup']['username'] = "Username is required.";
+    }
 
-        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errorMessages['signup']['email'] = "A valid email is required.";
-        }
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errorMessages['signup']['email'] = "A valid email is required.";
+    }
 
-        if (empty($password)) {
-            $errorMessages['signup']['password'] = "Password is required.";
-        } elseif ($password !== $confirmPassword) {
-            $errorMessages['signup']['password'] = "Passwords do not match.";
-        }
+    if (empty($password)) {
+        $errorMessages['signup']['password'] = "Password is required.";
+    } elseif ($password !== $confirmPassword) {
+        $errorMessages['signup']['password'] = "Passwords do not match.";
+    }
 
-        if (empty($birthdate)) {
-            $errorMessages['signup']['birthdate'] = "Birthdate is required.";
-        } else {
-            $birthDate = new DateTime($birthdate);
-            $currentDate = new DateTime();
-            $age = $birthDate->diff($currentDate)->y;
+    if (empty($birthdate)) {
+        $errorMessages['signup']['birthdate'] = "Birthdate is required.";
+    } else {
+        $birthDate = new DateTime($birthdate);
+        $currentDate = new DateTime();
+        $age = $birthDate->diff($currentDate)->y;
 
-            if ($age < 18) {
-                $errorMessages['signup']['age'] = "Age must be 18 or older.";
-            }
-        }
-
-        if (empty($gender)) {
-            $errorMessages['signup']['gender'] = "Gender selection is required.";
-        }
-
-        // If there are no errors, process the signup
-        if (empty($errorMessages['signup'])) {
-            $signUpResult = Users::signUpUser($userName, $birthdate, $gender, $password, $email, "user", date('Y-m-d H:i:s'));
-
-            if (is_array($signUpResult)) {
-                // Merge additional errors from the sign-up process
-                $errorMessages['signup'] = array_merge($errorMessages['signup'], $signUpResult);
-            } else {
-                // Successful signup, redirect to the homepage
-                header("Location: ../../../public_html/index.php");
-                exit();
-            }
+        if ($age < 18) {
+            $errorMessages['signup']['age'] = "Age must be 18 or older.";
         }
     }
+
+    // If there are no errors, process the signup
+    if (empty(array_filter($errorMessages['signup']))) {
+        $signUpResult = Users::signUpUser($userName, $birthdate, $gender, $password, $email, "user", date('Y-m-d H:i:s'));
+
+        if (is_array($signUpResult)) {
+            // Merge additional errors from the sign-up process
+            $errorMessages['signup'] = array_merge($errorMessages['signup'], $signUpResult);
+        } else {
+            // Successful signup, redirect to the homepage
+            header("Location: ../../../public_html/index.php");
+            exit();
+        }
+    }
+
 }
 ?>
 
@@ -123,9 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
     <div class="background-image">
-
         <div class="cardContainer">
-
             <div class="card">
                 <!-- Front Side: Login Form -->
                 <div class="cardFront">
@@ -148,7 +158,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 style="color:rgb(167, 30, 30);  margin-top: 0.2px; font-family:monospace; font-size:14px;    font-weight: bold;"><?= $errorMessages['login']['password'] ?></small>
                         </div>
                         <button class="loginbutton" type="submit" name="loginSubmit">Log in</button>
-                        <button class="google">
+
+                        <button class="google" type="button"
+                            onclick="window.location.href='<?= $url ?>'">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -173,7 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <!-- ------------Back Side: Sign-Up Form ---------->
                 <div class="cardBack">
-                    <form class="formContainer" id="signupForm" method="post">
+                    <form class="formContainer" id="signupForm" method="POST" action="">
                         <p class="formTitle">Sign up</p>
                         <input type="text" id="signupUserName" name="signupUserName" required
                             placeholder="Enter your username">
@@ -245,8 +257,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </select>
 
 
-                        <button type="submit" name="signupSubmit" class="signupbutton">Sign up</button>
-                        <button type="button" class="google" name="googleSignup" id="googleSU"onclick="window.location.href='<?= $url ?>'">
+                        <button type="submit" class="signupbutton" name="signupSubmit">Sign up</button>
+
+                        <button type="button" class="google" name="googleSignup" id="googleSU"
+                            onclick="window.location.href='<?= $url ?>'">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -270,7 +284,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </div>
         </div>
-
 
     </div>
     <script src="../../../public_html/js/login.js"></script>
