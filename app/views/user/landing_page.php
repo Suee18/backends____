@@ -201,7 +201,7 @@ if (isset($_POST['Submit'])) {
                                 <div class="button-wrapper">
                                     <div class="text">Apex</div>
                                     <span class="icon">
-                                        <img src="../../../../SWE_Phase1/public_html/media/website.png" alt="Website Icon">
+                                        <img src=" ../public_html/media/website.png" alt="Website Icon">
                                     </span>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@ if (isset($_POST['Submit'])) {
                                 <div class="button-wrapper">
                                     <div class="text">Comparison</div>
                                     <span class="icon">
-                                        <img src="../../../../SWE_Phase1/public_html/media/compare.png" alt="Website Icon">
+                                        <img src=" ../public_html/media/compare.png" alt="Website Icon">
                                     </span>
                                 </div>
                             </div>
@@ -217,7 +217,7 @@ if (isset($_POST['Submit'])) {
                                 <div class="button-wrapper">
                                     <div class="text">Search</div>
                                     <span class="icon">
-                                        <img src="../../../../SWE_Phase1/public_html/media/search.png" alt="Website Icon">
+                                        <img src=" ../public_html/media/website.png" alt="Website Icon">
                                     </span>
                                 </div>
                             </div>
@@ -225,7 +225,7 @@ if (isset($_POST['Submit'])) {
                                 <div class="button-wrapper">
                                     <div class="text">Persona Test</div>
                                     <span class="icon">
-                                        <img src="../../../../SWE_Phase1/public_html/media/test.png" alt="Website Icon">
+                                        <img src=" ../public_html/media/test.png" alt="Website Icon">
                                     </span>
                                 </div>
                             </div>
@@ -233,7 +233,7 @@ if (isset($_POST['Submit'])) {
                                 <div class="button-wrapper">
                                     <div class="text">Turbo</div>
                                     <span class="icon">
-                                        <img src="../../../../SWE_Phase1/public_html/media/chatbot.png" alt="Website Icon">
+                                        <img src="../public_html/media/chatbot.png" alt="Website Icon">
                                     </span>
                                 </div>
                             </div>
@@ -241,7 +241,7 @@ if (isset($_POST['Submit'])) {
                                 <div class="button-wrapper">
                                     <div class="text">ApexConnect</div>
                                     <span class="icon">
-                                        <img src="../../../../SWE_Phase1/public_html/media/social-media.png" alt="Website Icon">
+                                        <img src="../public_html/media/social-media.png" alt="Website Icon">
                                     </span>
                                 </div>
                             </div>
