@@ -1,5 +1,3 @@
-
-
 // User Icon
 document.addEventListener("DOMContentLoaded", function () {
     const nav = document.querySelector("nav"),
@@ -7,111 +5,135 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleBtn.addEventListener("click", () => {
         nav.classList.toggle("open");
     });
-
 });
 
-
-
 /*chat functions*/
-document.addEventListener('DOMContentLoaded', function () {
-    const sendButton = document.getElementById('send-btn');
-    const caption = document.getElementById('caption');
-    const inputField = document.getElementById('input');
-    const chatBox = document.getElementById('chat-box');
+document.addEventListener("DOMContentLoaded", function () {
+    const sendButton = document.getElementById("send-btn");
+    const caption = document.getElementById("caption");
+    const inputField = document.getElementById("input");
+    const chatBox = document.getElementById("chat-box");
 
-    sendButton.addEventListener('click', function () {
-        if (inputField.value.trim() !== '') {
-
-            caption.classList.add('hidden');
+    sendButton.addEventListener("click", function () {
+        if (inputField.value.trim() !== "") {
+            caption.classList.add("hidden");
             console.log("Caption hidden");
 
-            const userMessage = document.createElement('div');
+            const userMessage = document.createElement("div");
             userMessage.textContent = inputField.value;
-            userMessage.classList.add('user-message');
+            userMessage.classList.add("user-message");
             chatBox.appendChild(userMessage);
 
-            inputField.value = '';
+            inputField.value = "";
         }
     });
 
-    inputField.addEventListener('keypress', function (event) {
-        if (event.key === 'Enter') {
+    inputField.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
             sendButton.click();
         }
     });
 });
 
-
-
-
 /*Chat responses*/
 
-const botResponses = {
-    "suv": "I recommend the latest Toyota Highlander, a spacious and reliable SUV.",
-    "sedan": "You might like the Honda Accord, known for its fuel efficiency and comfort.",
-    "electric": "The Tesla Model 3 is a great electric car with a long range.",
-    "default": "I'm not sure about that. Can you be more specific about the car type you're looking for?"
-};
+// const botResponses = {
+//     suv: "I recommend the latest Toyota Highlander, a spacious and reliable SUV.",
+//     sedan: "You might like the Honda Accord, known for its fuel efficiency and comfort.",
+//     electric: "The Tesla Model 3 is a great electric car with a long range.",
+//     default:
+//         "I'm not sure about that. Can you be more specific about the car type you're looking for?",
+// };
 
-
-
-document.getElementById('send-btn').addEventListener('click', sendMessage);
+document.getElementById("send-btn").addEventListener("click", sendMessage);
 
 function appendMessage(sender, message) {
-    const chatBox = document.getElementById('chat-box');
-    const newMessage = document.createElement('div');
-    newMessage.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+    const chatBox = document.getElementById("chat-box");
+    const newMessage = document.createElement("div");
+    newMessage.classList.add(
+        sender === "user" ? "user-message" : "bot-message"
+    );
     newMessage.innerText = message;
     chatBox.appendChild(newMessage);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+// function sendMessage() {
+//     const userInput = document.getElementById("input").value.trim();
+//     if (userInput === "") return;
+
+//     appendMessage("user", userInput);
+//     displayDateTime();
+
+//     const botResponse = getBotResponse(userInput);
+
+//     setTimeout(() => appendMessage("bot", botResponse), 500);
+//     document.getElementById("input").value = "";
+// }
+
 function sendMessage() {
-    const userInput = document.getElementById('input').value.trim();
+    const userInput = document.getElementById("input").value.trim();
     if (userInput === "") return;
 
-
-    appendMessage('user', userInput);
+    appendMessage("user", userInput); // Display user message
     displayDateTime();
 
-    const botResponse = getBotResponse(userInput);
+    // Send input to the backend using AJAX
+    $.ajax({
+        url: "../../../controllers/RecommendingProcess.php", // PHP backend URL
+        type: "POST",
+        data: JSON.stringify({ input: userInput, strategy: "chatbot" }),
+        contentType: "application/json", // Specify JSON content type
+        success: function (response) {
+            // Display the response from the backend
+            setTimeout(() => appendMessage("bot", response.response), 500);
+        },
+        error: function (xhr, status, error) {
+            console.error("Error details:", xhr.responseText);
+            appendMessage("bot", "Sorry, something went wrong.");
+        },
+    });
 
-    setTimeout(() => appendMessage('bot', botResponse), 500);
-    document.getElementById('input').value = '';
+    document.getElementById("input").value = ""; // Clear input
 }
 
 function displayDateTime() {
     const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-    const dateTimeString = now.toLocaleString('en-US', options);
-    document.getElementById('date-time').innerText = dateTimeString;
+    const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+    };
+    const dateTimeString = now.toLocaleString("en-US", options);
+    document.getElementById("date-time").innerText = dateTimeString;
 }
 
 function getBotResponse(userInput) {
     userInput = userInput.toLowerCase();
 
-    if (userInput.includes('suv')) {
-        return botResponses['suv'];
-    } else if (userInput.includes('sedan')) {
-        return botResponses['sedan'];
-    } else if (userInput.includes('electric')) {
-        return botResponses['electric'];
+    if (userInput.includes("suv")) {
+        return botResponses["suv"];
+    } else if (userInput.includes("sedan")) {
+        return botResponses["sedan"];
+    } else if (userInput.includes("electric")) {
+        return botResponses["electric"];
     } else {
-        return botResponses['default'];
+        return botResponses["default"];
     }
 }
 
-
-
 /*accessing submit button & removing caption when submitting*/
-document.addEventListener('DOMContentLoaded', function () {
-    const sendButton = document.getElementById('send-btn');
-    const caption = document.getElementById('caption');
-    const input = document.getElementById('input');
+document.addEventListener("DOMContentLoaded", function () {
+    const sendButton = document.getElementById("send-btn");
+    const caption = document.getElementById("caption");
+    const input = document.getElementById("input");
     sendButton.disabled = true;
 
-    input.addEventListener('input', function () {
-        if (input.value.trim() === '') {
+    input.addEventListener("input", function () {
+        if (input.value.trim() === "") {
             sendButton.disabled = true;
             sendButton.style.backgroundColor = "#ccc";
         } else {
@@ -120,15 +142,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    sendButton.addEventListener('click', function () {
-
-        caption.style.display = 'none';
-
+    sendButton.addEventListener("click", function () {
+        caption.style.display = "none";
     });
 
-    input.addEventListener('keypress', function (event) {
-        if (event.key === 'Enter' && input.value.trim() !== '') {
-            caption.style.display = 'none';
+    input.addEventListener("keypress", function (event) {
+        if (event.key === "Enter" && input.value.trim() !== "") {
+            caption.style.display = "none";
         }
     });
 });
