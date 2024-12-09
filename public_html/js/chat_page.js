@@ -53,23 +53,28 @@ function appendMessage(sender, message) {
     newMessage.classList.add(
         sender === "user" ? "user-message" : "bot-message"
     );
-    newMessage.innerText = message;
+
+    if (sender === "bot") {
+        // Simulate typing animation with proper spaces
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i < message.length) {
+                // Use message.substring(i, i+1) to append the exact character
+                newMessage.innerText = message.substring(0, i + 1);
+                chatBox.scrollTop = chatBox.scrollHeight;
+                i++;
+            } else {
+                clearInterval(interval); // Stop interval when done
+            }
+        }, 20); // Adjust interval time for speed (20ms makes it fast)
+    } else {
+        // For user messages, display the full message immediately
+        newMessage.innerText = message;
+    }
+
     chatBox.appendChild(newMessage);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
-
-// function sendMessage() {
-//     const userInput = document.getElementById("input").value.trim();
-//     if (userInput === "") return;
-
-//     appendMessage("user", userInput);
-//     displayDateTime();
-
-//     const botResponse = getBotResponse(userInput);
-
-//     setTimeout(() => appendMessage("bot", botResponse), 500);
-//     document.getElementById("input").value = "";
-// }
 
 function sendMessage() {
     const userInput = document.getElementById("input").value.trim();
@@ -86,7 +91,7 @@ function sendMessage() {
         contentType: "application/json", // Specify JSON content type
         success: function (response) {
             // Display the response from the backend
-            setTimeout(() => appendMessage("bot", response.response), 500);
+            appendMessage("bot", response.response);
         },
         error: function (xhr, status, error) {
             console.error("Error details:", xhr.responseText);

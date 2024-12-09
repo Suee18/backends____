@@ -263,3 +263,7 @@ nav.open .nav-content span {
 }
 
 
+.typing-indicator {
+    font-style: italic;
+    color: #888;
+}

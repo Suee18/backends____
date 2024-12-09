@@ -1,45 +1,75 @@
 <?php
-
 header("Content-Type: application/json");
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../env_loader.php';
+use OpenAI\Client as OpenAIClient;
+use OpenAI\OpenAI;
 
-interface RecommendationStrategy {
-    public function recommend(string $input): string; 
+interface RecommendationStrategy
+{
+    public function recommend(string $input): string;
 }
 
-class QuizRecommendationStrategy implements RecommendationStrategy {
-    public function recommend(string $input): string {
+class QuizRecommendationStrategy implements RecommendationStrategy
+{
+    public function recommend(string $input): string
+    {
         return "";
-        // TODO: Implement recommend() method.
     }
 }
 
-class ChatbotRecommendationStrategy implements RecommendationStrategy {
-    public function recommend(string $input): string {
-        // Simple keyword matching for now
-        if (stripos($input, "suv") !== false) {
-            return "I recommend the latest Toyota Highlander, a spacious and reliable SUV.";
-        } elseif (stripos($input, "sedan") !== false) {
-            return "You might like the Honda Accord, known for its fuel efficiency and comfort.";
-        } elseif (stripos($input, "electric") !== false) {
-            return "The Tesla Model 3 is a great electric car with a long range.";
-        } else {
-            return "I'm not sure about that. Can you be more specific about the car type you're looking for?";
+class ChatbotRecommendationStrategy implements RecommendationStrategy
+{
+    public function recommend(string $input): string
+    {
+        $openAIInstructionPrompt = 
+        "You are a helpful car recommendation assistant. You specialize in recommending cars based on user preferences, such as car type, budget, features, and usage scenarios. 
+        Limitations:
+        1. You do not have access to real-time data, such as current car prices or availability.
+        2. Your knowledge is based on information up to September 2021.
+        3. You cannot provide information about new car models released after this date or current market trends.
+        4. Always clarify if you're unsure or need more details from the user to make a recommendation.
+        5. Avoid giving financial, legal, or technical advice outside the scope of car recommendations.
+        Your goal is to assist users by providing thoughtful, concise, and relevant car suggestions based on the information they provide. Ask follow-up questions if necessary to refine your recommendations.";
+
+        $apiKey = $_ENV['OPENAI_API_KEY'];
+        $client = \OpenAI::client($apiKey);
+        
+        try {
+            $response = $client->chat()->create([
+                'model' => 'gpt-4',
+                'messages' => [
+                    ['role' => 'system', 'content' => $openAIInstructionPrompt],
+                    ['role' => 'user', 'content' => $input]
+                ]
+            ]);
+
+            $message = $response['choices'][0]['message']['content'] ?? "I couldn't understand that. Could you rephrase?";
+            
+            // Return the response text
+            return trim($message);
+        } catch (Exception $e) {
+            return "An error occurred while processing your request.";
         }
     }
 }
 
-class RecommendationContext {
+class RecommendationContext
+{
     private RecommendationStrategy $strategy;
 
-    public function __construct(RecommendationStrategy $strategy) {
+    public function __construct(RecommendationStrategy $strategy)
+    {
         $this->strategy = $strategy;
     }
 
-    public function setStrategy(RecommendationStrategy $strategy): void {
+    public function setStrategy(RecommendationStrategy $strategy): void
+    {
         $this->strategy = $strategy;
     }
 
-    public function recommend(string $input): string {
+    public function recommend(string $input): string
+    {
         return $this->strategy->recommend($input);
     }
 }
