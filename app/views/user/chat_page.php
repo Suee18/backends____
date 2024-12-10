@@ -19,7 +19,7 @@
 
     <!-- User Profile icon -->
     <nav>
-        <div class="nav-content">
+        <div class="nav-content fadeInUp">
             <div class="toggle-btn">
                 <i class="fa-solid fa-user" style="color: #ffffff;"></i>
             </div>
@@ -34,10 +34,10 @@
         </div>
     </nav>
 
-    <div class="chat-card">
+    <div class="chat-card fadeInUp">
         <div id="date-time" class="date-time"></div>
         <div class="chat-box" id="chat-box">
-            <div class="caption" id="caption">Start your engine...</div>
+            <div class="caption" id="caption">Start your engine</div>
         </div>
         <div class="user-input">
             <div class="input-container">

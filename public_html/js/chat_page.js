@@ -5,6 +5,16 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleBtn.addEventListener("click", () => {
         nav.classList.toggle("open");
     });
+
+    // Fade-in animation for elements on page load
+    const elements = document.querySelectorAll(
+        ".chat-card, nav, .caption, .input-container"
+    );
+    elements.forEach((el, index) => {
+        setTimeout(() => {
+            el.classList.add("fade-in-up");
+        }, index * 200); // Adjust the delay as needed
+    });
 });
 
 /*chat functions*/
@@ -36,15 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /*Chat responses*/
-
-// const botResponses = {
-//     suv: "I recommend the latest Toyota Highlander, a spacious and reliable SUV.",
-//     sedan: "You might like the Honda Accord, known for its fuel efficiency and comfort.",
-//     electric: "The Tesla Model 3 is a great electric car with a long range.",
-//     default:
-//         "I'm not sure about that. Can you be more specific about the car type you're looking for?",
-// };
-
 document.getElementById("send-btn").addEventListener("click", sendMessage);
 
 function appendMessage(sender, message) {
@@ -59,17 +60,15 @@ function appendMessage(sender, message) {
         let i = 0;
         const interval = setInterval(() => {
             if (i < message.length) {
-                // Use message.substring(i, i+1) to append the exact character
                 newMessage.innerText = message.substring(0, i + 1);
                 chatBox.scrollTop = chatBox.scrollHeight;
                 i++;
             } else {
                 clearInterval(interval); // Stop interval when done
             }
-        }, 20); // Adjust interval time for speed (20ms makes it fast)
+        }, 20); // Adjust interval time for speed
     } else {
-        // For user messages, display the full message immediately
-        newMessage.innerText = message;
+        newMessage.innerText = message; // Display user message
     }
 
     chatBox.appendChild(newMessage);
@@ -90,8 +89,7 @@ function sendMessage() {
         data: JSON.stringify({ input: userInput, strategy: "chatbot" }),
         contentType: "application/json", // Specify JSON content type
         success: function (response) {
-            // Display the response from the backend
-            appendMessage("bot", response.response);
+            appendMessage("bot", response.response); // Display bot response
         },
         error: function (xhr, status, error) {
             console.error("Error details:", xhr.responseText);

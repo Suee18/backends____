@@ -2,7 +2,6 @@
 header("Content-Type: application/json");
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../env_loader.php';
-use OpenAI\Client as OpenAIClient;
 use OpenAI\OpenAI;
 
 interface RecommendationStrategy
@@ -22,22 +21,20 @@ class ChatbotRecommendationStrategy implements RecommendationStrategy
 {
     public function recommend(string $input): string
     {
-        $openAIInstructionPrompt = 
-        "You are a helpful car recommendation assistant. You specialize in recommending cars based on user preferences, such as car type, budget, features, and usage scenarios. 
-        Limitations:
-        1. You do not have access to real-time data, such as current car prices or availability.
-        2. Your knowledge is based on information up to September 2021.
-        3. You cannot provide information about new car models released after this date or current market trends.
-        4. Always clarify if you're unsure or need more details from the user to make a recommendation.
-        5. Avoid giving financial, legal, or technical advice outside the scope of car recommendations.
-        Your goal is to assist users by providing thoughtful, concise, and relevant car suggestions based on the information they provide. Ask follow-up questions if necessary to refine your recommendations.";
+        $openAIInstructionPrompt =
+            "You are a car recommendation assistant. Recommend cars based on type, budget, features, and usage. 
+            Limitations:
+            1. No real-time data (prices, availability, etc.).
+            2. Responses should be brief and up-to-date with the latest news.
+            3. Only respond to car-related queries and ask clarifying questions if needed.";
+
 
         $apiKey = $_ENV['OPENAI_API_KEY'];
         $client = \OpenAI::client($apiKey);
-        
+
         try {
             $response = $client->chat()->create([
-                'model' => 'gpt-4',
+                'model' => 'gpt-4-turbo',
                 'messages' => [
                     ['role' => 'system', 'content' => $openAIInstructionPrompt],
                     ['role' => 'user', 'content' => $input]
@@ -45,7 +42,7 @@ class ChatbotRecommendationStrategy implements RecommendationStrategy
             ]);
 
             $message = $response['choices'][0]['message']['content'] ?? "I couldn't understand that. Could you rephrase?";
-            
+
             // Return the response text
             return trim($message);
         } catch (Exception $e) {
