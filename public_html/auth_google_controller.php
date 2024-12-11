@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/../controllers/SessionManager.php';
 include_once __DIR__ . '/../app/config/db_config.php';
 require_once __DIR__ . '/../models/UsersClass.php';
 require __DIR__ . '/../vendor/autoload.php';
@@ -25,17 +26,31 @@ if (isset($_GET['code'])) {
 
     // Check if the user exists and log them in or sign them up
     // If user exists, perform login; otherwise, perform signup
-    $existingUser = Users::loginUserGoogle($name, $email, $gender);
+    $response = Users::loginUserGoogle($name, $email, $gender);
 
-    if ($existingUser) {
+    if ($response['status'] === true) {
+
+        $user = $response['user'];
+
+        SessionManager::startSession();
+        SessionManager::setSessionUser($user);
+        SessionManager::updateLoginCounter();
+        
         // User exists, perform login
         header("Location: index.php");  // Redirect to the home page or dashboard
         exit;
     } else {
         // User does not exist, perform signup
-        $response = Users::addUserIntoDBGoogle($name, $email, $gender);
-
+        $response = Users::addUserIntoDBGoogle($name, $email, $gender, date("Y-m-d H:i:s"));
+        
         if ($response) {
+            // User was successfully signed up
+            $user = $response['user'];
+
+            SessionManager::startSession();
+            SessionManager::setSessionUser($user);
+            SessionManager::updateLoginCounter();
+            
             // Redirect to the home page or dashboard after successful signup
             header("Location: index.php");
             exit;

@@ -15,8 +15,9 @@ if (isset($_POST['Submit'])) {
     $reviewText = mysqli_real_escape_string($conn, htmlspecialchars($_POST['reviewText']));
     $reviewDate = date('Y-m-d H:i:s');
     $reviewUserName = "Anonymous";
+    $reviewCategory = "General";
 
-    $review = new Reviews($reviewText, $reviewDate, $reviewUserName);
+    $review = new Reviews($reviewText, $reviewCategory, $reviewDate, 5, 2);
     $result = $review->addReviewIntoDB($review);
 }
 ?>
