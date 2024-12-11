@@ -17,6 +17,8 @@
 
 <body>
 
+    <?php include __DIR__ . '/../../../public_html/components/userNavbar.php'; ?>
+
     <!-- User Profile icon -->
     <nav>
         <div class="nav-content fadeInUp">
