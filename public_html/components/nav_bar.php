@@ -1,3 +1,7 @@
+<?php
+include_once __DIR__ . '/../../controllers/SessionManager.php';
+SessionManager::startSession();
+?>
 <link rel="stylesheet" href="../public_html/css/nav_bar.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -25,9 +29,17 @@
             </div>
             <div class="right-section">
                 <li>
-                    <a href="../app/views/auth/login.php" class="listElement_login_navBar" id="listElement_login_navBar">
-                        Log in
-                    </a>
+                    <?php if (isset($_SESSION['user'])): ?>
+                        <a href="../app/views/user/profile.php" class="listElement_login_navBar"
+                            id="listElement_login_navBar">
+                            <?php echo htmlspecialchars($_SESSION['user']['userName']); ?>
+                        </a>
+                    <?php else: ?>
+                        <a href="../app/views/auth/login.php" class="listElement_login_navBar"
+                            id="listElement_login_navBar">
+                            Log in
+                        </a>
+                    <?php endif; ?>
                 </li>
             </div>
         </ul>

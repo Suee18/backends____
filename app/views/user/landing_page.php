@@ -45,6 +45,7 @@ if (isset($_POST['Submit'])) {
 </head>
 
 <body>
+    
     <?php include '../public_html/components/nav_bar.php'; ?>
 
     <div class="slideShowContainer_lp">
