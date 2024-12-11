@@ -1,10 +1,11 @@
 <?php
-// Start session
-session_start();
+include_once __DIR__ . '/../../../controllers/SessionManager.php';
 include_once __DIR__ . '/../../config/db_config.php';
 include "../../../models/UsersClass.php";
 require __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/../../../env_loader.php';
+
+SessionManager::startSession();
 
 // Handle "Sign up with Google"
 $client = new Google\Client;
@@ -21,16 +22,6 @@ $action = isset($_GET['action']) ? $_GET['action'] : null;
 $state = ['action' => $action];
 $client->setState(http_build_query($state));
 $url = $client->createAuthUrl();
-
-// if ($action === 'googleSU') {
-//     $url = $authUrl . '&' . http_build_query(['action' => 'googleSU']);
-// } else if ($action === 'googleLI') {
-//     $url = $authUrl . '&' . http_build_query(['action' => 'googleLI']);
-// } else {
-//     $url = $client->createAuthUrl();
-// }
-
-
 
 // Enable error reporting
 error_reporting(E_ALL);
@@ -60,9 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
         $errorMessages['login']['username'] = $user === "User does not exist." ? $user : '';
         $errorMessages['login']['password'] = $user === "Incorrect password." ? $user : '';
     } elseif ($user instanceof Users) {
-        // Login successful
-        $_SESSION['user'] = $user;
-        $redirect_url = $user->userType === "admin" ? "../admin/admin.php" : "../../../public_html/index.php";
+        SessionManager::setSessionUser($user);
+
+        $redirect_url = $user->userTypeID === 2 ? "../admin/admin.php" : "../../../public_html/index.php";
         header("Location: $redirect_url");
         exit();
     }
@@ -106,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
 
     // If there are no errors, process the signup
     if (empty(array_filter($errorMessages['signup']))) {
-        $signUpResult = Users::signUpUser($userName, $birthdate, $gender, $password, $email, "user", date('Y-m-d H:i:s'));
+        $signUpResult = Users::signUpUser($userName, $birthdate, $gender, $password, $email, 1, date('Y-m-d H:i:s'), 'manual');
 
         if (is_array($signUpResult)) {
             // Merge additional errors from the sign-up process
@@ -159,8 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                         </div>
                         <button class="loginbutton" type="submit" name="loginSubmit">Log in</button>
 
-                        <button class="google" type="button"
-                            onclick="window.location.href='<?= $url ?>'">
+                        <button class="google" type="button" onclick="window.location.href='<?= $url ?>'">
                             <svg viewBox="0 0 256 262" preserveAspectRatio="xMidYMid"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -278,7 +268,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['signupSubmit'])) {
                             </svg>
                             Sign up with Google
                         </button>
-                        <p class="registerRedirection">Already have an account?<br> <a href="#" id="flipToLogin">Log in</a></p>
+                        <p class="registerRedirection">Already have an account?<br> <a href="#" id="flipToLogin">Log
+                                in</a></p>
                     </form>
                 </div>
 
