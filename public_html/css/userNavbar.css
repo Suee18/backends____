@@ -26,8 +26,9 @@ body {
   -webkit-backdrop-filter: blur(10px);
   border-right: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3 ease;
+  border-width: 0px;
   z-index: 10000000000;
+  transition: width 0.3s ease, transform 0.3s ease;
 }
 
 .collapse-btn {
@@ -40,15 +41,16 @@ body {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  left: 105.5%;
-  transform: translate(-50%, -50%);
+  left: calc(100% );
+  transform: translateY(-50%);
   font-size: 2rem;
-  transition: right 0.3s ease;
+  border-width: 0px;
   z-index: 10000000000;
+  transition: left 0.3s ease, transform 0.3s ease;
 }
 
 .sidebar.collapsed .collapse-btn {
-  left: 123px;
+  left: calc(110px);
 }
 .sidebar.collapsed {
   width: 110px;
@@ -77,9 +79,11 @@ body {
   text-decoration: none;
   display: block;
 }
+
 .sidebar.collapsed .Apex-text {
   display: none;
 }
+
 .sidebar.collapsed .A-logo {
   display: block;
   color: var(--white_blue_light);
@@ -115,11 +119,15 @@ body {
 }
 
 .links h4 {
-  color: var(--white_blue_light);
+  /* color: var(--white_blue_light); */
+  color:rgb(137, 137, 137);
   font-weight: 500;
+  font-size: 20px;
   display: block;
   margin-bottom: 10px;
   font-family: var(--header_font);
+  text-align: center;
+text-decoration: underline rgba(210, 207, 207, 0.205);
 }
 
 .sidebar.collapsed .links h4 {

@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="../../../public_html/css/platform.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="../../../public_html/js/platform.js" defer></script>
-    <title>Apex Community</title>
+    <title>ApexConnect</title>
 </head>
 
 <body>
     <?php include "../../../public_html/components/userNavbar.php" ?>
     <div class="container">
-        <h1>Apex Community 🏎️💨 </h1>
+        <h1>ApexConnect 🏎️💨 </h1>
         <button id="addPostBtn"><i class="fas fa-plus"></i></button>
 
         <div id="postsContainer">

@@ -122,6 +122,55 @@ window.addEventListener("click", (e) => {
   }
 });
 
+const reviewButtons = document.getElementById("reviewButtons");
+const textarea = document.getElementById("reviewText");
+const submitBtn = document.getElementById("submitReview");
+textarea.style.display = "none";
+submitBtn.style.display = "none";
+
+reviewButtons.addEventListener("click", (e) => {
+  const button = e.target.closest(".button");
+
+  if (button) {
+    const choice = button.getAttribute("data-choice");
+    switch (choice) {
+      case "Apex":
+        textarea.placeholder = "Write your review about Apex...";
+        break;
+      case "Comparison":
+        textarea.placeholder =
+          "Share your thoughts about the comparison feature...";
+        break;
+      case "Search":
+        textarea.placeholder =
+          "Describe your experience with the search feature...";
+        break;
+      case "Persona Test":
+        textarea.placeholder =
+          "Let us know your thoughts on the Persona Test...";
+        break;
+      case "Turbo":
+        textarea.placeholder = "Review the Turbo chatbot feature...";
+        break;
+      case "Apex Community":
+        textarea.placeholder = "What do you think about the Apex Community?";
+        break;
+      default:
+        textarea.placeholder = "Write your review here...";
+    }
+    const allButtons = document.querySelectorAll(".button");
+    allButtons.forEach((btn) => btn.classList.remove("selected"));
+    button.classList.add("selected");
+    textarea.style.display = "block";
+    submitBtn.style.display = "block";
+
+    setTimeout(() => {
+      textarea.classList.add("active");
+      submitBtn.classList.add("active");
+    }, 0);
+  }
+});
+
 // submitReviewBtn.addEventListener("click", () => {
 //   const reviewValue = reviewText.value;
 //   const error = validateReview(reviewValue);

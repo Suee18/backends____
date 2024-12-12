@@ -3,26 +3,31 @@ include_once __DIR__ . '/../app/config/db_config.php';
 
 class Reviews
 {
-    public $id;
-    public $reviewText;  // Changed to camel case
+    public $reviewID;     // Renamed from id to reviewID
+    public $reviewText;   // Still reviewText
+    public $reviewCategory;  // New field
+    public $reviewDate;   // Still reviewDate
+    public $reviewRating;  // New field
+    public $userID;       // New field (foreign key to user table)
 
-    public $reviewDate;  // Changed to camel case
-
-    public $reviewUserName;  // Changed to camel case
-
-    function __construct($reviewText, $reviewDate, $reviewUserName)
+    // Constructor now includes reviewCategory, reviewRating, and userID
+    function __construct($reviewText, $reviewCategory, $reviewDate, $reviewRating, $userID)
     {
-        $this->reviewText = $reviewText;  // Changed to camel case
-        $this->reviewDate = $reviewDate;  // Changed to camel case
-        $this->reviewUserName = $reviewUserName;  // Changed to camel case
+        $this->reviewText = $reviewText;
+        $this->reviewCategory = $reviewCategory;
+        $this->reviewDate = $reviewDate;
+        $this->reviewRating = $reviewRating;
+        $this->userID = $userID;
     }
 
-    function setId($id)  // Changed to camel case
+    // Set the reviewID property
+    function setReviewID($reviewID)
     {
-        $this->id = $id;
+        $this->reviewID = $reviewID;
     }
 
-    static function getAllReviews()  // Changed to camel case
+    // Get all reviews
+    static function getAllReviews()
     {
         global $conn;
         $sql = "SELECT * FROM reviews";
@@ -30,41 +35,61 @@ class Reviews
         $reviews = [];
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $review = new Reviews($row["reviewText"], $row["reviewDate"], $row["reviewUserName"]);  // Changed to camel case
-                $review->id = $row["ID"];
+                // Adjust to include new fields from the new DB schema
+                $review = new Reviews(
+                    $row["reviewText"], 
+                    $row["reviewCategory"], 
+                    $row["reviewDate"], 
+                    $row["reviewRating"], 
+                    $row["userID"]
+                );
+                $review->reviewID = $row["reviewID"];  // Renamed field from ID to reviewID
                 array_push($reviews, $review);
             }
         }
         return $reviews;
     }
 
-    static function getLastNumberOfReviews($numberOFReviews) {
+    // Get last n reviews
+    static function getLastNumberOfReviews($numberOfReviews)
+    {
         global $conn;
-        $sql = "SELECT * FROM reviews ORDER BY ID DESC LIMIT $numberOFReviews";
+        $sql = "SELECT * FROM reviews ORDER BY reviewID DESC LIMIT $numberOfReviews";  // Adjusted for new field names
         $result = mysqli_query($conn, $sql);
         $reviews = [];
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $review = new Reviews($row["reviewText"], $row["reviewDate"], $row["reviewUserName"]);  // Changed to camel case
-                $review->id = $row["ID"];
+                $review = new Reviews(
+                    $row["reviewText"], 
+                    $row["reviewCategory"], 
+                    $row["reviewDate"], 
+                    $row["reviewRating"], 
+                    $row["userID"]
+                );
+                $review->reviewID = $row["reviewID"];
                 array_push($reviews, $review);
             }
         }
         return $reviews;
     }
 
+    // Add a new review to the database
     function addReviewIntoDB($review)
     {
         global $conn;
-        $sql = "INSERT INTO reviews (reviewText, reviewDate, reviewUserName) VALUES ('$review->reviewText', '$review->reviewDate', '$review->reviewUserName')";  // Changed to camel case
+        // Adjusted to include new fields from the new DB schema
+        $sql = "INSERT INTO reviews (reviewText, reviewCategory, reviewDate, reviewRating, userID) 
+                VALUES ('$review->reviewText', '$review->reviewCategory', '$review->reviewDate', '$review->reviewRating', '$review->userID')";
         $result = mysqli_query($conn, $sql);
         return $result;
     }
 
-    static function deleteReviewFromDB($reviewId)  // Changed to camel case
+    // Delete a review from the database
+    static function deleteReviewFromDB($reviewID)
     {
         global $conn;
-        $sql = "DELETE FROM reviews WHERE id = '$reviewId'";  // Changed to camel case
+        // Adjusted for new field names
+        $sql = "DELETE FROM reviews WHERE reviewID = '$reviewID'";
         $result = mysqli_query($conn, $sql);
         return $result;
     }
