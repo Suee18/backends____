@@ -1,11 +1,6 @@
 <?php
-// Backend data passed here (e.g., $questions and $personas)
-// Assuming $personas is an array containing persona data fetched from the database
 
-// Include the controller to get the questions array
 include '../../../controllers/persona_test.php';
-
-// Assuming the controller sets $questions array
 ?>
 
 <!DOCTYPE html>
@@ -65,9 +60,9 @@ include '../../../controllers/persona_test.php';
                 <!-- Final Slide -->
                 <div class="swiper-slide last-slide">
                     <img src="../../../public_html/media/Persona_Test_Images/Test_Images/icons/persona-icon.png" alt="Persona Icon" class="persona-icon" />
-                    <h3>Ready to see your results?</h3>
-                    <p class="subtext">Click below to unveil your persona!</p>
-                 
+                    <h3 class="title">Ready to see your results?</h3>
+                    <p class="subtext">Click below to unveil your persona !</p>
+                 <div>
                     <button type="submit" class="btn">
                         <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
                             <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -78,7 +73,7 @@ include '../../../controllers/persona_test.php';
                             <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
                         </svg>
                     </button>
-
+                 </div>
                 </div>
             </div>
 

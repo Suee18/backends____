@@ -22,7 +22,7 @@ if ($personasFromDb !== false) {
             'id' => $persona['personaID'],
             'icon' => $persona['personaIcon'],
             'description' => $persona['personaDescription'],
-            'weight' => 0 // Initialize weights temporarily in-memory
+            'weight' => 0 // Initialize the weight to 0
         ];
     }
 } else {
@@ -30,80 +30,13 @@ if ($personasFromDb !== false) {
 }
 
 // // Questions
-// $questions = [
-//     1 => [
-//         'question' => 'What is your primary use for a car?',
-//         'answers' => [
-//             'A' => [
-//                 'text' => 'Commuting in the city',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_images/icons/balance-icon.png',
-//                 'scores' => ['City Slicker' => 4, 'Budget Conscious' => 3]
-//             ],
-//             'B' => [
-//                 'text' => 'Family trips and daily school runs',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/family-icon.png',
-//                 'scores' => ['Family First' => 5]
-//             ],
-//             'C' => [
-//                 'text' => 'Long road trips or off-roading adventures',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/long-road.png',
-//                 'scores' => ['Performance Enthusiast' => 4, 'Adventurer' => 2]
-//             ],
-//             'D' => [
-//                 'text' => 'Enjoying the luxury of driving',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/fun-icon.png',
-//                 'scores' => ['Luxury Seeker' => 4, 'Classic Car Lover' => 3]
-//             ],
-//             'E' => [
-//                 'text' => 'I dont know',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
-//                 'scores' => ['The Path Finder' => 5]
-
-//             ]
-//         ]
-//     ],
-//     2 => [
-//         'question' => 'How important is fuel efficiency to you?',
-//         'answers' => [
-//             'A' => [
-//                 'text' => 'Extremely important - I want an electric/hybrid car',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/electric-car-icon.png',
-//                 'scores' => ['Eco-Warrior' => 0, 'Budget Conscious' => 3]
-//             ],
-//             'B' => [
-//                 'text' => 'Fairly Important - I am open to both',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/balance-icon.png',
-//                 'scores' => ['Family First' => 5]
-//             ],
-//             'C' => [
-//                 'text' => 'Not a priority - I focus more about performance',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/performance-icon.png',
-//                 'scores' => ['Performance Enthusiast' => 4, 'Adventurer' => 2]
-//             ],
-//             'D' => [
-//                 'text' => 'Not a matter - I care more about the driving experience',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/driving-icon.png',
-//                 'scores' => ['Luxury Seeker' => 4, 'Classic Car Lover' => 3]
-//             ],
-//             'E' => [
-//                 'text' => 'I dont know',
-//                 'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
-//                 'scores' => ['The Path Finder' => 5]
-
-//             ]
-//         ]
-//     ]
-
-// ];
-
-
 $questions = [
     1 => [
         'question' => 'What is your primary use for a car?',
         'answers' => [
             'A' => [
                 'text' => 'Commuting in the city',
-                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/balance-icon.png',
+                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/commuting.png',
                 'scores' => ['City Slicker' => 4, 'Budget Conscious' => 3]
             ],
             'B' => [
@@ -298,6 +231,90 @@ $questions = [
             ]
         ]
     ],
+    8 => [
+        'question' => 'Do you care about the environmental impact?',
+        'answers' => [
+            'A' => [
+                'text' => 'Yes, I\'m committed to sustainable choices',
+                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/recycle-icon.png'
+            ],
+            'B' => [
+                'text' => 'Somewhat - but it\'s not my main concern',
+                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/balance-icon.png'
+            ],
+            'C' => [
+                'text' => 'Not really - I care more about performance',
+                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/performance-icon.png'
+            ],
+            'D' => [
+                'text' => 'I\'m more into classic aesthetics and luxury',
+                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/luxury-icon.png'
+            ],
+            'E' => [
+                'text' => 'I don’t know',
+                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
+                'scores' => ['The Path Finder' => 2]            ]
+        ]
+            ],
+
+    9 => [
+    'question' => 'What type of car body style do you prefer?',
+    'answers' => [
+        'A' => [
+            'text' => 'Compact cars or sedans',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/compact-car-icon.png'
+        ],
+        'B' => [
+            'text' => 'SUVs or minivans',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/suv-icon.png'
+        ],
+        'C' => [
+            'text' => 'Sleek, stylish luxury sedans or coupes',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/luxury-icon.png'
+        ],
+        'D' => [
+            'text' => 'Sports cars or performance vehicles',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/classic-icon.png',
+        ],
+        'E' => [
+            'text' => 'I don’t know',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
+            'scores' => ['The Path Finder' => 2]
+                        ]
+    ]
+]
+,
+
+10 => [
+    'question' => 'How would you describe your perfect driving experience?',
+    'answers' => [
+        'A' => [
+            'text' => 'Quiet, smooth, and comfortable',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/comfort-icon.png'
+        ],
+        'B' => [
+            'text' => 'Safe and comfortable for my family',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/family-icon.png'
+        ],
+        'C' => [
+            'text' => 'Luxurious and tech-enhanced',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/luxury-icon.png'
+        ],
+        'D' => [
+            'text' => 'Fast and exhilarating',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/sports-car-icon.png'
+        ],
+        'E' => [
+            'text' => 'Nostalgic and stylish',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/classic-icon.png'
+        ],
+        'F' => [
+            'text' => 'I don’t know',
+            'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
+            'scores' => ['The Path Finder' => 2]
+                        ]
+    ]
+]
 
 
 
