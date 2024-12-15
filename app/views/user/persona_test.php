@@ -57,7 +57,9 @@ include '../../../controllers/persona_test.php';
                     </div>
                 <?php endforeach; ?>
 
-                <!-- Final Slide -->
+
+                <!---A UI BUG WHERE THE BUTTON SOMETIMES DOEST CLICKS ONLY !-->
+                <!-- Final Slide
                 <div class="swiper-slide last-slide">
                     <img src="../../../public_html/media/Persona_Test_Images/Test_Images/icons/persona-icon.png" alt="Persona Icon" class="persona-icon" />
                     <h3 class="title">Ready to see your results?</h3>
@@ -74,6 +76,11 @@ include '../../../controllers/persona_test.php';
                         </svg>
                     </button>
                  </div>
+                </div> -->
+
+
+                <div class="swiper-slide last-slide">
+                    <button type="submit" class="mybutton">NO BUG BUTTON</button>
                 </div>
             </div>
 

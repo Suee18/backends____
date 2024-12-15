@@ -5,3 +5,4 @@ vendor/
 .env
 
 carModelForms.php
+debug_log.txt

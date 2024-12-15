@@ -35,25 +35,31 @@ class PersonasModel {
 
     public function getAllPersonasAsArray() {
         $personasArray = array(); // Initialize the array
-    
+        
         $query = "SELECT * FROM " . $this->table . " ORDER BY " . $this->personaName . " ASC";
         $result = $this->conn->query($query);
     
+        $logFile = __DIR__ . '/debug_log.txt'; // Path to the log file
+    
         if ($result === false) {
-            error_log("Error executing query: " . $this->conn->error);
+            $errorMessage = "Error executing query: " . $this->conn->error . PHP_EOL;
+            file_put_contents($logFile, $errorMessage, FILE_APPEND); // Log the error message
             return false;
         }
     
         // Loop through the result and store each persona in the array
         while ($row = $result->fetch_assoc()) {
-            error_log("Persona: " . print_r($row, true)); // Log the entire row to check the description
-            $personasArray[] = $row; // Push each persona as an associative array
+            // Write the entire row to the log file for debugging
+            $logMessage = "Persona: " . print_r($row, true) . PHP_EOL;
+            file_put_contents($logFile, $logMessage, FILE_APPEND);
+            
+            // Push each persona as an associative array
+            $personasArray[] = $row;
         }
     
         return $personasArray;
     }
     
-
     // Method to insert a new persona
     public function createPersona($personaName, $personaIcon, $personaCounter, $personaDescription) {
         $query = "INSERT INTO " . $this->table . " (" . $this->personaName . ", " . $this->personaIcon . ", " . $this->personaCounter . ", " . $this->personaDescription . ") 

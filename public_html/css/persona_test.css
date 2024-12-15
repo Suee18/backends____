@@ -209,6 +209,14 @@ margin-bottom: 2rem;}
     font-weight: 900;
     transform: scale(1.6);
 }
+.btn{
+    width:50vw;
+height: 50vh;
+z-index: 100000;
+position: absolute;
+top: 0;
+left: 0;
+}
 
 .swiper-button-next.disabled {
     opacity: 0.5;
