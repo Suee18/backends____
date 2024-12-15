@@ -3,7 +3,7 @@
 body {
     font-family: Arial, sans-serif;
     /* background-color: var(--blue_gray_dark); */
-    background-image: url("../media/Persona_Test_Images/Test_images/background.jpg" );
+    background-image: url("../media/Persona_Test_Images/Test_images/background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@ body {
     transition: transform 0.2s, border-color 0.2s;
 }
 
-.sidebar{
+.sidebar {
     z-index: 100000;
 }
 
@@ -114,9 +114,10 @@ body {
 }
 
 .question-text {
-font-family: var(--paragraphs_font);
-font-size: 1.5rem;
-margin-bottom: 2rem;}
+    font-family: var(--paragraphs_font);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
 
 .options-container {
     display: grid;
@@ -209,13 +210,14 @@ margin-bottom: 2rem;}
     font-weight: 900;
     transform: scale(1.6);
 }
-.btn{
-    width:50vw;
-height: 50vh;
-z-index: 100000;
-position: absolute;
-top: 0;
-left: 0;
+
+.btn {
+    width: 50vw;
+    height: 50vh;
+    z-index: 100000;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .swiper-button-next.disabled {
@@ -274,10 +276,13 @@ left: 0;
     /* margin-top: 20px;
     width: 60%; Adjust the width for a centered look */
 }
-.title{
+
+.title {
     font-size: 300%;
     font-weight: 100;
-    color: rgba(230, 230, 230, 0.575);}
+    color: rgba(230, 230, 230, 0.575);
+}
+
 .subtext {
     font-size: 200%;
     font-weight: 100;
@@ -290,5 +295,6 @@ left: 0;
     width: 120px;
     height: 120px;
     margin-bottom: 15px;
-    filter: invert(1) brightness(1.2); /* Adjust if necessary to match your design */
+    filter: invert(1) brightness(1.2);
+    /* Adjust if necessary to match your design */
 }

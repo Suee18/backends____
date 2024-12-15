@@ -1,6 +1,14 @@
 <?php
-
 include '../../../controllers/persona_test.php';
+require_once '../../../app/config/db_config.php';
+try {
+    // Create a database connection and instantiate the controller
+    $controller = new PersonasController($conn);
+    // Access questions dynamically
+    $questions = $controller->questions; 
+} catch (Exception $e) {
+    die("Error loading questions: " . htmlspecialchars($e->getMessage()));
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,29 +34,39 @@ include '../../../controllers/persona_test.php';
     <form method="POST" action="../../../controllers/persona_test.php">
         <div class="swiper">
             <div class="swiper-wrapper">
-                <?php foreach ($questions as $questionId => $data): ?>
+
+                <?php
+                foreach ($questions as $questionId => $questionData) : ?>
+                    <!-- Individual Question Slide -->
                     <div class="swiper-slide">
                         <div class="question-container">
                             <h1 class="question-number">Question <?= $questionId; ?></h1>
-                            <p class="question-text"><?= $data['question']; ?></p>
+                            <p class="question-text"><?= htmlspecialchars($questionData['question']); ?></p>
                             <div class="options-container-five">
+                                <?php
+                                $answers = $questionData['answers'];
+                                $firstHalf = array_slice($answers, 0, ceil(count($answers) / 2), true);
+                                $secondHalf = array_slice($answers, ceil(count($answers) / 2), null, true);
+                                ?>
+
+                                <!-- First Half of Answers -->
                                 <div class="first-options-five">
-                                    <?php $answers = array_slice($data['answers'], 0, 3, true); ?>
-                                    <?php foreach ($answers as $answerKey => $answerData): ?>
+                                    <?php foreach ($firstHalf as $optionKey => $answerData) : ?>
                                         <label class="option">
-                                            <input type="radio" name="answers[<?= $questionId; ?>]" value="<?= $answerKey; ?>" required>
-                                            <img src="<?= $answerData['icon']; ?>" alt="Option Icon1">
-                                            <p><?= $answerData['text']; ?></p>
+                                            <input type="radio" name="answers[<?= $questionId; ?>]" value="<?= $optionKey; ?>" required>
+                                            <img src="<?= htmlspecialchars($answerData['icon']); ?>" alt="Option Icon <?= $optionKey; ?>">
+                                            <p><?= htmlspecialchars($answerData['text']); ?></p>
                                         </label>
                                     <?php endforeach; ?>
                                 </div>
+
+                                <!-- Second Half of Answers -->
                                 <div class="second-options-five">
-                                    <?php $answers = array_slice($data['answers'], 3, null, true); ?>
-                                    <?php foreach ($answers as $answerKey => $answerData): ?>
+                                    <?php foreach ($secondHalf as $optionKey => $answerData) : ?>
                                         <label class="option">
-                                            <input type="radio" name="answers[<?= $questionId; ?>]" value="<?= $answerKey; ?>">
-                                            <img src="<?= $answerData['icon']; ?>" alt="Option Icon2">
-                                            <p><?= $answerData['text']; ?></p>
+                                            <input type="radio" name="answers[<?= $questionId; ?>]" value="<?= $optionKey; ?>">
+                                            <img src="<?= htmlspecialchars($answerData['icon']); ?>" alt="Option Icon <?= $optionKey; ?>">
+                                            <p><?= htmlspecialchars($answerData['text']); ?></p>
                                         </label>
                                     <?php endforeach; ?>
                                 </div>
@@ -57,33 +75,15 @@ include '../../../controllers/persona_test.php';
                     </div>
                 <?php endforeach; ?>
 
-
-                <!---A UI BUG WHERE THE BUTTON SOMETIMES DOEST CLICKS ONLY !-->
-                <!-- Final Slide
+                <!-- Final Slide -->
                 <div class="swiper-slide last-slide">
-                    <img src="../../../public_html/media/Persona_Test_Images/Test_Images/icons/persona-icon.png" alt="Persona Icon" class="persona-icon" />
-                    <h3 class="title">Ready to see your results?</h3>
-                    <p class="subtext">Click below to unveil your persona !</p>
-                 <div>
-                    <button type="submit" class="btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
-                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                        </svg>
-                        <span class="text">Find My Persona</span>
-                        <span class="circle"></span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
-                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                        </svg>
-                    </button>
-                 </div>
-                </div> -->
-
-
-                <div class="swiper-slide last-slide">
-                    <button type="submit" class="mybutton">NO BUG BUTTON</button>
+                    <button type="submit" class="mybutton">Find My Persona no bug button</button>
                 </div>
+
+                
             </div>
 
+            <!-- Swiper Navigation -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
