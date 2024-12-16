@@ -387,36 +387,59 @@ class PersonasController extends PersonasModel
 
         return $this->personas;
     }
-
     public function handleFormSubmission()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $responses = $_POST['answers'] ?? [];
-
+    
             if (empty($responses)) {
                 throw new Exception("No responses provided. Please answer the questions.");
             }
-
+    
             $personasWeight = $this->calculatePersonas($responses);
-
+    
+            // Debug: Check personas weight before sorting
+            error_log("Personas Weight Array: " . print_r($personasWeight, true));
+    
             // Sort personas by weight
             usort($personasWeight, function ($a, $b) {
                 return $b['weight'] <=> $a['weight'];
             });
-            
-            // Increment the counter for the top persona
+    
+            // Debug: Check sorted array
+            error_log("Sorted Personas Weight: " . print_r($personasWeight, true));
+    
+            // Ensure the array is not empty
+            if (empty($personasWeight)) {
+                throw new Exception("No personas were scored.scoring logic.");
+            }
+    
+            // Get the top persona
             $topPersona = reset($personasWeight);
-            $this->incrementPersonaCounter($topPersona['name']);
-
+            if ($topPersona === false) {
+                throw new Exception("Top Persona could not be determined.");
+            }
+    
+            // Debug: Check top persona
+            error_log("Top Persona: " . print_r($topPersona, true));
+    
+            // Increment the counter for the top persona
+            if (!$this->incrementPersonaCounter($topPersona['name'])) {
+                error_log("Failed to increment persona counter for: " . $topPersona['name']);
+            }
+    
             // Store the results in a session or directly pass to the view
             session_start();
-            $_SESSION['personas'] = $personasWeight; // Store the results in the session
+            $_SESSION['topPersona'] = $topPersona; // Store the results in the session
+    
+            // Debug: Verify session storage
+            error_log("Session topPersona: " . print_r($_SESSION['topPersona'], true));
+    
             header('Location: ../app/views/user/persona.php'); // Redirect to the result view
             exit;
         }
     }
 }
-
 // Instantiate the controller and handle form submission
 try {
     $controller = new PersonasController($conn);

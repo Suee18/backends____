@@ -1,13 +1,13 @@
 
 <?php
 session_start();
-if (!isset($_SESSION['personas'])) {
+if (!isset($_SESSION['topPersona'])) {
     echo "No persona data found. Please retake the test.";
     exit;
 }
 
-$topPersona = reset($_SESSION['personas']); // Get the highest-weight persona
-$_SESSION['topPersona'] = $topPersona;
+// $topPersona = reset($_SESSION['personas']); // Get the highest-weight persona
+$topPersona=$_SESSION['topPersona'];
 
 // Debugging: Write session data to a text file
 file_put_contents('debug_session.txt', print_r($_SESSION, true));
