@@ -7,6 +7,11 @@ if (!isset($_SESSION['personas'])) {
 }
 
 $topPersona = reset($_SESSION['personas']); // Get the highest-weight persona
+$_SESSION['topPersona'] = $topPersona;
+
+// Debugging: Write session data to a text file
+file_put_contents('debug_session.txt', print_r($_SESSION, true));
+
 ?>
 
 

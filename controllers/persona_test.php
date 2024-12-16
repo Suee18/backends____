@@ -190,104 +190,104 @@ class PersonasController extends PersonasModel
                     ]
                 ]
             ],
-         
-    6 => [
-        'question' => 'What kind of road conditions do you usually drive on?',
 
-        'answers' => [
-            'A' => [
-                'text' => 'City streets and highways',
-                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/city-icon.png',
-                'scores' => ['City Slicker' => 4, 'Tech Geek' => 3, 'Eco-Warrior' => 3]
-            ],
-            'B' => [
-                'text' => 'Suburban or rural roads',
-                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/countryside-icon.png',
-                'scores' => ['Family First' => 4, 'Budget Conscious' => 4]
-            ],
-            'C' => [
-                'text' => 'Rough terrain, off-road, or long-distance',
-                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/offroad-icon.png',
-                'scores' => ['Performance Enthusiast' => 5]
-            ],
-            'D' => [
-                'text' => 'I love scenic and classic drives',
-                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/scenic-icon.png',
-                'scores' => ['Classic Car Lover' => 5]
-            ],
-            'E' => [
-                'text' => 'I dont know',
-                'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
-                'scores' => ['The Path Finder' => 2]
-            ]
-        ]
-    ],
-        7 => [
-            'question' => 'How important is safety when choosing a car?',
-            'answers' => [
-                'A' => [
-                    'text' => 'It\'s my top priority',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/safety-icon.png',
-                    'scores' => ['Family First' => 5, 'Budget Conscious' => 3]
-                ],
-                'B' => [
-                    'text' => 'Fairly important - but I also consider performance',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/balance-icon.png',
-                    'scores' => ['Performance Enthusiast' => 3, 'Eco-Warrior' => 4]
-                ],
-                'C' => [
-                    'text' => 'Safety matters, but comfort and style come first',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/comfort-icon.png',
-                    'scores' => ['Luxury Seeker' => 4, 'Classic Car Lover' => 3]
-                ],
-                'D' => [
-                    'text' => 'Not a primary concern - I prioritize fun driving experience',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/fun-icon.png',
-                    'scores' => ['Classic Car Lover' => 5]
-                ],
-                'E' => [
-                    'text' => 'I don’t know',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
-                    'scores' => ['The Path Finder' => 1]
+            6 => [
+                'question' => 'What kind of road conditions do you usually drive on?',
+
+                'answers' => [
+                    'A' => [
+                        'text' => 'City streets and highways',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/city-icon.png',
+                        'scores' => ['City Slicker' => 4, 'Tech Geek' => 3, 'Eco-Warrior' => 3]
+                    ],
+                    'B' => [
+                        'text' => 'Suburban or rural roads',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/countryside-icon.png',
+                        'scores' => ['Family First' => 4, 'Budget Conscious' => 4]
+                    ],
+                    'C' => [
+                        'text' => 'Rough terrain, off-road, or long-distance',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/offroad-icon.png',
+                        'scores' => ['Performance Enthusiast' => 5]
+                    ],
+                    'D' => [
+                        'text' => 'I love scenic and classic drives',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/scenic-icon.png',
+                        'scores' => ['Classic Car Lover' => 5]
+                    ],
+                    'E' => [
+                        'text' => 'I dont know',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
+                        'scores' => ['The Path Finder' => 2]
+                    ]
                 ]
-            ]
-                ],
-                
-        8 => [
-            'question' => 'Do you care about the environmental impact?',
-            'answers' => [
-                'A' => [
-                    'text' => 'Yes, Im committed to sustainable choices',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/recycle-icon.png',
-                    'scores' => ['Eco-Warrior' => 5]
-                ],
-                'B' => [
-                    'text' => 'Somewhat but not my main concern',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/balance-icon.png',
-                    'scores' => ['Family First' => 3, 'Budget Conscious' => 4]
-
-                ],
-                'C' => [
-                    'text' => 'Not really I care more about performance',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/performance-icon.png',
-                    'scores' => ['Performance Enthusiast' => 4]
-
-                ],
-                'D' => [
-                    'text' => 'Im more into classic aesthetics and luxury',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/luxury-icon.png',
-                    'scores' => ['Classic Car Lover' => 4, 'Luxury Seeker' => 3]
-
-                ],
-                'E' => [
-                    'text' => 'I dont know',
-                    'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
-                    'scores' => ['The Path Finder' => 2]
-
+            ],
+            7 => [
+                'question' => 'How important is safety when choosing a car?',
+                'answers' => [
+                    'A' => [
+                        'text' => 'It\'s my top priority',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/safety-icon.png',
+                        'scores' => ['Family First' => 5, 'Budget Conscious' => 3]
+                    ],
+                    'B' => [
+                        'text' => 'Fairly important - but I also consider performance',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/balance-icon.png',
+                        'scores' => ['Performance Enthusiast' => 3, 'Eco-Warrior' => 4]
+                    ],
+                    'C' => [
+                        'text' => 'Safety matters, but comfort and style come first',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/comfort-icon.png',
+                        'scores' => ['Luxury Seeker' => 4, 'Classic Car Lover' => 3]
+                    ],
+                    'D' => [
+                        'text' => 'Not a primary concern - I prioritize fun driving experience',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/fun-icon.png',
+                        'scores' => ['Classic Car Lover' => 5]
+                    ],
+                    'E' => [
+                        'text' => 'I don’t know',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
+                        'scores' => ['The Path Finder' => 1]
+                    ]
                 ]
-            ]
-        ],
-      
+            ],
+
+            8 => [
+                'question' => 'Do you care about the environmental impact?',
+                'answers' => [
+                    'A' => [
+                        'text' => 'Yes, Im committed to sustainable choices',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/recycle-icon.png',
+                        'scores' => ['Eco-Warrior' => 5]
+                    ],
+                    'B' => [
+                        'text' => 'Somewhat but not my main concern',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/balance-icon.png',
+                        'scores' => ['Family First' => 3, 'Budget Conscious' => 4]
+
+                    ],
+                    'C' => [
+                        'text' => 'Not really I care more about performance',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/performance-icon.png',
+                        'scores' => ['Performance Enthusiast' => 4]
+
+                    ],
+                    'D' => [
+                        'text' => 'Im more into classic aesthetics and luxury',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/luxury-icon.png',
+                        'scores' => ['Classic Car Lover' => 4, 'Luxury Seeker' => 3]
+
+                    ],
+                    'E' => [
+                        'text' => 'I dont know',
+                        'icon' => '../../../public_html/media/Persona_Test_Images/Test_Images/icons/i_dont_know.png',
+                        'scores' => ['The Path Finder' => 2]
+
+                    ]
+                ]
+            ],
+
             9 => [
                 'question' => 'What type of car body style do you prefer?',
                 'answers' => [
@@ -317,9 +317,9 @@ class PersonasController extends PersonasModel
                         'scores' => ['The Path Finder' => 2]
                     ]
                 ]
-        
+
             ],
-        
+
             10 => [
                 'question' => 'How would you describe your ideal driving experience?',
                 'answers' => [
@@ -392,18 +392,22 @@ class PersonasController extends PersonasModel
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $responses = $_POST['answers'] ?? [];
-    
+
             if (empty($responses)) {
                 throw new Exception("No responses provided. Please answer the questions.");
             }
-    
+
             $personasWeight = $this->calculatePersonas($responses);
-    
+
             // Sort personas by weight
             usort($personasWeight, function ($a, $b) {
                 return $b['weight'] <=> $a['weight'];
             });
-    
+            
+            // Increment the counter for the top persona
+            $topPersona = reset($personasWeight);
+            $this->incrementPersonaCounter($topPersona['name']);
+
             // Store the results in a session or directly pass to the view
             session_start();
             $_SESSION['personas'] = $personasWeight; // Store the results in the session
@@ -411,8 +415,6 @@ class PersonasController extends PersonasModel
             exit;
         }
     }
-  
-
 }
 
 // Instantiate the controller and handle form submission

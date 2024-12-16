@@ -4,6 +4,8 @@ vendor/
 #Enviroment file
 .env
 
+#salma backend tests
 carModelForms.php
 debug_log.txt
 persona_result.php
+debug_session.txt
