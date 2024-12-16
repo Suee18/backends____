@@ -388,36 +388,31 @@ class PersonasController extends PersonasModel
         return $this->personas;
     }
 
-    // Handle form submission
     public function handleFormSubmission()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $responses = $_POST['answers'] ?? [];
-
+    
             if (empty($responses)) {
                 throw new Exception("No responses provided. Please answer the questions.");
             }
-
-            $personas = $this->calculatePersonas($responses);
-
-            usort($personas, function ($a, $b) {
+    
+            $personasWeight = $this->calculatePersonas($responses);
+    
+            // Sort personas by weight
+            usort($personasWeight, function ($a, $b) {
                 return $b['weight'] <=> $a['weight'];
             });
-
-            $topPersona = reset($personas);
-
-            header('Content-Type: application/json');
-            echo json_encode([
-                'topPersona' => [
-                    'name' => $topPersona['name'],
-                    'description' => $topPersona['description'],
-                    'icon' => $topPersona['icon'],
-                    'weight' => $topPersona['weight']
-                ]
-            ]);
+    
+            // Store the results in a session or directly pass to the view
+            session_start();
+            $_SESSION['personas'] = $personasWeight; // Store the results in the session
+            header('Location: ../app/views/user/persona.php'); // Redirect to the result view
             exit;
         }
     }
+  
+
 }
 
 // Instantiate the controller and handle form submission

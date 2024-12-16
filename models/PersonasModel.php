@@ -59,6 +59,38 @@ class PersonasModel {
     
         return $personasArray;
     }
+
+
+
+    public function incrementPersonaCounter($personaName)
+    {
+        // Ensure that the connection is not null
+        if ($this->conn === null) {
+            throw new Exception("Database connection is not initialized.");
+        }
+    
+        $query = "UPDATE " . $this->table . " SET " . $this->personaCounter . " = " . $this->personaCounter . " + 1 WHERE " . $this->personaName . " = ?";
+        $stmt = $this->conn->prepare($query);
+        if ($stmt === false) {
+            error_log("Error preparing statement: " . $this->conn->error);
+            return false;
+        }
+    
+        // Bind the parameter
+        $stmt->bind_param('s', $personaName);
+    
+        // Execute the query
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            error_log("Error executing query: " . $stmt->error);
+            return false;
+        }
+    }
+    
+
+
+
     
     // Method to insert a new persona
     public function createPersona($personaName, $personaIcon, $personaCounter, $personaDescription) {

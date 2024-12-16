@@ -1,6 +1,8 @@
 <?php
 include '../../../controllers/persona_test.php';
 require_once '../../../app/config/db_config.php';
+
+
 try {
     // Create a database connection and instantiate the controller
     $controller = new PersonasController($conn);
