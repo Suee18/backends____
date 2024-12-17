@@ -241,9 +241,9 @@
 .con-like {
   --red: rgb(255, 50, 50);
   position: relative;
-  margin-left: 140px;
-  width: 30px;
-  height: 30px;
+  margin-left: 5.8rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .con-like .like {
