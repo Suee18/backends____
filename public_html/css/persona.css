@@ -136,77 +136,132 @@ font-size:3rem;
 color: aliceblue;
 font-weight: 100;
 }
+.persona-image {
+    max-width: 60%;
+}
 
-
-/*=========Best match=======*/
+/*=========Best match Car =======*/
 .right-column {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    width: 65%;
+    width: 100%;
     position: relative;
     z-index: 1;
     background: linear-gradient(180deg, #9c9c9c94, #03030354, #000000bd);
     backdrop-filter: blur(2px);
 }
 
-.persona-image {
-    max-width: 60%;
+
+.carList {
+    display: flex;
+    flex-wrap: wrap; /* Allow multiple rows of cars */
+    justify-content: center; /* Center cards */
+    /* gap: 20px; Add space between cards */
+    width: 100%;
 }
+
+.car-card {
+ 
+}
+
+.car-image {
+    /* max-width: 100%; */
+width:100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.carName {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #f1c40f; /* Highlight car name */
+}
+
+.car-info {
+    margin-top: 15px;
+}
+
+.keyPreferences {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #f39c12; /* Subtle highlight for section titles */
+}
+
+.car-info p,
+.car-info ul {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left; /* Align paragraphs and lists to the left */
+    color: #e0e0e0; /* Light gray for better readability */
+}
+
+.car-info ul {
+    padding: 0;
+    list-style: none;
+}
+
+.car-info ul li {
+    margin: 5px 0;
+}
+
+.noCarsMessage {
+    font-size: 1.2rem;
+    color: #e74c3c;
+    font-weight: bold;
+    text-align: center;
+}
+
 
 /* -------KEY PREFRENCES -------*/
 .car-info {
-    margin-top: 1rem;
-    padding: 20px;
+    /* margin-top: 1rem; */
+    /* padding: 20px; */
     /* border: 2px solid #cccccc49; */
     /* border-radius: 10px; */
     /* background: linear-gradient(145deg,#00000049, hsla(216, 100%, 71%, 0.192),#00000049); */
     /* background-color: #00000050; */
     /* backdrop-filter: blur(5px); */
     /* box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.589); */
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 .carName{
-    font-family: var(--header_font);
+    /* font-family: var(--header_font);
     font-size: 2.5rem;
     color: #ffffff;
-    font-weight: 100;
+    font-weight: 100; */
 }
 
 .car-preferences {
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
 }
 /* Style for the unordered list */
 
 .keyPreferences{
-    margin-bottom: 10px;
+    /* margin-bottom: 10px;
     font-size: 1.4rem;
     font-family: var(--header_font);
     color: #bebebe;
     font-weight: 100;
     text-decoration: underline;
-    text-align: center;
+    text-align: center; */
 }
 .car-preferences ul {
-    list-style-type: disc;
+    /* list-style-type: disc;
     padding-left: 20px;
     margin: 0;
     color: rgb(198, 205, 211);
-    font-family: var(--paragraphs_font);
+    font-family: var(--paragraphs_font); */
 }
 .car-preferences li {
-    margin-bottom: 8px;
-    font-size: 1.2rem;
+    /* margin-bottom: 8px;
+    font-size: 1.2rem; */
 }
-.car-image {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
-}
+
 
 
 

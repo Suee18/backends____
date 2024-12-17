@@ -1,0 +1,30 @@
+Array
+(
+    [0] => Array
+        (
+            [ID] => 2
+            [image] => https://mir-s3-cdn-cf.behance.net/project_modules/1400/64554676247539.5c6408c6e4dd9.jpg
+            [make] => Ford
+            [model] => Mustang
+            [year] => 2022
+            [price] => 45000.00
+            [type] => Coupe
+            [persona] => 8
+            [Engine] => 5.0L V8
+            [horsePower] => 450
+            [Doors] => 2
+            [Torque] => 410.00
+            [topSpeed] => 155.00
+            [acceleration] => 4.50
+            [fuelEfficiency] => 20.00
+            [fuelType] => Gasoline
+            [cylinders] => 8
+            [transmission] => Manual
+            [drivenWheels] => RWD
+            [marketCategory] => Sports
+            [description] => An iconic sports car with high performance and a sleek design.
+            [RecommendationCount] => 0
+            [FavoritedCount] => 0
+        )
+
+)

@@ -1,15 +1,18 @@
 <?php
 require_once __DIR__ . '/../app/config/db_config.php';
 require_once __DIR__ . '/../models/PersonasModel.php';
+require_once __DIR__ . '/../models/CarsModel.php';
 
 class PersonasController extends PersonasModel
 {
 
     public $questions;
     public $personas;
+    private $carsModel;
 
     public function __construct($conn)
     {
+        $this->carsModel = new CarsModel($conn); // Instantiate CarsModel
         parent::__construct($conn);
         $this->initializePersonas();
         $this->initializeQuestions();
@@ -363,7 +366,8 @@ class PersonasController extends PersonasModel
     public function calculatePersonas($responses)
     {
         foreach ($responses as $questionId => $answer) {
-            if (!isset($this->questions[$questionId])) {
+            if (!isset($this->questions[$questionId])) 
+            {
                 throw new Exception("Invalid question ID: $questionId.");
             }
 
@@ -387,58 +391,106 @@ class PersonasController extends PersonasModel
 
         return $this->personas;
     }
-    public function handleFormSubmission()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $responses = $_POST['answers'] ?? [];
+
+
+    // public function handleFormSubmission()
+    // {
+    //     if ($_SERVER['REQUEST_METHOD'] === 'POST')
+    //     {
+    //         $responses = $_POST['answers'] ?? [];
     
-            if (empty($responses)) {
-                throw new Exception("No responses provided. Please answer the questions.");
-            }
+    //         if (empty($responses)) {
+    //             throw new Exception("No responses provided. Please answer the questions.");
+    //         }
     
-            $personasWeight = $this->calculatePersonas($responses);
+    //         $personasWeight = $this->calculatePersonas($responses);
     
-            // Debug: Check personas weight before sorting
-            error_log("Personas Weight Array: " . print_r($personasWeight, true));
+    //         // Debug: Check personas weight before sorting
+    //         error_log("Personas Weight Array: " . print_r($personasWeight, true));
     
-            // Sort personas by weight
-            usort($personasWeight, function ($a, $b) {
-                return $b['weight'] <=> $a['weight'];
-            });
+    //         // Sort personas by weight
+    //         usort($personasWeight, function ($a, $b) {
+    //             return $b['weight'] <=> $a['weight'];
+    //         });
     
-            // Debug: Check sorted array
-            error_log("Sorted Personas Weight: " . print_r($personasWeight, true));
+    //         // Debug: Check sorted array
+    //         error_log("Sorted Personas Weight: " . print_r($personasWeight, true));
     
-            // Ensure the array is not empty
-            if (empty($personasWeight)) {
-                throw new Exception("No personas were scored.scoring logic.");
-            }
+    //         // Ensure the array is not empty
+    //         if (empty($personasWeight)) {
+    //             throw new Exception("No personas were scored.scoring logic.");
+    //         }
     
-            // Get the top persona
-            $topPersona = reset($personasWeight);
-            if ($topPersona === false) {
-                throw new Exception("Top Persona could not be determined.");
-            }
+    //         // Get the top persona
+    //         $topPersona = reset($personasWeight);
+    //         if ($topPersona === false) {
+    //             throw new Exception("Top Persona could not be determined.");
+    //         }
     
-            // Debug: Check top persona
-            error_log("Top Persona: " . print_r($topPersona, true));
+    //         // Debug: Check top persona
+    //         error_log("Top Persona: " . print_r($topPersona, true));
     
-            // Increment the counter for the top persona
-            if (!$this->incrementPersonaCounter($topPersona['name'])) {
-                error_log("Failed to increment persona counter for: " . $topPersona['name']);
-            }
+    //         // Increment the counter for the top persona
+    //         if (!$this->incrementPersonaCounter($topPersona['name'])) {
+    //             error_log("Failed to increment persona counter for: " . $topPersona['name']);
+    //         }
     
-            // Store the results in a session or directly pass to the view
-            session_start();
-            $_SESSION['topPersona'] = $topPersona; // Store the results in the session
+    //         // Store the results in a session or directly pass to the view
+    //         session_start();
+    //         $_SESSION['topPersona'] = $topPersona; // Store the results in the session
     
-            // Debug: Verify session storage
-            error_log("Session topPersona: " . print_r($_SESSION['topPersona'], true));
+    //         // Debug: Verify session storage
+    //         error_log("Session topPersona: " . print_r($_SESSION['topPersona'], true));
     
-            header('Location: ../app/views/user/persona.php'); // Redirect to the result view
-            exit;
-        }
-    }
+    //         header('Location: ../app/views/user/persona.php'); // Redirect to the result view
+    //         exit;
+    //     }
+    // }
+
+
+
+       // Handle the form submission and integrate CarsModel
+       public function handleFormSubmission()
+       {
+           if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+               $responses = $_POST['answers'] ?? [];
+   
+               if (empty($responses)) {
+                   throw new Exception("No responses provided. Please answer the questions.");
+               }
+   
+               $personasWeight = $this->calculatePersonas($responses);
+   
+               // Sort personas by weight
+               usort($personasWeight, function ($a, $b) {
+                   return $b['weight'] <=> $a['weight'];
+               });
+   
+               // Get the top persona
+               $topPersona = reset($personasWeight);
+               if ($topPersona === false) {
+                   throw new Exception("Top Persona could not be determined.");
+               }
+   
+               // Increment the counter for the top persona
+               if (!$this->incrementPersonaCounter($topPersona['name'])) {
+                   error_log("Failed to increment persona counter for: " . $topPersona['name']);
+               }
+   
+               // Fetch cars associated with the top persona
+               $personaId = $topPersona['id'];
+               $cars = $this->carsModel->getCarsByPersona($personaId);
+   
+               // Store the results in a session
+               session_start();
+               $_SESSION['topPersona'] = $topPersona;
+               $_SESSION['cars'] = $cars;
+   
+               // Redirect to the results view
+               header('Location: ../app/views/user/persona.php');
+               exit;
+           }
+       }
 }
 // Instantiate the controller and handle form submission
 try {

@@ -1,7 +1,7 @@
 <?php
-include_once __DIR__ . '/../app/config/db_config.php';
+require_once __DIR__ . '/../app/config/db_config.php';
 
-class Cars
+class CarsModel
 {
     private $db;
 
@@ -60,6 +60,8 @@ class Cars
             return $result->fetch_all(MYSQLI_ASSOC);
         }
     }
+
+
     public function getCarById($carId)
     {
         // Use $this->db instead of $this->pdo
@@ -73,103 +75,32 @@ class Cars
         $result = $stmt->get_result();
         return $result->fetch_assoc();
     }
-    
 
-    // public function updateCar($id, $carData)
-    // {
-    //     $query = "UPDATE cars SET 
-    //                 image = ?, 
-    //                 make = ?, 
-    //                 model = ?, 
-    //                 year = ?, 
-    //                 price = ?, 
-    //                 type = ?, 
-    //                 persona = ?, 
-    //                 Engine = ?, 
-    //                 horsePower = ?, 
-    //                 Doors = ?, 
-    //                 Torque = ?, 
-    //                 topSpeed = ?, 
-    //                 acceleration = ?, 
-    //                 fuelEfficiency = ?, 
-    //                 fuelType = ?, 
-    //                 cylinders = ?, 
-    //                 transmission = ?, 
-    //                 drivenWheels = ?, 
-    //                 marketCategory = ?,
-    //                 description=?
-    //               WHERE ID = ?";
 
-    //     // Prepare the query
-    //     $stmt = $this->db->prepare($query);
+     // Get cars by persona
+     public function getCarsByPersona($personaNumber)
+     {
+         $query = "SELECT * FROM cars WHERE persona = ?";
+         $stmt = $this->db->prepare($query);
+ 
+         if ($stmt === false) {
+             // Handle prepare() failure
+             die("Error in prepare() statement: " . $this->db->error);
+         }
+ 
+         $stmt->bind_param("i", $personaNumber);
+         $stmt->execute();
+         $result = $stmt->get_result();
+ 
+         if ($result === false) {
+             // Handle query execution failure
+             die("Error in query execution: " . $this->db->error);
+         }
+ 
+         return $result->fetch_all(MYSQLI_ASSOC);
+     }
 
-    //     // Bind parameters with the correct number of types
-    //     $stmt->bind_param(
-    //         "ssssdsdssddsdsdssdssd", // 22 type definitions
-    //         $carData['image'],
-    //         $carData['make'],
-    //         $carData['model'],
-    //         $carData['year'],
-    //         $carData['price'],
-    //         $carData['type'],
-    //         $carData['persona'],
-    //         $carData['Engine'],
-    //         $carData['horsePower'],
-    //         $carData['Doors'],
-    //         $carData['Torque'],
-    //         $carData['topSpeed'],
-    //         $carData['acceleration'],
-    //         $carData['fuelEfficiency'],
-    //         $carData['fuelType'],
-    //         $carData['cylinders'],
-    //         $carData['transmission'],
-    //         $carData['drivenWheels'],
-    //         $carData['marketCategory'],
-    //         $carData['description'],
-    //         $id // ID field for WHERE clause
-    //     );
 
-    //     // Execute the statement
-    //     return $stmt->execute();
-    // }
-
-    // Method to update the car in the database
-    public function updateCar($carId, $carData)
-    {
-        // Update query with placeholders for each field
-        $query = "UPDATE cars SET image = ?, make = ?, model = ?, year = ?, price = ?, type = ?, persona = ?, Engine = ?, horsePower = ?, Doors = ?, Torque = ?, topSpeed = ?, acceleration = ?, fuelEfficiency = ?, fuelType = ?, cylinders = ?, transmission = ?, drivenWheels = ?, marketCategory = ?, description = ? WHERE id = ?";
-        
-        $stmt = $this->db->prepare($query);
-    
-        // Ensure the bind_param types match the number of placeholders
-        $stmt->bind_param(
-            "ssssdsdssddsdsdssdss", // 20 placeholders types (string for s, double for d, int for i)
-            $carData['image'],
-            $carData['make'],
-            $carData['model'],
-            $carData['year'],
-            $carData['price'],
-            $carData['type'],
-            $carData['persona'],
-            $carData['Engine'],
-            $carData['horsePower'],
-            $carData['Doors'],
-            $carData['Torque'],
-            $carData['topSpeed'],
-            $carData['acceleration'],
-            $carData['fuelEfficiency'],
-            $carData['fuelType'],
-            $carData['cylinders'],
-            $carData['transmission'],
-            $carData['drivenWheels'],
-            $carData['marketCategory'],
-            $carData['description'],
-            $carId // carId as the last parameter for the WHERE clause
-        );
-    
-        return $stmt->execute();
-    }
-    
     // Delete a car
     public function deleteCar($id)
     {
@@ -178,4 +109,6 @@ class Cars
         $stmt->bind_param("i", $id);
         return $stmt->execute();
     }
+
 }
+?>
