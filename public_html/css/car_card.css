@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     padding: 20px;
+    
 }
 
 .container2 {
@@ -241,7 +242,7 @@
 .con-like {
   --red: rgb(255, 50, 50);
   position: relative;
-  margin-left: 5.8rem;
+  margin-left: 8.5rem;
   width: 2rem;
   height: 2rem;
 }

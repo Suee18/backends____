@@ -98,7 +98,7 @@ body {
     border: 2px solid #e2e2e241;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.418);
     margin-top: 7rem;
-    height:90vh;
+    height: 90vh;
 }
 
 .persona-container::before {
@@ -142,7 +142,7 @@ body {
     font-size: 3rem;
     color: aliceblue;
     font-weight: 100;
-    
+
 }
 
 .persona-image {
@@ -169,7 +169,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Space between car cards */
+    gap: 20px;
+    /* Space between car cards */
     width: 100%;
 }
 
@@ -178,9 +179,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 100%; /* Set a max width for consistent sizing */
-    height:100%;
-    max-width: 100%; /* Allow shrinking on smaller screens */
+    width: 100%;
+    /* Set a max width for consistent sizing */
+    height: 100%;
+    max-width: 100%;
+    /* Allow shrinking on smaller screens */
     border-radius: 8px;
     overflow: hidden;
     /* background-color: rgba(0, 0, 0, 0.7); */
@@ -190,10 +193,12 @@ body {
 
 .topImagediv {
     display: flex;
-    flex-shrink: 1; /* Allow the image to shrink */
+    flex-shrink: 1;
+    /* Allow the image to shrink */
     justify-content: center;
     width: 70%;
-    max-height: 400px; /* Set max height for the image */
+    max-height: 400px;
+    /* Set max height for the image */
     overflow: hidden;
     margin-bottom: 1rem;
 }
@@ -201,8 +206,10 @@ body {
 .car-image {
     width: auto;
     height: 100%;
-    max-width: 100%; /* Ensure the image scales properly */
-    object-fit: contain; /* Prevent distortion */
+    max-width: 100%;
+    /* Ensure the image scales properly */
+    object-fit: contain;
+    /* Prevent distortion */
     border-radius: 8px;
 }
 
@@ -522,16 +529,30 @@ body {
     background-size: 100%;
     background-attachment: fixed;
     background-position: center;
-   }
+
+    
+}
 
 .mostRecommendedCarsTitle_lp {
     white-space: nowrap;
 }
 
-
+.carCardsContainer_lp{
+    display: flex;
+    flex-direction: column;
+flex-wrap: nowrap;
+    gap: 20px;
+    /* Space between car cards */
+    width: 100%;
+}
 .pageEnd {
     height: 30vh;
     display: flex;
     align-items: center;
     padding: 2rem 2rem 2rem 2rem;
 }
+
+
+
+
+/*=====car card===*/

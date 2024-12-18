@@ -30,6 +30,62 @@ Array
 
     [1] => Array
         (
+            [ID] => 3
+            [image] => dummy-image3.jpg
+            [make] => Tesla
+            [model] => Model 3
+            [year] => 2023
+            [price] => 35000.00
+            [type] => Sedan
+            [persona] => 8
+            [Engine] => Electric
+            [horsePower] => 283
+            [Doors] => 4
+            [Torque] => 307.00
+            [topSpeed] => 140.00
+            [acceleration] => 5.30
+            [fuelEfficiency] => 120.00
+            [fuelType] => Electric
+            [cylinders] => 0
+            [transmission] => Automatic
+            [drivenWheels] => AWD
+            [marketCategory] => Electric
+            [description] => A high-tech electric vehicle with cutting-edge features and impressive performance.
+            [RecommendationCount] => 0
+            [FavoritedCount] => 0
+            [personaDescription] => 
+        )
+
+    [2] => Array
+        (
+            [ID] => 4
+            [image] => dummy-image4.jpg
+            [make] => Chevrolet
+            [model] => Silverado
+            [year] => 2021
+            [price] => 40000.00
+            [type] => Truck
+            [persona] => 8
+            [Engine] => 6.2L V8
+            [horsePower] => 420
+            [Doors] => 4
+            [Torque] => 460.00
+            [topSpeed] => 130.00
+            [acceleration] => 6.20
+            [fuelEfficiency] => 17.50
+            [fuelType] => Gasoline
+            [cylinders] => 8
+            [transmission] => Automatic
+            [drivenWheels] => 4WD
+            [marketCategory] => Utility
+            [description] => A powerful pickup truck built for heavy-duty work and off-road capability.
+            [RecommendationCount] => 0
+            [FavoritedCount] => 0
+            [personaDescription] => 
+        )
+
+    [3] => Array
+        (
             [ID] => 7
             [image] => https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3817e8178715795.64ee0809969d2.png
             [make] => Mercedes-Benz
@@ -56,7 +112,7 @@ Array
             [personaDescription] => 
         )
 
-    [2] => Array
+    [4] => Array
         (
             [ID] => 9
             [image] => dummy-image9.jpg
@@ -84,7 +140,35 @@ Array
             [personaDescription] => 
         )
 
-    [3] => Array
+    [5] => Array
+        (
+            [ID] => 12
+            [image] => dummy-image12.jpg
+            [make] => Kia
+            [model] => Sorento
+            [year] => 2020
+            [price] => 43000.00
+            [type] => SUV
+            [persona] => 8
+            [Engine] => 2.5L I4
+            [horsePower] => 191
+            [Doors] => 5
+            [Torque] => 182.00
+            [topSpeed] => 135.00
+            [acceleration] => 7.00
+            [fuelEfficiency] => 23.00
+            [fuelType] => Gasoline
+            [cylinders] => 4
+            [transmission] => Automatic
+            [drivenWheels] => AWD
+            [marketCategory] => Mid-Size
+            [description] => A family-friendly SUV with ample space and safety features.
+            [RecommendationCount] => 0
+            [FavoritedCount] => 0
+            [personaDescription] => 
+        )
+
+    [6] => Array
         (
             [ID] => 14
             [image] => dummy-image14.jpg
@@ -107,6 +191,90 @@ Array
             [drivenWheels] => AWD
             [marketCategory] => Mid-Size
             [description] => An all-wheel-drive SUV built for outdoor adventures and families.
+            [RecommendationCount] => 0
+            [FavoritedCount] => 0
+            [personaDescription] => 
+        )
+
+    [7] => Array
+        (
+            [ID] => 15
+            [image] => dummy-image15.jpg
+            [make] => Volkswagen
+            [model] => Golf
+            [year] => 2023
+            [price] => 25000.00
+            [type] => Hatchback
+            [persona] => 8
+            [Engine] => 2.0L Turbo
+            [horsePower] => 228
+            [Doors] => 5
+            [Torque] => 258.00
+            [topSpeed] => 155.00
+            [acceleration] => 6.00
+            [fuelEfficiency] => 30.00
+            [fuelType] => Gasoline
+            [cylinders] => 4
+            [transmission] => Automatic
+            [drivenWheels] => FWD
+            [marketCategory] => Compact
+            [description] => A fun-to-drive hatchback with modern tech and sporty performance.
+            [RecommendationCount] => 0
+            [FavoritedCount] => 0
+            [personaDescription] => 
+        )
+
+    [8] => Array
+        (
+            [ID] => 17
+            [image] => dummy-image17.jpg
+            [make] => Ferrari
+            [model] => F8 Tributo
+            [year] => 2023
+            [price] => 280000.00
+            [type] => Coupe
+            [persona] => 8
+            [Engine] => 3.9L V8
+            [horsePower] => 710
+            [Doors] => 2
+            [Torque] => 568.00
+            [topSpeed] => 211.00
+            [acceleration] => 2.90
+            [fuelEfficiency] => 15.00
+            [fuelType] => Gasoline
+            [cylinders] => 8
+            [transmission] => Automatic
+            [drivenWheels] => RWD
+            [marketCategory] => Luxury
+            [description] => A high-performance supercar with exceptional speed and luxury.
+            [RecommendationCount] => 0
+            [FavoritedCount] => 0
+            [personaDescription] => 
+        )
+
+    [9] => Array
+        (
+            [ID] => 18
+            [image] => dummy-image18.jpg
+            [make] => Lamborghini
+            [model] => Huracán
+            [year] => 2021
+            [price] => 350000.00
+            [type] => Coupe
+            [persona] => 8
+            [Engine] => 5.2L V10
+            [horsePower] => 640
+            [Doors] => 2
+            [Torque] => 442.00
+            [topSpeed] => 202.00
+            [acceleration] => 2.80
+            [fuelEfficiency] => 12.00
+            [fuelType] => Gasoline
+            [cylinders] => 10
+            [transmission] => Automatic
+            [drivenWheels] => AWD
+            [marketCategory] => Sports
+            [description] => A stunning supercar with exceptional handling and power.
             [RecommendationCount] => 0
             [FavoritedCount] => 0
             [personaDescription] => 
